@@ -1,8 +1,6 @@
 #!python3
 import time
 
-data = ""
-
 header = """<?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -33,23 +31,23 @@ def textToBinary(data):
 
 
 def get_data():
-    data = raw_input("Enter text to be converted: ")
+    # data = raw_input("Enter text to be converted: ")
+    data = "Now is the time for all good men to come to the aid of their country."
+    print(f"raw data: {data}")
     return data
-
 
 raw_data = get_data()
 data = textToBinary(raw_data)
 
-
 l = len(data)
 bufferbits = 0
+
+# print(len(data))
 
 while len(data) % 9 != 0:
     data = " " + data
     bufferbits += 1
 
-
-print(l, len(data))
 print("buffer Bits Prepended: ", bufferbits)
 i = l-1
 x = 0
@@ -66,6 +64,7 @@ for z in range(0, 49):
     text = text + "<rect x=\"" + str(x+10) + "\" y=\"20\" class=\"" + svg_class(data[z+7]) + "\" width=\"10\" height=\"10\"/>\r"
     text = text + "<rect x=\"" + str(x+20) + "\" y=\"20\" class=\"" + svg_class(data[z+8]) + "\" width=\"10\" height=\"10\"/>\r"
     x = x + 30
+    print(x)
 
 
 now = time.localtime()
