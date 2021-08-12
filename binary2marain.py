@@ -11,8 +11,6 @@ data = convert.textToBinary(raw_data)
 byte_rows = 2
 byte_size = 10
 
-
-
 l = len(data)
 bufferbits = 0
 byte_length = 7
@@ -64,24 +62,9 @@ now = time.localtime()
 timestamp = str(time.strftime("%Y%m%d%H%M%S", now))
 filename = timestamp + '-' + raw_data[0:10] + ".svg";
 
-# header = """<?xml version="1.0" encoding="utf-8"?>
-# <!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-# <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-# 	 viewBox="0 0 612 792" style="enable-background:new 0 0 612 792;" xml:space="preserve">
-# <style type="text/css">
-# 	.st0{fill:#FFFFFF;padding: 0;margin: 0;border: 0;stroke: 0}
-# 	.st1{padding: 0;margin: 0;border: 0;stroke: 0}
-# </style>"""
-
-# footer = """</svg>"""
-
 file = open(filename, "w")
 file.write(svg.get_header((row_length*word_constant), y))
 file.write(text)
 file.write(svg.get_footer())
 file.close()
 print("File has been created named " + filename)
-
-
-# .st0{fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;}
-# .st1{stroke:#000000;stroke-miterlimit:10;}
