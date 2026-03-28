@@ -1,1 +1,6 @@
 *.svg
+__pycache__/
+node_modules/
+
+.claude
+CLAUDE.md
