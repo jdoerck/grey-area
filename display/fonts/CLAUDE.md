@@ -111,13 +111,15 @@ These will need visual calibration:
 
 ## Reference fonts (not in git)
 
-Collected Marain fonts are at `~/Downloads/Marain.bak/Fonts/` (third-party, various licenses).
+Collected Marain fonts are at `display/fonts/examples/` (gitignored — third-party, various licenses).
 Study these for glyph grammar and style conventions before designing new glyphs:
 
-- `marain-font/Marain.ttf` — original, sent to Banks by the author
+- `marain-font/` — original TTF, sent to Banks by the author
+- `marain.otf/` — OTF variant
 - `marain-dots.otf/` — dot-matrix variant
 - `marain-regular/` — clean regular weight
-- `marain-standard/Marain-Standard-v1.otf` — extended standard version
+- `marain-standard/` — extended standard version
+- `marain-ancient-font/` — archival/historical variant
 
 ---
 
