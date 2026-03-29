@@ -9,7 +9,8 @@ Inspired by the Culture novels of Iain M. Banks.
 
 | Directory | Purpose |
 |-----------|---------|
-| [`encoding/`](encoding/CLAUDE.md) | Binary/base-9 Marain encoder — text → SVG/GIF grid output |
+| [`language/`](language/) | Linguistic layer — grammar, phonemes, translations |
+| [`encoding/`](encoding/CLAUDE.md) | Rosetta stone — converts language → base-9 grid (SVG/GIF) |
 | [`display/`](display/CLAUDE.md)   | Adaptive display system — CSS tokens, typography, context model |
 
 See each subproject's `CLAUDE.md` for scope, rules, and priority queue.
@@ -27,10 +28,14 @@ See each subproject's `CLAUDE.md` for scope, rules, and priority queue.
 
 ## How the subprojects connect
 
-The encoding layer (base-9 binary grid) and the display layer (CSS token system) are currently
-developed independently. The long-term integration point:
+**language** → *encoding* → **display**
 
-- The base-9 scale maps to the status escalation system in the color/display layer
+- `language/` defines the linguistic raw material: grammar, phonemes, translated content
+- `encoding/` is the rosetta stone: converts that material into base-9 binary grid form
+- `display/` renders output and provides the context-adaptive visual system
+
+Integration points:
+- The base-9 scale maps to the status escalation system in the display layer
 - Marain glyph output from `encoding/` could become a rendering target in `display/`
 - Both share the principle: structure carries meaning, decoration does not
 
