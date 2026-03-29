@@ -1,4 +1,4 @@
-# text2marain
+# grey-area
 
 Convert text into a Marain-style binary SVG. Each character is UTF-8 encoded to binary, then rendered as a grid of black (1) and white (0) squares. Output can be exported as SVG or GIF.
 

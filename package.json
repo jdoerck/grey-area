@@ -1,10 +1,10 @@
 {
-  "name": "binary2marain",
+  "name": "grey-area",
   "version": "0.1.0",
   "description": "Convert text to a Marain-style binary SVG",
   "type": "module",
   "bin": {
-    "binary2marain": "./src/cli.js"
+    "grey-area": "./src/cli.js"
   },
   "scripts": {
     "serve": "npx serve ."
