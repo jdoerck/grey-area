@@ -2,7 +2,7 @@
 __pycache__/
 node_modules/
 output/
-/Fonts/
 .DS_Store
 .venv/
-marain_axes_design.md
+
+display/fonts/examples
