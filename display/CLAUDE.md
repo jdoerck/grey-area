@@ -29,14 +29,10 @@ Marain phonetic encoding as a visual/semantic layer.
 ## Project structure
 
 ```
-Marain/
-├── culture/        ← visual theming system (CSS tokens, context model, fonts)
-├── language/       ← Marain concept, grammar, encoding rules
-├── phonemes/       ← text → phoneme → Marain pipeline
-├── translations/   ← translation work
-├── fonts/          ← Marain + English font pairing
-├── encoding/       ← base-9 / binary encoding (imported repo)
-└── docs/           ← design philosophy, specs
+marain/
+├── display/        ← adaptive display system (CSS tokens, context model, fonts) ← you are here
+├── encoding/       ← base-9 / binary encoding
+└── docs/           ← cross-cutting specs
 ```
 
 ## What's built

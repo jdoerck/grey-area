@@ -10,7 +10,7 @@ Inspired by the Culture novels of Iain M. Banks.
 | Directory | Purpose |
 |-----------|---------|
 | [`encoding/`](encoding/CLAUDE.md) | Binary/base-9 Marain encoder — text → SVG/GIF grid output |
-| [`culture/`](culture/CLAUDE.md)   | Visual design system — CSS tokens, typography, context model |
+| [`display/`](display/CLAUDE.md)   | Adaptive display system — CSS tokens, typography, context model |
 
 See each subproject's `CLAUDE.md` for scope, rules, and priority queue.
 
@@ -31,7 +31,7 @@ The encoding layer (base-9 binary grid) and the display layer (CSS token system)
 developed independently. The long-term integration point:
 
 - The base-9 scale maps to the status escalation system in the color/display layer
-- Marain glyph output from `encoding/` could become a rendering target in `culture/`
+- Marain glyph output from `encoding/` could become a rendering target in `display/`
 - Both share the principle: structure carries meaning, decoration does not
 
 Cross-cutting specs live in `docs/` at this root when they span both subprojects.
