@@ -9,15 +9,22 @@ presentation is determined by a structured context model, not by ad-hoc theming.
 
 Context is defined by three axes:
 
-| Axis      | Values (examples)                        |
-|-----------|------------------------------------------|
-| **Type**     | `document` · `hud`                    |
-| **Viewing**  | `internal-daylight` · `low-light`     |
-| **Status**   | `normal` · `warn` · `critical`        |
+| Axis        | Values                                                          |
+|-------------|------------------------------------------------------------------|
+| **Type**    | `document` · `hud` · `code` · `alert-surface`                  |
+| **Viewing** | `daylight` · `indoor` · `low-light` · `glare-motion`           |
+| **Status**  | `normal` · `attention` · `warn` · `critical`                   |
 
 Example contexts:
-- `document / internal-daylight / normal` — reading an Obsidian note at a desk
-- `hud / low-light / high-alert` — monitoring display in a dark room, something is wrong
+- `document / daylight / normal` — reading an Obsidian note at a desk
+- `hud / low-light / critical` — monitoring display in a dark room, something is wrong
+
+**What changes across axes — and what does not:**
+
+Only these vary: contrast · color intensity · density (spacing/size) · emphasis
+
+Typography is **stable across all modes**. No font swapping per context.
+Structural differences come from weight, size, and spacing — not typeface changes.
 
 Long-term: add reader context axes (language/locale, situation, device) and integrate
 Marain phonetic encoding as a visual/semantic layer.
@@ -37,23 +44,32 @@ marain/
 
 ## What's built
 
-- `culture/index.html` — font evaluation prototype (document / daylight / normal baseline)
+- `themes/culture/index.html` — design reference page (document / daylight / normal)
+- `themes/culture/style.css` — full token system + component styles
 - CSS token system v1: `surface-*`, `text-*`, `line-*`, `accent`, `warn`, `critical`, `yes`
-- Font switching: Inter / IBM Plex Sans / Atkinson Hyperlegible
-- Mono switching: Intel One Mono / IBM Plex Mono / system fallback
-- Webfont status detection
+- Context switching via `data-mode` attribute — dark mode tokens proposed and previewed
+- Fonts locked: Atkinson Hyperlegible + Intel One Mono
+- State scale 1–9 visualised (prototype, colors not final)
 
-No font is locked yet. Document mode is working but not finalized.
+---
+
+## Viewing adaptation rules
+
+**Daylight → Low-light:** reduce brightness · increase contrast slightly · avoid pure white
+
+**Document → HUD:** compress layout · increase information density · sharpen contrast edges · reduce decorative spacing
 
 ---
 
 ## Priority queue
 
-1. Lock `document / internal-daylight / normal` as the canonical baseline context
-2. Define the context-switching mechanism (CSS class vs. data attribute — TBD)
-3. Build `hud / low-light / normal` as the second context target
-4. Status escalation system (base-9 concept — see DESIGN_PHILOSOPHY.md)
-5. Marain encoding integration (experimental)
+1. ~~Lock `document / daylight / normal` as the canonical baseline~~ — **done**
+2. ~~Define context-switching mechanism~~ — **done: `data-mode` attribute on `<html>`**
+3. Build `document / low-light / normal` (dark mode) — tokens proposed, not finalized
+4. Build `hud / low-light / normal` as the third context target
+5. Status escalation system — map base-9 index (0–8) to token set
+6. `attention` state (between normal and warn) — token and component design
+7. Marain encoding integration (experimental)
 
 ---
 
@@ -63,16 +79,19 @@ No font is locked yet. Document mode is working but not finalized.
 - **Context via CSS only.** Class switching or data attributes — no JS style injection.
 - **Legibility first.** Glyph disambiguation required (Il1, O0, rn/m). Personality is irrelevant.
 - **States scale, don't shout.** warn/critical must be clear but not visually loud in normal conditions.
+- **Escalation = contrast + structure, not color alone.** Color signals state; contrast and layout density carry the weight.
 - **Test method:** 60-second sustained reading, not first impression.
 
 ---
 
-## Font candidates (not locked)
+## Fonts (locked)
 
-| Role        | Candidates                                         |
-|-------------|-----------------------------------------------------|
-| UI/Content  | Inter · IBM Plex Sans · Atkinson Hyperlegible       |
-| Code/Tokens | Intel One Mono · IBM Plex Mono · system mono        |
+| Role        | Font                     |
+|-------------|--------------------------|
+| UI/Content  | Atkinson Hyperlegible    |
+| Code/Tokens | Intel One Mono           |
+
+Typography is stable across all contexts. These do not change per mode.
 
 ---
 

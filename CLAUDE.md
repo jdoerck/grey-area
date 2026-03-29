@@ -1,6 +1,10 @@
 # CLAUDE.md — marain
 
-A Marain-inspired system for structured, legible, context-adaptive information display.
+A **deterministic display language** — a rendering grammar where context inputs
+produce display outputs predictably and consistently.
+
+Input: `(type, viewing, status)` → Output: tokens + layout rules + emphasis rules
+
 Inspired by the Culture novels of Iain M. Banks.
 
 ---
@@ -35,7 +39,8 @@ See each subproject's `CLAUDE.md` for scope, rules, and priority queue.
 - `display/` renders output and provides the context-adaptive visual system
 
 Integration points:
-- The base-9 scale maps to the status escalation system in the display layer
+- The base-9 index maps directly to the status escalation system in the display layer:
+  `0–2` neutral · `3–5` attention · `6–7` warning · `8` critical
 - Marain glyph output from `encoding/` could become a rendering target in `display/`
 - Both share the principle: structure carries meaning, decoration does not
 
