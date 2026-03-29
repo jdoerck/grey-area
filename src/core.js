@@ -28,7 +28,20 @@ function svgHeader(w, h) {
   );
 }
 
+function replacePronouns(text) {
+  return text
+    .replace(/\bshe\b/gi,  (m) => m[0] === m[0].toUpperCase() ? 'Xe' : 'xe')
+    .replace(/\bhe\b/gi,   (m) => m[0] === m[0].toUpperCase() ? 'Xe' : 'xe')
+    .replace(/\bher\b/gi,  (m) => m[0] === m[0].toUpperCase() ? 'Xem' : 'xem')
+    .replace(/\bhim\b/gi,  (m) => m[0] === m[0].toUpperCase() ? 'Xem' : 'xem')
+    .replace(/\bhis\b/gi,  (m) => m[0] === m[0].toUpperCase() ? 'Xyr' : 'xyr')
+    .replace(/\bhers\b/gi, (m) => m[0] === m[0].toUpperCase() ? 'Xyrs' : 'xyrs')
+    .replace(/\bhimself\b/gi,  (m) => m[0] === m[0].toUpperCase() ? 'Xemself' : 'xemself')
+    .replace(/\bherself\b/gi,  (m) => m[0] === m[0].toUpperCase() ? 'Xemself' : 'xemself');
+}
+
 export function buildSvg(text) {
+  text = replacePronouns(text);
   let data = textToBinary(text);
   const originalLen = data.length;
   while (data.length % 9 !== 0) data = ' ' + data;
