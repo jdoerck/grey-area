@@ -1,6 +1,6 @@
 *.svg
 __pycache__/
 node_modules/
-
-.claude
-CLAUDE.md
+output/
+Fonts/
+.DS_Store
