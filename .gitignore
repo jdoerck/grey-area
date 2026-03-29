@@ -2,6 +2,7 @@
 __pycache__/
 node_modules/
 output/
-Fonts/
+/Fonts/
 .DS_Store
-
+.venv/
+marain_axes_design.md
