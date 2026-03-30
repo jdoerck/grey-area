@@ -53,7 +53,7 @@ Banks published 32 phonemes as a glyph-table image[^1] — most values are appro
 | *ch* | **174 †** | `░██/█░█/░█░` | — | — | Banks only — no Z equivalent |
 | *v* | **367 †** | `███/█░█/█░█` | — | — | Banks *v* value = Z *sa* (#367) — cross-system conflict |
 | *ll* | **469 †** | `█░█/░█░/███` | — | — | Banks only — no Z equivalent; = Z *za* value (#469) |
-| *je* | — (unreadable) | — | — | — | Banks only |
+| *je* | **431 †** | `███/█░█/░██` | — | — | Banks only — no Z equivalent |
 
 **Summary:** 2 of 24 cross-system matches (*ma*, *la*). 1 confirmed canonical Banks value (*w* = #121). 4 Banks phonemes land on marainkit invariants (#16, #170, #186, and tentatively #325 for *yan*). The two systems made independent choices for nearly every phoneme.
 

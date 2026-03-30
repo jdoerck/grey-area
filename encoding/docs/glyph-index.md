@@ -1,6 +1,6 @@
 # Glyph Index — #0 to #511
 
-All claimed Marain M1 glyph assignments. Values without a claim are omitted — 499 of 512 remain unassigned.
+All claimed Marain M1 glyph assignments. Values without a claim are omitted — 498 of 512 remain unassigned.
 
 **Binary convention:** Banks uses LSB-first — leftmost digit = bit 0 = value 1. Grid reads left→right, top→bottom across positions 0–8.
 
@@ -61,6 +61,7 @@ Pattern notation: rows separated by `/` · `█` = filled (1) · `░` = empty (
 | 367 † | *v* | `███/█░█/█░█` | Phoneme /v/ | Banks[^2] |
 | 384 † | *z* | `░░░/░░░/░██` | Phoneme /z/ | Banks[^2] |
 | 405 ‡ | *shai* | `█░█/░█░/░██` | Agreement 👍 | zakalwe2040[^9] |
+| 431 † | *je* | `███/█░█/░██` | Phoneme /je/ | Banks[^2] |
 | 432 † | *b* | `░░░/░██/░██` | Phoneme /b/ | Banks[^2] |
 | 437 ‡ | *zing* | `█░█/░██/░██` | Positivity ✨ | zakalwe2040[^9] |
 | 456 † | *ah* | `░░░/█░░/███` | Phoneme /ah/ | Banks[^2] |
@@ -80,7 +81,6 @@ Pattern notation: rows separated by `/` · `█` = filled (1) · `░` = empty (
 
 | # | Name | Pattern | Notes | Proposed by |
 |--:|------|---------|-------|-------------|
-| — | *je* | — | Not readable at image resolution[^6] | Banks[^2] |
 | 170 † | *oo* | `░█░/█░█/░█░` | Collides with *oh* (#170) — one reading is wrong[^7] | Banks[^2] |
 | 325 ‡ | *yan* | `█░█/░░░/█░█` | Disgust 🤢 — conflicts with Corners (#325, marainkit invariant) | zakalwe2040[^9] |
 
@@ -106,7 +106,7 @@ Pattern notation: rows separated by `/` · `█` = filled (1) · `░` = empty (
 
 [^5]: Banks' glyph table image: [`../../docs/assets/marain-example-banks.png`](../../docs/assets/marain-example-banks.png), reproduced in *"A Few Notes on Marain"*. Patterns for all phonemes except *w* are approximate visual readings from this image and should be treated as provisional.
 
-[^6]: Pattern not legible at available image resolution. *je* is confirmed to exist in Banks' alphabet but its grid pattern has not been recovered. *ch*, *v*, and *ll* were resolved by careful re-reading of the source image — see main table.
+[^6]: All four previously unreadable phonemes (*ch*, *v*, *ll*, *je*) have been resolved by careful re-reading of the Banks glyph table image. See main table for assigned values.
 
 [^7]: *oo* and *th* appear visually similar to *Diamond* (#170) and *Cross* (#186) respectively, but are not invariant glyphs — they may be rotated variants of other phoneme glyphs. This needs verification.
 
