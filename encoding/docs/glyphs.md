@@ -137,6 +137,74 @@ Organized by place of articulation, then phoneme frequency. Default vowel on a b
 | Velar | *ga* · *ka* · *nga* |
 | Glottal | *aa* · *ha* |
 
+### Abjad compatibility with Banks and marainkit
+
+Patterns for all 24 abjad consonants were extracted programmatically from `docs/abjad.svg` in the zakalwe2040 repo (same method as emoting glyphs). Results compared against Banks' approximate phoneme assignments from the glyph table image and marainkit invariants.
+
+**Pattern comparison — zakalwe2040 abjad vs Banks M1**
+
+| Phoneme | Z# | Z-Pattern | B# | B-Pattern | Match |
+|---------|----|-----------|----|-----------|-------|
+| *ma* | 457 | `█░░/█░░/███` | 457 | `█░░/█░░/███` | ✓ |
+| *wa* | 511 | `███/███/███` | 121 | `█░░/███/█░░` | ✗ |
+| *pa* | 79 | `███/█░░/█░░` | 459 | `██░/█░░/███` | ✗ |
+| *ba* | 295 | `███/░░█/░░█` | 432 | `░░░/░██/░██` | ✗ |
+| *fa* | 173 | `█░█/█░█/░█░` | 56 | `░░░/███/░░░` | ✗ |
+| *va* | 362 | `░█░/█░█/█░█` | — | — | — |
+| *tha* | 133 | `█░█/░░░/░█░` | — | — | — |
+| *dtha* | 319 | `███/███/░░█` | — | — | — |
+| *cha* | 127 | `███/███/█░░` | — | — | — |
+| *dja* | 465 | `█░░/░█░/███` | — | — | — |
+| *ta* | 307 | `██░/░██/░░█` | 168 | `░░░/█░█/░█░` | ✗ |
+| *na* | 493 | `█░█/█░█/███` | 295 | `███/░░█/░░█` | ✗ |
+| *sa* | 367 | `███/█░█/█░█` | 214 | `░██/░█░/██░` | ✗ |
+| *da* | 87 | `███/░█░/█░░` | 480 | `░░░/░░█/███` | ✗ |
+| *la* | 484 | `░░█/░░█/███` | 484 | `░░█/░░█/███` | ✓ |
+| *za* | 469 | `█░█/░█░/███` | 384 | `░░░/░░░/░██` | ✗ |
+| *ra* | 189 | `█░█/███/░█░` | 292 | `░░█/░░█/░░█` | ✗ |
+| *sha* | 383 | `███/███/█░█` | 57 | `█░░/███/░░░` | ✗ |
+| *ya* | 468 | `░░█/░█░/███` | 184 | `░░░/███/░█░` | ✗ |
+| *ga* | 502 | `░██/░██/███` | 120 | `░░░/███/█░░` | ✗ |
+| *ka* | 500 | `░░█/░██/███` | 312 | `░░░/███/░░█` | ✗ |
+| *nga* | 509 | `█░█/███/███` | 16 | `░░░/░█░/░░░` | ✗ |
+| *aa* | 322 | `░█░/░░░/█░█` | — | — | — |
+| *ha* | 487 | `███/░░█/███` | 493 | `█░█/█░█/███` | ✗ |
+
+Only **2 of 24 match**: *ma* (#457) and *la* (#484). The two systems are effectively independent designs using the same 3×3 grid.
+
+**Key conflicts:**
+
+- **wa = #511** — zakalwe2040 assigns *wa* to the all-cells-filled glyph. This is one of marainkit's 8 invariants ("Full stop · maximum · critical") and is likely intentional in zakalwe2040 (the fully-open, maximum-resonance bilabial). It directly collides with both Banks (#121, the only explicitly confirmed canonical phoneme assignment) and marainkit.
+- **na = #493** — zakalwe2040's *na* occupies the same value Banks assigns to *h*.
+- Several other zakalwe2040 values land on or near Banks-claimed indices.
+
+**Structural observation:**
+
+The 4×5 lattice is a proper superset of M1. The 3×3 slate region is exactly an M1 glyph; the upper/lower diacritic rows and tonal column extend it without contradiction. In principle a 4×5 Marain glyph carries an M1 glyph as its core with additional phonemic information layered on. The two systems are architecturally compatible — the phoneme *assignments* are not.
+
+---
+
+### Design notes — paths forward (marainkit)
+
+These are open design questions, not resolved decisions.
+
+**1. The abjad is a parallel system, not a variant.**
+The near-total mismatch (22 of 24 different) means there is no easy merge path. Adopting zakalwe2040's abjad would require abandoning most of Banks' approximate phoneme assignments. Rejecting it means maintaining a separate, less-documented phoneme set. A hybrid — accepting only *ma* and *la* as confirmed cross-system values — is possible but probably doesn't gain much.
+
+**2. The wa/#511 conflict is the sharpest edge.**
+Banks' *w* = #121 is the *only* canonical phoneme index stated explicitly in text (not read from an image). If we ever commit to a marainkit phoneme layer, #121 should be treated as the highest-confidence single assignment in the system. Displacing it in favor of #511 would mean abandoning the one number Banks actually gave us.
+
+**3. The 10th bit as long-vowel marker.**
+Banks notes that each 9-bit glyph is followed by a **buffer bit** in transmission. That 10th bit is currently undefined within M1. One option: reserve it as a **vowel-length marker** — short vowel (default *a*) vs. long vowel. This would give every consonant glyph a paired long-vowel form without consuming any M1 index space, and would be consistent with zakalwe2040's diacritic architecture (which handles the same distinction, differently).
+
+**4. Reassigning wa.**
+If we do define a marainkit phoneme layer, *wa* needs a value that does not conflict with #511. The natural candidate is Banks' own #121 (already canonical). The zakalwe2040 pattern for *wa* (#511, all-filled) could be interpreted as an intentional homoiconic choice — a fully-resonant bilabial — but it permanently occupies a structurally significant glyph. Reassignment is clean; the question is what, if anything, #511 then represents phonemically.
+
+**5. The 4×5 lattice as M2.**
+If marainkit ever defines an extended encoding layer, zakalwe2040's 4×5 architecture (slate + diacritic channels + tonal channel) is the most developed community design for exactly that purpose. Even if we don't adopt the phoneme assignments, the lattice geometry is worth treating as a reference design for M2.
+
+---
+
 ### Diacritics (short vowels)
 
 | Diacritic | Position | Vowel | IPA |
@@ -264,8 +332,11 @@ TrueType implementation of Banks' glyph alphabet. No published glyph table in th
 
 - What are the remaining ~480 non-alphabetic glyph assignments? Banks specifies categories (base-8 numerals, punctuation, units, constants, elements) but not the actual mappings.
 - Should the 8 marainkit invariant glyphs be treated as reserved values in any implementation?
-- Do the zakalwe2040 emoting glyphs have binary assignments in the 3×3 grid, or only in the 4×5 lattice?
-- Is Banks' "figure 1" (the number 1) the value `#1` (`000000001`) — bottom-right cell only? This is the most natural reading but not stated explicitly.
+- Is Banks' "figure 1" (the number 1) the value `#1` (`000000001`) — top-left cell only? This is the most natural reading but not stated explicitly.
+- **Phoneme layer decision**: if marainkit defines a phoneme assignment set, does it follow Banks' approximate image-read values, zakalwe2040's abjad, or a new mapping? Only *ma* (#457) and *la* (#484) have cross-system agreement; *w*/#121 is the sole explicitly-stated Banks value.
+- **Buffer bit**: Banks defines a 10th buffer bit after each 9-bit glyph but does not assign it meaning. Reserve as long-vowel marker? Leave undefined?
+- **wa conflict**: zakalwe2040 assigns *wa* = #511 (marainkit "Full"). If marainkit adopts a phoneme layer, this must be resolved. Banks' #121 is the most defensible assignment for *wa* / *w*.
+- **M2 lattice**: should the 4×5 zakalwe2040 lattice be treated as a reference design for a marainkit extended encoding layer? If so, do the phoneme assignments carry over or only the geometry?
 
 ---
 
