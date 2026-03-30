@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Culture Theme — Style Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Intel+One+Mono:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* style guide-specific layout */
+    .sg-section  { margin-bottom: var(--space-6); }
+    .sg-label    { font-family: var(--font-code); font-size: 0.75rem; color: var(--text-2); margin-bottom: var(--space-2); display: block; }
+    .sg-row      { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: flex-start; margin-top: var(--space-3); }
+    .sg-divider  { border: none; border-top: 1px solid var(--line-0); margin: var(--space-5) 0; }
+
+    /* swatch overrides for style guide */
+    .swatch-color { height: 4rem; }
+    .swatch-name  { font-size: 0.75rem; }
+    .swatch-value { font-size: 0.68rem; }
+
+    /* color pair — shows light + dark token side by side */
+    .mode-split   { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); margin-top: var(--space-3); }
+    .mode-panel   { border-radius: var(--radius-2); padding: var(--space-4); border: 1px solid var(--line-0); }
+    .mode-panel.dark { background: hsl(30 6% 11%); color: hsl(40 14% 86%); border-color: hsl(36 8% 20%); }
+
+    .token-row    { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-2) 0; border-bottom: 1px solid var(--line-0); }
+    .token-row:last-child { border-bottom: none; }
+    .token-swatch { width: 2.5rem; height: 2.5rem; border-radius: var(--radius-1); border: 1px solid var(--line-0); flex-shrink: 0; }
+    .token-name   { font-family: var(--font-code); font-size: 0.8rem; color: var(--text-0); min-width: 10rem; }
+    .token-value  { font-family: var(--font-code); font-size: 0.75rem; color: var(--text-2); flex: 1; }
+    .token-note   { font-size: 0.78rem; color: var(--text-2); }
+
+    /* type scale specimens */
+    .type-specimen { padding: var(--space-4) 0; border-bottom: 1px solid var(--line-0); }
+    .type-specimen:last-child { border-bottom: none; }
+    .type-meta     { display: flex; gap: var(--space-3); margin-top: var(--space-1); flex-wrap: wrap; }
+    .type-meta span { font-family: var(--font-code); font-size: 0.72rem; color: var(--text-2); }
+
+    /* syntax color swatches */
+    .syn-grid  { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: var(--space-2); margin-top: var(--space-3); }
+    .syn-swatch { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-3); border: 1px solid var(--line-0); border-radius: var(--radius-1); background: color-mix(in oklab, var(--surface-inset) 88%, white 12%); }
+    .syn-dot   { width: 0.7rem; height: 0.7rem; border-radius: 50%; flex-shrink: 0; }
+    .syn-label { font-size: 0.78rem; color: var(--text-1); }
+    .syn-hsl   { font-family: var(--font-code); font-size: 0.68rem; color: var(--text-2); margin-left: auto; }
+
+    /* space scale */
+    .space-row    { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-2) 0; border-bottom: 1px solid var(--line-0); }
+    .space-row:last-child { border-bottom: none; }
+    .space-bar    { background: var(--accent); height: 0.5rem; border-radius: 2px; flex-shrink: 0; }
+    .space-name   { font-family: var(--font-code); font-size: 0.8rem; color: var(--text-0); min-width: 7rem; }
+    .space-value  { font-family: var(--font-code); font-size: 0.75rem; color: var(--text-2); }
+
+    /* nav */
+    .sg-nav { position: sticky; top: 0; z-index: 10; background: color-mix(in oklab, var(--surface-0) 95%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line-0); padding: var(--space-2) var(--space-5); display: flex; gap: var(--space-4); flex-wrap: wrap; }
+    .sg-nav a { font-size: 0.82rem; color: var(--text-1); text-decoration: none; }
+    .sg-nav a:hover { color: var(--text-0); }
+  </style>
+</head>
+<body>
+
+<nav class="sg-nav">
+  <a href="#overview">Overview</a>
+  <a href="#color">Color</a>
+  <a href="#typography">Typography</a>
+  <a href="#spacing">Spacing &amp; Shape</a>
+  <a href="#components">Components</a>
+  <a href="#states">States</a>
+  <a href="#code">Code</a>
+  <a href="#tokens">Token reference</a>
+</nav>
+
+<div class="shell">
+
+  <!-- ── HEADER ──────────────────────────────────────────────────────────── -->
+  <header style="padding: var(--space-6) 0 var(--space-5);">
+    <p class="eyebrow">marainkit / display</p>
+    <h1 style="margin-bottom: var(--space-2);">Culture Theme — Style Guide</h1>
+    <p class="lead">A contextual semantic design language. Token-driven, context-aware, legibility-first. This document captures the current state of the <code>document / daylight / normal</code> baseline and its proposed dark counterpart.</p>
+    <div class="meta">
+      <span class="badge yes">Baseline locked</span>
+      <span class="badge warn">Dark mode proposed, not final</span>
+      <span class="badge">v0.2</span>
+    </div>
+  </header>
+
+  <hr class="sg-divider">
+
+  <!-- ── OVERVIEW ────────────────────────────────────────────────────────── -->
+  <section id="overview" class="sg-section">
+    <p class="eyebrow">Overview</p>
+    <h2>Design principles</h2>
+
+    <div class="grid-3" style="margin-top: var(--space-4);">
+      <div class="subpanel">
+        <h5>Token-driven only</h5>
+        <p class="small">No hardcoded color, spacing, or type values anywhere in components. Everything traces back to a CSS custom property.</p>
+      </div>
+      <div class="subpanel">
+        <h5>Legibility first</h5>
+        <p class="small">Designed for 60-second sustained reading, not first impression. Glyph disambiguation (Il1, O0, rn/m) required at every size.</p>
+      </div>
+      <div class="subpanel">
+        <h5>States scale, don't shout</h5>
+        <p class="small">Warn and critical must be unambiguous, not visually loud. Escalation is contrast + structure, not color alone.</p>
+      </div>
+      <div class="subpanel">
+        <h5>Context via CSS only</h5>
+        <p class="small">Mode switching uses <code>data-mode</code> attributes or class changes — no JavaScript style injection.</p>
+      </div>
+      <div class="subpanel">
+        <h5>Stable typography</h5>
+        <p class="small">Typefaces do not change per context. Only weight, size, and spacing vary across modes.</p>
+      </div>
+      <div class="subpanel">
+        <h5>Very Culture</h5>
+        <p class="small">Practical, dense, unpretentious. If tone and semantic weight are inside the glyph, you don't need theatrical staging.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top: var(--space-5);">Context model</h3>
+    <p>All visual decisions derive from a three-axis context declaration. The current baseline is <code>document / daylight / normal</code>.</p>
+    <div class="table-wrap" style="margin-top: var(--space-3);">
+      <table>
+        <thead><tr><th>Axis</th><th>Values</th><th>What changes</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Type</strong></td><td><code>document</code> · <code>hud</code> · <code>code</code> · <code>alert-surface</code></td><td>Layout density, information hierarchy</td></tr>
+          <tr><td><strong>Viewing</strong></td><td><code>daylight</code> · <code>indoor</code> · <code>low-light</code> · <code>glare-motion</code></td><td>Contrast, brightness, color intensity</td></tr>
+          <tr><td><strong>Status</strong></td><td><code>normal</code> · <code>attention</code> · <code>warn</code> · <code>critical</code></td><td>Emphasis weight, state token activation</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <hr class="sg-divider">
+
+  <!-- ── COLOR ───────────────────────────────────────────────────────────── -->
+  <section id="color" class="sg-section">
+    <p class="eyebrow">Color</p>
+    <h2>Palette</h2>
+
+    <p>All surfaces and text are warm-neutral — <strong>hue 30–42, low saturation</strong>. The palette reads as near-neutral but avoids the sterility of pure grey. Interactive and state colors are the only strong hues.</p>
+
+    <h3 style="margin-top: var(--space-4);">Light mode — <code>document / daylight / normal</code></h3>
+
+    <h4 style="margin-top: var(--space-4);">Surfaces</h4>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background: hsl(42 24% 95%)"></div>
+        <div class="swatch-info"><span class="swatch-name">--surface-0</span><span class="swatch-value">hsl(42 24% 95%)</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: hsl(42 18% 92%)"></div>
+        <div class="swatch-info"><span class="swatch-name">--surface-1</span><span class="swatch-value">hsl(42 18% 92%)</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: hsl(42 14% 88%)"></div>
+        <div class="swatch-info"><span class="swatch-name">--surface-2</span><span class="swatch-value">hsl(42 14% 88%)</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: hsl(42 16% 90%)"></div>
+        <div class="swatch-info"><span class="swatch-name">--surface-inset</span><span class="swatch-value">hsl(42 16% 90%)</span></div>
+      </div>
+    </div>
+
+    <h4 style="margin-top: var(--space-4);">Text</h4>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background: hsl(30 12% 18%)"></div>
+        <div class="swatch-info"><span class="swatch-name">--text-0</span><span class="swatch-value">hsl(30 12% 18%)</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: hsl(30 9% 33%)"></div>
+        <div class="swatch-info"><span class="swatch-name">--text-1</span><span class="swatch-value">hsl(30 9% 33%)</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: hsl(30 7% 48%)"></div>
+        <div class="swatch-info"><span class="swatch-name">--text-2</span><span class="swatch-value">hsl(30 7% 48%)</span></div>
+      </div>
+    </div>
+
+    <h4 style="margin-top: var(--space-4);">Lines &amp; borders</h4>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background: hsl(38 12% 82%)"></div>
+        <div class="swatch-info"><span class="swatch-name">--line-0</span><span class="swatch-value">hsl(38 12% 82%)</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: hsl(38 12% 72%)"></div>
+        <div class="swatch-info"><span class="swatch-name">--line-1</span><span class="swatch-value">hsl(38 12% 72%)</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: hsl(38 10% 58%)"></div>
+        <div class="swatch-info"><span class="swatch-name">--line-strong</span><span class="swatch-value">hsl(38 10% 58%)</span></div>
+      </div>
+    </div>
+
+    <h4 style="margin-top: var(--space-4);">Interactive &amp; states</h4>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background: hsl(210 42% 40%)"></div>
+        <div class="swatch-info"><span class="swatch-name">--accent</span><span class="swatch-value">hsl(210 42% 40%)</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: hsl(210 52% 42%)"></div>
+        <div class="swatch-info"><span class="swatch-name">--focus</span><span class="swatch-value">hsl(210 52% 42%)</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: hsl(126 32% 31%)"></div>
+        <div class="swatch-info"><span class="swatch-name">--yes</span><span class="swatch-value">hsl(126 32% 31%)</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: hsl(39 58% 48%)"></div>
+        <div class="swatch-info"><span class="swatch-name">--warn</span><span class="swatch-value">hsl(39 58% 48%)</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: hsl(5 63% 36%)"></div>
+        <div class="swatch-info"><span class="swatch-name">--critical</span><span class="swatch-value">hsl(5 63% 36%)</span></div>
+      </div>
+    </div>
+
+    <!-- DARK MODE -->
+    <h3 style="margin-top: var(--space-5);">Dark mode — <code>document / low-light / normal</code> <span class="badge warn" style="vertical-align: middle; font-size: 0.72rem;">proposed</span></h3>
+    <p class="small">Warm dark — earth-aligned, not cold/blue. Hue 30–36, very low saturation. These are candidates, not final.</p>
+
+    <div style="background: hsl(30 6% 11%); border-radius: var(--radius-2); padding: var(--space-5); border: 1px solid hsl(36 8% 20%); margin-top: var(--space-3);">
+      <h4 style="color: hsl(40 14% 86%); margin-top: 0;">Surfaces</h4>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="swatch-color" style="background: hsl(30 6% 11%)"></div>
+          <div class="swatch-info" style="background: hsl(30 6% 14%);"><span class="swatch-name" style="color: hsl(40 14% 86%);">--surface-0</span><span class="swatch-value">hsl(30 6% 11%)</span></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: hsl(30 6% 14%)"></div>
+          <div class="swatch-info" style="background: hsl(30 6% 14%);"><span class="swatch-name" style="color: hsl(40 14% 86%);">--surface-1</span><span class="swatch-value">hsl(30 6% 14%)</span></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: hsl(30 5% 18%)"></div>
+          <div class="swatch-info" style="background: hsl(30 6% 14%);"><span class="swatch-name" style="color: hsl(40 14% 86%);">--surface-2</span><span class="swatch-value">hsl(30 5% 18%)</span></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: hsl(30 8% 9%)"></div>
+          <div class="swatch-info" style="background: hsl(30 6% 14%);"><span class="swatch-name" style="color: hsl(40 14% 86%);">--surface-inset</span><span class="swatch-value">hsl(30 8% 9%)</span></div>
+        </div>
+      </div>
+
+      <h4 style="color: hsl(40 14% 86%); margin-top: var(--space-4);">Text &amp; states</h4>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="swatch-color" style="background: hsl(40 14% 86%)"></div>
+          <div class="swatch-info" style="background: hsl(30 6% 14%);"><span class="swatch-name" style="color: hsl(40 14% 86%);">--text-0</span><span class="swatch-value">hsl(40 14% 86%)</span></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: hsl(40 10% 66%)"></div>
+          <div class="swatch-info" style="background: hsl(30 6% 14%);"><span class="swatch-name" style="color: hsl(40 14% 86%);">--text-1</span><span class="swatch-value">hsl(40 10% 66%)</span></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: hsl(210 50% 62%)"></div>
+          <div class="swatch-info" style="background: hsl(30 6% 14%);"><span class="swatch-name" style="color: hsl(40 14% 86%);">--accent</span><span class="swatch-value">hsl(210 50% 62%)</span></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: hsl(126 35% 48%)"></div>
+          <div class="swatch-info" style="background: hsl(30 6% 14%);"><span class="swatch-name" style="color: hsl(40 14% 86%);">--yes</span><span class="swatch-value">hsl(126 35% 48%)</span></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: hsl(39 62% 60%)"></div>
+          <div class="swatch-info" style="background: hsl(30 6% 14%);"><span class="swatch-name" style="color: hsl(40 14% 86%);">--warn</span><span class="swatch-value">hsl(39 62% 60%)</span></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: hsl(5 60% 58%)"></div>
+          <div class="swatch-info" style="background: hsl(30 6% 14%);"><span class="swatch-name" style="color: hsl(40 14% 86%);">--critical</span><span class="swatch-value">hsl(5 60% 58%)</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="sg-divider">
+
+  <!-- ── TYPOGRAPHY ──────────────────────────────────────────────────────── -->
+  <section id="typography" class="sg-section">
+    <p class="eyebrow">Typography</p>
+    <h2>Type system</h2>
+
+    <p>Typography is <strong>stable across all contexts</strong> — typefaces do not change per mode. Weight, size, and spacing vary; typeface selection does not.</p>
+
+    <div class="grid-2" style="margin-top: var(--space-4);">
+      <div class="subpanel">
+        <h5>Body &amp; UI — Atkinson Hyperlegible</h5>
+        <p style="font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 1.1rem; margin-bottom: var(--space-2);">The quick brown fox jumps over a lazy dog. 0O Il1 rn/m</p>
+        <p class="small">Designed by the Braille Institute for maximum legibility. Engineered disambiguation of ambiguous character pairs: <code>I l 1</code>, <code>0 O</code>, <code>rn m</code>. Weights: 400, 700.</p>
+        <p class="small" style="margin-bottom: 0;"><span class="token-name" style="display:inline;">--font-body</span></p>
+      </div>
+      <div class="subpanel">
+        <h5>Code &amp; tokens — Intel One Mono</h5>
+        <p style="font-family: 'Intel One Mono', monospace; font-size: 1.05rem; margin-bottom: var(--space-2);">fn render(ctx: Context) → Glyph { 0O Il1 }</p>
+        <p class="small">Designed for extended terminal and IDE use. Clean geometry, strong weight range, good disambiguation. Weights: 300 Light, 400 Regular, 500 Medium, 700 Bold.</p>
+        <p class="small" style="margin-bottom: 0;"><span class="token-name" style="display:inline;">--font-code</span></p>
+      </div>
+    </div>
+
+    <h3 style="margin-top: var(--space-5);">Type scale</h3>
+
+    <div class="container" style="padding: var(--space-4); margin-top: var(--space-3);">
+      <div class="type-specimen">
+        <h1 style="margin-bottom: 0;">H1 — Primary heading</h1>
+        <div class="type-meta"><span>clamp(1.9rem, 4vw, 2.8rem)</span><span>line-height 1.15</span><span>--text-0</span></div>
+      </div>
+      <div class="type-specimen">
+        <h2 style="margin-bottom: 0;">H2 — Section heading</h2>
+        <div class="type-meta"><span>clamp(1.4rem, 3vw, 2rem)</span><span>line-height 1.15</span><span>--text-0</span></div>
+      </div>
+      <div class="type-specimen">
+        <h3 style="margin-bottom: 0;">H3 — Subsection heading</h3>
+        <div class="type-meta"><span>1.2rem</span><span>line-height 1.15</span><span>--text-0</span></div>
+      </div>
+      <div class="type-specimen">
+        <h4 style="margin-bottom: 0;">H4 — Group label</h4>
+        <div class="type-meta"><span>1rem</span><span>weight 700</span><span>--text-0</span></div>
+      </div>
+      <div class="type-specimen">
+        <h5 style="margin-bottom: 0;">H5 — Category header</h5>
+        <div class="type-meta"><span>0.9rem</span><span>weight 700</span><span>uppercase · letter-spacing 0.04em</span></div>
+      </div>
+      <div class="type-specimen">
+        <h6 style="margin-bottom: 0;">H6 — Quiet label</h6>
+        <div class="type-meta"><span>0.82rem</span><span>weight 600</span><span>uppercase · letter-spacing 0.06em</span><span>--text-2</span></div>
+      </div>
+      <div class="type-specimen">
+        <p class="lead" style="margin-bottom: 0;">Lead — Introductory paragraph text at a slightly larger size, for summaries and introductions.</p>
+        <div class="type-meta"><span>1.15rem</span><span>line-height 1.6</span><span>--text-1</span></div>
+      </div>
+      <div class="type-specimen">
+        <p style="margin-bottom: 0;">Body — Standard paragraph text. The culture is an entity, or rather a set of more-or-less connected entities, that has made the decision to take on the characteristics of whatever it needs to be.</p>
+        <div class="type-meta"><span>1rem (inherited)</span><span>line-height 1.68</span><span>--text-0</span><span>max-width --measure (74ch)</span></div>
+      </div>
+      <div class="type-specimen">
+        <p class="eyebrow" style="margin-bottom: 0;">Eyebrow — section labeling</p>
+        <div class="type-meta"><span>0.78rem</span><span>weight 600</span><span>uppercase · letter-spacing 0.04em</span><span>--text-2</span></div>
+      </div>
+      <div class="type-specimen">
+        <small>Small — secondary information, metadata, helper text</small>
+        <div class="type-meta"><span>0.86rem</span><span>--text-2</span></div>
+      </div>
+      <div class="type-specimen">
+        <p class="caption" style="margin-bottom: 0;">Caption — image captions, table footnotes, fine print</p>
+        <div class="type-meta"><span>0.78rem</span><span>letter-spacing 0.01em</span><span>--text-2</span></div>
+      </div>
+      <div class="type-specimen">
+        <code>inline code — variable names, token references, values</code>
+        <div class="type-meta"><span>0.88em of parent</span><span>Intel One Mono</span><span>background --surface-inset</span></div>
+      </div>
+    </div>
+
+    <h3 style="margin-top: var(--space-5);">Text treatments</h3>
+    <div class="container" style="padding: var(--space-4); margin-top: var(--space-3);">
+      <div class="reading">
+        <p><strong>Bold text</strong> for emphasis within prose. <em>Italic for secondary or qualifying information.</em> <del>Strikethrough for removed content.</del> <mark>Highlight for attention-without-alarm.</mark></p>
+        <p><a href="#">Linked text</a> uses the accent color with a faded underline at rest, solid underline on hover.</p>
+        <blockquote>Blockquote — for extended quotations or callout content. Left border is <code>--line-strong</code>, background is a tinted surface.</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <hr class="sg-divider">
+
+  <!-- ── SPACING & SHAPE ─────────────────────────────────────────────────── -->
+  <section id="spacing" class="sg-section">
+    <p class="eyebrow">Spacing &amp; shape</p>
+    <h2>Space scale &amp; shape tokens</h2>
+
+    <div class="grid-2" style="margin-top: var(--space-4);">
+      <div>
+        <h4>Space scale</h4>
+        <div class="container" style="padding: var(--space-3) var(--space-4);">
+          <div class="space-row"><div class="space-bar" style="width: 0.25rem;"></div><span class="space-name">--space-1</span><span class="space-value">0.25rem · 4px</span></div>
+          <div class="space-row"><div class="space-bar" style="width: 0.5rem;"></div><span class="space-name">--space-2</span><span class="space-value">0.5rem · 8px</span></div>
+          <div class="space-row"><div class="space-bar" style="width: 0.75rem;"></div><span class="space-name">--space-3</span><span class="space-value">0.75rem · 12px</span></div>
+          <div class="space-row"><div class="space-bar" style="width: 1rem;"></div><span class="space-name">--space-4</span><span class="space-value">1rem · 16px</span></div>
+          <div class="space-row"><div class="space-bar" style="width: 1.5rem;"></div><span class="space-name">--space-5</span><span class="space-value">1.5rem · 24px</span></div>
+          <div class="space-row"><div class="space-bar" style="width: 2rem;"></div><span class="space-name">--space-6</span><span class="space-value">2rem · 32px</span></div>
+        </div>
+      </div>
+      <div>
+        <h4>Shape tokens</h4>
+        <div class="container" style="padding: var(--space-3) var(--space-4);">
+          <div class="token-row">
+            <div style="width: 2.5rem; height: 2.5rem; background: var(--surface-2); border: 1px solid var(--line-1); border-radius: 0.4rem; flex-shrink: 0;"></div>
+            <span class="token-name">--radius-1</span><span class="token-value">0.4rem · tight corners</span>
+          </div>
+          <div class="token-row">
+            <div style="width: 2.5rem; height: 2.5rem; background: var(--surface-2); border: 1px solid var(--line-1); border-radius: 0.8rem; flex-shrink: 0;"></div>
+            <span class="token-name">--radius-2</span><span class="token-value">0.8rem · card corners</span>
+          </div>
+          <div class="token-row">
+            <div style="width: 2.5rem; height: 2.5rem; background: var(--surface-2); border: 1px solid var(--line-1); border-radius: 999px; flex-shrink: 0;"></div>
+            <span class="token-name">(pill)</span><span class="token-value">border-radius: 999px · badges</span>
+          </div>
+          <div class="token-row" style="border-bottom: none;">
+            <div style="width: 2.5rem; height: 2.5rem; background: var(--surface-2); border: 1px solid var(--line-1); border-radius: var(--radius-1); box-shadow: var(--shadow-quiet); flex-shrink: 0;"></div>
+            <span class="token-name">--shadow-quiet</span><span class="token-value">0 1px 0 · 0 6px 18px · subtle lift</span>
+          </div>
+        </div>
+
+        <h4 style="margin-top: var(--space-4);">Layout constants</h4>
+        <div class="container" style="padding: var(--space-3) var(--space-4);">
+          <div class="token-row"><span class="token-name">--measure</span><span class="token-value">74ch · max reading width</span></div>
+          <div class="token-row" style="border-bottom: none;"><span class="token-name">.shell</span><span class="token-value">max-width 1200px · centered</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="sg-divider">
+
+  <!-- ── COMPONENTS ──────────────────────────────────────────────────────── -->
+  <section id="components" class="sg-section">
+    <p class="eyebrow">Components</p>
+    <h2>UI components</h2>
+
+    <h3 style="margin-top: var(--space-4);">Buttons — <code>.action</code></h3>
+    <p class="small">All emphasis variants use <code>color-mix()</code> against surface and line tokens — no hardcoded colors. Emphasis signals intent, not hierarchy.</p>
+    <div class="container" style="padding: var(--space-4);">
+      <div class="toolbar">
+        <button class="action" data-emphasis="high">High emphasis</button>
+        <button class="action" data-emphasis="affirm">Affirm</button>
+        <button class="action" data-emphasis="warn">Warn</button>
+        <button class="action" data-emphasis="critical">Critical</button>
+        <button class="action">Default</button>
+        <button class="action" disabled>Disabled</button>
+      </div>
+    </div>
+
+    <h3 style="margin-top: var(--space-4);">Toggle buttons — <code>.choice</code></h3>
+    <div class="container" style="padding: var(--space-4);">
+      <div class="toolbar">
+        <button class="choice" aria-pressed="true">Active</button>
+        <button class="choice" aria-pressed="false">Inactive</button>
+        <button class="choice" aria-pressed="false">Inactive</button>
+      </div>
+    </div>
+
+    <h3 style="margin-top: var(--space-4);">Badges &amp; tags</h3>
+    <div class="container" style="padding: var(--space-4);">
+      <div class="meta">
+        <span class="badge">Neutral</span>
+        <span class="badge yes">Confirmed</span>
+        <span class="badge warn">Pending</span>
+        <span class="badge critical">Offline</span>
+      </div>
+      <div class="meta" style="margin-top: var(--space-3);">
+        <span class="tag">document</span>
+        <span class="tag">daylight</span>
+        <span class="tag">v0.2</span>
+        <span class="tag">draft</span>
+      </div>
+    </div>
+
+    <h3 style="margin-top: var(--space-4);">Notices</h3>
+    <div class="notice-stack" style="margin-top: var(--space-3);">
+      <div class="notice info"><span class="title">Information</span>Default notice — left border uses <code>--accent</code>.</div>
+      <div class="notice yes"><span class="title">Confirmed</span>Affirmative state — system healthy, action succeeded.</div>
+      <div class="notice warn"><span class="title">Attention required</span>Something needs review. Not yet a failure state.</div>
+      <div class="notice critical"><span class="title">Critical — action required</span>System failure or irreversible action pending.</div>
+    </div>
+
+    <h3 style="margin-top: var(--space-4);">Form controls</h3>
+    <div class="container" style="padding: var(--space-4);">
+      <div class="grid-2">
+        <div>
+          <div class="field">
+            <label>Text input</label>
+            <input class="input" type="text" placeholder="Placeholder text">
+          </div>
+          <div class="field">
+            <label>Select</label>
+            <select class="input">
+              <option>Option one</option>
+              <option>Option two</option>
+            </select>
+          </div>
+          <div class="field error">
+            <label>Error state</label>
+            <input class="input" type="text" value="Invalid value">
+            <span class="input-hint">This field has an error.</span>
+          </div>
+        </div>
+        <div>
+          <div class="field">
+            <label>Textarea</label>
+            <textarea class="input" rows="3" placeholder="Longer text..."></textarea>
+          </div>
+          <div class="check-group">
+            <label class="check-field"><input type="checkbox" checked> Checked option</label>
+            <label class="check-field"><input type="checkbox"> Unchecked option</label>
+            <label class="check-field"><input type="radio" name="r" checked> Radio selected</label>
+            <label class="check-field"><input type="radio" name="r"> Radio unselected</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="sg-divider">
+
+  <!-- ── STATE SCALE ─────────────────────────────────────────────────────── -->
+  <section id="states" class="sg-section">
+    <p class="eyebrow">State escalation</p>
+    <h2>Base-9 state scale</h2>
+
+    <p>Status escalates across 9 levels (1–9), mapped to three bands. Colors below are approximate — the escalation system is designed but not finalized. The intent: <strong>escalation is contrast + structure, not color alone</strong>. A state-9 display in a critical context should be unmistakable; a state-1 display in normal context should read as almost invisible.</p>
+
+    <div class="grid-2" style="margin-top: var(--space-4);">
+      <div class="state-scale">
+        <div class="state-item"><div class="state-pip" style="background: hsl(40 10% 66%);"></div><span class="state-label">1 — ambient signal</span><span class="state-num">1</span></div>
+        <div class="state-item"><div class="state-pip" style="background: hsl(40 10% 56%);"></div><span class="state-label">2 — minimal presence</span><span class="state-num">2</span></div>
+        <div class="state-item"><div class="state-pip" style="background: hsl(40 10% 46%);"></div><span class="state-label">3 — low attention</span><span class="state-num">3</span></div>
+        <div class="state-item"><div class="state-pip" style="background: hsl(39 40% 52%);"></div><span class="state-label">4 — attention · entering warn band</span><span class="state-num">4</span></div>
+        <div class="state-item"><div class="state-pip" style="background: hsl(39 52% 48%);"></div><span class="state-label">5 — warn · notice required</span><span class="state-num">5</span></div>
+      </div>
+      <div class="state-scale">
+        <div class="state-item"><div class="state-pip" style="background: hsl(22 55% 44%);"></div><span class="state-label">6 — elevated warn</span><span class="state-num">6</span></div>
+        <div class="state-item"><div class="state-pip" style="background: hsl(10 58% 42%);"></div><span class="state-label">7 — pre-critical</span><span class="state-num">7</span></div>
+        <div class="state-item"><div class="state-pip" style="background: hsl(5 63% 38%);"></div><span class="state-label">8 — critical · action required</span><span class="state-num">8</span></div>
+        <div class="state-item"><div class="state-pip" style="background: hsl(5 70% 32%); outline: 2px solid hsl(5 63% 36%); outline-offset: 1px;"></div><span class="state-label">9 — maximum · system failure</span><span class="state-num">9</span></div>
+      </div>
+    </div>
+
+    <div class="table-wrap" style="margin-top: var(--space-4);">
+      <table>
+        <thead><tr><th>State</th><th>Band</th><th>Marain invariant glyph</th><th>Display token</th></tr></thead>
+        <tbody>
+          <tr><td>0</td><td>null</td><td>Empty #0 — silence</td><td>—</td></tr>
+          <tr><td>1–2</td><td>normal</td><td>Point #16 — minimal signal</td><td><code>--text-2</code></td></tr>
+          <tr><td>3–4</td><td>normal → attention</td><td>Frame #495 — structural container</td><td><code>--text-1</code></td></tr>
+          <tr><td>5</td><td>attention → warn</td><td>Corners #325 · Diamond #170 — boundary</td><td><code>--warn</code> (muted)</td></tr>
+          <tr><td>6–7</td><td>warn</td><td>Cross #186 — clear warning</td><td><code>--warn</code></td></tr>
+          <tr><td>8</td><td>critical</td><td>Checkerboard #341 — near-maximum</td><td><code>--critical</code></td></tr>
+          <tr><td>9</td><td>maximum</td><td>Full #511 — maximum intensity</td><td><code>--critical</code> + structural marker</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small">Glyph-to-state mapping is proposed. Finalize when the escalation system is built. See <code>encoding/docs/invariant-glyphs.md</code>.</p>
+  </section>
+
+  <hr class="sg-divider">
+
+  <!-- ── CODE ────────────────────────────────────────────────────────────── -->
+  <section id="code" class="sg-section">
+    <p class="eyebrow">Code</p>
+    <h2>Syntax highlighting</h2>
+
+    <p>Colors are <strong>hardcoded HSL</strong> — not token references — because they need to read on both <code>--surface-inset</code> (light) and the dark mode equivalent. Pending: <code>[data-mode="dark"]</code> overrides when dark mode is finalized.</p>
+
+    <div class="syn-grid">
+      <div class="syn-swatch"><div class="syn-dot" style="background: var(--text-2);"></div><span class="syn-label">comment</span><span class="syn-hsl">--text-2 · italic</span></div>
+      <div class="syn-swatch"><div class="syn-dot" style="background: var(--accent);"></div><span class="syn-label">keyword / atrule</span><span class="syn-hsl">--accent · 500</span></div>
+      <div class="syn-swatch"><div class="syn-dot" style="background: hsl(126 28% 34%);"></div><span class="syn-label">string</span><span class="syn-hsl">hsl(126 28% 34%)</span></div>
+      <div class="syn-swatch"><div class="syn-dot" style="background: hsl(39 50% 40%);"></div><span class="syn-label">number</span><span class="syn-hsl">hsl(39 50% 40%)</span></div>
+      <div class="syn-swatch"><div class="syn-dot" style="background: var(--accent);"></div><span class="syn-label">boolean / constant</span><span class="syn-hsl">--accent</span></div>
+      <div class="syn-swatch"><div class="syn-dot" style="background: hsl(210 38% 38%);"></div><span class="syn-label">property / tag</span><span class="syn-hsl">hsl(210 38% 38%)</span></div>
+      <div class="syn-swatch"><div class="syn-dot" style="background: hsl(195 38% 36%);"></div><span class="syn-label">selector / attr-name</span><span class="syn-hsl">hsl(195 38% 36%)</span></div>
+      <div class="syn-swatch"><div class="syn-dot" style="background: hsl(200 42% 38%);"></div><span class="syn-label">function</span><span class="syn-hsl">hsl(200 42% 38%)</span></div>
+      <div class="syn-swatch"><div class="syn-dot" style="background: hsl(5 52% 40%);"></div><span class="syn-label">regex</span><span class="syn-hsl">hsl(5 52% 40%)</span></div>
+      <div class="syn-swatch"><div class="syn-dot" style="background: var(--text-1);"></div><span class="syn-label">operator / url</span><span class="syn-hsl">--text-1</span></div>
+      <div class="syn-swatch"><div class="syn-dot" style="background: var(--text-2);"></div><span class="syn-label">punctuation</span><span class="syn-hsl">--text-2</span></div>
+    </div>
+
+    <h4 style="margin-top: var(--space-4);">Code block specimen</h4>
+    <pre><code>/* token-driven display system */
+:root {
+  --surface-0:  hsl(42 24% 95%);   /* warm off-white */
+  --text-0:     hsl(30 12% 18%);   /* dark warm brown */
+  --accent:     hsl(210 42% 40%);  /* muted blue */
+  --warn:       hsl(39 58% 48%);   /* amber */
+  --critical:   hsl(5 63% 36%);    /* deep red */
+}
+
+function escalate(state: number): Token {
+  if (state >= 8) return '--critical';
+  if (state >= 5) return '--warn';
+  return '--text-2';
+}</code></pre>
+  </section>
+
+  <hr class="sg-divider">
+
+  <!-- ── TOKEN REFERENCE ─────────────────────────────────────────────────── -->
+  <section id="tokens" class="sg-section">
+    <p class="eyebrow">Token reference</p>
+    <h2>All tokens</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Token</th><th>Light</th><th>Dark (proposed)</th><th>Role</th></tr></thead>
+        <tbody>
+          <tr><td><code>--surface-0</code></td><td>hsl(42 24% 95%)</td><td>hsl(30 6% 11%)</td><td>Page background</td></tr>
+          <tr><td><code>--surface-1</code></td><td>hsl(42 18% 92%)</td><td>hsl(30 6% 14%)</td><td>Card / container background</td></tr>
+          <tr><td><code>--surface-2</code></td><td>hsl(42 14% 88%)</td><td>hsl(30 5% 18%)</td><td>Raised element / hover state</td></tr>
+          <tr><td><code>--surface-inset</code></td><td>hsl(42 16% 90%)</td><td>hsl(30 8% 9%)</td><td>Code blocks, inset wells</td></tr>
+          <tr><td><code>--text-0</code></td><td>hsl(30 12% 18%)</td><td>hsl(40 14% 86%)</td><td>Primary text</td></tr>
+          <tr><td><code>--text-1</code></td><td>hsl(30 9% 33%)</td><td>hsl(40 10% 66%)</td><td>Secondary text, body copy</td></tr>
+          <tr><td><code>--text-2</code></td><td>hsl(30 7% 48%)</td><td>hsl(40 8% 46%)</td><td>Muted text, labels, captions</td></tr>
+          <tr><td><code>--line-0</code></td><td>hsl(38 12% 82%)</td><td>hsl(36 8% 20%)</td><td>Subtle dividers</td></tr>
+          <tr><td><code>--line-1</code></td><td>hsl(38 12% 72%)</td><td>hsl(36 8% 26%)</td><td>Control borders</td></tr>
+          <tr><td><code>--line-strong</code></td><td>hsl(38 10% 58%)</td><td>hsl(36 8% 36%)</td><td>Strong separators, breadcrumb markers</td></tr>
+          <tr><td><code>--accent</code></td><td>hsl(210 42% 40%)</td><td>hsl(210 50% 62%)</td><td>Links, primary interactive, keyword color</td></tr>
+          <tr><td><code>--focus</code></td><td>hsl(210 52% 42%)</td><td>hsl(210 58% 65%)</td><td>Focus ring (keyboard navigation only)</td></tr>
+          <tr><td><code>--yes</code></td><td>hsl(126 32% 31%)</td><td>hsl(126 35% 48%)</td><td>Affirmative, confirmed, healthy</td></tr>
+          <tr><td><code>--warn</code></td><td>hsl(39 58% 48%)</td><td>hsl(39 62% 60%)</td><td>Warning, pending, needs attention</td></tr>
+          <tr><td><code>--critical</code></td><td>hsl(5 63% 36%)</td><td>hsl(5 60% 58%)</td><td>Critical, error, destructive action</td></tr>
+          <tr><td><code>--font-body</code></td><td colspan="2">Atkinson Hyperlegible · system-ui fallback</td><td>All UI and prose text</td></tr>
+          <tr><td><code>--font-code</code></td><td colspan="2">Intel One Mono · ui-monospace fallback</td><td>Code, tokens, numeric data</td></tr>
+          <tr><td><code>--measure</code></td><td colspan="2">74ch</td><td>Maximum reading line width</td></tr>
+          <tr><td><code>--space-1 → 6</code></td><td colspan="2">0.25 · 0.5 · 0.75 · 1 · 1.5 · 2rem</td><td>Spacing scale</td></tr>
+          <tr><td><code>--radius-1</code></td><td colspan="2">0.4rem</td><td>Tight corners — controls, small elements</td></tr>
+          <tr><td><code>--radius-2</code></td><td colspan="2">0.8rem</td><td>Card corners — containers, panels</td></tr>
+          <tr><td><code>--shadow-quiet</code></td><td>warm 4% / 4% opacity</td><td>black 20% / 30% opacity</td><td>Subtle card elevation</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer style="padding: var(--space-5) 0; margin-top: var(--space-5); border-top: 1px solid var(--line-0);">
+    <p class="caption">marainkit · Culture theme · <code>document / daylight / normal</code> baseline · v0.2 · generated from <code>display/themes/culture/style.css</code></p>
+  </footer>
+
+</div>
+
+<script>
+  // dark mode toggle (same as index.html)
+  document.querySelectorAll('#dark-toggle, [id="dark-toggle"]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const html = document.documentElement;
+      const on = html.getAttribute('data-mode') === 'dark';
+      html.setAttribute('data-mode', on ? '' : 'dark');
+      btn.setAttribute('aria-pressed', String(!on));
+    });
+  });
+</script>
+</body>
+</html>
