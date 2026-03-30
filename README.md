@@ -1,5 +1,7 @@
 # marainkit/marain
 
+> **Work in progress.** This repo is an active design spec, not a finished project. Expect incomplete sections and frequent changes.
+
 A **deterministic display language** — a rendering grammar where context inputs produce display outputs predictably and consistently.
 
 ```
