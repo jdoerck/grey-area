@@ -262,7 +262,22 @@ Non-verbal communication glyphs organized into four categories. Unicode equivale
 
 ### Numerals
 
-Decimal (0–9). Names borrowed from **Mandarin Chinese**. Written **right to left**. The subsequent numbering system does not follow Mandarin — only the digit names are used.[^3]
+**Decimal** (0–9). Names borrowed from **Mandarin Chinese**. Written **right to left**. The digit names follow Mandarin; the numbering system beyond single digits does not.[^3]
+
+Note: Banks explicitly states that Marain encodes numbers in **base 8 (octal)**. zakalwe2040 uses base 10. These are architecturally incompatible choices — see design notes below.
+
+| Digit | # | Pattern |
+|-------|---|---------|
+| 0 | 341 | `█░█/░█░/█░█` |
+| 1 | 471 | `███/░█░/███` |
+| 2 | 466 | `░█░/░█░/███` |
+| 3 | 121 | `█░░/███/█░░` |
+| 4 | 243 | `██░/░██/██░` |
+| 5 | 95  | `███/██░/█░░` |
+| 6 | 373 | `█░█/░██/█░█` |
+| 7 | 125 | `█░█/███/█░░` |
+| 8 | 317 | `█░█/███/░░█` |
+| 9 | 381 | `█░█/███/█░█` |
 
 ### Mathematical and logical notation
 
@@ -270,36 +285,110 @@ Glyph design follows the principle of **homoiconicity** — glyphs allude to the
 
 **Arithmetic operators**
 
-| Glyph | Operation |
-|-------|-----------|
-| (addition) | + |
-| (multiplication) | × |
-| (subtraction) | − |
-| (division) | ÷ |
-| (modulo) | mod |
+| Symbol | Name | # | Pattern |
+|--------|------|---|---------|
+| + | addition | 170 | `░█░/█░█/░█░` |
+| × | multiplication | 495 | `███/█░█/███` |
+| − | subtraction | 300 | `░░█/█░█/░░█` |
+| ÷ | division | 364 | `░░█/█░█/█░█` |
+| mod | modulo | 301 | `█░█/█░█/░░█` |
 
 **Logic**
 
-| Glyph | Name | Meaning |
-|-------|------|---------|
-| *wa* | conjunction | and (also grammatical conjunctive particle) |
-| *ow* | disjunction | or |
-| *ma* | negation | not |
+| Symbol | Name (Marain) | # | Pattern |
+|--------|--------------|---|---------|
+| & | *wa* (and / conjunction) | 284 | `░░█/██░/░░█` |
+| \| | *ow* (or / disjunction) | 113 | `█░░/░██/█░░` |
+| ! | *ma* (not / negation) | 343 | `███/░█░/█░█` |
 
 **Equality and copula**
 
-| Glyph | Name | Meaning |
-|-------|------|---------|
-| *heeya* | equality | = |
-| *kun* | definition | ≔ (define / assign) |
-| *iz* | copula | to be (verb) |
+| Symbol | Name (Marain) | # | Pattern |
+|--------|--------------|---|---------|
+| = | *heeya* (equality) | 63 | `███/███/░░░` |
+| := | *kun* (definition / assign) | 191 | `███/███/░█░` |
+| iz | *iz* (copula — to be) | 186 | `░█░/███/░█░` |
 
 **Punctuation**
 
-| Glyph | Name | Meaning |
-|-------|------|---------|
-| *mahu* | question / lambda | ? · also λ-calculus |
-| (3 others) | — | Not yet named in source |
+| Symbol | Name (Marain) | # | Pattern |
+|--------|--------------|---|---------|
+| ? | *mahu* (question / λ-calculus) | 342 | `░██/░█░/█░█` |
+| . | (period / decimal point) | 16 | `░░░/░█░/░░░` |
+| , | (comma) | 128 | `░░░/░░░/░█░` |
+| ; | (semicolon) | 144 | `░░░/░█░/░█░` |
+
+**Brackets and delimiters**
+
+| Symbol | # | Pattern |
+|--------|---|---------|
+| `>` | 81 | `█░░/░█░/█░░` |
+| `<` | 276 | `░░█/░█░/░░█` |
+| `]` | 211 | `██░/░█░/██░` |
+| `[` | 406 | `░██/░█░/░██` |
+| `)` | 251 | `██░/███/██░` |
+| `(` | 446 | `░██/███/░██` |
+| `}` | 479 | `███/██░/███` |
+| `{` | 503 | `███/░██/███` |
+
+---
+
+### Numerals and notation — compatibility with Banks and marainkit
+
+Patterns extracted from zakalwe2040 SVGs: `numerals.svg`, `binary-operators.svg`, `logic.svg`, `equality.svg`, `punctuation.svg`, `brackets.svg`.
+
+**Agreements**
+
+| # | Z-symbol | marainkit / Banks | Note |
+|---|----------|-------------------|------|
+| 16 | `.` (period) | marainkit **Point** · Banks *ng* (decimal point) | Only cross-system agreement. All three sources assign #16 to "decimal point". The strongest single confirmed value outside #121. |
+
+**Conflicts with marainkit invariants**
+
+| # | Invariant (marainkit) | Z-symbol | Z-group | Tension |
+|---|-----------------------|----------|---------|---------|
+| 170 | **Diamond** — danger · hazard | `+` | arithmetic | Homoiconic argument for `+`: a diamond is a rotated plus. But marainkit treats Diamond as a warning glyph. |
+| 186 | **Cross** — alert · stop | `iz` (copula) | equality | "To be" sharing a value with "stop" is a hard semantic conflict. |
+| 341 | **Checkerboard** — noise · interference | digit `0` | numerals | marainkit already reserves #0 (Empty) for zero/null. #341 for zero is a deliberate departure. |
+| 495 | **Frame** — enclosure · container | `*` | arithmetic | Less obvious homoiconic reading (multiplication as enclosure?). |
+
+**Conflicts with Banks**
+
+| # | Banks | Z-symbol | Note |
+|---|-------|----------|------|
+| 121 | *w* — only explicitly-confirmed canonical phoneme | digit `3` | The sharpest single conflict in the entire system. |
+| 170 | *oh* (phoneme, approx.) | `+` | Approximate reading only — lower confidence than #121. |
+| 186 | *th* (phoneme, approx.) | `iz` (copula) | Approximate reading only. |
+
+**Base-8 vs base-10**
+
+Banks states explicitly that Marain encodes numbers in base 8. zakalwe2040 uses base 10 (10 digits, Mandarin names). This is the most fundamental structural split in the zakalwe2040 extensions — it cannot be resolved by reassigning a single value.
+
+- Banks' base-8 requires 8 digit glyphs (0–7). Any 8 values could work; none have been published.
+- zakalwe2040's base-10 requires 10 digit glyphs, two of which land on marainkit invariants (#341 for digit 0, and indirectly #341 again conflicts with marainkit's own #0 = zero/null assignment).
+- marainkit tentatively treats #0 (Empty) as zero/null — consistent with Banks' base-8 where "empty = zero". zakalwe2040 chose Checkerboard (#341) for digit 0 instead, possibly to keep #0 as a word-space or separator distinct from a numeric zero.
+
+---
+
+### Design notes — numerals and notation (marainkit)
+
+**1. #16 as decimal point is the firmest anchor.**
+Banks, marainkit (geometric derivation), and zakalwe2040 all independently converge on #16 for "decimal point / period". This is the most multiply-confirmed assignment in the entire system and should be treated as fixed.
+
+**2. Base-8 or base-10?**
+Banks is unambiguous: base 8. Following him means needing 8 digit glyphs, none of which are published. An octal system would avoid the digit-3 = #121 conflict entirely (digit 3 in base 8 could be assigned to any unclaimed value). Base-10 offers broader compatibility with everyday use but contradicts the source material. Decision needed before any numeral layer is built.
+
+**3. The Diamond/+ conflict is the most defensible zakalwe2040 choice.**
+`+` = #170 (Diamond) is homoiconic: a diamond is visually a rotated plus sign. The assignment is elegant and intentional. It does, however, permanently occupy a marainkit invariant. If we want to preserve Diamond as a warning glyph *and* use `+` for addition, they cannot share the same value. One option: define `+` as a non-invariant value and keep Diamond reserved; another is to accept the dual meaning (warning and arithmetic operator, distinguished by context).
+
+**4. The copula conflict is harder to resolve.**
+*iz* (to be) = #186 (Cross = alert/stop) has no homoiconic justification. It appears to be an arbitrary assignment that happened to land on a structurally significant invariant. This is a candidate for reassignment if marainkit defines a notation layer.
+
+**5. Brackets are entirely clean.**
+None of the 8 bracket/delimiter values (#81, #276, #211, #406, #251, #446, #479, #503) conflict with marainkit invariants or Banks' claimed phonemes. The bracket system could be adopted wholesale with no conflicts — and the designs are visually coherent (open/close pairs are bit-mirror images of each other).
+
+**6. Logic operators and equality are also largely clean.**
+The and/or/not values (#284, #113, #343) and equality operators (#63, #191) don't conflict with invariants or Banks. Only *iz* (#186) is problematic. Adopting the logic and equality set minus *iz* would work cleanly.
 
 ---
 
@@ -337,6 +426,10 @@ TrueType implementation of Banks' glyph alphabet. No published glyph table in th
 - **Buffer bit**: Banks defines a 10th buffer bit after each 9-bit glyph but does not assign it meaning. Reserve as long-vowel marker? Leave undefined?
 - **wa conflict**: zakalwe2040 assigns *wa* = #511 (marainkit "Full"). If marainkit adopts a phoneme layer, this must be resolved. Banks' #121 is the most defensible assignment for *wa* / *w*.
 - **M2 lattice**: should the 4×5 zakalwe2040 lattice be treated as a reference design for a marainkit extended encoding layer? If so, do the phoneme assignments carry over or only the geometry?
+- **Number base**: Banks says base-8; zakalwe2040 uses base-10. Which does marainkit follow? (Base-8 avoids the digit-3 = #121 conflict entirely.)
+- **Brackets**: zakalwe2040's 8 bracket/delimiter glyphs have no conflicts with invariants or Banks — adopt wholesale?
+- **`iz` reassignment**: zakalwe2040's copula *iz* = #186 (Cross, marainkit invariant). If a notation layer is defined, should *iz* be reassigned to a non-invariant value?
+- **Diamond as `+` vs warning**: can #170 carry both meanings (addition and danger) distinguished by context, or must they be separated?
 
 ---
 
