@@ -1,4 +1,4 @@
-# CLAUDE.md — marain
+# CLAUDE.md — marainkit
 
 A **deterministic display language** — a rendering grammar where context inputs
 produce display outputs predictably and consistently.
