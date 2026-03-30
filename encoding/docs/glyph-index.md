@@ -31,40 +31,42 @@ Pattern notation: rows separated by `/` · `█` = filled (1) · `░` = empty (
 
 32 phonemes from Banks' glyph table. Patterns are read from the source image — all values except *w* are approximate and need verification against a pixel-precise analysis or the original font file. Ordered as they appear in the image.
 
-| # | Phoneme | Pattern (approx.) | Notes |
-|--:|---------|------------------|-------|
+† = approximate — read from image, unverified. See footnote [^5].
+
+| # | Phoneme | Pattern | Notes |
+|--:|---------|---------|-------|
 | 121 | *w* | `█░░/███/█░░` | **Confirmed** — Banks states binary `100111100` = 121 |
-| — | *uh* | `█░░/░█░/░░█` | Diagonal `\` shape |
-| — | *m* | `█░░/█░░/███` | Bottom-left L shape |
-| — | *h* | `█░█/█░█/███` | Cup / U shape — sides and base |
-| — | *d* | `░░░/░░█/███` | Bottom-right hook |
-| — | *ah* | `░░░/█░░/███` | Bottom-left corner |
-| — | *p* | `██░/█░░/███` | Partial box, open right |
-| — | *s* | `░██/░█░/██░` | Diagonal S shape |
-| — | *t* | `░░░/█░█/░█░` | Splayed base |
-| — | *ih* | `░░█/░█░/█░░` | Diagonal `/` shape |
-| — | *l* | `░░█/░░█/███` | Reverse-L shape |
-| — | *tch* | `░░█/███/░░░` | Top-right hook (reverse of *d*) |
-| — | *k* | `░░░/███/░░█` | Bottom row + right tail |
-| — | *oh* | `░█░/█░█/░█░` | Diamond / O shape |
-| — | *b* | `░░░/░██/░██` | Bottom-right block |
-| — | *ch* | `░░░/░░░/░░░` | Not readable at image resolution — see note[^6] |
-| — | *f* | `░░░/███/░░░` | Middle row only |
-| — | *ay* | `░█░/░░░/░░░` | Top centre only |
-| — | *v* | `░░░/░░░/░░░` | Not readable at image resolution — see note[^6] |
-| — | *ll* | `░░░/░░░/░░░` | Not readable at image resolution — see note[^6] |
-| — | *n* | `███/░░█/░░█` | Top row + right column |
-| — | *ee* | `░█░/░██/░░░` | Top-centre + right |
-| — | *g* | `░░░/███/█░░` | Middle row + bottom-left |
-| — | *ng* | `░░░/░█░/░░░` | Centre only? — unclear |
-| — | *z* | `░░░/░░░/░██` | Bottom-right pair |
-| — | *eh* | `░░░/░░█/░░░` | Right centre only |
-| — | *je* | `░░░/░░░/░░░` | Not readable at image resolution — see note[^6] |
-| — | *sh* | `█░░/███/░░░` | Top row + left |
-| — | *y* | `░░░/███/░█░` | Middle row + bottom centre |
-| — | *oo* | `░█░/█░█/░█░` | Similar to Diamond — see note[^7] |
-| — | *r* | `░░█/░░█/░░█` | Right column only |
-| — | *th* | `░█░/███/░█░` | Similar to Cross — see note[^7] |
+| 273 † | *uh* | `█░░/░█░/░░█` | Diagonal `\` shape |
+| 457 † | *m* | `█░░/█░░/███` | Bottom-left L shape |
+| 493 † | *h* | `█░█/█░█/███` | Cup / U shape |
+| 480 † | *d* | `░░░/░░█/███` | Bottom-right hook |
+| 456 † | *ah* | `░░░/█░░/███` | Bottom-left corner |
+| 459 † | *p* | `██░/█░░/███` | Partial box, open right |
+| 214 † | *s* | `░██/░█░/██░` | Diagonal S shape |
+| 168 † | *t* | `░░░/█░█/░█░` | Splayed base |
+| 84 † | *ih* | `░░█/░█░/█░░` | Diagonal `/` shape |
+| 484 † | *l* | `░░█/░░█/███` | Reverse-L shape |
+| 60 † | *tch* | `░░█/███/░░░` | Top-right hook |
+| 312 † | *k* | `░░░/███/░░█` | Middle row + bottom-right tail |
+| 170 † | *oh* | `░█░/█░█/░█░` | O shape — **collides with Diamond #170** [^7] |
+| 432 † | *b* | `░░░/░██/░██` | Bottom-right block |
+| — | *ch* | — | Not readable at image resolution [^6] |
+| 56 † | *f* | `░░░/███/░░░` | Middle row only |
+| 2 † | *ay* | `░█░/░░░/░░░` | Top-centre cell only |
+| — | *v* | — | Not readable at image resolution [^6] |
+| — | *ll* | — | Not readable at image resolution [^6] |
+| 295 † | *n* | `███/░░█/░░█` | Top row + right column |
+| 50 † | *ee* | `░█░/░██/░░░` | Top-centre + centre-right |
+| 120 † | *g* | `░░░/███/█░░` | Middle row + bottom-left |
+| 16 † | *ng* | `░░░/░█░/░░░` | Centre cell only — **coincides with Point #16** [^7] |
+| 384 † | *z* | `░░░/░░░/░██` | Bottom-right pair |
+| 32 † | *eh* | `░░░/░░█/░░░` | Centre-right cell only |
+| — | *je* | — | Not readable at image resolution [^6] |
+| 57 † | *sh* | `█░░/███/░░░` | Top-left + middle row |
+| 184 † | *y* | `░░░/███/░█░` | Middle row + bottom-centre |
+| 170 † | *oo* | `░█░/█░█/░█░` | **Collides with *oh* (#170)** — one reading is wrong [^7] |
+| 292 † | *r* | `░░█/░░█/░░█` | Right column only |
+| 186 † | *th* | `░█░/███/░█░` | **Coincides with Cross #186** [^7] |
 
 ---
 
