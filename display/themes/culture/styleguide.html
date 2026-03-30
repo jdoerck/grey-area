@@ -4,6 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Culture Theme — Style Guide</title>
+  <meta name="description" content="marainkit culture theme style guide — colors, typography, spacing, components, and state scale.">
+  <meta property="og:title" content="Culture Theme — Style Guide">
+  <meta property="og:description" content="marainkit culture theme style guide — colors, typography, spacing, components, and state scale.">
+  <meta property="og:image" content="assets/og_image_dark.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="assets/og_image_dark.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_16_light.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_32_light.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon_48_light.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_16_dark.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_32_dark.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon_48_dark.png" media="(prefers-color-scheme: dark)">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Intel+One+Mono:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet">
@@ -75,7 +88,10 @@
 
   <!-- ── HEADER ──────────────────────────────────────────────────────────── -->
   <header style="padding: var(--space-6) 0 var(--space-5);">
-    <p class="eyebrow">marainkit / display</p>
+    <picture>
+      <source srcset="assets/wordmark_dark.png" media="(prefers-color-scheme: dark)">
+      <img src="assets/wordmark_light.png" alt="marainkit" height="32" style="display:block; margin-bottom: var(--space-3);">
+    </picture>
     <h1 style="margin-bottom: var(--space-2);">Culture Theme — Style Guide</h1>
     <p class="lead">A contextual semantic design language. Token-driven, context-aware, legibility-first. This document captures the current state of the <code>document / daylight / normal</code> baseline and its proposed dark counterpart.</p>
     <div class="meta">

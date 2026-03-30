@@ -4,6 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Marain / Display — Document · Daylight · Normal</title>
+  <meta name="description" content="marainkit culture theme — contextual semantic design language. Token-driven, context-aware, legibility-first.">
+  <meta property="og:title" content="Marain / Display — Document · Daylight · Normal">
+  <meta property="og:description" content="marainkit culture theme — contextual semantic design language.">
+  <meta property="og:image" content="assets/og_image_dark.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="assets/og_image_dark.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_16_light.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_32_light.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon_48_light.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_16_dark.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_32_dark.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon_48_dark.png" media="(prefers-color-scheme: dark)">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Intel+One+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -14,8 +27,11 @@
 
   <header class="container topbar">
     <div class="brand">
-      <p class="eyebrow">Marain / display · document · daylight · normal</p>
-      <h1>Design reference — Atkinson Hyperlegible · Intel One Mono</h1>
+      <picture>
+        <source srcset="assets/wordmark_dark.png" media="(prefers-color-scheme: dark)">
+        <img src="assets/wordmark_light.png" alt="marainkit" height="28" style="display:block; margin-bottom: var(--space-1);">
+      </picture>
+      <p class="eyebrow" style="margin:0;">display · document · daylight · normal</p>
     </div>
     <nav class="topnav" aria-label="Primary">
       <button class="choice" aria-pressed="true">Overview</button>
