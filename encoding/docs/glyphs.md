@@ -2,6 +2,8 @@
 
 A catalogue of claimed Marain glyphs, symbols, and phonemes across canonical and community sources. Attribution and canonicity are noted throughout.
 
+For a lookup table of all assigned values by decimal index, see [`glyph-index.md`](glyph-index.md).
+
 ---
 
 ## Scope and canonicity
