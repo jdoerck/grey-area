@@ -86,6 +86,8 @@ which have become the most used. Obviously in many of the symbols there
 are lots of other equally plausible ways to join up the dots. So humans
 can use Marain to confuse their fellows, too.
 
+Copyright Iain M. Banks
+
 ---
 
 [^1]: No definitive publication date or original source has been found.
