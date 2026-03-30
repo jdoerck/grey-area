@@ -1,21 +1,49 @@
 # Glyph Decisions — Comparison Tables and Design Discussion
 
-Working document for resolving open encoding decisions. Captures all known glyph assignments across Banks, zakalwe2040, and marainkit for the three contested layers: phonemes, numerals, and operators.
+Working document. Active conflicts and open decisions lead. Full reference tables and resolved items follow.
 
-For actionable decisions and priority order see [`roadmap.md`](roadmap.md).
-For the full glyph catalogue see [`glyphs.md`](glyphs.md).
-For the current assigned-values index see [`glyph-index.md`](glyph-index.md).
+For the actionable backlog see [`roadmap.md`](roadmap.md) · full catalogue [`glyphs.md`](glyphs.md) · assigned-values index [`glyph-index.md`](glyph-index.md).
 
 ---
 
-## Phonemes
+## Active conflicts
 
-Banks published 32 phonemes as a glyph-table image[^1] — most values are approximate visual reads at low resolution and flagged `†`. Only *w* (#121) is confirmed explicitly in the essay text. zakalwe2040 published a 24-consonant abjad with values extracted from `docs/abjad.svg`. The two sets were compared programmatically; only *ma* and *la* match.
+Items that require a decision before a marainkit encoding layer can be built. Invariant collisions are marked `[I]`.
 
-`†` = Banks approximate (image read, unverified)
-`‡` = zakalwe2040 (SVG-extracted)
-`✓` = cross-system match · `✗` = conflict · `—` = no assignment in that system
-`[I]` = conflicts with a marainkit invariant
+| # | marainkit / Banks | zakalwe2040 | Conflict |
+|---|-------------------|-------------|---------|
+| 16 | Point invariant · Banks *ng* | digit `.` (decimal point) | Banks phoneme shares value with marainkit invariant. Z agrees on decimal point meaning — this is the one cross-system agreement. `[I]` |
+| 121 | Banks *w* — only explicitly confirmed canonical value | digit `3` | Z's decimal numeral 3 occupies the single most important confirmed value in the system. Eliminated if base-8 is chosen. |
+| 170 | Diamond invariant | `+` (addition) | Z assigns addition to Diamond. Homoiconic (diamond = rotated plus) but burns a warning invariant. `[I]` |
+| 186 | Cross invariant · Banks *th* | `iz` (copula — to be) | Two separate sources assign different phonemes to the same invariant. No homoiconic justification for *iz* = Cross. `[I]` |
+| 341 | Checkerboard invariant | digit `0` | Z's decimal zero occupies Checkerboard. marainkit already treats #0 (Empty) as zero/null — two competing zeros. `[I]` |
+| 495 | Frame invariant | `×` (multiplication) | No strong justification. Frame as "enclosure" is a stretch for multiplication. `[I]` |
+| 511 | Full invariant · marainkit "maximum/critical" | *wa* (bilabial approximant) | Z assigns the all-filled glyph to the most common consonant. Directly contradicts Banks #121 for *w*. `[I]` |
+
+---
+
+## Open decisions
+
+These must be made before building any encoder. See [`roadmap.md`](roadmap.md) for full options and current leans.
+
+| Decision | Status | Current lean |
+|----------|--------|--------------|
+| **Number base** — base-8 (Banks) vs base-10 (Z) | 🔴 Blocking | Base-8. Eliminates the #121/digit-3 conflict entirely. |
+| **Phoneme strategy** — follow Banks †, follow Z abjad, or define fresh | 🔴 Blocking | Hybrid: anchor on confirmed values (#121, #457, #484), assign the rest fresh. |
+| **wa assignment** — keep Banks #121 or accept Z #511 | 🟡 Open | Keep #121. |
+| **Buffer bit** — use Banks' 10th bit as long-vowel marker | 🟡 Open | Yes — zero cost, maps cleanly onto the vowel-pointing model. |
+| **`+` vs Diamond** — dual meaning or reassign `+` | 🟡 Open | Undecided. Homoiconic argument for `+`=#170 is genuinely strong. |
+| **`iz` reassignment** — copula should not occupy Cross invariant | 🟡 Open | Reassign *iz* to a non-invariant value. |
+| **Brackets** — adopt Z bracket set wholesale | 🟢 Decided | Adopt. No conflicts, open/close pairs are bit-mirrors. |
+| **Logic + equality** — adopt Z set minus *iz* | 🟢 Decided | Adopt (`&`, `\|`, `!`, `=`, `:=`). *iz* pending above. |
+
+---
+
+## Reference — phoneme comparison
+
+Banks published 32 phonemes as a glyph-table image[^1] — most values are approximate visual reads flagged `†`. Only *w* (#121) is confirmed in essay text. zakalwe2040 published a 24-consonant abjad, extracted from `docs/abjad.svg` (`‡`). Only *ma* and *la* match across systems.
+
+`✓` = cross-system match · `✗` = conflict · `—` = no assignment · `[I]` = invariant collision
 
 | Phoneme | Banks # | Banks Pattern | Z # | Z Pattern | Status |
 |---------|---------|---------------|-----|-----------|--------|
@@ -24,51 +52,46 @@ Banks published 32 phonemes as a glyph-table image[^1] — most values are appro
 | p / *pa* | 459 † | `██░/█░░/███` | 79 ‡ | `███/█░░/█░░` | ✗ |
 | b / *ba* | 432 † | `░░░/░██/░██` | 295 ‡ | `███/░░█/░░█` | ✗ Z's ba = Banks' *n* value |
 | f / *fa* | 56 † | `░░░/███/░░░` | 173 ‡ | `█░█/█░█/░█░` | ✗ |
-| v / *va* | **367 †** | `███/█░█/█░█` | 362 ‡ | `░█░/█░█/█░█` | ✗ Banks *v* = Z *sa* (#367) |
-| th / *tha* | 186 † | `░█░/███/░█░` | 133 ‡ | `█░█/░░░/░█░` | ✗ Banks' *th* = marainkit Cross [I] |
+| v / *va* | 367 † | `███/█░█/█░█` | 362 ‡ | `░█░/█░█/█░█` | ✗ Banks *v* = Z *sa* value |
+| th / *tha* | 186 † | `░█░/███/░█░` | 133 ‡ | `█░█/░░░/░█░` | ✗ Banks *th* = Cross [I] |
 | — / *dtha* | — | — | 319 ‡ | `███/███/░░█` | — |
 | tch / *cha* | 60 † | `░░█/███/░░░` | 127 ‡ | `███/███/█░░` | ✗ |
-| ch | **174 †** | `░██/█░█/░█░` | 127 ‡ | `███/███/█░░` | ✗ (ch ≠ cha — different phonemes) |
+| ch | 174 † | `░██/█░█/░█░` | — | — | Banks only |
 | — / *dja* | — | — | 465 ‡ | `█░░/░█░/███` | — |
 | t / *ta* | 168 † | `░░░/█░█/░█░` | 307 ‡ | `██░/░██/░░█` | ✗ |
 | n / *na* | 295 † | `███/░░█/░░█` | 493 ‡ | `█░█/█░█/███` | ✗ Z's *na* = Banks' *h* value |
-| s / *sa* | 214 † | `░██/░█░/██░` | 367 ‡ | `███/█░█/█░█` | ✗ |
+| s / *sa* | 214 † | `░██/░█░/██░` | 367 ‡ | `███/█░█/█░█` | ✗ Z's *sa* = Banks' *v* value |
 | d / *da* | 480 † | `░░░/░░█/███` | 87 ‡ | `███/░█░/█░░` | ✗ |
 | l / *la* | 484 † | `░░█/░░█/███` | 484 ‡ | `░░█/░░█/███` | ✓ |
-| z / *za* | 384 † | `░░░/░░░/░██` | 469 ‡ | `█░█/░█░/███` | ✗ |
+| z / *za* | 384 † | `░░░/░░░/░██` | 469 ‡ | `█░█/░█░/███` | ✗ Z's *za* = Banks' *ll* value |
 | r / *ra* | 292 † | `░░█/░░█/░░█` | 189 ‡ | `█░█/███/░█░` | ✗ |
 | sh / *sha* | 57 † | `█░░/███/░░░` | 383 ‡ | `███/███/█░█` | ✗ |
 | y / *ya* | 184 † | `░░░/███/░█░` | 468 ‡ | `░░█/░█░/███` | ✗ |
 | g / *ga* | 120 † | `░░░/███/█░░` | 502 ‡ | `░██/░██/███` | ✗ |
 | k / *ka* | 312 † | `░░░/███/░░█` | 500 ‡ | `░░█/░██/███` | ✗ |
-| ng / *nga* | 16 | `░░░/░█░/░░░` | 509 ‡ | `█░█/███/███` | ✗ Banks' *ng* = marainkit Point [I] |
+| ng / *nga* | 16 | `░░░/░█░/░░░` | 509 ‡ | `█░█/███/███` | ✗ Banks *ng* = Point [I] |
 | ah / *aa* | 456 † | `░░░/█░░/███` | 322 ‡ | `░█░/░░░/█░█` | ✗ |
-| h / *ha* | 493 † | `█░█/█░█/███` | 487 ‡ | `███/░░█/███` | ✗ Z's *ha* ≠ Z's *na* (#493) |
+| h / *ha* | 493 † | `█░█/█░█/███` | 487 ‡ | `███/░░█/███` | ✗ |
 | *ay* | 2 † | `░█░/░░░/░░░` | — | — | Banks only |
 | *eh* | 32 † | `░░░/░░█/░░░` | — | — | Banks only |
 | *ee* | 50 † | `░█░/░██/░░░` | — | — | Banks only |
 | *ih* | 84 † | `░░█/░█░/█░░` | — | — | Banks only |
 | *uh* | 273 † | `█░░/░█░/░░█` | — | — | Banks only |
-| *oh* | **118 †** | `░██/░██/█░░` | — | — | Banks only — previously misread as #170 |
-| *ch* | **174 †** | `░██/█░█/░█░` | — | — | Banks only — no Z equivalent |
-| *v* | **367 †** | `███/█░█/█░█` | — | — | Banks *v* value = Z *sa* (#367) — cross-system conflict |
-| *ll* | **469 †** | `█░█/░█░/███` | — | — | Banks only — no Z equivalent; = Z *za* value (#469) |
-| *je* | **431 †** | `███/█░█/░██` | — | — | Banks only — no Z equivalent |
-
-**Summary:** 2 of 24 cross-system matches (*ma*, *la*). 1 confirmed canonical Banks value (*w* = #121). 2 Banks phonemes land on marainkit invariants (#16/*ng*, #186/*th*). *oh* and *oo* were previously misread as #170 (Diamond) — both resolved to non-invariant values (#118, #371). Diamond is now unambiguously marainkit-only.
+| *oh* | 118 † | `░██/░██/█░░` | — | — | Banks only |
+| *ll* | 469 † | `█░█/░█░/███` | — | — | Banks only — = Z *za* value |
+| *je* | 431 † | `███/█░█/░██` | — | — | Banks only |
+| *oo* | 371 † | `██░/░██/█░█` | — | — | Banks only |
 
 ---
 
-## Numerals
+## Reference — numerals
 
-Banks states Marain uses **base 8 (octal)** — 8 digits, none with published values. zakalwe2040 uses **base 10 (decimal)**, digit names from Mandarin Chinese.
-
-| Digit | Banks # | zakalwe2040 # | Z Pattern | Conflicts |
-|-------|---------|---------------|-----------|-----------|
-| 0 | unpublished | 341 ‡ | `█░█/░█░/█░█` | Z = marainkit Checkerboard [I]; marainkit assigns #0 (Empty) to zero/null |
+| Digit | Banks # | Z # | Z Pattern | Conflicts |
+|-------|---------|-----|-----------|-----------|
+| 0 | unpublished | 341 ‡ | `█░█/░█░/█░█` | Z = Checkerboard [I]; marainkit treats #0 (Empty) as zero |
 | 1 | 1 (implied †) | 471 ‡ | `███/░█░/███` | Banks implies #1 = "the number one" |
 | 2 | unpublished | 466 ‡ | `░█░/░█░/███` | — |
-| 3 | unpublished | **121** ‡ | `█░░/███/█░░` | **Z = Banks' canonical *w*** |
+| 3 | unpublished | **121** ‡ | `█░░/███/█░░` | **Z = Banks' canonical *w*** — eliminated by choosing base-8 |
 | 4 | unpublished | 243 ‡ | `██░/░██/██░` | — |
 | 5 | unpublished | 95 ‡ | `███/██░/█░░` | — |
 | 6 | unpublished | 373 ‡ | `█░█/░██/█░█` | — |
@@ -76,31 +99,27 @@ Banks states Marain uses **base 8 (octal)** — 8 digits, none with published va
 | 8 | N/A (base-8) | 317 ‡ | `█░█/███/░░█` | — |
 | 9 | N/A (base-8) | 381 ‡ | `█░█/███/█░█` | — |
 
-**Key tension:** Base-8 vs base-10 is an architectural choice, not a glyph choice. Choosing base-8 (Banks) eliminates the digit-3/#121 conflict entirely — digits 8 and 9 simply don't exist, and all 8 digit values would need to be freshly assigned.
-
 ---
 
-## Operators and Notation
-
-Banks defines no operator values. All assignments below are zakalwe2040. Column "Conflicts" notes collisions with marainkit invariants or Banks phonemes.
+## Reference — operators and notation
 
 ### Arithmetic
 
 | Symbol | Meaning | # | Pattern | Conflicts |
 |--------|---------|---|---------|-----------|
-| `+` | addition | 170 ‡ | `░█░/█░█/░█░` | marainkit Diamond (danger/hazard); Banks *oh* [I] |
-| `×` | multiplication | 495 ‡ | `███/█░█/███` | marainkit Frame (container) [I] |
+| `+` | addition | 170 ‡ | `░█░/█░█/░█░` | Diamond [I] — see Active conflicts |
+| `×` | multiplication | 495 ‡ | `███/█░█/███` | Frame [I] |
 | `−` | subtraction | 300 ‡ | `░░█/█░█/░░█` | — |
 | `÷` | division | 364 ‡ | `░░█/█░█/█░█` | — |
 | `mod` | modulo | 301 ‡ | `█░█/█░█/░░█` | — |
 
-### Logic
+### Logic (adopted)
 
-| Symbol | Marain name | # | Pattern | Conflicts |
-|--------|------------|---|---------|-----------|
-| `&` | *wa* (and) | 284 ‡ | `░░█/██░/░░█` | — |
-| `\|` | *ow* (or) | 113 ‡ | `█░░/░██/█░░` | — |
-| `!` | *ma* (not) | 343 ‡ | `███/░█░/█░█` | — |
+| Symbol | Marain name | # | Pattern |
+|--------|------------|---|---------|
+| `&` | *wa* (and) | 284 ‡ | `░░█/██░/░░█` |
+| `\|` | *ow* (or) | 113 ‡ | `█░░/░██/█░░` |
+| `!` | *ma* (not) | 343 ‡ | `███/░█░/█░█` |
 
 ### Equality and copula
 
@@ -108,85 +127,77 @@ Banks defines no operator values. All assignments below are zakalwe2040. Column 
 |--------|------------|---|---------|-----------|
 | `=` | *heeya* (equality) | 63 ‡ | `███/███/░░░` | — |
 | `:=` | *kun* (define/assign) | 191 ‡ | `███/███/░█░` | — |
-| `iz` | *iz* (copula — to be) | 186 ‡ | `░█░/███/░█░` | marainkit Cross (alert/stop); Banks *th* [I] |
+| `iz` | *iz* (copula — to be) | 186 ‡ | `░█░/███/░█░` | Cross [I] — reassignment pending |
 
 ### Punctuation
 
-| Symbol | Marain name | # | Pattern | Conflicts |
-|--------|------------|---|---------|-----------|
+| Symbol | Marain name | # | Pattern | Notes |
+|--------|------------|---|---------|-------|
 | `?` | *mahu* (question / λ) | 342 ‡ | `░██/░█░/█░█` | — |
-| `.` | period / decimal point | **16** ‡ | `░░░/░█░/░░░` | **✓ Agrees with marainkit Point and Banks decimal point** |
+| `.` | decimal point | **16** ‡ | `░░░/░█░/░░░` | ✓ Agrees with marainkit Point |
 | `,` | comma | 128 ‡ | `░░░/░░░/░█░` | — |
 | `;` | semicolon | 144 ‡ | `░░░/░█░/░█░` | — |
 
-### Brackets and delimiters
+### Brackets (adopted)
 
-No conflicts with marainkit invariants or Banks phonemes in this entire set. Open/close pairs are bit-mirror images of each other — visually coherent.
+Open/close pairs are bit-mirrors. No conflicts.
 
-| Symbol | # | Pattern | Mirror of |
-|--------|---|---------|-----------|
-| `>` | 81 ‡ | `█░░/░█░/█░░` | `<` #276 |
-| `<` | 276 ‡ | `░░█/░█░/░░█` | `>` #81 |
-| `]` | 211 ‡ | `██░/░█░/██░` | `[` #406 |
-| `[` | 406 ‡ | `░██/░█░/░██` | `]` #211 |
-| `)` | 251 ‡ | `██░/███/██░` | `(` #446 |
-| `(` | 446 ‡ | `░██/███/░██` | `)` #251 |
-| `}` | 479 ‡ | `███/██░/███` | `{` #503 |
-| `{` | 503 ‡ | `███/░██/███` | `}` #479 |
+| Symbol | # | Mirror of |
+|--------|---|-----------|
+| `>` / `<` | 81 / 276 | each other |
+| `]` / `[` | 211 / 406 | each other |
+| `)` / `(` | 251 / 446 | each other |
+| `}` / `{` | 479 / 503 | each other |
 
 ---
 
 ## Discussion
 
-*Recorded from design sessions — not resolved decisions. See [`roadmap.md`](roadmap.md) for the actionable backlog.*
+*Recorded from design sessions — not resolved decisions.*
 
 ### On the phoneme layer
 
-The two systems (Banks and zakalwe2040) are effectively independent designs. Both use the M1 3×3 binary grid, but made almost entirely different phoneme-to-value choices — only *ma* (#457) and *la* (#484) agree. This is not surprising: Banks never published his mapping rationale, and zakalwe2040 started fresh with an explicit design principle (place of articulation + homoiconicity).
+The two systems are effectively independent designs. Both use the M1 3×3 binary grid but made almost entirely different phoneme-to-value choices — only *ma* (#457) and *la* (#484) agree. Banks never published his mapping rationale; zakalwe2040 started fresh with an explicit design principle (place of articulation + homoiconicity).
 
-The confidence levels are asymmetric. Banks is canonical but mostly unverifiable — 30 of 32 phoneme values are approximate image reads from a low-resolution photograph, and any one of them could be wrong. zakalwe2040's values are precisely extracted from SVG source but non-canonical. The single strongest data point in the entire system is Banks explicitly writing "*w* = #121" in prose. Everything else is provisional.
+The confidence levels are asymmetric. Banks is canonical but mostly unverifiable — 31 of 32 phoneme values are approximate image reads, and any could be wrong. zakalwe2040's values are precisely extracted from SVG but non-canonical. The single strongest data point is Banks explicitly writing "*w* = #121" in prose.
 
-A "hybrid" approach — accepting only *ma* and *la* as confirmed cross-system values and leaving the rest open — is honest about uncertainty but doesn't produce a usable phoneme layer. A decision is eventually required: follow Banks' approximate values, follow zakalwe2040's designed abjad, or define a fresh marainkit assignment.
+A hybrid approach — anchoring on confirmed cross-system values (#121, #457, #484) and assigning the rest fresh — is honest about uncertainty and avoids both the abjad's *wa*/#511 problem and Banks' low-confidence approximations.
 
 ### On the abjad architecture
 
-zakalwe2040's abjad is organized by place of articulation (bilabial → glottal), then frequency — explicitly designed for high-frequency speech optimization. Banks' system has no documented organizing principle beyond "glyphs can be rotated without confusion." For a practical implementation, zakalwe2040's structure is more learnable and internally consistent.
-
-However, adopting it means accepting *wa* = #511, which permanently assigns the all-filled glyph (our "maximum/critical/full stop") to the most common bilabial approximant in the language. That's a real cost.
+zakalwe2040's abjad is organized by place of articulation (bilabial → glottal), then frequency — explicitly designed for high-frequency speech. Banks' system has no documented organizing principle. For a practical implementation, zakalwe2040's structure is more learnable. The cost of adopting it wholesale is *wa* = #511 (Full invariant) — too high.
 
 ### On the buffer bit and long vowels
 
-Banks defines a 10th "buffer bit" after each 9-bit glyph in transmission. It is currently unassigned. zakalwe2040 handles vowel length through diacritic channels in the 4×5 lattice. Both are solving the same problem — distinguishing short from long vowels — through different mechanisms.
-
-Using the 10th bit as a long-vowel marker is appealing because: it costs nothing (the bit already exists), it's compatible with both the M1 3×3 grid and the 4×5 lattice, and it parallels the Hebrew/Arabic distinction between consonant-only text and vowel-pointed text. The buffer bit would effectively make every glyph optionally pointed. Worth exploring seriously before committing to a phoneme layer.
-
-### On the numeral base
-
-Banks is unambiguous: base 8. It's a reasonable choice — the Culture uses base-9 encoding (3×3 = 9 cells), and base-8 is the natural integer subdivision of that (2³). Octal aligns with the binary structure of each glyph in a way decimal does not.
-
-Choosing base-8 eliminates the worst single conflict in the system (digit-3 = #121 = Banks' *w*) without needing to reassign anything. The 8 digit values would need to be freshly specified — none are published — but that's a creative choice, not a conflict.
-
-zakalwe2040's decimal system has the practical advantage of direct correspondence to everyday arithmetic, and the Mandarin digit names give it cultural specificity. But it contradicts the source and produces two invariant collisions (#341 for digit-0, and indirectly displacing marainkit's #0 = zero).
+Banks defines a 10th "buffer bit" after each 9-bit glyph in transmission. Currently unassigned. zakalwe2040 handles vowel length through diacritic channels in the 4×5 lattice. Both solve the same problem differently. Using the buffer bit as a long-vowel flag costs nothing, is compatible with M1 and the 4×5 lattice, and maps cleanly onto the vowel-pointing model used by Semitic scripts. Strongest candidate for a zero-cost extension to M1.
 
 ### On the Diamond/plus conflict
 
-`+` = #170 (Diamond) is the most defensible zakalwe2040 operator assignment. A rotated plus sign is a diamond. The homoiconic logic holds. However, marainkit's use of Diamond as a warning/hazard glyph also has strong visual logic — a diamond shape is a universal danger marker (road signs, chemical hazard labels, playing cards for risk). Both readings are natural.
-
-Two possible resolutions:
-1. **Accept dual meaning, distinguish by context.** Mathematical context → `+`; display/status context → danger. Relies on the surrounding text to disambiguate.
-2. **Reassign `+` to a non-invariant value.** Preserves Diamond as unambiguously hazard. Requires a new `+` value that doesn't conflict with anything else.
-
-Option 1 is how natural languages work — the same symbol means different things in different registers. Option 2 is cleaner for a machine-readable encoding. The Culture used Minds, who would prefer 2; Culture citizens writing by hand might accept 1.
-
-### On brackets
-
-The 8 bracket/delimiter values (81, 276, 211, 406, 251, 446, 479, 503) have no conflicts with any invariant or Banks phoneme. Open/close pairs are constructed as bit-mirrors of each other, which is elegant and consistent with Marain's rotation-invariance philosophy. This entire set could be adopted wholesale. It is the lowest-friction zakalwe2040 contribution.
+`+` = #170 is the most defensible zakalwe2040 operator choice — a diamond is a rotated plus, the homoiconic logic holds. But Diamond as a warning glyph also has universal visual logic (road signs, hazard symbols). Dual meaning distinguished by context is how natural language works; separate values is cleaner for machine encoding. Unresolved.
 
 ### On M2 and the 4×5 lattice
 
-The 4×5 lattice is a proper superset of M1. The 3×3 slate is exactly an M1 glyph; the diacritic and tonal channels are additional rows/columns that extend the encoding. This means any M1 glyph is valid in the lattice's slate position — M1 is forward-compatible with M2 by design.
+The 4×5 lattice is a proper superset of M1 — the 3×3 slate is exactly an M1 glyph, with diacritic and tonal channels added. M1 is forward-compatible with M2 by design. If marainkit defines an extended encoding layer, zakalwe2040's geometry is the reference starting point. The phoneme *assignments* in that layer are a separate question from the geometry.
 
-If marainkit ever defines an extended encoding layer, zakalwe2040's geometry is the natural starting point. The phoneme assignments in that layer would be a separate question — the geometry could be adopted while the values are redesigned.
+---
+
+## Resolved log
+
+Items that were open and are now confirmed. Recorded for reference.
+
+| Item | Resolution | Notes |
+|------|-----------|-------|
+| *oh* value | **#118** `░██/░██/█░░` | Previously misread as #170 (Diamond). Re-read from source image. |
+| *oo* value | **#371** `██░/░██/█░█` | Previously misread as #170, creating false collision with *oh*. |
+| *ch* value | **#174** `░██/█░█/░█░` | Previously unreadable at image resolution. Re-read confirmed. |
+| *v* value | **#367** `███/█░█/█░█` | Previously unreadable. Note: = zakalwe2040 *sa* value. |
+| *ll* value | **#469** `█░█/░█░/███` | Previously unreadable. Note: = zakalwe2040 *za* value. |
+| *je* value | **#431** `███/█░█/░██` | Previously unreadable. No Z equivalent, no invariant conflict. |
+| Diamond (#170) | **marainkit-only** | Freed from phoneme claims once *oh* and *oo* were correctly read. |
+| Brackets | **Adopted** | All 8 values (81, 276, 211, 406, 251, 446, 479, 503). No conflicts. |
+| Logic operators | **Adopted** | `&` #284, `\|` #113, `!` #343. *iz* (#186) excluded pending reassignment. |
+| Equality | **Adopted** | `=` #63, `:=` #191. *iz* excluded. |
+| `.` = #16 | **Confirmed** | Triple agreement: Banks decimal point, marainkit Point, zakalwe2040 period. |
 
 ---
 
