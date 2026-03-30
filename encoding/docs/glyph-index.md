@@ -1,6 +1,6 @@
 # Glyph Index — #0 to #511
 
-All claimed Marain M1 glyph assignments. Values without a claim are omitted — 498 of 512 remain unassigned.
+All claimed Marain M1 glyph assignments. Values without a claim are omitted — 496 of 512 remain unassigned.
 
 **Binary convention:** Banks uses LSB-first — leftmost digit = bit 0 = value 1. Grid reads left→right, top→bottom across positions 0–8.
 
@@ -32,11 +32,12 @@ Pattern notation: rows separated by `/` · `█` = filled (1) · `░` = empty (
 | 62 ‡ | *pil* | `░██/███/░░░` | Fatigue 🥱 | zakalwe2040[^9] |
 | 84 † | *ih* | `░░█/░█░/█░░` | Phoneme /ih/ | Banks[^2] |
 | 85 ‡ | *shaa* | `█░█/░█░/█░░` | Laughter 🤣 | zakalwe2040[^9] |
+| 118 † | *oh* | `░██/░██/█░░` | Phoneme /oh/ | Banks[^2] |
 | 120 † | *g* | `░░░/███/█░░` | Phoneme /g/ | Banks[^2] |
 | 121 | *w* | `█░░/███/█░░` | Phoneme /w/ — first letter of the Marain alphabet | Banks[^2] (canonical) |
 | 149 ‡ | *ging* | `█░█/░█░/░█░` | Sympathy 🥺 | zakalwe2040[^9] |
 | 168 † | *t* | `░░░/█░█/░█░` | Phoneme /t/ | Banks[^2] |
-| 170 | Diamond, *oh* | `░█░/█░█/░█░` | Danger · hazard · phoneme /oh/ | Banks[^2], marainkit[^1] |
+| 170 | Diamond | `░█░/█░█/░█░` | Danger · hazard | marainkit[^1] |
 | 174 † | *ch* | `░██/█░█/░█░` | Phoneme /ch/ (as in Scottish 'loch') | Banks[^2] |
 | 175 ‡ | *hub* | `███/█░█/░█░` | Love 💛 | zakalwe2040[^9] |
 | 181 ‡ | *shacha* | `█░█/░██/░█░` | Greetings · peace · hello · bye 🖖 | zakalwe2040[^9] |
@@ -59,6 +60,7 @@ Pattern notation: rows separated by `/` · `█` = filled (1) · `░` = empty (
 | 341 | Checkerboard | `█░█/░█░/█░█` | Noise · near-maximum intensity · interference | marainkit[^1] |
 | 365 ‡ | *shii* | `█░█/█░█/█░█` | Synchronicity 😉 | zakalwe2040[^9] |
 | 367 † | *v* | `███/█░█/█░█` | Phoneme /v/ | Banks[^2] |
+| 371 † | *oo* | `██░/░██/█░█` | Phoneme /oo/ | Banks[^2] |
 | 384 † | *z* | `░░░/░░░/░██` | Phoneme /z/ | Banks[^2] |
 | 405 ‡ | *shai* | `█░█/░█░/░██` | Agreement 👍 | zakalwe2040[^9] |
 | 431 † | *je* | `███/█░█/░██` | Phoneme /je/ | Banks[^2] |
@@ -81,7 +83,6 @@ Pattern notation: rows separated by `/` · `█` = filled (1) · `░` = empty (
 
 | # | Name | Pattern | Notes | Proposed by |
 |--:|------|---------|-------|-------------|
-| 170 † | *oo* | `░█░/█░█/░█░` | Collides with *oh* (#170) — one reading is wrong[^7] | Banks[^2] |
 | 325 ‡ | *yan* | `█░█/░░░/█░█` | Disgust 🤢 — conflicts with Corners (#325, marainkit invariant) | zakalwe2040[^9] |
 
 ---
@@ -108,7 +109,7 @@ Pattern notation: rows separated by `/` · `█` = filled (1) · `░` = empty (
 
 [^6]: All four previously unreadable phonemes (*ch*, *v*, *ll*, *je*) have been resolved by careful re-reading of the Banks glyph table image. See main table for assigned values.
 
-[^7]: *oo* and *th* appear visually similar to *Diamond* (#170) and *Cross* (#186) respectively, but are not invariant glyphs — they may be rotated variants of other phoneme glyphs. This needs verification.
+[^7]: Originally *oo* and *oh* were both read as #170 (Diamond), creating a false collision. Re-reading from the source image resolved both: *oh* = #118, *oo* = #371. Diamond (#170) is now unambiguously a marainkit invariant with no phoneme assignment.
 
 [^8]: tomdionysus, [github.com/tomdionysus/marain-font](https://github.com/tomdionysus/marain-font) — a TrueType implementation of Banks' alphabet. Extracting glyph outlines from `Marain.ttf` via fonttools would yield precise binary values for all mapped characters.
 
