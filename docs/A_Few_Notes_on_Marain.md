@@ -18,6 +18,8 @@ up the Culture as a civilisation, save those statistically likely.
 
 ![Marain example glyphs from Iain M. Banks](assets/marain-example-banks.png)
 
+*© Iain M. Banks — Marain glyph table, from "A Few Notes on Marain"*
+
 Marain's principle symbols are based around a three-by-three grid, which
 is itself a diagrammatic representation of a nine-digit binary number,
 or byte, it being intended from the start that the language could be
@@ -86,5 +88,15 @@ can use Marain to confuse their fellows, too.
 
 ---
 
-[^1]: No definitive publication date or original source has been found. The essay is attributed to *Scripta Manent* across multiple fan and reference sites but without a date in any case. Sources consulted: [The Culture Wiki](https://theculture.fandom.com/wiki/A_Few_Notes_on_Marain) · [LibraryThing](https://www.librarything.com/work/23096751/t/A-Few-Notes-on-Marain-%5Bessay%5D).
+[^1]: No definitive publication date or original source has been found.
+The essay is mentioned across multiple fan and reference sites but without
+a date in any case. Sources consulted: 
+- [The Culture Wiki](https://theculture.fandom.com/wiki/A_Few_Notes_on_Marain), 17 FEB 2011
+- [trevor-hopkins.com via Web Archive](https://web.archive.org/web/20131029191550/http://trevor-hopkins.com/banks/a-few-notes-on-marain.html), 29 OCT 2013
+- [HackerNews](https://news.ycombinator.com/item?id=18704377), 18 DEC 2018
+- [LibraryThing](https://www.librarything.com/work/23096751/t/A-Few-Notes-on-Marain-%5Bessay%5D), 26 APR 2022
+- [teagmhail.github.io](https://teagmhail.github.io/the-culture/files/A%20Few%20Notes%20on%20Marain%20-%20Iain%20M.%20Banks.pdf), 12 OCT 2025
+
+
+
 
