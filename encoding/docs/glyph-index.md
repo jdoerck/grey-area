@@ -18,39 +18,60 @@ Pattern notation: rows separated by `/` · `█` = filled (1) · `░` = empty (
 |--:|------|---------|-----------|-------------|
 | 0 | Empty | `░░░/░░░/░░░` | Silence · null · word space · zero | marainkit[^1] |
 | 1 | — | `█░░/░░░/░░░` | The number one | Banks[^2] (implied)[^3] |
-| 2 † | *ay* | `░█░/░░░/░░░` | Top-centre cell only | Banks[^2] |
-| 16 | Point, *ng* | `░░░/░█░/░░░` | Singularity · decimal point · minimal signal | Banks[^2], marainkit[^1] |
-| 32 † | *eh* | `░░░/░░█/░░░` | Centre-right cell only | Banks[^2] |
-| 50 † | *ee* | `░█░/░██/░░░` | Top-centre + centre-right | Banks[^2] |
-| 56 † | *f* | `░░░/███/░░░` | Middle row only | Banks[^2] |
-| 57 † | *sh* | `█░░/███/░░░` | Top-left + middle row | Banks[^2] |
-| 60 † | *tch* | `░░█/███/░░░` | Top-right hook | Banks[^2] |
-| 84 † | *ih* | `░░█/░█░/█░░` | Diagonal `/` shape | Banks[^2] |
-| 120 † | *g* | `░░░/███/█░░` | Middle row + bottom-left | Banks[^2] |
+| 2 † | *ay* | `░█░/░░░/░░░` | Phoneme /ay/ | Banks[^2] |
+| 5 ‡ | *paa* | `█░█/░░░/░░░` | Fear 😨 | zakalwe2040[^9] |
+| 13 ‡ | *bay* | `█░█/█░░/░░░` | Sadness 😢 | zakalwe2040[^9] |
+| 16 | Point, *ng* | `░░░/░█░/░░░` | Singularity · decimal point · phoneme /ng/ | Banks[^2], marainkit[^1] |
+| 21 ‡ | *gang* | `█░█/░█░/░░░` | Affection 😘 | zakalwe2040[^9] |
+| 32 † | *eh* | `░░░/░░█/░░░` | Phoneme /eh/ | Banks[^2] |
+| 45 ‡ | *buz* | `█░█/█░█/░░░` | Overwhelmed 😭 | zakalwe2040[^9] |
+| 50 † | *ee* | `░█░/░██/░░░` | Phoneme /ee/ | Banks[^2] |
+| 56 † | *f* | `░░░/███/░░░` | Phoneme /f/ | Banks[^2] |
+| 57 † | *sh* | `█░░/███/░░░` | Phoneme /sh/ | Banks[^2] |
+| 60 † | *tch* | `░░█/███/░░░` | Phoneme /tch/ | Banks[^2] |
+| 62 ‡ | *pil* | `░██/███/░░░` | Fatigue 🥱 | zakalwe2040[^9] |
+| 84 † | *ih* | `░░█/░█░/█░░` | Phoneme /ih/ | Banks[^2] |
+| 85 ‡ | *shaa* | `█░█/░█░/█░░` | Laughter 🤣 | zakalwe2040[^9] |
+| 120 † | *g* | `░░░/███/█░░` | Phoneme /g/ | Banks[^2] |
 | 121 | *w* | `█░░/███/█░░` | Phoneme /w/ — first letter of the Marain alphabet | Banks[^2] (canonical) |
-| 168 † | *t* | `░░░/█░█/░█░` | Splayed base | Banks[^2] |
-| 170 | Diamond, *oh* | `░█░/█░█/░█░` | Danger · hazard · attention boundary | Banks[^2], marainkit[^1] |
-| 184 † | *y* | `░░░/███/░█░` | Middle row + bottom-centre | Banks[^2] |
-| 186 | Cross, *th* | `░█░/███/░█░` | Alert · stop · clear warning | Banks[^2], marainkit[^1] |
-| 214 † | *s* | `░██/░█░/██░` | Diagonal S shape | Banks[^2] |
-| 273 † | *uh* | `█░░/░█░/░░█` | Diagonal `\` shape | Banks[^2] |
-| 292 † | *r* | `░░█/░░█/░░█` | Right column only | Banks[^2] |
-| 295 † | *n* | `███/░░█/░░█` | Top row + right column | Banks[^2] |
-| 312 † | *k* | `░░░/███/░░█` | Middle row + bottom-right tail | Banks[^2] |
+| 149 ‡ | *ging* | `█░█/░█░/░█░` | Sympathy 🥺 | zakalwe2040[^9] |
+| 168 † | *t* | `░░░/█░█/░█░` | Phoneme /t/ | Banks[^2] |
+| 170 | Diamond, *oh* | `░█░/█░█/░█░` | Danger · hazard · phoneme /oh/ | Banks[^2], marainkit[^1] |
+| 175 ‡ | *hub* | `███/█░█/░█░` | Love 💛 | zakalwe2040[^9] |
+| 181 ‡ | *shacha* | `█░█/░██/░█░` | Greetings · peace · hello · bye 🖖 | zakalwe2040[^9] |
+| 184 † | *y* | `░░░/███/░█░` | Phoneme /y/ | Banks[^2] |
+| 186 | Cross, *th* | `░█░/███/░█░` | Alert · stop · phoneme /th/ | Banks[^2], marainkit[^1] |
+| 214 † | *s* | `░██/░█░/██░` | Phoneme /s/ | Banks[^2] |
+| 220 ‡ | *wun* | `░░█/██░/██░` | Warmth 💕 | zakalwe2040[^9] |
+| 221 ‡ | *zang* | `█░█/██░/██░` | Surprise 😲 | zakalwe2040[^9] |
+| 253 ‡ | *shuu* | `█░█/███/██░` | Infatuation 😍 | zakalwe2040[^9] |
+| 266 ‡ | *samara* | `░█░/█░░/░░█` | Fascination · logic understood 🤨 | zakalwe2040[^9] |
+| 273 † | *uh* | `█░░/░█░/░░█` | Phoneme /uh/ | Banks[^2] |
+| 277 ‡ | *mar* | `█░█/░█░/░░█` | Joy 😂 | zakalwe2040[^9] |
+| 292 † | *r* | `░░█/░░█/░░█` | Phoneme /r/ | Banks[^2] |
+| 295 † | *n* | `███/░░█/░░█` | Phoneme /n/ | Banks[^2] |
+| 309 ‡ | *hoo* | `█░█/░██/░░█` | Happiness 😊 | zakalwe2040[^9] |
+| 312 † | *k* | `░░░/███/░░█` | Phoneme /k/ | Banks[^2] |
 | 325 | Corners | `█░█/░░░/█░█` | Boundary · perimeter · limit | marainkit[^1] |
+| 334 ‡ | *fin* | `░██/█░░/█░█` | Anger 😡 | zakalwe2040[^9] |
+| 338 ‡ | *yam* | `░█░/░█░/█░█` | Hope 🙏 | zakalwe2040[^9] |
 | 341 | Checkerboard | `█░█/░█░/█░█` | Noise · near-maximum intensity · interference | marainkit[^1] |
-| 384 † | *z* | `░░░/░░░/░██` | Bottom-right pair | Banks[^2] |
-| 432 † | *b* | `░░░/░██/░██` | Bottom-right block | Banks[^2] |
-| 456 † | *ah* | `░░░/█░░/███` | Bottom-left corner | Banks[^2] |
-| 457 † | *m* | `█░░/█░░/███` | Bottom-left L shape | Banks[^2] |
-| 459 † | *p* | `██░/█░░/███` | Partial box, open right | Banks[^2] |
-| 480 † | *d* | `░░░/░░█/███` | Bottom-right hook | Banks[^2] |
-| 484 † | *l* | `░░█/░░█/███` | Reverse-L shape | Banks[^2] |
-| 493 † | *h* | `█░█/█░█/███` | Cup / U shape | Banks[^2] |
+| 365 ‡ | *shii* | `█░█/█░█/█░█` | Synchronicity 😉 | zakalwe2040[^9] |
+| 384 † | *z* | `░░░/░░░/░██` | Phoneme /z/ | Banks[^2] |
+| 405 ‡ | *shai* | `█░█/░█░/░██` | Agreement 👍 | zakalwe2040[^9] |
+| 432 † | *b* | `░░░/░██/░██` | Phoneme /b/ | Banks[^2] |
+| 437 ‡ | *zing* | `█░█/░██/░██` | Positivity ✨ | zakalwe2040[^9] |
+| 456 † | *ah* | `░░░/█░░/███` | Phoneme /ah/ | Banks[^2] |
+| 457 † | *m* | `█░░/█░░/███` | Phoneme /m/ | Banks[^2] |
+| 459 † | *p* | `██░/█░░/███` | Phoneme /p/ | Banks[^2] |
+| 480 † | *d* | `░░░/░░█/███` | Phoneme /d/ | Banks[^2] |
+| 484 † | *l* | `░░█/░░█/███` | Phoneme /l/ | Banks[^2] |
+| 493 † | *h* | `█░█/█░█/███` | Phoneme /h/ | Banks[^2] |
 | 495 | Frame | `███/█░█/███` | Enclosure · bracket · container · structural boundary | marainkit[^1] |
+| 501 ‡ | *lang* | `█░█/░██/███` | Romance 🥰 | zakalwe2040[^9] |
 | 511 | Full | `███/███/███` | Full stop · header marker · maximum · critical | marainkit[^1] |
 
-† = approximate — read from Banks' glyph table image[^5], unverified.
+† = approximate — read from Banks' glyph table image[^5], unverified. · ‡ = extracted from zakalwe2040 SVG dot patterns[^9].
 
 ## Unresolved
 
@@ -61,6 +82,7 @@ Pattern notation: rows separated by `/` · `█` = filled (1) · `░` = empty (
 | — | *ll* | — | Not readable at image resolution[^6] | Banks[^2] |
 | — | *je* | — | Not readable at image resolution[^6] | Banks[^2] |
 | 170 † | *oo* | `░█░/█░█/░█░` | Collides with *oh* (#170) — one reading is wrong[^7] | Banks[^2] |
+| 325 ‡ | *yan* | `█░█/░░░/█░█` | Disgust 🤢 — conflicts with Corners (#325, marainkit invariant) | zakalwe2040[^9] |
 
 ---
 
@@ -89,3 +111,5 @@ Pattern notation: rows separated by `/` · `█` = filled (1) · `░` = empty (
 [^7]: *oo* and *th* appear visually similar to *Diamond* (#170) and *Cross* (#186) respectively, but are not invariant glyphs — they may be rotated variants of other phoneme glyphs. This needs verification.
 
 [^8]: tomdionysus, [github.com/tomdionysus/marain-font](https://github.com/tomdionysus/marain-font) — a TrueType implementation of Banks' alphabet. Extracting glyph outlines from `Marain.ttf` via fonttools would yield precise binary values for all mapped characters.
+
+[^9]: zakalwe2040, *Tonal Marain*, [github.com/zakalwe2040/marain](https://github.com/zakalwe2040/marain). Glyph patterns extracted programmatically from `docs/emojis.svg` ellipse coordinates.
