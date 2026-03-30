@@ -99,6 +99,8 @@ Typography is **stable across all modes** — no font swapping per context. Stru
 
 ## Encoding Layer — Key Spec Decisions
 
+Full glyph catalogue (canonical, community, and marainkit-derived): [`encoding/docs/glyphs.md`](encoding/docs/glyphs.md)
+
 ### Invariant Glyphs
 
 Of 512 possible 3×3 binary states, **8 are fully invariant** under all rotations and mirrors. They divide into two vocabularies:
@@ -162,8 +164,9 @@ Directionality within glyphs is neurological (horizontal scanning is consistent 
 marain/
 ├── language/           ← linguistic spec (phonemes, grammar, translations)
 │   └── CLAUDE.md
-├── encoding/           ← encoding spec (invariant glyphs, layout)
+├── encoding/           ← encoding spec (invariant glyphs, layout, glyph catalogue)
 │   └── docs/
+│       ├── glyphs.md           ← known glyph catalogue (canonical + community + marainkit)
 │       ├── invariant-glyphs.md
 │       └── layout.md
 ├── display/            ← adaptive display system

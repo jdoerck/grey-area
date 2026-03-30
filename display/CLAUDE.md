@@ -1,6 +1,8 @@
 # CLAUDE.md
 
-See also: [./docs/DESIGN_PHILOSOPHY.md](./docs/DESIGN_PHILOSOPHY.md)
+Please read the root [CLAUDE.md](./CLAUDE.md) file first.
+
+See also: [./docs/DESIGN_PHILOSOPHY.md](./display/docs/DESIGN_PHILOSOPHY.md)
 
 ## What this is
 

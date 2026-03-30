@@ -1,5 +1,7 @@
 # CLAUDE.md — language/
 
+Please read the root [CLAUDE.md](./CLAUDE.md) file first.
+
 The linguistic layer: grammar, phonemes, translations, and canonical Marain properties.
 
 ---
