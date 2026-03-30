@@ -1,6 +1,6 @@
 # Glyph Index — #0 to #511
 
-All claimed Marain M1 glyph assignments. Values without a claim are omitted — 502 of 512 remain unassigned.
+All claimed Marain M1 glyph assignments. Values without a claim are omitted — 499 of 512 remain unassigned.
 
 **Binary convention:** Banks uses LSB-first — leftmost digit = bit 0 = value 1. Grid reads left→right, top→bottom across positions 0–8.
 
@@ -37,6 +37,7 @@ Pattern notation: rows separated by `/` · `█` = filled (1) · `░` = empty (
 | 149 ‡ | *ging* | `█░█/░█░/░█░` | Sympathy 🥺 | zakalwe2040[^9] |
 | 168 † | *t* | `░░░/█░█/░█░` | Phoneme /t/ | Banks[^2] |
 | 170 | Diamond, *oh* | `░█░/█░█/░█░` | Danger · hazard · phoneme /oh/ | Banks[^2], marainkit[^1] |
+| 174 † | *ch* | `░██/█░█/░█░` | Phoneme /ch/ (as in Scottish 'loch') | Banks[^2] |
 | 175 ‡ | *hub* | `███/█░█/░█░` | Love 💛 | zakalwe2040[^9] |
 | 181 ‡ | *shacha* | `█░█/░██/░█░` | Greetings · peace · hello · bye 🖖 | zakalwe2040[^9] |
 | 184 † | *y* | `░░░/███/░█░` | Phoneme /y/ | Banks[^2] |
@@ -57,6 +58,7 @@ Pattern notation: rows separated by `/` · `█` = filled (1) · `░` = empty (
 | 338 ‡ | *yam* | `░█░/░█░/█░█` | Hope 🙏 | zakalwe2040[^9] |
 | 341 | Checkerboard | `█░█/░█░/█░█` | Noise · near-maximum intensity · interference | marainkit[^1] |
 | 365 ‡ | *shii* | `█░█/█░█/█░█` | Synchronicity 😉 | zakalwe2040[^9] |
+| 367 † | *v* | `███/█░█/█░█` | Phoneme /v/ | Banks[^2] |
 | 384 † | *z* | `░░░/░░░/░██` | Phoneme /z/ | Banks[^2] |
 | 405 ‡ | *shai* | `█░█/░█░/░██` | Agreement 👍 | zakalwe2040[^9] |
 | 432 † | *b* | `░░░/░██/░██` | Phoneme /b/ | Banks[^2] |
@@ -64,6 +66,7 @@ Pattern notation: rows separated by `/` · `█` = filled (1) · `░` = empty (
 | 456 † | *ah* | `░░░/█░░/███` | Phoneme /ah/ | Banks[^2] |
 | 457 † | *m* | `█░░/█░░/███` | Phoneme /m/ | Banks[^2] |
 | 459 † | *p* | `██░/█░░/███` | Phoneme /p/ | Banks[^2] |
+| 469 † | *ll* | `█░█/░█░/███` | Phoneme /ll/ (as in Welsh) | Banks[^2] |
 | 480 † | *d* | `░░░/░░█/███` | Phoneme /d/ | Banks[^2] |
 | 484 † | *l* | `░░█/░░█/███` | Phoneme /l/ | Banks[^2] |
 | 493 † | *h* | `█░█/█░█/███` | Phoneme /h/ | Banks[^2] |
@@ -77,9 +80,6 @@ Pattern notation: rows separated by `/` · `█` = filled (1) · `░` = empty (
 
 | # | Name | Pattern | Notes | Proposed by |
 |--:|------|---------|-------|-------------|
-| — | *ch* | — | Not readable at image resolution[^6] | Banks[^2] |
-| — | *v* | — | Not readable at image resolution[^6] | Banks[^2] |
-| — | *ll* | — | Not readable at image resolution[^6] | Banks[^2] |
 | — | *je* | — | Not readable at image resolution[^6] | Banks[^2] |
 | 170 † | *oo* | `░█░/█░█/░█░` | Collides with *oh* (#170) — one reading is wrong[^7] | Banks[^2] |
 | 325 ‡ | *yan* | `█░█/░░░/█░█` | Disgust 🤢 — conflicts with Corners (#325, marainkit invariant) | zakalwe2040[^9] |
@@ -106,7 +106,7 @@ Pattern notation: rows separated by `/` · `█` = filled (1) · `░` = empty (
 
 [^5]: Banks' glyph table image: [`../../docs/assets/marain-example-banks.png`](../../docs/assets/marain-example-banks.png), reproduced in *"A Few Notes on Marain"*. Patterns for all phonemes except *w* are approximate visual readings from this image and should be treated as provisional.
 
-[^6]: Pattern not legible at available image resolution. These phonemes (*ch*, *v*, *ll*, *je*) are confirmed to exist in Banks' alphabet but their grid patterns need to be sourced from a higher-resolution copy of the image or from a font file implementing the Banks alphabet.
+[^6]: Pattern not legible at available image resolution. *je* is confirmed to exist in Banks' alphabet but its grid pattern has not been recovered. *ch*, *v*, and *ll* were resolved by careful re-reading of the source image — see main table.
 
 [^7]: *oo* and *th* appear visually similar to *Diamond* (#170) and *Cross* (#186) respectively, but are not invariant glyphs — they may be rotated variants of other phoneme glyphs. This needs verification.
 

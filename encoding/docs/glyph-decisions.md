@@ -24,10 +24,11 @@ Banks published 32 phonemes as a glyph-table image[^1] — most values are appro
 | p / *pa* | 459 † | `██░/█░░/███` | 79 ‡ | `███/█░░/█░░` | ✗ |
 | b / *ba* | 432 † | `░░░/░██/░██` | 295 ‡ | `███/░░█/░░█` | ✗ Z's ba = Banks' *n* value |
 | f / *fa* | 56 † | `░░░/███/░░░` | 173 ‡ | `█░█/█░█/░█░` | ✗ |
-| v / *va* | — (unreadable) | — | 362 ‡ | `░█░/█░█/█░█` | — |
+| v / *va* | **367 †** | `███/█░█/█░█` | 362 ‡ | `░█░/█░█/█░█` | ✗ Banks *v* = Z *sa* (#367) |
 | th / *tha* | 186 † | `░█░/███/░█░` | 133 ‡ | `█░█/░░░/░█░` | ✗ Banks' *th* = marainkit Cross [I] |
 | — / *dtha* | — | — | 319 ‡ | `███/███/░░█` | — |
 | tch / *cha* | 60 † | `░░█/███/░░░` | 127 ‡ | `███/███/█░░` | ✗ |
+| ch | **174 †** | `░██/█░█/░█░` | 127 ‡ | `███/███/█░░` | ✗ (ch ≠ cha — different phonemes) |
 | — / *dja* | — | — | 465 ‡ | `█░░/░█░/███` | — |
 | t / *ta* | 168 † | `░░░/█░█/░█░` | 307 ‡ | `██░/░██/░░█` | ✗ |
 | n / *na* | 295 † | `███/░░█/░░█` | 493 ‡ | `█░█/█░█/███` | ✗ Z's *na* = Banks' *h* value |
@@ -49,9 +50,9 @@ Banks published 32 phonemes as a glyph-table image[^1] — most values are appro
 | *ih* | 84 † | `░░█/░█░/█░░` | — | — | Banks only |
 | *uh* | 273 † | `█░░/░█░/░░█` | — | — | Banks only |
 | *oh* | 170 | `░█░/█░█/░█░` | — | — | Banks only — = marainkit Diamond [I] |
-| *ch* | — (unreadable) | — | — | — | Neither system has a confirmed value |
-| *v* | — (unreadable) | — | — | — | Neither (Banks unreadable; Z has *va* = 362) |
-| *ll* | — (unreadable) | — | — | — | Banks only |
+| *ch* | **174 †** | `░██/█░█/░█░` | — | — | Banks only — no Z equivalent |
+| *v* | **367 †** | `███/█░█/█░█` | — | — | Banks *v* value = Z *sa* (#367) — cross-system conflict |
+| *ll* | **469 †** | `█░█/░█░/███` | — | — | Banks only — no Z equivalent; = Z *za* value (#469) |
 | *je* | — (unreadable) | — | — | — | Banks only |
 
 **Summary:** 2 of 24 cross-system matches (*ma*, *la*). 1 confirmed canonical Banks value (*w* = #121). 4 Banks phonemes land on marainkit invariants (#16, #170, #186, and tentatively #325 for *yan*). The two systems made independent choices for nearly every phoneme.

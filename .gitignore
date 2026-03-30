@@ -1,7 +1,6 @@
-# exclude third-party SVG sources (encoding reference files, zakalwe2040 originals)
-# display/themes assets (icons, logos) are tracked — add exceptions below if needed
+# exclude third-party SVG sources in docs/assets only
+# display/themes assets (icons, logos) are tracked
 docs/assets/*.svg
-encoding/
 __pycache__/
 node_modules/
 .DS_Store
