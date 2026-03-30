@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 584 186" width="584" height="186">
+  <rect width="584" height="186" fill="hsl(42,24%,95%)"/>
+    <rect x="30" y="30" width="40" height="40" fill="hsl(30,12%,18%)"/>
+    <rect x="73" y="30" width="40" height="40" fill="hsl(30,12%,18%)"/>
+    <rect x="116" y="30" width="40" height="40" fill="hsl(30,12%,18%)"/>
+    <rect x="30" y="73" width="40" height="40" fill="hsl(30,12%,18%)"/>
+    <rect x="116" y="73" width="40" height="40" fill="hsl(30,12%,18%)"/>
+    <rect x="30" y="116" width="40" height="40" fill="hsl(30,12%,18%)"/>
+    <rect x="73" y="116" width="40" height="40" fill="hsl(30,12%,18%)"/>
+    <rect x="116" y="116" width="40" height="40" fill="hsl(30,12%,18%)"/>
+  <text x="184" y="99.0" fill="hsl(30,12%,18%)" font-family="'Intel One Mono', 'Courier New', monospace" font-weight="700" font-size="48" dominant-baseline="central">marainkit</text>
+</svg>

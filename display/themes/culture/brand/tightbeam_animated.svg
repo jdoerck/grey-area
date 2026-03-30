@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 146 146" width="146" height="146">
+  <rect width="146" height="146" fill="hsl(30,6%,11%)"/>
+    <rect x="10" y="10" width="40" height="40" fill="hsl(40,14%,86%)" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" begin="0.00s" dur="0.6s" fill="freeze"/>
+      <animate attributeName="fill" from="hsl(210,50%,62%)" to="hsl(40,14%,86%)" begin="0.00s" dur="0.8s" fill="freeze"/>
+    </rect>
+    <rect x="53" y="10" width="40" height="40" fill="hsl(40,14%,86%)" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" begin="0.25s" dur="0.6s" fill="freeze"/>
+      <animate attributeName="fill" from="hsl(210,50%,62%)" to="hsl(40,14%,86%)" begin="0.25s" dur="0.8s" fill="freeze"/>
+    </rect>
+    <rect x="96" y="10" width="40" height="40" fill="hsl(40,14%,86%)" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" begin="0.50s" dur="0.6s" fill="freeze"/>
+      <animate attributeName="fill" from="hsl(210,50%,62%)" to="hsl(40,14%,86%)" begin="0.50s" dur="0.8s" fill="freeze"/>
+    </rect>
+    <rect x="10" y="53" width="40" height="40" fill="hsl(40,14%,86%)" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" begin="0.25s" dur="0.6s" fill="freeze"/>
+      <animate attributeName="fill" from="hsl(210,50%,62%)" to="hsl(40,14%,86%)" begin="0.25s" dur="0.8s" fill="freeze"/>
+    </rect>
+    <rect x="96" y="53" width="40" height="40" fill="hsl(40,14%,86%)" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" begin="0.75s" dur="0.6s" fill="freeze"/>
+      <animate attributeName="fill" from="hsl(210,50%,62%)" to="hsl(40,14%,86%)" begin="0.75s" dur="0.8s" fill="freeze"/>
+    </rect>
+    <rect x="10" y="96" width="40" height="40" fill="hsl(40,14%,86%)" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" begin="0.50s" dur="0.6s" fill="freeze"/>
+      <animate attributeName="fill" from="hsl(210,50%,62%)" to="hsl(40,14%,86%)" begin="0.50s" dur="0.8s" fill="freeze"/>
+    </rect>
+    <rect x="53" y="96" width="40" height="40" fill="hsl(40,14%,86%)" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" begin="0.75s" dur="0.6s" fill="freeze"/>
+      <animate attributeName="fill" from="hsl(210,50%,62%)" to="hsl(40,14%,86%)" begin="0.75s" dur="0.8s" fill="freeze"/>
+    </rect>
+    <rect x="96" y="96" width="40" height="40" fill="hsl(40,14%,86%)" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" begin="1.00s" dur="0.6s" fill="freeze"/>
+      <animate attributeName="fill" from="hsl(210,50%,62%)" to="hsl(40,14%,86%)" begin="1.00s" dur="0.8s" fill="freeze"/>
+    </rect>
+</svg>
