@@ -18,55 +18,49 @@ Pattern notation: rows separated by `/` · `█` = filled (1) · `░` = empty (
 |--:|------|---------|-----------|-------------|
 | 0 | Empty | `░░░/░░░/░░░` | Silence · null · word space · zero | marainkit[^1] |
 | 1 | — | `█░░/░░░/░░░` | The number one | Banks[^2] (implied)[^3] |
-| 16 | Point | `░░░/░█░/░░░` | Singularity · decimal point · minimal signal | marainkit[^1] |
+| 2 † | *ay* | `░█░/░░░/░░░` | Top-centre cell only | Banks[^2] |
+| 16 | Point, *ng* | `░░░/░█░/░░░` | Singularity · decimal point · minimal signal | Banks[^2], marainkit[^1] |
+| 32 † | *eh* | `░░░/░░█/░░░` | Centre-right cell only | Banks[^2] |
+| 50 † | *ee* | `░█░/░██/░░░` | Top-centre + centre-right | Banks[^2] |
+| 56 † | *f* | `░░░/███/░░░` | Middle row only | Banks[^2] |
+| 57 † | *sh* | `█░░/███/░░░` | Top-left + middle row | Banks[^2] |
+| 60 † | *tch* | `░░█/███/░░░` | Top-right hook | Banks[^2] |
+| 84 † | *ih* | `░░█/░█░/█░░` | Diagonal `/` shape | Banks[^2] |
+| 120 † | *g* | `░░░/███/█░░` | Middle row + bottom-left | Banks[^2] |
 | 121 | *w* | `█░░/███/█░░` | Phoneme /w/ — first letter of the Marain alphabet | Banks[^2] (canonical) |
-| 170 | Diamond | `░█░/█░█/░█░` | Danger · hazard · attention boundary | marainkit[^1] |
-| 186 | Cross | `░█░/███/░█░` | Alert · stop · clear warning | marainkit[^1] |
+| 168 † | *t* | `░░░/█░█/░█░` | Splayed base | Banks[^2] |
+| 170 | Diamond, *oh* | `░█░/█░█/░█░` | Danger · hazard · attention boundary | Banks[^2], marainkit[^1] |
+| 184 † | *y* | `░░░/███/░█░` | Middle row + bottom-centre | Banks[^2] |
+| 186 | Cross, *th* | `░█░/███/░█░` | Alert · stop · clear warning | Banks[^2], marainkit[^1] |
+| 214 † | *s* | `░██/░█░/██░` | Diagonal S shape | Banks[^2] |
+| 273 † | *uh* | `█░░/░█░/░░█` | Diagonal `\` shape | Banks[^2] |
+| 292 † | *r* | `░░█/░░█/░░█` | Right column only | Banks[^2] |
+| 295 † | *n* | `███/░░█/░░█` | Top row + right column | Banks[^2] |
+| 312 † | *k* | `░░░/███/░░█` | Middle row + bottom-right tail | Banks[^2] |
 | 325 | Corners | `█░█/░░░/█░█` | Boundary · perimeter · limit | marainkit[^1] |
 | 341 | Checkerboard | `█░█/░█░/█░█` | Noise · near-maximum intensity · interference | marainkit[^1] |
+| 384 † | *z* | `░░░/░░░/░██` | Bottom-right pair | Banks[^2] |
+| 432 † | *b* | `░░░/░██/░██` | Bottom-right block | Banks[^2] |
+| 456 † | *ah* | `░░░/█░░/███` | Bottom-left corner | Banks[^2] |
+| 457 † | *m* | `█░░/█░░/███` | Bottom-left L shape | Banks[^2] |
+| 459 † | *p* | `██░/█░░/███` | Partial box, open right | Banks[^2] |
+| 480 † | *d* | `░░░/░░█/███` | Bottom-right hook | Banks[^2] |
+| 484 † | *l* | `░░█/░░█/███` | Reverse-L shape | Banks[^2] |
+| 493 † | *h* | `█░█/█░█/███` | Cup / U shape | Banks[^2] |
 | 495 | Frame | `███/█░█/███` | Enclosure · bracket · container · structural boundary | marainkit[^1] |
 | 511 | Full | `███/███/███` | Full stop · header marker · maximum · critical | marainkit[^1] |
 
-### Banks' phoneme alphabet[^5]
+† = approximate — read from Banks' glyph table image[^5], unverified.
 
-32 phonemes from Banks' glyph table. Patterns are read from the source image — all values except *w* are approximate and need verification against a pixel-precise analysis or the original font file. Ordered as they appear in the image.
+## Unresolved
 
-† = approximate — read from image, unverified. See footnote [^5].
-
-| # | Phoneme | Pattern | Notes |
-|--:|---------|---------|-------|
-| 121 | *w* | `█░░/███/█░░` | **Confirmed** — Banks states binary `100111100` = 121 |
-| 273 † | *uh* | `█░░/░█░/░░█` | Diagonal `\` shape |
-| 457 † | *m* | `█░░/█░░/███` | Bottom-left L shape |
-| 493 † | *h* | `█░█/█░█/███` | Cup / U shape |
-| 480 † | *d* | `░░░/░░█/███` | Bottom-right hook |
-| 456 † | *ah* | `░░░/█░░/███` | Bottom-left corner |
-| 459 † | *p* | `██░/█░░/███` | Partial box, open right |
-| 214 † | *s* | `░██/░█░/██░` | Diagonal S shape |
-| 168 † | *t* | `░░░/█░█/░█░` | Splayed base |
-| 84 † | *ih* | `░░█/░█░/█░░` | Diagonal `/` shape |
-| 484 † | *l* | `░░█/░░█/███` | Reverse-L shape |
-| 60 † | *tch* | `░░█/███/░░░` | Top-right hook |
-| 312 † | *k* | `░░░/███/░░█` | Middle row + bottom-right tail |
-| 170 † | *oh* | `░█░/█░█/░█░` | O shape — **collides with Diamond #170** [^7] |
-| 432 † | *b* | `░░░/░██/░██` | Bottom-right block |
-| — | *ch* | — | Not readable at image resolution [^6] |
-| 56 † | *f* | `░░░/███/░░░` | Middle row only |
-| 2 † | *ay* | `░█░/░░░/░░░` | Top-centre cell only |
-| — | *v* | — | Not readable at image resolution [^6] |
-| — | *ll* | — | Not readable at image resolution [^6] |
-| 295 † | *n* | `███/░░█/░░█` | Top row + right column |
-| 50 † | *ee* | `░█░/░██/░░░` | Top-centre + centre-right |
-| 120 † | *g* | `░░░/███/█░░` | Middle row + bottom-left |
-| 16 † | *ng* | `░░░/░█░/░░░` | Centre cell only — **coincides with Point #16** [^7] |
-| 384 † | *z* | `░░░/░░░/░██` | Bottom-right pair |
-| 32 † | *eh* | `░░░/░░█/░░░` | Centre-right cell only |
-| — | *je* | — | Not readable at image resolution [^6] |
-| 57 † | *sh* | `█░░/███/░░░` | Top-left + middle row |
-| 184 † | *y* | `░░░/███/░█░` | Middle row + bottom-centre |
-| 170 † | *oo* | `░█░/█░█/░█░` | **Collides with *oh* (#170)** — one reading is wrong [^7] |
-| 292 † | *r* | `░░█/░░█/░░█` | Right column only |
-| 186 † | *th* | `░█░/███/░█░` | **Coincides with Cross #186** [^7] |
+| # | Name | Pattern | Notes | Proposed by |
+|--:|------|---------|-------|-------------|
+| — | *ch* | — | Not readable at image resolution[^6] | Banks[^2] |
+| — | *v* | — | Not readable at image resolution[^6] | Banks[^2] |
+| — | *ll* | — | Not readable at image resolution[^6] | Banks[^2] |
+| — | *je* | — | Not readable at image resolution[^6] | Banks[^2] |
+| 170 † | *oo* | `░█░/█░█/░█░` | Collides with *oh* (#170) — one reading is wrong[^7] | Banks[^2] |
 
 ---
 
