@@ -4,6 +4,10 @@
 
 A **deterministic display language** — a rendering grammar where context inputs produce display outputs predictably and consistently.
 
+![Marain Font by TTFTCUTS](docs/assets/marain-TTFTCUTS-font.png)
+
+*© TTFTCUTS — [Marain font](https://fontstruct.com/fontstructions/show/1446008/marain-5)*
+
 ```
 Input: (type, viewing, status) → tokens + layout rules + emphasis rules
 ```
