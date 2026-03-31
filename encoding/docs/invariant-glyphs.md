@@ -4,6 +4,8 @@ Of 512 possible 3×3 binary states, only **8** are fully invariant under all rot
 
 They divide naturally into two vocabularies.
 
+For rendering implications — how these glyphs behave across display contexts, minimum size requirements, and their role as the highest-salience tier in the font vocabulary — see [`display/fonts/font-spec.md §3.5 and §5.1`](../../display/fonts/font-spec.md).
+
 ---
 
 ## Warning Vocabulary (4 glyphs)

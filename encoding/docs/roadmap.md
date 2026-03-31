@@ -150,6 +150,26 @@ zakalwe2040's 8 bracket/delimiter values (#81, #276, #211, #406, #251, #446, #47
 
 ---
 
+## Font and rendering
+
+### [🟡] Resolve cell shape default — square vs. dot
+
+`font-spec.md §7.1` defines four variants (`square`, `rounded`, `dot`, `pixel`). The default must be chosen before any implementation work. Square has highest fidelity; dot is more visually distinctive and braille-resonant. Decision gates the build pipeline.
+
+---
+
+### [🟡] Validate centre-cell salience hypothesis
+
+`font-spec.md §4.3` proposes that the centre cell (position 4) has lowest perceptual salience. If validated, glyphs differing only in their centre cell should not be adjacent in the vocabulary. Needs empirical testing — brief-exposure identification trials at 14px rendering.
+
+---
+
+### [🟡] Column B vocabulary selection
+
+Once phoneme strategy is decided (see Layer 1 above), select the active vocabulary from the 512-state space. Must satisfy: D₄ equivalence class constraint (no two glyphs from same rotation/reflection class), minimum Hamming distance ≥ 2, high salience scores, no invariant glyphs. See `font-spec.md §5.3`.
+
+---
+
 ## Architecture
 
 ### [🔵] M2 — 4×5 lattice as extended encoding layer

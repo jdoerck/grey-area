@@ -95,6 +95,8 @@ marain/
 
 Typography is stable across all contexts. These do not change per mode.
 
+Both fonts were chosen for accessibility-first design: letterform distinction over harmony, participatory testing with low-vision users, open licensing. See [`fonts/research.md`](fonts/research.md) for the full rationale. The principles from that research directly inform the Marain glyph font spec at [`fonts/font-spec.md`](fonts/font-spec.md).
+
 ---
 
 ## Future axes (not yet designed)

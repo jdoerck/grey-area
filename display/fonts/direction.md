@@ -26,11 +26,20 @@ pip install fonttools ufoLib2
 
 ---
 
+## Key documents
+
+- [`font-spec.md`](font-spec.md) — design principles, rendering requirements, glyph space inventory, vocabulary tiers, testing requirements. **Start here before any build work.**
+- [`research.md`](research.md) — deep analysis of Atkinson Hyperlegible and Intel One Mono: what makes them exceptional, shared legibility principles, and what transfers to a Marain grid font.
+
+---
+
 ## What we're building
 
 A Marain script font — custom glyphs for the Marain writing system from Iain M. Banks'
 Culture novels. Not a transliteration of English. A visual symbol set for the base-9
 encoding system in `encoding/`.
+
+This is not a traditional .otf/.ttf font. It is a **rendering function** — a module that takes a 9-bit value and a rendering context and produces SVG, Canvas, or CSS output. See `font-spec.md §10` for implementation notes.
 
 The key advantage: **Marain is grid-based**, not organic. Each glyph is a pattern of
 filled/empty cells on a fixed grid. This means glyphs can be defined as data and the
@@ -125,26 +134,20 @@ Study these for glyph grammar and style conventions before designing new glyphs:
 
 ## Decisions needed before building
 
-1. **Cell size and stroke weight** — thicker strokes read better small; thinner strokes
-   look more elegant at display size. Need to test both.
+The spec (`font-spec.md`) defines constraints and principles. Remaining open decisions:
 
-2. **Filled vs outlined cells** — filled squares, outlined squares, or dots?
-   Reference fonts use dots and solid squares — pick one and stick with it.
-
-3. **Grid padding** — gap between cells within a glyph affects density and legibility.
-
-4. **Character set scope** — start with 9 base digits only, or include separators/punctuation
-   from day one?
-
-5. **Composite glyphs** — does a 2-word sequence get a ligature, or always render as two
-   separate glyphs?
+1. **Cell shape default** — `square` (highest fidelity) or `dot` (braille-resonant, most visually distinctive)? See `font-spec.md §7.1`.
+2. **Column B vocabulary** — which ~24–36 glyphs from 512 to assign to phonemes? Must satisfy D₄ equivalence class constraint and salience map. See `font-spec.md §5.3`.
+3. **Centre-cell salience** — is the hypothesised low salience of the centre cell empirically valid? Needs testing before Column B assignment. See `font-spec.md §4.3`.
+4. **Animation** — should status escalation transitions animate? See `font-spec.md §11`.
 
 ---
 
 ## Next steps
 
-1. Study reference fonts — note grid geometry, stroke weight, cell size
-2. Sketch 9 base digit glyphs on paper or in a grid tool (Figma, Illustrator, even graph paper)
-3. Encode those decisions as data (which cells are filled per glyph)
-4. Write `build.py` to compile data → font file
-5. Load the font in a browser and test against the display system
+1. ~~Study reference fonts~~ — **done** (`research.md`)
+2. ~~Define design principles and rendering spec~~ — **done** (`font-spec.md`)
+3. Resolve cell shape default (square vs. dot)
+4. Sketch and encode the 8 invariant glyphs first — these are the highest-confidence assignments
+5. Write `build.py` to compile cell patterns → SVG/Canvas output
+6. Test at minimum rendering size (11px) before expanding the vocabulary
