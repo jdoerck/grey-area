@@ -1,6 +1,7 @@
 # exclude third-party SVG sources in docs/assets only
 # display/themes assets (icons, logos) are tracked
 docs/assets/*.svg
+.claude/
 __pycache__/
 node_modules/
 .DS_Store
