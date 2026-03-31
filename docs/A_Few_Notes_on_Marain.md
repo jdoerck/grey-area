@@ -31,6 +31,11 @@ list accompanying this text, would be the binary number 100111100, or
 values, or symbols, from 0 to 511 (shown in figures 2 and 3
 respectively).
 
+![Figures 1 - 3](assets/marain-a-few-notes-figures-1-3.png)
+
+*© Iain M. Banks — Marain glyph table, from "A Few Notes on Marain"*
+
+
 The choice of the principle symbols listed here was dictated by the
 requirements that each symbol can be rotated and mirrored, without being
 mistaken for any other of the primary alphabetical symbols. The rotated
@@ -93,6 +98,8 @@ Copyright Iain M. Banks
 [^1]: No definitive publication date or original source has been found.
 The essay is mentioned across multiple fan and reference sites but without
 a date in any case. Sources consulted: 
+- [Mostral - artikel via Web Archive](http://homepages.compuserve.de/Mostral/artikel/marain.html), 05 JAN 2002
+- [Language Maker - Marain via Web Archive](https://web.archive.org/web/20061117220107/http://www.langmaker.com/db/Marain), 17 NOV 2006
 - [The Culture Wiki](https://theculture.fandom.com/wiki/A_Few_Notes_on_Marain), 17 FEB 2011
 - [trevor-hopkins.com via Web Archive](https://web.archive.org/web/20131029191550/http://trevor-hopkins.com/banks/a-few-notes-on-marain.html), 29 OCT 2013
 - [HackerNews](https://news.ycombinator.com/item?id=18704377), 18 DEC 2018
