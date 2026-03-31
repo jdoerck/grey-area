@@ -75,7 +75,7 @@ Of 512 possible 3×3 binary states, exactly **8 are fully invariant** under all 
 
 | Code | Name | Pattern | Proposed meaning |
 |------|------|---------|-----------------|
-| `#0` | **Empty** | `░░░ ░░░ ░░░` | Silence · null · word space |
+| `#0` | **Empty** · *nuul* | `░░░ ░░░ ░░░` | Silence · null · word space |
 | `#16` | **Point** | `░░░ ░█░ ░░░` | Singularity · decimal point |
 | `#170` | **Diamond** | `░█░ █░█ ░█░` | Danger · hazard |
 | `#186` | **Cross** | `░█░ ███ ░█░` | Alert · stop |
@@ -90,7 +90,7 @@ The pairs are semantic inverses: Empty↔Full, Point↔Frame, Diamond↔Checkerb
 
 | Glyph | Suggested level (0–8) |
 |-------|-----------------------|
-| Empty `#0` | 0 — silence / null |
+| Empty `#0` · *nuul* | 0 — silence / null |
 | Point `#16` | 1–2 — minimal signal |
 | Frame `#495` | 3–4 — structural container |
 | Corners `#325` | 5 — boundary / perimeter |
@@ -264,6 +264,29 @@ Non-verbal communication glyphs organized into four categories. Unicode equivale
 
 ### Numerals
 
+#### marainkit — base 8 (octal)
+
+Eight digits, 0–7. **Sequential-fill rule:** digit *n* = exactly *n* filled cells, reading order left→right top→bottom. Count the dots to read the digit. Visual progression is a tally filling the grid row by row. Consistent with Banks' base-8 system and his two implied values (#0 = zero, #1 = one). Digit 7 = #127 — stops one cell short of the Full invariant (#511). See [`glyph-index.md`](glyph-index.md) for index entries and full rationale.
+
+Digit names adopted from zakalwe2040[^3] — standard Mandarin pinyin, digits 0–7 only (8 and 9 do not exist in base 8).
+
+| Digit | Name | # | Glyph | Binary |
+|-------|------|---|-------|--------|
+| 0 | *líng* | 0 | `░░░`<br>`░░░`<br>`░░░` | `000000000` |
+| 1 | *yī* | 1 | `█░░`<br>`░░░`<br>`░░░` | `100000000` |
+| 2 | *èr* | 3 | `██░`<br>`░░░`<br>`░░░` | `110000000` |
+| 3 | *sān* | 7 | `███`<br>`░░░`<br>`░░░` | `111000000` |
+| 4 | *sì* | 15 | `███`<br>`█░░`<br>`░░░` | `111100000` |
+| 5 | *wǔ* | 31 | `███`<br>`██░`<br>`░░░` | `111110000` |
+| 6 | *liù* | 63 | `███`<br>`███`<br>`░░░` | `111111000` |
+| 7 | *qī* | 127 | `███`<br>`███`<br>`█░░` | `111111100` |
+
+Each glyph in a number sequence is one octal digit. Multi-digit numbers read left to right: the leftmost glyph is the largest group.[^11]
+
+---
+
+#### zakalwe2040 — base 10 (decimal)
+
 **Decimal** (0–9). Names borrowed from **Mandarin Chinese**. Written **right to left**. The digit names follow Mandarin; the numbering system beyond single digits does not.[^3]
 
 Note: Banks explicitly states that Marain encodes numbers in **base 8 (octal)**. zakalwe2040 uses base 10. These are architecturally incompatible choices — see design notes below.
@@ -351,7 +374,7 @@ Patterns extracted from zakalwe2040 SVGs: `numerals.svg`, `binary-operators.svg`
 |---|-----------------------|----------|---------|---------|
 | 170 | **Diamond** — danger · hazard | `+` | arithmetic | Homoiconic argument for `+`: a diamond is a rotated plus. But marainkit treats Diamond as a warning glyph. |
 | 186 | **Cross** — alert · stop | `iz` (copula) | equality | "To be" sharing a value with "stop" is a hard semantic conflict. |
-| 341 | **Checkerboard** — noise · interference | digit `0` | numerals | marainkit already reserves #0 (Empty) for zero/null. #341 for zero is a deliberate departure. |
+| 341 | **Checkerboard** — noise · interference | digit `0` | numerals | marainkit already reserves #0 (Empty, *nuul*) for zero/null. #341 for zero is a deliberate departure. |
 | 495 | **Frame** — enclosure · container | `*` | arithmetic | Less obvious homoiconic reading (multiplication as enclosure?). |
 
 **Conflicts with Banks**
@@ -367,8 +390,8 @@ Patterns extracted from zakalwe2040 SVGs: `numerals.svg`, `binary-operators.svg`
 Banks states explicitly that Marain encodes numbers in base 8. zakalwe2040 uses base 10 (10 digits, Mandarin names). This is the most fundamental structural split in the zakalwe2040 extensions — it cannot be resolved by reassigning a single value.
 
 - Banks' base-8 requires 8 digit glyphs (0–7). Any 8 values could work; none have been published.
-- zakalwe2040's base-10 requires 10 digit glyphs, two of which land on marainkit invariants (#341 for digit 0, and indirectly #341 again conflicts with marainkit's own #0 = zero/null assignment).
-- marainkit tentatively treats #0 (Empty) as zero/null — consistent with Banks' base-8 where "empty = zero". zakalwe2040 chose Checkerboard (#341) for digit 0 instead, possibly to keep #0 as a word-space or separator distinct from a numeric zero.
+- zakalwe2040's base-10 requires 10 digit glyphs, two of which land on marainkit invariants (#341 for digit 0, and indirectly #341 again conflicts with marainkit's own #0 (*nuul*) = zero/null assignment).
+- marainkit treats #0 (Empty, *nuul*) as zero/null — consistent with Banks' base-8 where "empty = zero". zakalwe2040 chose Checkerboard (#341) for digit 0 instead, possibly to keep #0 as a word-space or separator distinct from a numeric zero.
 
 ---
 
@@ -442,6 +465,8 @@ TrueType implementation of Banks' glyph alphabet. No published glyph table in th
 [^3]: zakalwe2040, *Tonal Marain: Language of the Culture*, [github.com/zakalwe2040/marain](https://github.com/zakalwe2040/marain). All Tonal Marain glyph names, phonemes, emoting glyphs, numerals, and operator definitions in this document are sourced from that repo's README. Community work — not endorsed by the Banks estate.
 
 [^4]: Reference cited by zakalwe2040: Centre for Mathematical Cognition, Loughborough University — research on cognitive advantages of symmetric mathematical symbols. The original paper is linked in the zakalwe2040 README.
+
+[^11]: **Base 8 counting primer.** In base 8 there are only 8 digits (0–7) — no 8 or 9. After 7, the ones column resets to 0 and the next column ticks up: 7 → 10 → 11 → ... → 17 → 20. Each column is worth 8× the column to its right (ones · eights · sixty-fours · 512s), vs 10× in decimal. So octal `10` = eight things, octal `20` = sixteen things, octal `100` = sixty-four things. The written symbols look the same as decimal but represent different quantities — in Marain there is no decimal system to cause confusion, so the notation is unambiguous.
 
 [^5]: Reddit users u/comradelenin456 and u/ratioprosperous, via r/TheCulture and r/Marain. Non-canonical synthetic grammar built on Banks' alphabet. No independent glyph extensions.
 

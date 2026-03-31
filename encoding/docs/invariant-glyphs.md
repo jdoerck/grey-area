@@ -19,7 +19,7 @@ They divide naturally into two vocabularies.
 
 | Code | Name | Role | Meaning | Pattern |
 |------|------|------|---------|---------|
-| `#0` | **Empty** | structural | silence / null / word space | `░░░` `░░░` `░░░` |
+| `#0` | **Empty** · *nuul* | structural | silence / null / word space | `░░░` `░░░` `░░░` |
 | `#16` | **Point** | structural | singularity / decimal point | `░░░` `░█░` `░░░` |
 | `#495` | **Frame** | structural | enclosure / bracket / container | `███` `█░█` `███` |
 | `#511` | **Full** | structural | full stop / header marker / maximum | `███` `███` `███` |
@@ -48,7 +48,7 @@ The base-9 index in the display layer maps naturally:
 
 | Glyph | Suggested state level |
 |-------|-----------------------|
-| Empty `#0` | 0 — silence / null |
+| Empty `#0` · *nuul* | 0 — silence / null |
 | Point `#16` | 1–2 — minimal signal |
 | Diamond `#170` | 5–6 — attention/warning boundary |
 | Cross `#186` | 6–7 — clear warning |

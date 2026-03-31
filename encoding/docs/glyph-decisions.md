@@ -12,11 +12,10 @@ Items that require a decision before a marainkit encoding layer can be built. In
 
 | # | marainkit / Banks | zakalwe2040 | Conflict |
 |---|-------------------|-------------|---------|
-| 16 | Point invariant · Banks *ng* | digit `.` (decimal point) | Banks phoneme shares value with marainkit invariant. Z agrees on decimal point meaning — this is the one cross-system agreement. `[I]` |
 | 121 | Banks *w* — only explicitly confirmed canonical value | digit `3` | Z's decimal numeral 3 occupies the single most important confirmed value in the system. Eliminated if base-8 is chosen. |
 | 170 | Diamond invariant | `+` (addition) | Z assigns addition to Diamond. Homoiconic (diamond = rotated plus) but burns a warning invariant. `[I]` |
 | 186 | Cross invariant · Banks *th* | `iz` (copula — to be) | Two separate sources assign different phonemes to the same invariant. No homoiconic justification for *iz* = Cross. `[I]` |
-| 341 | Checkerboard invariant | digit `0` | Z's decimal zero occupies Checkerboard. marainkit already treats #0 (Empty) as zero/null — two competing zeros. `[I]` |
+| 341 | Checkerboard invariant | digit `0` | Z's decimal zero occupies Checkerboard. marainkit already treats #0 (Empty, *nuul*) as zero/null — two competing zeros. `[I]` |
 | 495 | Frame invariant | `×` (multiplication) | No strong justification. Frame as "enclosure" is a stretch for multiplication. `[I]` |
 | 511 | Full invariant · marainkit "maximum/critical" | *wa* (bilabial approximant) | Z assigns the all-filled glyph to the most common consonant. Directly contradicts Banks #121 for *w*. `[I]` |
 
@@ -197,7 +196,7 @@ Items that were open and are now confirmed. Recorded for reference.
 | Brackets | **Adopted** | All 8 values (81, 276, 211, 406, 251, 446, 479, 503). No conflicts. |
 | Logic operators | **Adopted** | `&` #284, `\|` #113, `!` #343. *iz* (#186) excluded pending reassignment. |
 | Equality | **Adopted** | `=` #63, `:=` #191. *iz* excluded. |
-| `.` = #16 | **Confirmed** | Triple agreement: Banks decimal point, marainkit Point, zakalwe2040 period. |
+| `.` = #16 | **Accepted** | Triple agreement: Banks decimal point, marainkit Point, zakalwe2040 period. Only cross-system agreement in the entire index. *ng* phoneme shares the value — not a conflict, phoneme and punctuation registers don't collide. |
 
 ---
 

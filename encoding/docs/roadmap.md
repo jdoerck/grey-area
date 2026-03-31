@@ -79,7 +79,7 @@ Banks' approximate image reads assign:
 - Reassign the phonemes to non-invariant values, freeing the invariants for structural use only.
 - Treat Banks' image reads for these three as incorrect and let marainkit meanings stand.
 
-**Note:** *ng* = #16 as decimal point is the only case where dual meaning is genuinely complementary (#16 is Point; a decimal point is a point). The *oh*/#170 and *th*/#186 collisions are harder to justify.
+**Note:** *ng* = #16 as decimal point / period is **accepted** — triple agreement across Banks, marainkit, and zakalwe2040. The phoneme and punctuation registers don't collide. The *oh*/#170 and *th*/#186 collisions are harder to justify and remain open.
 
 ---
 
@@ -108,7 +108,7 @@ Once base-8 is confirmed, 8 digit values (#0–#7 in Banks' system) need to be a
 - Use a visually progressive sequence (each digit adds one filled cell from #0 = empty).
 - Assign freely, prioritising avoiding all invariants and confirmed phoneme values.
 
-**Note:** marainkit already treats #0 (Empty) as zero/null. This should anchor the digit-0 assignment: #0 = 0. Conflicts with zakalwe2040's digit-0 = #341 (Checkerboard) — accepting base-8 means zakalwe2040's numeral-0 is simply not adopted.
+**Note:** marainkit already treats #0 (Empty, *nuul*) as zero/null. This should anchor the digit-0 assignment: #0 = 0. Conflicts with zakalwe2040's digit-0 = #341 (Checkerboard) — accepting base-8 means zakalwe2040's numeral-0 is simply not adopted.
 
 ---
 

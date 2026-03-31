@@ -1,11 +1,10 @@
-# exclude third-party SVG sources in docs/assets only
-# display/themes assets (icons, logos) are tracked
+# exclude third-party sources
 docs/assets/*.svg
+display/fonts/examples
+display/themes/culture/fonts
+
 .claude/
 __pycache__/
 node_modules/
 .DS_Store
 .venv/
-
-display/fonts/examples
-display/themes/culture/fonts
