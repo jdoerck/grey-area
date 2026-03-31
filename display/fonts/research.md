@@ -172,9 +172,11 @@ At screen resolutions (historically ~110–135 ppi, now improving with HiDPI dis
 
 ---
 
-## 5. Implications for the Marain Font
+## 5. Implications for Marain Glyph Renderers
 
-### 5.1 The Marain Glyph Challenge
+A Marain font is a renderer for the canonical 3×3 binary glyph set — it does not define glyphs, it visualises them. User preference and medium resolution (PPI) determine which font is used. The principles below apply to any compliant renderer.
+
+### 5.1 The Marain Rendering Challenge
 
 A Marain font operates under constraints that neither reference font faces:
 

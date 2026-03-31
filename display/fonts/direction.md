@@ -35,11 +35,13 @@ pip install fonttools ufoLib2
 
 ## What we're building
 
-A Marain script font — custom glyphs for the Marain writing system from Iain M. Banks'
-Culture novels. Not a transliteration of English. A visual symbol set for the base-9
-encoding system in `encoding/`.
+A Marain **font** — a renderer that takes a glyph index (0–511) and produces visual output for a given medium.
 
-This is not a traditional .otf/.ttf font. It is a **rendering function** — a module that takes a 9-bit value and a rendering context and produces SVG, Canvas, or CSS output. See `font-spec.md §10` for implementation notes.
+Glyphs are defined by the encoding layer: each 9-bit binary state maps to a canonical 3×3 filled/empty-cell pattern. The font does not define glyphs — it renders them. Multiple fonts can coexist for the same glyph set (screen, print, carved, LED), each constrained only by whether the medium can resolve a 3×3 grid at the required size.
+
+The primary constraint is **medium resolution (PPI or equivalent)** — can the output medium show 9 individually distinguishable cells? Everything else (cell shape, gap, colour, weight) is user preference.
+
+This is not a traditional .otf/.ttf file. It is a **rendering function** — a module that takes a glyph index and a rendering context and produces SVG, Canvas, CSS, or physical output instructions. See `font-spec.md §10` for the full architecture.
 
 The key advantage: **Marain is grid-based**, not organic. Each glyph is a pattern of
 filled/empty cells on a fixed grid. This means glyphs can be defined as data and the

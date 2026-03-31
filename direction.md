@@ -35,16 +35,18 @@ See each subproject's `direction.md` for scope, rules, and priority queue.
 
 ## How the subprojects connect
 
-**language** → *encoding* → **display**
+**language** → *encoding* → **glyph** → **font** → **display**
 
 - `language/` defines the linguistic raw material: grammar, phonemes, translated content
-- `encoding/` is the rosetta stone: converts that material into base-9 binary grid form
-- `display/` renders output and provides the context-adaptive visual system
+- `encoding/` converts that material into 9-bit binary glyph indices (0–511); each index maps to a canonical 3×3 binary-grid representation — this is the **glyph**
+- A **font** is a renderer: it takes a glyph index and produces visual output for a specific medium; fonts are chosen by user preference and constrained only by the resolution of the medium (PPI or equivalent)
+- `display/` provides the context-adaptive visual system — the token layer, context model, and status escalation that govern how fonts render within a given context
+
+The glyph is the stable canonical unit. It exists independently of any font or display technology — it can be rendered on screen, carved in stone, woven into fabric, or transmitted as a radio bitstream. The font is just one way to make it visible.
 
 Integration points:
 - The base-9 index maps directly to the status escalation system in the display layer:
   `0–2` neutral · `3–5` attention · `6–7` warning · `8` critical
-- Marain glyph output from `encoding/` could become a rendering target in `display/`
 - Both share the principle: structure carries meaning, decoration does not
 
 Cross-cutting specs live in `docs/` at this root when they span both subprojects.

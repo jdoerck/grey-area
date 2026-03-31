@@ -1,4 +1,4 @@
-# Font Specification: Marain Display Font
+# Marain Glyph Rendering Specification
 
 > **Version:** 0.1 (draft)
 > **Status:** Early spec — principles and constraints defined; glyph design not yet begun.
@@ -8,11 +8,23 @@
 
 ## 1. Purpose
 
-This document specifies the design principles, constraints, and technical requirements for the flagship Marain display font — the typeface that renders 3×3 binary glyphs in the marainkit ecosystem.
+This document specifies the requirements that any compliant Marain **font** (renderer) must satisfy.
 
-The font's job is to make Marain's 512-state glyph space legible, distinctive, and beautiful across the full range of display contexts defined in the Marain context model.[^context-model]
+### Architecture
 
-This is not a Latin typeface. It is a **glyph rendering system** for a binary grid script. Many conventions of Latin type design do not apply. Where they do apply (as principles rather than techniques), this spec explains the transfer.
+```
+encoding layer        glyph                  font (renderer)        medium output
+9-bit binary    →     3×3 canonical    →     user / medium    →     screen · print
++ begin/end bit       representation         preference             carve · weave · transmit
+```
+
+**Glyphs** are defined by the encoding layer — canonical 3×3 binary-grid representations identified by their 9-bit index (0–511). They exist independently of any rendering technology. A glyph is not owned by a font.
+
+**Fonts** are renderers. A font takes a glyph index, a rendering context, and a medium, and produces visual output. Multiple fonts can coexist for the same glyph set — a dot font, a square font, a carved-stone font, an LED font. The user or medium determines which font is appropriate.
+
+**Medium constraints** are the only hard technical constraint on fonts: can the medium resolve the 3×3 grid? This is a question of PPI (or equivalent resolution unit for non-screen media). Everything else — cell shape, gap, colour, weight — is user preference within that constraint.
+
+This is not a Latin typeface. It is a **glyph rendering specification** for a binary grid script. Many conventions of Latin type design do not apply. Where they do apply (as principles rather than techniques), this spec explains the transfer.
 
 ---
 
@@ -288,11 +300,13 @@ Render test strings of 9+ glyphs in each display context defined in the context 
 
 ## 10. Implementation Notes
 
-### 10.1 Not a Traditional Font File
+### 10.1 Fonts Are Renderers, Not Definitions
 
-The Marain glyph font is not a .otf/.ttf font. It is a **rendering function** that takes a 9-bit value and a rendering context and produces SVG, Canvas, or CSS output. The "font" is a module in the Grey Area encoder or a standalone rendering library.
+A Marain font does not define glyphs — it renders them. Glyph definitions live in the encoding layer (9-bit index → 3×3 binary state). A font receives a glyph index and a medium context and produces output.
 
-This is consistent with the project's existing architecture: Grey Area already produces SVG/GIF output from binary input.[^grey-area] The font spec defines the rendering rules that this output must follow.
+A font is not a .otf/.ttf file in the traditional sense. It is a **rendering function** — a module that takes a glyph index, rendering context, and medium parameters and produces SVG, Canvas, CSS, or physical output instructions. Multiple independent font implementations can coexist, each optimised for a different medium or aesthetic preference, all referencing the same canonical glyph definitions.
+
+This is consistent with the project's existing architecture: Grey Area already produces SVG/GIF output from binary input.[^grey-area] This spec defines the rendering contract any such function must honour.
 
 ### 10.2 Token Integration
 
