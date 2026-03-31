@@ -30,6 +30,7 @@ pip install fonttools ufoLib2
 
 - [`font-spec.md`](font-spec.md) — design principles, rendering requirements, glyph space inventory, vocabulary tiers, testing requirements. **Start here before any build work.**
 - [`research.md`](research.md) — deep analysis of Atkinson Hyperlegible and Intel One Mono: what makes them exceptional, shared legibility principles, and what transfers to a Marain grid font.
+- [`cjk-mixed-scripts.md`](cjk-mixed-scripts.md) — research into Japanese/Chinese/Korean mixed-script systems and CJK font design. Contains specific recommendations for optical weight normalisation, mixed-mode visual rhythm, invariant glyphs as radicals, and macro layout as syllable block.
 
 ---
 

@@ -3,6 +3,8 @@
 > **Purpose:** Deep analysis of the two reference fonts for marainkit's display layer — what makes them exceptional, how they democratise viewing, and what principles transfer to a flagship Marain font.
 >
 > **Context:** These fonts are locked in the Marain display spec[^readme] as Atkinson Hyperlegible (UI/content) and Intel One Mono (code/tokens). Understanding *why* they work is prerequisite to designing a Marain glyph font that inherits their accessibility DNA.
+>
+> **See also:** [`cjk-mixed-scripts.md`](cjk-mixed-scripts.md) — companion research covering Japanese/Chinese/Korean mixed-script systems and CJK font design. Together these documents form the full research base for the Marain rendering spec.
 
 ---
 

@@ -5,6 +5,7 @@ A catalogue of claimed Marain glyphs, symbols, and phonemes across canonical and
 For a lookup table of all assigned values by decimal index, see [`glyph-index.md`](glyph-index.md).
 For the cross-system comparison tables and design discussion, see [`glyph-decisions.md`](glyph-decisions.md).
 For the decision backlog and roadmap, see [`roadmap.md`](roadmap.md).
+For the 16-bit word structure and channel architecture (upper, lower, preceding bits), see [`channels.md`](channels.md).
 
 ---
 

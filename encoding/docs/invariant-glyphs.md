@@ -37,10 +37,34 @@ For rendering implications — how these glyphs behave across display contexts, 
 
 ---
 
+## Invariant Glyphs as a Radical Vocabulary
+
+Chinese writing uses 214 Kangxi radicals as composable semantic classifiers — a finite set of structural units that appear alongside content characters to signal categorical meaning (the water radical 氵 before a character indicates "water-related"). These are not decorative: they reduce ambiguity and aid reading speed by establishing semantic context before the reader processes the full character.
+
+The 8 invariant glyphs are natural candidates for an equivalent function in Marain's Column B. Proposed roles:
+
+| Invariant glyph | As radical: semantic domain |
+|-----------------|----------------------------|
+| Empty `#0` · *nuul* | null / silence / separator |
+| Point `#16` | singularity / reference / anchor |
+| Diamond `#170` | caution / hazard domain |
+| Cross `#186` | alert / stop / prohibition |
+| Corners `#325` | boundary / scope / container |
+| Checkerboard `#341` | maximum intensity / noise |
+| Frame `#495` | structural / enclosure |
+| Full `#511` | completion / assertion / header |
+
+A preceding invariant glyph would indicate the semantic domain of the following phonemic sequence — functioning exactly as CJK radicals do. This role should be considered when Column B vocabulary is assigned.
+
+See [`display/fonts/cjk-mixed-scripts.md §3.4`](../../display/fonts/cjk-mixed-scripts.md) and [`font-spec.md §3.5`](../../display/fonts/font-spec.md) for the full rationale.
+
+---
+
 ## Open Questions
 
 - Should the 8 invariant glyphs be reserved / highlighted in Column A output?
 - Map invariant glyphs to state escalation scale: warning vocabulary → levels 6–8?
+- Formalise the radical vocabulary role: are invariant glyphs *always* domain markers in Column B, or optionally so?
 
 ---
 

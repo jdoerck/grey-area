@@ -60,6 +60,8 @@ APPROACH 3: Radial / Fractal (Mind-level ideal)
 
 Approach 2 maps onto the base-9 structure naturally, is readable from any edge, and does not require a UI change to the glyph renderer — just a change to how glyphs are arranged in the output grid.
 
+**The Hangul precedent:** Korean Hangul composes 2–4 phonetic letters (jamo) into square syllable blocks — the same principle as Approach 2, and it has been the dominant writing system of a major civilisation for six centuries. A reader processes the block as a unit (recognising the morpheme) before decomposing it into its constituent phonetic parts. A macro 3×3 group of Marain glyphs could function identically: the group is a "word" or morpheme unit, with tighter intra-group spacing and looser inter-group spacing creating the same density rhythm. See [`display/fonts/cjk-mixed-scripts.md §3.3`](../../display/fonts/cjk-mixed-scripts.md) for the full analysis.
+
 Approach 3 is intellectually correct but not practical for human readers or current tooling. Defer indefinitely.
 
 ---

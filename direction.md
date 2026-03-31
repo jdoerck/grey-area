@@ -57,3 +57,32 @@ Cross-cutting specs live in `docs/` at this root when they span both subprojects
 
 Collected Marain and UI fonts live in `Fonts/` at the repo root. Not tracked in git (third-party,
 unlicensed for redistribution). Reference only.
+
+---
+
+## AI tooling conventions
+
+This project uses Claude Code (and may use other AI tools in future). Any AI working in this repo must follow these conventions.
+
+### CLAUDE.md files
+
+Claude Code requires a file named `CLAUDE.md` to load project context. The filename is hardcoded.
+
+**Do not put content directly in a `CLAUDE.md` file.** Instead:
+
+1. Create a `direction.md` alongside it containing the actual guidance.
+2. Make the `CLAUDE.md` a single-line import shim:
+   ```
+   @direction.md
+   ```
+   (At the repo root, the root `CLAUDE.md` imports `@direction.md` in the same directory.)
+
+This keeps all project guidance in tool-agnostic files that any human, AI, or future tool can read without knowing what Claude Code is. See `docs/ai-tooling.md` for the full rationale.
+
+### Adding a new subproject
+
+If you create a new subdirectory that needs AI context:
+
+1. Create `<dir>/direction.md` with the subproject guidance.
+2. Create `<dir>/CLAUDE.md` containing only `@direction.md`.
+3. Add the subproject to the table in this file and to `docs/ai-tooling.md`.

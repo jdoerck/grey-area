@@ -43,6 +43,18 @@ The actual content lives in `direction.md` files named and located on the projec
 
 ---
 
+## Transparency and community
+
+The `CLAUDE.md` and `direction.md` files are committed to the repository in full and in the open. This is intentional.
+
+The direction these files set is not owned by any individual contributor or tool vendor. Anyone reading this project — whether as a potential contributor, a community member, or a future maintainer — can see exactly what instructions are being given to AI tools working on this codebase, and why.
+
+Changes to `direction.md` files are open for discussion. If a community grows around this project, those files are as much a community document as any other part of the spec.
+
+> Note: `CLAUDE.md` files contain an HTML comment explaining this — but HTML comments are invisible when rendered on GitHub. This section exists to make that reasoning visible to anyone browsing the project without reading raw source.
+
+---
+
 ## If you use a different AI tool
 
 `direction.md` files are plain markdown. Any AI assistant, human reader, or future tool can be pointed at them directly without knowing what Claude Code is.
@@ -52,3 +64,9 @@ The actual content lives in `direction.md` files named and located on the projec
 ## If Claude Code changes its conventions
 
 If Anthropic updates Claude Code to support configurable filenames or a different context mechanism, the `CLAUDE.md` shims can be removed or updated without touching any content. All project guidance stays intact in the `direction.md` files.
+
+---
+
+## Where this convention is enforced
+
+The rule — "CLAUDE.md is a shim; content lives in direction.md" — is written into the root `direction.md` under **AI tooling conventions**. Any AI reading project context before doing work will receive these instructions directly, without needing to find this document first.

@@ -14,9 +14,15 @@ This document specifies the requirements that any compliant Marain **font** (ren
 
 ```
 encoding layer        glyph                  font (renderer)        medium output
-9-bit binary    →     3×3 canonical    →     user / medium    →     screen · print
-+ begin/end bit       representation         preference             carve · weave · transmit
+16-bit word     →     3×3 slate        →     user / medium    →     screen · print
+(9 slate bits +       (9 bits, 0–511)        preference             carve · weave · transmit
+ 3 upper + 3 lower
+ + 1 preceding)
 ```
+
+The 16-bit word carries more than the slate. The upper (3 bits), lower (3 bits), and preceding (1 bit) channels are reserved for future semantic content — vowel diacritics, tonal information, context markers. See `encoding/docs/channels.md` for the full structure.
+
+**M1 fonts render the slate only.** Extended fonts may optionally render channel information, but channels are always visually subordinate to the slate.
 
 **Glyphs** are defined by the encoding layer — canonical 3×3 binary-grid representations identified by their 9-bit index (0–511). They exist independently of any rendering technology. A glyph is not owned by a font.
 
@@ -115,6 +121,8 @@ These glyphs must:
 
 **Rationale:** Atkinson Hyperlegible's circular motifs reference braille dots — a visual link to the font's institutional origin that also serves a functional purpose (increasing dot salience).[^braille-inst] The Marain invariant glyphs serve an analogous dual role: they are structurally unique *and* carry the highest-stakes meaning in the system.
 
+**Invariant glyphs as a radical vocabulary:** Chinese writing uses 214 Kangxi radicals as composable semantic classifiers — a finite set of sub-glyph units that appear alongside content characters to indicate categorical meaning (e.g., the water radical signals "this character is water-related").[^cjk-mixed] The 8 invariant glyphs are natural candidates for an equivalent function in Column B: preceding a phonemic sequence with an invariant glyph could indicate its semantic domain (warning, structural, metadata). This role should be considered when Column B vocabulary is assigned.
+
 ### 3.6 Generous Space Is a Feature
 
 Both reference fonts use generous spacing as a deliberate legibility strategy. Intel One Mono's line-height and letter-spacing are wider than most monospace fonts, allowing text to breathe during hours of reading.[^pimpmytype] Atkinson Hyperlegible's careful kerning creates even rhythm without crowding.[^wiki-ah]
@@ -125,6 +133,35 @@ The Marain font applies this principle at two levels:
 - **Inter-glyph gap:** The space between adjacent glyphs. In linear layout, this is straightforward. In macro 3×3 grid layout, it is the gap between glyph positions in the outer grid.
 
 Spacing must be **token-driven** — defined as CSS custom properties / Style Dictionary tokens, not hardcoded values — to support the context model's rendering adaptation.[^cross-cutting]
+
+### 3.7 Optical Weight Normalisation
+
+A Marain glyph stream intermixes states from #0 (empty) to #511 (all cells filled). Without compensation, high-fill glyphs (7–9 filled cells) appear visually heavier than low-fill glyphs, creating uneven texture in continuous text.
+
+CJK font design addresses the identical problem: a 29-stroke character and a 1-stroke character at the same point size would look dramatically mismatched without per-glyph optical compensation.[^cjk-mixed]
+
+**Proposed mechanism:** Apply a subtle fill-count-based scaling factor to cell size:
+
+| Fill count | Cell size adjustment |
+|------------|---------------------|
+| 1–3 filled | +5% (cells render slightly larger) |
+| 4–6 filled | ±0% (nominal) |
+| 7–9 filled | −5% (cells render slightly smaller) |
+
+The adjustment must be imperceptible in isolation but produce a more even perceived density in a continuous glyph stream. It is a *rendering* parameter — the 9-bit glyph value is unchanged.
+
+### 3.8 Mixed-Mode Visual Rhythm
+
+When Column A (arbitrary binary encoding) and Column B (phonemic encoding) glyphs appear in the same stream, the transition between modes creates a detectable visual shift. This should be treated as a feature, not a problem.
+
+Japanese writing demonstrates that alternating between dense logographic glyphs (kanji) and lighter phonetic characters (kana) creates a visual rhythm that aids parsing — in a language written without spaces, the script-switching *is* the word-boundary signal.[^cjk-mixed]
+
+**Recommendation:** Column A and Column B rendering contexts should produce subtly different visual textures:
+
+- **Column A:** default rendering — filled-square cells, standard padding
+- **Column B:** slightly increased inter-glyph padding, or the `dot` cell variant — producing a lighter texture that signals "this segment is phonemic content"
+
+This distinction requires no change to the encoding. It is a rendering-layer choice driven by the `type` context axis.
 
 ---
 
@@ -356,3 +393,4 @@ All rendering parameters (cell size, gap, fill colour, background, padding) must
 - [^counter-principle]: Derived from counter-space research; see notes.md §4.2.
 - [^readability-matters]: Readability Matters. "How important is x-height for font legibility?" May 2025.
 - [^dw-2021]: Design Week. "Designing a typeface for the visually impaired." August 2021.
+- [^cjk-mixed]: See [`cjk-mixed-scripts.md`](cjk-mixed-scripts.md) — full analysis of CJK mixed-script systems and their implications for Marain font design.
