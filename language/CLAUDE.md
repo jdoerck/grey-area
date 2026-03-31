@@ -8,7 +8,7 @@ The linguistic layer: grammar, phonemes, translations, and canonical Marain prop
 
 ## What Marain Is
 
-Marain is the constructed language of the Culture — **engineered rather than evolved**. The Culture's hyperintelligent Minds designed it from scratch to exploit the Sapir-Whorf hypothesis: that language shapes society.
+Marain is the constructed language of the Culture — **engineered rather than evolved**. The Culture's hyperintelligent AI Minds designed it from scratch to exploit the Sapir-Whorf hypothesis: that language shapes society.
 
 **Canonical properties:**
 - Written in a **3×3 matrix** of cells, each in one of three states (ternary / base-9)

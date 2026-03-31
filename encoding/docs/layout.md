@@ -19,7 +19,7 @@ Marain glyphs are rotation-invariant by design. This has real consequences for l
 Partly — but defensibly so:
 
 - **Chauvinistic part:** Assuming "human-readable" implies linear and paginated. Not universal even on Earth — Aztec codices radiate from centres; Chinese classical texts use columnar right-to-left layout.
-- **Defensible part:** M1 is the tier for ordinary Culture citizens, not Minds. Ordinary Culture citizens still have two forward-facing eyes and a brain hemisphere that strongly prefers sequential processing. Linearity at M1 is *mammal* chauvinism, not Western chauvinism.
+- **Defensible part:** M1 is the tier for ordinary Culture citizens, not AI Minds. Ordinary Culture citizens still have two forward-facing eyes and a brain hemisphere that strongly prefers sequential processing. Linearity at M1 is *mammal* chauvinism, not Western chauvinism.
 - **Banks' concession:** He wrote the Culture novels in English, in linear prose, for human readers. M1 being somewhat book-like is the same pragmatic concession.
 
 ### Ceremonial vs. density-optimised

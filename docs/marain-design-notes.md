@@ -7,7 +7,7 @@
 
 ## 1. What Marain Actually Is
 
-Marain is the constructed language of the Culture — but crucially, it was **engineered rather than evolved**. The Culture's hyperintelligent Minds designed it from scratch to exploit the Sapir-Whorf hypothesis: that language shapes society. Key canonical properties:
+Marain is the constructed language of the Culture — but crucially, it was **engineered rather than evolved**. The Culture's hyperintelligent AI Minds designed it from scratch to exploit the Sapir-Whorf hypothesis: that language shapes society. Key canonical properties:
 
 - Written in a **3×3 matrix** of cells, each in one of three states (ternary / base-9)
 - Glyphs are designed to be **readable in any orientation** — no privileged direction

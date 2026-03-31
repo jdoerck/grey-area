@@ -16,6 +16,9 @@ with the language's devising. It had, therefore, no specific links to
 any of the main languages spoken by the people who came together to make
 up the Culture as a civilisation, save those statistically likely.
 
+![Marain translation example](assets/marain-translation.png)
+
+
 ![Marain example glyphs from Iain M. Banks](assets/marain-example-banks.png)
 
 *© Iain M. Banks — Marain glyph table, from "A Few Notes on Marain"*
