@@ -103,7 +103,7 @@ Pattern notation: `█` = filled (1) · `░` = empty (0)
 
 [^1]: marainkit — derived from the mathematical/geometric properties of the 3×3 binary grid. These 8 values (#0, #16, #170, #186, #325, #341, #495, #511) are the only states fully invariant under all rotations and mirrors. See [`invariant-glyphs.md`](invariant-glyphs.md).
 
-[^2]: Iain M. Banks, *"A Few Notes on Marain"*. Full text at [`../../docs/A_Few_Notes_on_Marain.md`](../../docs/A_Few_Notes_on_Marain.md).
+[^2]: Iain M. Banks, *"A Few Notes on Marain"*. Full text at [`../../docs/source/a-few-notes-on-marain.md`](../../docs/source/a-few-notes-on-marain.md).
 
 [^3]: Banks writes "The number 1 would be shown as in figure 1" — figure 1 is an image not recoverable from plain text. `#1` (top-left cell only) is the most natural reading of a decimal 1 in LSB-first encoding, but is not confirmed.
 

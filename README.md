@@ -29,7 +29,7 @@ Marain is the constructed language of the Culture — **engineered rather than e
 
 **Encryption tiers:** M1 (public, all citizens) · M8–M16 (Contact Section) · M32 (Special Circumstances only). This project operates entirely at M1.
 
-**Canonical source:** Banks' essay *"[A Few Notes on Marain](./docs/A_Few_Notes_on_Marain.md)."*
+**Canonical source:** Banks' essay *"[A Few Notes on Marain](./docs/source/a-few-notes-on-marain.md)."*
 
 ---
 
@@ -178,9 +178,12 @@ marain/
 │   ├── docs/
 │   └── themes/culture/ ← working prototype
 ├── docs/               ← cross-cutting specs
-│   ├── marain-layers.md
-│   ├── marain-design-notes.md
-│   └── Marain_UI_Grammar_v0.1.md
+│   ├── source/         ← canonical reference (Banks essay, novel passages)
+│   ├── design-notes.md
+│   ├── layers.md
+│   ├── rationale.md
+│   ├── resources.md
+│   └── ui-grammar.md
 └── Fonts/              ← reference fonts (not tracked in git)
 ```
 

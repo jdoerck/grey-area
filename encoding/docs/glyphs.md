@@ -458,7 +458,7 @@ TrueType implementation of Banks' glyph alphabet. No published glyph table in th
 
 ---
 
-[^1]: Iain M. Banks, *"A Few Notes on Marain"*, published in *Scripta Manent* (date unknown). Full text at [`docs/A_Few_Notes_on_Marain.md`](../../docs/A_Few_Notes_on_Marain.md). Note: the *Scripta Manent* attribution appears across multiple fan sites but no publication date has been confirmed. See footnote in that document.
+[^1]: Iain M. Banks, *"A Few Notes on Marain"*, published in *Scripta Manent* (date unknown). Full text at [`docs/source/a-few-notes-on-marain.md`](../../docs/source/a-few-notes-on-marain.md). Note: the *Scripta Manent* attribution appears across multiple fan sites but no publication date has been confirmed. See footnote in that document.
 
 [^2]: marainkit project, derived geometrically from the 3×3 binary grid. See [`encoding/docs/invariant-glyphs.md`](invariant-glyphs.md). These values are a mathematical property of the grid, not a design decision — they would hold in any conforming implementation.
 

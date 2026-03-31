@@ -166,10 +166,33 @@ See [`layout.md`](layout.md). How a Mind would write. Not practical for current 
 
 ---
 
+## Beyond encoding — project rationale
+
+### [🟡] Develop rationale document
+
+[`docs/rationale.md`](../../docs/rationale.md) is a stub capturing the philosophical and practical motivations for marainkit: semantic specificity, equality of access, universalism, AI alignment, hardware efficiency, substrate-independent archival, resilience, accessibility, and longevity of meaning. Needs expansion through discussion.
+
+---
+
+### [🟡] Dictionary — implement concept-ID model
+
+Architecture decided (see [`docs/rationale.md`](../../docs/rationale.md) — Dictionary architecture section). Key decisions remaining:
+
+- Choose primary concept ID scheme: Wikidata Q-IDs, OMW synset IDs, or both
+- Define TSV schema (column order, required vs optional fields, versioning)
+- Decide snapshot strategy for offline/air-gapped translation
+- Build TSV → SQLite generation script
+
+**Principle:** dictionary maps Marain → concept ID. Translations are derived at query time, not stored. Canonical format is plain TSV; SQLite is a generated index.
+
+---
+
 ## Decision log
 
 *Record decisions here when made, with date and rationale.*
 
 | Date | Item | Decision | Rationale |
 |------|------|----------|-----------|
-| — | — | — | — |
+| 2026-03-31 | `#16` = point / period / decimal | Accepted | Triple agreement: Banks, marainkit, zakalwe2040. Phoneme *ng* coexists — registers don't collide. |
+| 2026-03-31 | Numerals | Base-8 (octal), sequential-fill rule, Mandarin names from zakalwe2040 | Consistent with Banks; eliminates #121 conflict; count-the-dots readable; *líng*–*qī* for 0–7. |
+| 2026-03-31 | *nuul* | Name for glyph #0 concept | Distinct from digit name *líng*; drawn-out vowel suits the held-silence meaning; exercises buffer-bit vowel system. |
