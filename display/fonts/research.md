@@ -208,24 +208,24 @@ Despite these constraints, several principles transfer directly:
 
 ## Footnotes
 
-[^readme]: marainkit/marain README.md — project architecture and spec decisions.
-[^braille-inst]: Braille Institute of America. "Read Easier With Our Family of Hyperlegible® Fonts." brailleinstitute.org/freefont (2025).
-[^dezeen]: Crook, Lizzie. "Atkinson Hyperlegible typeface is designed for visually impaired readers." Dezeen, 11 September 2020.
-[^fastco-2019]: Wilson, Mark. "This typeface hides a secret in plain sight. And that's the point." Fast Company, 19 September 2019.
-[^print-2025]: PRINT Magazine. "Atkinson Hyperlegible Next Expands on Low Vision Accessibility." February 2025. Interview with Brad Scott of Applied Design.
-[^grokipedia]: Grokipedia. "Atkinson Hyperlegible." Accessed March 2026.
-[^dw-2021]: Design Week. "Designing a typeface for the visually impaired." 2–8 August 2021. Interview with Elliott Scott.
-[^wiki-ah]: Wikipedia. "Atkinson Hyperlegible." Accessed March 2026.
-[^github-ah]: Google Fonts / Atkinson Hyperlegible GitHub repository. README.md.
-[^fontesk]: Fontesk. "Atkinson Hyperlegible Font Family." November 2020.
-[^tdc]: Type Directors Club. "Hyperlegible: Challenging Assumptions about Legibility and Accessibility." Event, March 2020.
-[^intel-page]: Intel Corporation. "Intel® One Mono — A monospace font designed to reduce eyestrain." intel.com.
-[^github-iom]: Intel Corporation. "intel/intel-one-mono" GitHub repository. README.md.
-[^fastco-2023]: M. Elissaveta Brandon. "Intel's Intel One Mono is a font designed for low-vision developers." Fast Company, 20 June 2023.
-[^fastco-ibd-2024]: Fast Company. "Innovation by Design 2024: Intel One Mono is designed to help low-vision developers code." 22 July 2024.
-[^vml]: VML. "The Font that Saves Eyes." Case study, vml.com.
-[^pimpmytype]: Schöndorfer, Oliver. "Intel One Mono (free font)." Pimp My Type, September 2023.
-[^readability-matters]: Readability Matters. "Research Highlight: How important is x-height for font legibility?" May 2025. Summarising TVA-based experimental findings.
-[^typography-guru]: Typography.Guru. "Does a large x-height make fonts more legible?" June 2015.
-[^scannerlicker]: Martins, Fábio Duarte. "On Legibility — In Typography And Type Design." Scannerlicker, 2014.
-[^pmc-case]: Arditi, Aries & Cho, Jianna. "Letter case and text legibility in normal and low vision." PMC / Vision Research, 2007.
+- [^readme]: marainkit/marain README.md — project architecture and spec decisions.
+- [^braille-inst]: Braille Institute of America. "Read Easier With Our Family of Hyperlegible® Fonts." brailleinstitute.org/freefont (2025).
+- [^dezeen]: Crook, Lizzie. "Atkinson Hyperlegible typeface is designed for visually impaired readers." Dezeen, 11 September 2020.
+- [^fastco-2019]: Wilson, Mark. "This typeface hides a secret in plain sight. And that's the point." Fast Company, 19 September 2019.
+- [^print-2025]: PRINT Magazine. "Atkinson Hyperlegible Next Expands on Low Vision Accessibility." February 2025. Interview with Brad Scott of Applied Design.
+- [^grokipedia]: Grokipedia. "Atkinson Hyperlegible." Accessed March 2026.
+- [^dw-2021]: Design Week. "Designing a typeface for the visually impaired." 2–8 August 2021. Interview with Elliott Scott.
+- [^wiki-ah]: Wikipedia. "Atkinson Hyperlegible." Accessed March 2026.
+- [^github-ah]: Google Fonts / Atkinson Hyperlegible GitHub repository. README.md.
+- [^fontesk]: Fontesk. "Atkinson Hyperlegible Font Family." November 2020.
+- [^tdc]: Type Directors Club. "Hyperlegible: Challenging Assumptions about Legibility and Accessibility." Event, March 2020.
+- [^intel-page]: Intel Corporation. "Intel® One Mono — A monospace font designed to reduce eyestrain." intel.com.
+- [^github-iom]: Intel Corporation. "intel/intel-one-mono" GitHub repository. README.md.
+- [^fastco-2023]: M. Elissaveta Brandon. "Intel's Intel One Mono is a font designed for low-vision developers." Fast Company, 20 June 2023.
+- [^fastco-ibd-2024]: Fast Company. "Innovation by Design 2024: Intel One Mono is designed to help low-vision developers code." 22 July 2024.
+- [^vml]: VML. "The Font that Saves Eyes." Case study, vml.com.
+- [^pimpmytype]: Schöndorfer, Oliver. "Intel One Mono (free font)." Pimp My Type, September 2023.
+- [^readability-matters]: Readability Matters. "Research Highlight: How important is x-height for font legibility?" May 2025. Summarising TVA-based experimental findings.
+- [^typography-guru]: Typography.Guru. "Does a large x-height make fonts more legible?" June 2015.
+- [^scannerlicker]: Martins, Fábio Duarte. "On Legibility — In Typography And Type Design." Scannerlicker, 2014.
+- [^pmc-case]: Arditi, Aries & Cho, Jianna. "Letter case and text legibility in normal and low vision." PMC / Vision Research, 2007.

@@ -336,23 +336,23 @@ All rendering parameters (cell size, gap, fill colour, background, padding) must
 
 ## Footnotes
 
-[^context-model]: marainkit/marain README.md §Display Layer — Context Model. Three axes: type, viewing, status.
-[^cross-cutting]: marainkit/marain README.md §Cross-cutting Principles. "Token-driven only," "States scale, don't shout," "Structure carries meaning."
-[^invariant-glyphs]: marainkit/marain README.md §Encoding Layer — Invariant Glyphs. 8 of 512 states invariant under D₄.
-[^encoding-layer]: marainkit/marain README.md §Encoding Layer. "Binary encoding is canonical. Glyphs are a debug view."
-[^grey-area]: marainkit/grey-area — working encoder (text → UTF-8 binary → SVG/GIF). Currently Layer 1, Column A.
-[^column-b]: marainkit/marain README.md §Open Questions — Language. Column B: phoneme picker UI.
-[^style-dictionary]: Style Dictionary — confirmed design token backbone for the Culture design system.
-[^pirate]: "Pirate eye patch" analogy — design for capability preservation across environmental transitions.
-[^apca]: APCA (Advanced Perceptual Contrast Algorithm) — recommended contrast model for the Culture design system.
-[^notes]: See companion document `notes.md` for full research analysis.
-[^dezeen]: Crook, Lizzie. "Atkinson Hyperlegible typeface is designed for visually impaired readers." Dezeen, 11 September 2020.
-[^fastco-2023]: M. Elissaveta Brandon. "Intel's Intel One Mono is a font designed for low-vision developers." Fast Company, 20 June 2023.
-[^fastco-ibd-2024]: Fast Company. "Innovation by Design 2024: Intel One Mono." 22 July 2024.
-[^wiki-ah]: Wikipedia. "Atkinson Hyperlegible." Accessed March 2026.
-[^braille-inst]: Braille Institute of America. "Read Easier With Our Family of Hyperlegible® Fonts." brailleinstitute.org/freefont (2025).
-[^github-iom]: Intel Corporation. "intel/intel-one-mono" GitHub repository. README.md.
-[^pimpmytype]: Schöndorfer, Oliver. "Intel One Mono (free font)." Pimp My Type, September 2023.
-[^counter-principle]: Derived from counter-space research; see notes.md §4.2.
-[^readability-matters]: Readability Matters. "How important is x-height for font legibility?" May 2025.
-[^dw-2021]: Design Week. "Designing a typeface for the visually impaired." August 2021.
+- [^context-model]: marainkit/marain README.md §Display Layer — Context Model. Three axes: type, viewing, status.
+- [^cross-cutting]: marainkit/marain README.md §Cross-cutting Principles. "Token-driven only," "States scale, don't shout," "Structure carries meaning."
+- [^invariant-glyphs]: marainkit/marain README.md §Encoding Layer — Invariant Glyphs. 8 of 512 states invariant under D₄.
+- [^encoding-layer]: marainkit/marain README.md §Encoding Layer. "Binary encoding is canonical. Glyphs are a debug view."
+- [^grey-area]: marainkit/grey-area — working encoder (text → UTF-8 binary → SVG/GIF). Currently Layer 1, Column A.
+- [^column-b]: marainkit/marain README.md §Open Questions — Language. Column B: phoneme picker UI.
+- [^style-dictionary]: Style Dictionary — confirmed design token backbone for the Culture design system.
+- [^pirate]: "Pirate eye patch" analogy — design for capability preservation across environmental transitions.
+- [^apca]: APCA (Advanced Perceptual Contrast Algorithm) — recommended contrast model for the Culture design system.
+- [^notes]: See companion document `notes.md` for full research analysis.
+- [^dezeen]: Crook, Lizzie. "Atkinson Hyperlegible typeface is designed for visually impaired readers." Dezeen, 11 September 2020.
+- [^fastco-2023]: M. Elissaveta Brandon. "Intel's Intel One Mono is a font designed for low-vision developers." Fast Company, 20 June 2023.
+- [^fastco-ibd-2024]: Fast Company. "Innovation by Design 2024: Intel One Mono." 22 July 2024.
+- [^wiki-ah]: Wikipedia. "Atkinson Hyperlegible." Accessed March 2026.
+- [^braille-inst]: Braille Institute of America. "Read Easier With Our Family of Hyperlegible® Fonts." brailleinstitute.org/freefont (2025).
+- [^github-iom]: Intel Corporation. "intel/intel-one-mono" GitHub repository. README.md.
+- [^pimpmytype]: Schöndorfer, Oliver. "Intel One Mono (free font)." Pimp My Type, September 2023.
+- [^counter-principle]: Derived from counter-space research; see notes.md §4.2.
+- [^readability-matters]: Readability Matters. "How important is x-height for font legibility?" May 2025.
+- [^dw-2021]: Design Week. "Designing a typeface for the visually impaired." August 2021.
