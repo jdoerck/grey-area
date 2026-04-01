@@ -163,6 +163,29 @@ Japanese writing demonstrates that alternating between dense logographic glyphs 
 
 This distinction requires no change to the encoding. It is a rendering-layer choice driven by the `type` context axis.
 
+### 3.9 Pattern-Aware Rendering for Invariant Glyphs
+
+The binary pattern is the **data**. The visual form is an **interpretation**. For most glyphs a connected-square render is honest and neutral — it faithfully represents the 9-bit state without imposing meaning. But some patterns have a natural geometric form that is more legible, more distinctive, and more semantically appropriate than any square-cell rendering can achieve.
+
+The invariant glyphs are the primary candidates. Their binary patterns describe geometric primitives directly:
+
+| Glyph | Pattern | Natural form | Rationale |
+|-------|---------|--------------|-----------|
+| **#16 Point** | Centre cell only | Perfect circle (dot) | One point at the grid centre — a circle is the purest expression. References AH's circular tittle motif. |
+| **#170 Diamond** | Four mid-edge cells | Small circle | Four cells equidistant from centre in cardinal directions — the construction of an inscribed circle. |
+| **#186 Cross** | Centre + four mid-edge | Cross / plus | Five cells forming a plus sign — a cross *is* the canonical form; square cells add nothing. |
+| **#325 Corners** | Four corner cells | Four small dots | Corner cells read as points; dots at grid corners are cleaner and more distinctive than corner squares. |
+| **#341 Checkerboard** | Alternating cells | Checkerboard | No cleaner natural form — keep square cells. |
+| **#495 Frame** | Eight outer cells | Circle ring (outline) | Eight cells forming the outer boundary — a circle ring is the natural form; communicates "enclosure" better than eight squares. |
+| **#511 Full** | All nine cells | Solid filled square or circle | Either works; a solid circle creates maximum contrast distinction from #495's ring form. |
+| **#0 Empty** | No cells | Empty space | Unchanged — absence needs no form. |
+
+**The principle:** a renderer should ask not just *which cells are filled* but *what shape does this pattern describe?* When the pattern describes a recognisable geometric primitive, render that primitive. When it does not, fall back to the standard connected-cell approach.
+
+This is the grid-native equivalent of what Atkinson Hyperlegible does at the letterform level: each character receives whatever structural treatment makes it most perceptually distinct, even if that breaks the geometric consistency of the surrounding system. The invariant glyphs should look different from all non-invariant glyphs — not by convention but by design.
+
+**Scope:** Pattern-aware rendering applies to the 8 invariant glyphs only. All other glyphs use the standard renderer. The rendering mode for each invariant glyph is declared in font metadata so layout engines can treat them appropriately.
+
 ---
 
 ## 4. Glyph Space Inventory
