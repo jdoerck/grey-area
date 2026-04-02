@@ -70,3 +70,43 @@ If Anthropic updates Claude Code to support configurable filenames or a differen
 ## Where this convention is enforced
 
 The rule — "CLAUDE.md is a shim; content lives in direction.md" — is written into the root `direction.md` under **AI tooling conventions**. Any AI reading project context before doing work will receive these instructions directly, without needing to find this document first.
+
+---
+
+## The `direction/` knowledge base
+
+The `direction/` directory at the repo root is a shared knowledge base for all contributors —
+human and AI alike. It exists alongside `direction.md` but serves a different purpose:
+
+| | `direction.md` | `direction/` |
+|---|---|---|
+| **Contains** | Governing principles and rules | Accumulated insights, decisions, scripts |
+| **Changes** | Rarely — by deliberate choice | Frequently — as work happens |
+| **Written by** | Project owners | Any contributor during the course of work |
+| **Audience** | Orients anyone new to the project | Helps active contributors avoid re-learning |
+
+### Why a separate directory
+
+`direction.md` sets the rules. `direction/` captures the reasoning and artifacts that build
+up as those rules are applied. A design decision, the rationale behind a non-obvious technical
+choice, a utility script that was useful once and will be useful again — these belong in
+`direction/` rather than `docs/` because they are working knowledge, not finished documentation.
+
+The distinction matters for longevity: finished docs tend to go stale because no one is sure
+when they're allowed to change them. Working knowledge files are expected to evolve — they get
+updated in place as understanding improves.
+
+### `direction/scripts/`
+
+Scripts written during development are saved here as canonical versions and updated in place
+when they improve. This prevents the same utility being re-written from scratch in each session
+and ensures any contributor (or AI) can reuse prior work rather than reinventing it.
+
+### The design principle
+
+This is an application of the same logic behind the `CLAUDE.md` shim: don't couple your
+knowledge to your tools. The `direction/` files are plain markdown and plain scripts — readable
+by any person or tool, requiring no special software, surviving any change in the AI tooling
+landscape.
+
+See `direction/index.md` for the current inventory of notes and scripts.

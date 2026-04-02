@@ -86,3 +86,22 @@ If you create a new subdirectory that needs AI context:
 1. Create `<dir>/direction.md` with the subproject guidance.
 2. Create `<dir>/CLAUDE.md` containing only `@direction.md`.
 3. Add the subproject to the table in this file and to `docs/ai-tooling.md`.
+
+### Shared knowledge base — `direction/`
+
+The `direction/` directory at the repo root is a shared knowledge base for everyone who works
+on this project — human contributors, collaborators, and AI tools alike.
+
+**`direction/`** — key insights, decisions, and context that any contributor needs to work
+effectively. Things worth capturing that aren't yet formal enough for `docs/`, or that record
+*why* a decision was made rather than just *what* it is.
+
+**`direction/scripts/`** — utility scripts produced during development. Canonical versions;
+update in place when a script improves rather than creating duplicates.
+
+Rules for all contributors (human and AI):
+- When you write a reusable script, save it to `direction/scripts/`.
+- When you improve an existing script, edit the file — do not duplicate it.
+- When you learn something worth capturing — a key insight, a decision and its rationale,
+  important context — write a note to `direction/` and index it in `direction/index.md`.
+- Check `direction/index.md` before starting work on code or architecture.
