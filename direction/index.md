@@ -8,7 +8,9 @@ Check this index before starting work on code or architecture.
 
 ## Notes
 
-*(none yet)*
+| File | Summary |
+|------|---------|
+| [encoding-density-and-packets.md](encoding-density-and-packets.md) | Density calculation (9-bit glyphs ≈ 3.6 bits/letter vs ASCII's 8); reframing of the 16-bit word as `[glyph: 9] + [context: 7]` — the non-slate bits as an embedded context packet |
 
 ---
 

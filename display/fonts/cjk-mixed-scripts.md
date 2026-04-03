@@ -126,6 +126,8 @@ The second approach is directly analogous to what the Marain font spec proposes 
 
 ### 2.7 Notable CJK Fonts and What They Teach
 
+Typotheque maintains a curated survey of new original CJK fonts that provides a useful cross-section of contemporary approaches — from geometric sans-serifs to revival serifs — across Chinese, Japanese, and Korean.[^typotheque-cjk-collection]
+
 | Font | Designer/Foundry | Key Innovation | Lesson for Marain |
 |------|-----------------|----------------|-------------------|
 | **Source Han Sans / Noto Sans CJK** | Adobe + Google, led by Ryoko Nishizuka | First comprehensive Pan-CJK font; regional glyph variants via OpenType `locl`[^google-dev-blog] | Context-driven rendering from a single font binary |
@@ -218,6 +220,7 @@ Based on the CJK research, the following additions or modifications to `font_spe
 [^source-han-sans]: Jenxi.com. "Source Han Sans." Overview and analysis. Accessed March 2026.
 [^adobe-serif]: Adobe Type. "Source Han Serif — An open source Pan-CJK typeface." source.typekit.com.
 [^cjk-optimization]: Font-Converters.com. "CJK Font Optimization Guide." February 2026. A standard Chinese font contains over 20,000 glyphs; a single unoptimised CJK font file weighs 5–20MB.
+[^typotheque-cjk-collection]: Typotheque. "Collection of new original CJK fonts." https://www.typotheque.com/blog/collection-of-new-original-cjk-fonts
 [^typotheque-variants]: Typotheque (Eric Q. Liu). "Understanding CJK regional character variants." May 2025.
 [^typotheque-typesetting]: Typotheque. "Typesetting principles of Chinese, Japanese, and Korean (CJK) text." May 2025.
 [^shorai-sans]: Creative Boom. "Shorai Sans: new Monotype font creates harmony between Latin and Japanese letterforms." November 2022. Akira Kobayashi notes CJK characters fill the em-square while Latin characters do not.

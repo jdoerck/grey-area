@@ -97,6 +97,8 @@ Typography is **stable across all modes** — no font swapping per context. Stru
 
 **Fonts locked:** Atkinson Hyperlegible (UI/content) · Intel One Mono (code/tokens)
 
+Font specs: [`font-spec.md`](display/fonts/font-spec.md) — glyph rendering spec · [`research.md`](display/fonts/research.md) — font selection rationale · [`cjk-mixed-scripts.md`](display/fonts/cjk-mixed-scripts.md) — CJK/mixed-script research
+
 **Status escalation — base-9 index:** `0–2` neutral · `3–5` attention · `6–7` warning · `8` critical
 
 ---
@@ -104,6 +106,8 @@ Typography is **stable across all modes** — no font swapping per context. Stru
 ## Encoding Layer — Key Spec Decisions
 
 Full glyph catalogue (canonical, community, and marainkit-derived): [`encoding/docs/glyphs.md`](encoding/docs/glyphs.md)
+
+Specs: [`channels.md`](encoding/docs/channels.md) — 16-bit word structure · [`invariant-glyphs.md`](encoding/docs/invariant-glyphs.md) — invariant analysis · [`layout.md`](encoding/docs/layout.md) — layout options · [`roadmap.md`](encoding/docs/roadmap.md) — decision backlog · [`glyph-decisions.md`](encoding/docs/glyph-decisions.md) — assignment analysis
 
 ### Invariant Glyphs
 
@@ -167,25 +171,54 @@ Directionality within glyphs is neurological (horizontal scanning is consistent 
 ```
 marain/
 ├── language/           ← linguistic spec (phonemes, grammar, translations)
-│   └── CLAUDE.md
 ├── encoding/           ← encoding spec (invariant glyphs, layout, glyph catalogue)
 │   └── docs/
 │       ├── glyphs.md           ← known glyph catalogue (canonical + community + marainkit)
-│       ├── invariant-glyphs.md
-│       └── layout.md
+│       ├── channels.md         ← 16-bit word structure (slate + upper/lower channels)
+│       ├── invariant-glyphs.md ← invariant glyph analysis and vocabulary
+│       ├── layout.md           ← linear vs. macro 3×3 vs. radial layout
+│       ├── roadmap.md          ← decision backlog (phoneme strategy, number base, etc.)
+│       └── glyph-decisions.md  ← glyph assignment comparison tables
 ├── display/            ← adaptive display system
-│   ├── CLAUDE.md
-│   ├── docs/
+│   ├── docs/DESIGN_PHILOSOPHY.md
+│   ├── fonts/
+│   │   ├── font-spec.md        ← glyph rendering specification
+│   │   ├── research.md         ← Atkinson + Intel One Mono analysis
+│   │   └── cjk-mixed-scripts.md ← CJK/mixed-script font research
 │   └── themes/culture/ ← working prototype
 ├── docs/               ← cross-cutting specs
 │   ├── source/         ← canonical reference (Banks essay, novel passages)
+│   ├── layers.md       ← four-layer model detail
+│   ├── rationale.md    ← project rationale and philosophy
 │   ├── design-notes.md
-│   ├── layers.md
-│   ├── rationale.md
 │   ├── resources.md
-│   └── ui-grammar.md
+│   ├── fonts-of-interest.md
+│   └── implementation-languages.md
+├── direction/          ← contributor knowledge base (key insights, decisions)
+│   └── index.md
 └── Fonts/              ← reference fonts (not tracked in git)
 ```
+
+### Key documents
+
+| Document | Contents |
+|----------|----------|
+| [`docs/source/a-few-notes-on-marain.md`](docs/source/a-few-notes-on-marain.md) | Banks' canonical essay — the primary source |
+| [`docs/layers.md`](docs/layers.md) | Four-layer model specification |
+| [`docs/rationale.md`](docs/rationale.md) | Project rationale, philosophy, dictionary architecture |
+| [`docs/design-notes.md`](docs/design-notes.md) | Design notes and working decisions |
+| [`docs/resources.md`](docs/resources.md) | External tools, references, and prior art |
+| [`docs/fonts-of-interest.md`](docs/fonts-of-interest.md) | Font references for Marain rendering |
+| [`docs/implementation-languages.md`](docs/implementation-languages.md) | Implementation language decisions |
+| [`encoding/docs/channels.md`](encoding/docs/channels.md) | 16-bit word structure |
+| [`encoding/docs/invariant-glyphs.md`](encoding/docs/invariant-glyphs.md) | Invariant glyph analysis and vocabulary |
+| [`encoding/docs/layout.md`](encoding/docs/layout.md) | Layout options (linear / macro 3×3 / radial) |
+| [`encoding/docs/roadmap.md`](encoding/docs/roadmap.md) | Encoding decision backlog |
+| [`encoding/docs/glyph-decisions.md`](encoding/docs/glyph-decisions.md) | Glyph assignment comparison tables |
+| [`display/fonts/font-spec.md`](display/fonts/font-spec.md) | Glyph rendering specification |
+| [`display/fonts/research.md`](display/fonts/research.md) | Font selection rationale (Atkinson, Intel One Mono) |
+| [`display/fonts/cjk-mixed-scripts.md`](display/fonts/cjk-mixed-scripts.md) | CJK and mixed-script font research |
+| [`direction/index.md`](direction/index.md) | Contributor knowledge base index |
 
 **Related repos:**
 - [`marainkit/grey-area`](https://github.com/marainkit/grey-area) — encoder implementation (Layer 1, Column A)
