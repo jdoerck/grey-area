@@ -1,0 +1,69 @@
+id	name	binary	reference_glyph_exists	glyph_exists	key	meaning	proposed_by
+0	“Empty” · *líng* · *nuul*	000000000			space	Silence · null · word space · zero	marainkit
+1	*yī*	000000001			1	Octal digit 1	Banks (implied)
+3	*èr*	000000011			2	Octal digit 2	marainkit
+5	*paa*	000000101			IME	Fear 😨	zakalwe2040
+7	*sān*	000000111			3	Octal digit 3	marainkit
+13	*bay*	000001101			IME	Sadness 😢	zakalwe2040
+15	*sì*	000001111			4	Octal digit 4	marainkit
+16	“Point”	000010000				Singularity · decimal point	marainkit
+21	*gang*	000010101			IME	Affection 😘	zakalwe2040
+31	*wǔ*	000011111			5	Octal digit 5	marainkit
+45	*buz*	000101101			IME	Overwhelmed 😭	zakalwe2040
+62	*pil*	000111110			IME	Fatigue 🥱	zakalwe2040
+63	*liù*	000111111			6	Octal digit 6	marainkit
+85	*shaa*	001010101			IME	Laughter 🤣	zakalwe2040
+87	/tch/	001010111	banks			Phoneme	Banks
+118	/oh/	001110110	both		o	Phoneme	Banks
+121	/w/	001111001	both		w	Phoneme	Banks
+127	*qī*	001111111			7	Octal digit 7	marainkit
+143	/ah/	010001111	both			Phoneme	Banks
+149	*ging*	010010101			IME	Sympathy 🥺	zakalwe2040
+170	“Diamond”	010101010	regular			Danger · hazard	marainkit
+173	/h/	010101101	both		h	Phoneme	Banks
+174	/ch/	010101110	banks			Phoneme	Banks
+175	*hub*	010101111			IME	Love 💛	zakalwe2040
+181	*shacha*	010110101			IME	Greetings · peace · hello · bye 🖖	zakalwe2040
+186	“Cross”	010111010	regular			Alert · stop	marainkit
+187	/l/⚠ 1 bit from #186 Cross	010111011	banks		l	Phoneme	Banks
+189	/z/	010111101	both		z	Phoneme	Banks
+220	*wun*	011011100			IME	Warmth 💕	zakalwe2040
+221	*zang*	011011101			IME	Surprise 😲	zakalwe2040
+242	/g/	011110010	banks		g	Phoneme	Banks
+247	/y/	011110111	banks		y	Phoneme	Banks
+251	/n/	011111011	banks		n	Phoneme	Banks
+253	*shuu*	011111101			IME	Infatuation 😍	zakalwe2040
+266	*samara*	100001010			IME	Fascination · logic understood 🤨	zakalwe2040
+277	*mar*	100010101			IME	Joy 😂	zakalwe2040
+286	/ng/	100011110	banks			Phoneme	Banks
+305	/uh/	100110001	banks			Phoneme	Banks
+307	/ih/	100110011	both			Phoneme	Banks
+309	*hoo*	100110101			IME	Happiness 😊	zakalwe2040
+317	/t/	100111101	banks		t	Phoneme	Banks
+319	/f/	100111111	banks		f	Phoneme	Banks
+325	“Corners”	101000101				Boundary · perimeter · limit	marainkit
+334	*fin*	101001110			IME	Anger 😡	zakalwe2040
+338	*yam*	101010010			IME	Hope 🙏	zakalwe2040
+341	“Checkerboard”	101010101				Noise · interference · maximum intensity	marainkit
+342	/s/	101010110	both		s	Phoneme	Banks
+347	/sh/	101011011	banks			Phoneme	Banks
+365	*shii*	101101101			IME	Synchronicity 😉	zakalwe2040
+367	/v/	101101111	both		v	Phoneme	Banks
+371	/oo/	101110011	banks			Phoneme	Banks
+403	/d/	110010011	banks		d	Phoneme	Banks
+405	*shai*	110010101			IME	Agreement 👍	zakalwe2040
+431	/je/	110101111	banks			Phoneme	Banks
+437	*zing*	110110101			IME	Positivity ✨	zakalwe2040
+444	/k/	110111100	banks		k	Phoneme	Banks
+447	/th/	110111111	banks			Phoneme	Banks
+469	/ll/	111010101	banks			Phoneme	Banks
+477	/ee/	111011101	banks			Phoneme	Banks
+483	/eh/	111100011	banks			Phoneme	Banks
+484	/m/	111100100	banks		m	Phoneme	Banks
+489	/p/	111101001	banks		p	Phoneme	Banks
+490	/ay/	111101010	banks		a	Phoneme	Banks
+495	“Frame”	111101111	both			Enclosure · bracket · container	marainkit
+500	/b/	111110100	banks		b	Phoneme	Banks
+501	*lang*	111110101			IME	Romance 🥰	zakalwe2040
+509	/r/	111111101	banks		r	Phoneme	Banks
+511	“Full”	111111111				Full stop · header · maximum · critical	marainkit

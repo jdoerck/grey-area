@@ -35,7 +35,7 @@ Not every Sanskrit word belongs in a Marain dictionary. Candidates must pass at 
 | **Warning/safety vocabulary** | Maps to invariant glyph semantics or status escalation |
 | **Consciousness/sentience** | Relevant to Mind/human/drone spectrum of awareness in the Culture |
 
-Words that encode hierarchy, caste, or theological authority are **excluded** — they encode exactly the social structures the Culture was designed to abolish.
+**On hierarchy and social structure:** Sanskrit terms for caste, rank, and authority (*varṇa*, *jāti*, *āśrama*, etc.) are **not excluded** — the Culture encounters these systems constantly and needs precise vocabulary to describe them. However, Marain never encodes a social structure as an *atomic* morpheme. It encodes it as a *compound* whose child morphemes reveal the mechanism: how the hierarchy is maintained, who it constrains, and whether it's imposed or emergent. The language doesn't forbid the thought — it demands that the thought be *complete*. This is a Culture strategy (legibility through structure), not an Orwellian one (control through omission). See **Category 9: Social Structure as Compound** below.
 
 ---
 
@@ -265,6 +265,58 @@ Root: *a-* (not) + *dvaita* (duality). Not "oneness" — the negation of twoness
 
 ---
 
+## Category 9: Social Structure as Compound
+
+A language designed by Minds would not describe social structures by naming them — it would describe them by *decomposing* them. The design principle: **Marain never encodes a social structure as atomic. It always encodes it as a compound whose components reveal the mechanism.**
+
+This is not censorship. It's the opposite — it's forced legibility. Orwell's Newspeak removes words to prevent thoughts. Marain *adds* morphological structure to ensure thoughts are complete. A Culture citizen can describe a caste system in Marain. They just can't do it without articulating what the caste system *is made of*.
+
+Three registers are available, distinguished tonally:
+
+| Register | Tonal Contour | Use Case | Example Construction |
+|----------|--------------|----------|---------------------|
+| **Analytical** | Neutral / level | Contact field reports, academic description | "stratified-role-assignment" |
+| **Empathic** | Karuṇā (falling) | Expressing compassion for those constrained by the system | Same compound, sorrow-tone |
+| **Critical** | Bībhatsa (complex) | Moral evaluation of the system as harmful | Same compound, revulsion-tone |
+
+The *denotation* is identical across registers. The *affect* changes. Data and feeling travel in the same signal.
+
+### Decomposed Sanskrit Source Terms
+
+These Sanskrit words are not adopted whole into Marain. They are *mined for child morphemes* — their roots and components become the atoms from which Marain builds its own compounds.
+
+**Varṇa** (वर्ण) · *colour, classification, category*  
+Root: *vṛ* (to cover, to choose). The root meaning — classification, sorting — is a useful atom. It's the *application* to birth-rank that Marain refuses to encode as a single unit. The child morpheme *vṛ* (to sort/classify) enters the dictionary. A Marain speaker constructing a word for "caste" would combine *vṛ* (classify) with morphemes for "birth" and "imposed" and "fixed" — producing a compound that reads something like "imposed-birth-classification-fixed." You can't say it without hearing all four components.
+
+**Jāti** (जाति) · *birth-group, species, kind*  
+Root: *jan* (to be born, to generate). The root *jan* is essential — birth, origin, generation are core vocabulary for any language. It only becomes a hierarchy term when fused with role-assignment. In Marain: *jan* is a free morpheme meaning "origin/generation." To describe a jāti system, you'd compound it with "role" and "constrained-to" — making the causal link between birth and social position *syntactically explicit* every time.
+
+**Āśrama** (आश्रम) · *stage of life, domain of effort*  
+Root: *śram* (effort, labour, exertion). A good morpheme for "domain of sustained practice." It becomes hierarchical only when the stages are *ranked* and *sequenced as mandatory*. In Marain: *śram* (sustained-effort) is a root. "Life stage" is a compound of *śram* + temporal morpheme. The ranking, if present, must be explicitly constructed — it's not baked into the word.
+
+**Rājan** (राजन्) · *king, ruler*  
+Root: *rāj* (to shine, to rule). The root conflates radiance with authority — the king shines, therefore leads. Marain would decompose this: "authority" is one morpheme, "assigned-by" is another, "consent-of-governed" or "force" or "inheritance" would be a third. You can describe a rājan in Marain, but you have to specify *what kind of authority* and *how it was obtained*. The word won't let you assume legitimacy.
+
+**Sevā** (सेवा) · *service, attendance, devotion to a superior*  
+Root: *sev* (to serve, attend upon). Contains an embedded hierarchy: the one who serves and the one served. Marain would decompose the act: "sustained-effort" (*śram*) + "directed-toward" + "another-entity." Whether that constitutes subordination or mutual aid depends on the additional morphemes. Service-as-gift and service-as-compulsion become structurally different words, even though English (and Sanskrit) use the same term for both.
+
+**Dharma** (धर्म) · *that which upholds; duty, cosmic order, righteousness*  
+Root: *dhṛ* (to hold, sustain, maintain). This is the most complex case. Dharma simultaneously means cosmic order, personal duty, social obligation, and ethical conduct — and in its hierarchical application, it's used to justify caste as divinely ordained. Marain would keep *dhṛ* (to sustain/maintain) as a root morpheme. But "cosmic order," "personal ethical conduct," and "socially imposed obligation" would be three different compounds built from different child morphemes around *dhṛ*. The word that the Azadians use to justify their social system and the word that a Culture citizen uses for ethical commitment would share a root but diverge in structure — making the *difference* between "order imposed from above" and "order maintained by consent" lexically visible.
+
+### Design Principle Summary
+
+The Culture's Minds understand that social structures are *mechanisms*. They have parts. They have inputs and outputs. They have beneficiaries and those they constrain. A language designed by Minds would encode social structures the way an engineer describes a machine — not by its name, but by its components, its function, and its effects.
+
+This produces three consequences:
+
+1. **No naturalisation.** An atomic word like "caste" allows a speaker to treat the system as a natural category. A compound like "imposed-birth-classification-fixed" does not. The morphology prevents the system from *hiding*.
+
+2. **Cross-system comparison becomes easy.** Because all social structures are built from the same pool of child morphemes (classify, impose, inherit, consent, constrain, assign, etc.), a Marain speaker can instantly see structural similarities between systems that opaque vocabulary obscures. Feudalism and caste share morphemes. Democracy and consensus share different ones.
+
+3. **The tonal layer carries the Culture's stance.** The analytical register describes. The empathic register mourns. The critical register judges. A Contact agent filing a report uses neutral tone. A citizen discussing the same system at a party uses affect-laden tone. The grammar handles both without requiring separate vocabulary.
+
+---
+
 ## Open Questions
 
 1. **Root morpheme extraction.** Several candidates above (*jñā*, *cit*, *vid*, *dṛś*, *vac*) are Sanskrit verbal roots that could serve as Marain root morphemes. Should the L2 phoneme set be designed to accommodate them, or should we transliterate them through Marain's own phonological constraints?
@@ -276,6 +328,10 @@ Root: *a-* (not) + *dvaita* (duality). Not "oneness" — the negation of twoness
 4. **Column B integration.** Many of these words would enter the dictionary through Column B (phoneme composition), not Column A (binary encoding). The Column B spec needs to advance before these can be formally adopted.
 
 5. **Donor language ethics.** Sanskrit is a living scholarly and liturgical language. Borrowing its vocabulary for a fictional constructed language should be done with the same care marainkit applies to Banks' intellectual property — as *inspiration and influence*, not extraction. The "kit" framing applies here too.
+
+6. **Compound construction grammar.** Category 9 proposes that social structures are always compounds, never atomic. This needs a *formal rule* at L2: which morpheme classes are permitted as compound heads, what ordering constraints apply, and how the tonal register system interacts with compound stress. The Sanskrit samāsa (compound) system has six formal types — are any of them directly adoptable?
+
+7. **Register distinction in binary.** The three tonal registers (analytical / empathic / critical) need to be encodable at L3. If tone is carried in data bits alongside phonemic content, the register distinction adds bits per morpheme. What's the cost in glyph density?
 
 ---
 

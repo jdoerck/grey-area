@@ -27,31 +27,25 @@ The 8 rotation/mirror-invariant values (#0, #16, #170, #186, #325, #341, #495, #
 
 ## Layer 1 — Phonemes
 
-### [🔴] Choose a number base
+### [🟢] Choose a number base
 
-**Why it's blocking:** the number base determines whether digit-3 = #121 (the Banks/*w* conflict) exists at all. Base-8 eliminates it; base-10 does not.
+**Decision:** Base-8 (octal). Closed 2026-04-03.
 
-**Options:**
-- **Base-8 (Banks, recommended)** — canonical, consistent with binary glyph structure (3×3 = 9 bits, 8 = 2³), eliminates the #121 conflict, requires assigning 8 fresh digit values.
-- **Base-10 (zakalwe2040)** — practical for everyday use, conflicts with Banks and two marainkit invariants (#341 for digit-0, and implicitly #0), non-canonical.
-
-**Lean:** base-8. Banks is explicit and the math is consistent.
+Canonical (Banks), consistent with binary glyph structure (3×3 = 9 bits, 8 = 2³), eliminates the digit-3 = #121 / *w* conflict. zakalwe2040's base-10 was rejected as non-canonical and conflicting with marainkit invariants.
 
 ---
 
-### [🔴] Choose a phoneme assignment strategy
+### [🟢] Choose a phoneme assignment strategy  *(issue #5)*
 
-**Why it's blocking:** phoneme values determine the alphabet layer. All downstream decisions (how to render spoken Marain, how to disambiguate rotations, what a "word" looks like) depend on this.
+**Decision:** Banks corrected. Closed 2026-04-03.
 
-**Options:**
-- **Follow Banks' approximate values** — canonical but mostly unverified (30 of 32 are image reads, any could be wrong). Preserves #121 = *w* as the anchor. Does not cover voiced/unvoiced pairs systematically.
-- **Follow zakalwe2040's abjad** — fully specified, linguistically principled (place of articulation order), designed for high-frequency speech. Loses #121 = *w* (assigns *wa* to #511 instead). More complete for consonants but vowels are handled separately via diacritics/buffer bit.
-- **Define a fresh marainkit set** — clean slate informed by both. Time-intensive; no external reference.
-- **Hybrid: anchor on confirmed values, assign the rest** — keep #121 = *w* and #457 = *m*, #484 = *l* (cross-system confirmed), assign remaining phonemes fresh. Middle path.
+All 32 Banks phonemes adopted as the canonical assignment, with two corrections where Banks' image reads landed on marainkit invariant glyphs: /ng/ corrected from #16 → #286, /th/ corrected from #186 → #447. Three hybrid anchors confirmed as cross-system agreement: #121 = *w*, #484 = *m*, #187 = *l*. Full assignment captured in `encoding/docs/glyph-table.tsv`.
 
-**Lean:** hybrid, anchoring on #121, #457, #484. Banks' image-read values are too low-confidence to commit to wholesale; zakalwe2040's abjad is too incompatible at *wa*/#511 to adopt directly.
+~~**Why it's blocking:** phoneme values determine the alphabet layer. All downstream decisions (how to render spoken Marain, how to disambiguate rotations, what a "word" looks like) depend on this.~~
 
-**Blocked by:** number base decision (base-8 determines how many phoneme slots remain after digits are allocated).
+~~**Lean:** hybrid, anchoring on #121, #457, #484. Banks' image-read values are too low-confidence to commit to wholesale; zakalwe2040's abjad is too incompatible at *wa*/#511 to adopt directly.~~
+
+~~**Blocked by:** number base decision~~ — resolved 2026-04-03. Base-8 leaves 504 non-digit, non-invariant glyph slots for phoneme assignment (512 − 8 digits − 8 invariants = 496, minus punctuation/operators).
 
 ---
 
@@ -216,3 +210,5 @@ Architecture decided (see [`docs/rationale.md`](../../docs/rationale.md) — Dic
 | 2026-03-31 | `#16` = point / period / decimal | Accepted | Triple agreement: Banks, marainkit, zakalwe2040. Phoneme *ng* coexists — registers don't collide. |
 | 2026-03-31 | Numerals | Base-8 (octal), sequential-fill rule, Mandarin names from zakalwe2040 | Consistent with Banks; eliminates #121 conflict; count-the-dots readable; *líng*–*qī* for 0–7. |
 | 2026-03-31 | *nuul* | Name for glyph #0 concept | Distinct from digit name *líng*; drawn-out vowel suits the held-silence meaning; exercises buffer-bit vowel system. |
+| 2026-04-03 | Number base | **Base-8 (octal)** | Canonical (Banks); consistent with 3×3 = 9 bits, 8 = 2³; eliminates digit-3/#121 conflict. Issue #4 closed. |
+| 2026-04-03 | Phoneme strategy | **Banks corrected** | All 32 Banks phonemes adopted. /ng/ #16→#286, /th/ #186→#447 (invariant conflicts resolved by correction). Hybrid anchors #121=*w*, #484=*m*, #187=*l* confirmed. Full table in `glyph-table.tsv`. Issue #5 closed. |
