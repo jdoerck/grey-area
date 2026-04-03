@@ -18,7 +18,7 @@ Check this index before starting work on code or architecture.
 
 | File | Purpose | Language |
 |------|---------|----------|
-| *(none yet)* | | |
+| [dict-to-tsv.py](scripts/dict-to-tsv.py) | Convert `language/raw/marain-*.js` source files to TSV for database import | Python 3 |
 
 ---
 

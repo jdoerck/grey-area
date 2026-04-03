@@ -64,7 +64,7 @@ Binary encoding is canonical. Glyphs are a debug view. Tone and emotional meanin
 
 | Directory | Layer | Purpose | Status |
 |-----------|-------|---------|--------|
-| `language/` | L2 | Phoneme set, grammar, abjad structure, tonal encoding | Early spec |
+| `language/` | L2 | Phoneme set, grammar, abjad structure, tonal encoding. Community vocabulary (430 words) and phoneme inventory seeded from Marain Tools. | Early spec |
 | `encoding/` | L1–L3 | Encoding spec: invariant glyphs, layout, base-9 structure | Active spec |
 | `display/` | L1 | Adaptive display system: CSS tokens, context model, typography | Prototype built |
 
@@ -171,6 +171,14 @@ Directionality within glyphs is neurological (horizontal scanning is consistent 
 ```
 marain/
 ├── language/           ← linguistic spec (phonemes, grammar, translations)
+│   ├── phonemes/
+│   │   ├── alphabet.md         ← 32-letter phoneme inventory in Marain lexorder
+│   │   └── alphabet.tsv        ← machine-readable
+│   ├── translations/
+│   │   └── sentences.md        ← example sentences with glosses
+│   ├── raw/                    ← JS source files from Marain Tools (origin)
+│   ├── vocabulary.md           ← vocabulary description and format notes
+│   └── vocabulary.tsv          ← 430-word community vocabulary (TSV, DB-importable)
 ├── encoding/           ← encoding spec (invariant glyphs, layout, glyph catalogue)
 │   └── docs/
 │       ├── glyphs.md           ← known glyph catalogue (canonical + community + marainkit)
@@ -218,6 +226,9 @@ marain/
 | [`display/fonts/font-spec.md`](display/fonts/font-spec.md) | Glyph rendering specification |
 | [`display/fonts/research.md`](display/fonts/research.md) | Font selection rationale (Atkinson, Intel One Mono) |
 | [`display/fonts/cjk-mixed-scripts.md`](display/fonts/cjk-mixed-scripts.md) | CJK and mixed-script font research |
+| [`language/phonemes/alphabet.md`](language/phonemes/alphabet.md) | 32-letter phoneme inventory with IPA, letter names, and Marain lexorder |
+| [`language/vocabulary.md`](language/vocabulary.md) | 430-word community vocabulary — format notes, source attribution, DB import |
+| [`language/translations/sentences.md`](language/translations/sentences.md) | Example sentences with word-by-word and idiomatic glosses |
 | [`direction/index.md`](direction/index.md) | Contributor knowledge base index |
 
 **Related repos:**
