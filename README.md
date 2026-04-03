@@ -178,7 +178,8 @@ marain/
 │   │   └── sentences.md        ← example sentences with glosses
 │   ├── raw/                    ← JS source files from Marain Tools (origin)
 │   ├── vocabulary.md           ← vocabulary description and format notes
-│   └── vocabulary.tsv          ← 430-word community vocabulary (TSV, DB-importable)
+│   ├── vocabulary.tsv          ← 430-word community vocabulary (TSV, DB-importable)
+│   └── sanskrit-marain-dictionary-research.md  ← Sanskrit as donor language — vocabulary candidates, Navarasa, invariant glyph names
 ├── encoding/           ← encoding spec (invariant glyphs, layout, glyph catalogue)
 │   └── docs/
 │       ├── glyphs.md           ← known glyph catalogue (canonical + community + marainkit)
@@ -229,6 +230,7 @@ marain/
 | [`language/phonemes/alphabet.md`](language/phonemes/alphabet.md) | 32-letter phoneme inventory with IPA, letter names, and Marain lexorder |
 | [`language/vocabulary.md`](language/vocabulary.md) | 430-word community vocabulary — format notes, source attribution, DB import |
 | [`language/translations/sentences.md`](language/translations/sentences.md) | Example sentences with word-by-word and idiomatic glosses |
+| [`language/sanskrit-marain-dictionary-research.md`](language/sanskrit-marain-dictionary-research.md) | Sanskrit as donor language — consciousness terms, Navarasa (9 emotional essences), structural vocabulary, proposed Sanskrit names for all 8 invariant glyphs |
 | [`direction/index.md`](direction/index.md) | Contributor knowledge base index |
 
 **Related repos:**
