@@ -1,0 +1,16 @@
+# Normalise line endings to LF on commit, check out as-is on all platforms
+* text=auto eol=lf
+
+# Explicitly binary — never touch line endings
+*.epub    binary
+*.ttf     binary
+*.otf     binary
+*.woff    binary
+*.woff2   binary
+*.png     binary
+*.jpg     binary
+*.jpeg    binary
+*.gif     binary
+*.svg     binary
+*.ico     binary
+*.pdf     binary

@@ -19,6 +19,8 @@ Check this index before starting work on code or architecture.
 | File | Purpose | Language |
 |------|---------|----------|
 | [dict-to-tsv.py](scripts/dict-to-tsv.py) | Convert `language/raw/marain-*.js` source files to TSV for database import | Python 3 |
+| [split-epub.py](scripts/split-epub.py) | Split the Culture complete-works omnibus EPUB into 12 individual book files → `books/` | Python 3 |
+| [rag-extract.py](scripts/rag-extract.py) | Extract Marain references (passages, ship names, vocabulary, character names) from each novel → `docs/source/culture-marain/` | Python 3 |
 
 ---
 
