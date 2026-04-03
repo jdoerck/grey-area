@@ -194,9 +194,9 @@ marain/
 │   ├── resources.md
 │   ├── fonts-of-interest.md
 │   └── implementation-languages.md
-├── direction/          ← contributor knowledge base (key insights, decisions)
+│── direction/          ← contributor knowledge base (key insights, decisions)
 │   └── index.md
-└── Fonts/              ← reference fonts (not tracked in git)
+
 ```
 
 ### Key documents
