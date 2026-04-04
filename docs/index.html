@@ -1,0 +1,4347 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Marain — Glyph Table</title>
+    <meta name="description" content="Every assigned symbol in Marain — the constructed language of the Culture from Iain M. Banks' novels. Phonemes, numerals, operators, and invariant glyphs with binary indices and font comparisons." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      @font-face {
+        font-family: "MarainBanks";
+        src: local("MarainBanks"), url("marain-banks/Marain-Banks.ttf") format("truetype");
+      }
+      @font-face {
+        font-family: "MarainRegular";
+        src: local("MarainRegular"), url("marain-regular/Marain-Regular.ttf") format("truetype");
+      }
+      :root {
+        --bg: #f8f7f4;
+        --surface: #fff;
+        --rule: #d8d5d0;
+        --text: #1a1a1a;
+        --muted: #888;
+        --accent: #4a6fa5;
+        --inv-bg: #eef3fa;
+        --inv-rule: #4a6fa5;
+        --warn-bg: #fff7ed;
+        --warn-rule: #c04a2a;
+        --ff: "Atkinson Hyperlegible Next", "Atkinson Hyperlegible", sans-serif;
+        --ff-mono: "Intel One Mono", "Cascadia Code", ui-monospace, monospace;
+        --ff-marain: "MarainBanks", monospace;
+        --ff-marain-reg: "MarainRegular", monospace;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: var(--ff);
+        font-size: 15px;
+        line-height: 1.6;
+        background: var(--bg);
+        color: var(--text);
+        padding: 2.5rem 3rem;
+        max-width: 1400px;
+      }
+      h1 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 0.3rem;
+      }
+      .subtitle {
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin-bottom: 1.8rem;
+        font-style: italic;
+      }
+      .note {
+        font-size: 0.8rem;
+        color: var(--muted);
+        margin-bottom: 1.2rem;
+        font-style: italic;
+      }
+      .legend {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+        font-size: 0.8rem;
+        flex-wrap: wrap;
+      }
+      .leg {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .swatch {
+        width: 12px;
+        height: 12px;
+        border-radius: 2px;
+        border: 1px solid;
+      }
+      .sw-inv {
+        background: var(--inv-bg);
+        border-color: var(--inv-rule);
+      }
+      .sw-ph {
+        background: var(--surface);
+        border-color: var(--rule);
+      }
+      .sw-near {
+        background: var(--warn-bg);
+        border-color: var(--warn-rule);
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      thead th {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--muted);
+        border-bottom: 2px solid var(--rule);
+        padding: 0.4rem 0.8rem 0.4rem 0;
+        text-align: left;
+      }
+      td {
+        padding: 0.45rem 0.8rem 0.45rem 0;
+        border-bottom: 1px solid var(--rule);
+        vertical-align: middle;
+      }
+      tr:last-child td {
+        border-bottom: none;
+      }
+      tr.cat-inv {
+        background: var(--inv-bg);
+      }
+      tr.near-conflict {
+        background: var(--warn-bg);
+      }
+      tr.cat-num {
+        background: #f2f0fa;
+      }
+      tr.cat-zak {
+        background: #f0faf2;
+      }
+      .col-num {
+        font-family: var(--ff-mono);
+        font-size: 0.8rem;
+        color: var(--muted);
+        width: 3rem;
+        text-align: right;
+        padding-right: 1rem;
+      }
+      .col-name {
+        font-size: 0.88rem;
+        width: 16rem;
+      }
+      .col-icon {
+        width: 3rem;
+        padding: 0.2rem 0.5rem 0.2rem 0;
+      }
+      .col-icon svg {
+        display: block;
+      }
+      .col-glyph {
+        width: 5rem;
+        border-left: 2px solid var(--rule);
+        padding-left: 1rem;
+        text-align: center;
+      }
+      .m2-glyph {
+        font-family: "MarainBanks", monospace;
+        font-size: 2rem;
+        line-height: 1;
+        display: block;
+      }
+      .m2-missing {
+        color: var(--muted);
+        font-size: 0.75rem;
+      }
+      .col-glyph-reg {
+        width: 5rem;
+        border-left: 1px solid var(--rule);
+        padding-left: 1rem;
+        text-align: center;
+      }
+      .mr-glyph {
+        font-family: "MarainRegular", monospace;
+        font-size: 2rem;
+        line-height: 1;
+        display: block;
+      }
+      .col-key {
+        font-family: var(--ff-mono);
+        font-size: 0.75rem;
+        color: var(--muted);
+        width: 8rem;
+      }
+      .col-meaning {
+        font-size: 0.85rem;
+      }
+      .col-proposed {
+        font-size: 0.78rem;
+        color: var(--muted);
+        width: 8rem;
+      }
+      .flag {
+        font-size: 0.72rem;
+        color: var(--warn-rule);
+        font-style: italic;
+      }
+      code {
+        font-family: var(--ff-mono);
+      }
+      .page-header {
+        margin-bottom: 2.5rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 2px solid var(--rule);
+      }
+      .page-header h1 {
+        font-size: 1.7rem;
+        margin-bottom: 0.2rem;
+      }
+      .page-header .tagline {
+        font-size: 1rem;
+        color: var(--muted);
+        font-style: italic;
+        margin-bottom: 1rem;
+      }
+      .page-header .intro {
+        font-size: 0.9rem;
+        line-height: 1.7;
+        max-width: 72ch;
+        margin-bottom: 1rem;
+      }
+      .page-header .intro p + p {
+        margin-top: 0.5rem;
+      }
+      .repo-link {
+        font-size: 0.85rem;
+        color: var(--accent);
+      }
+      .repo-link a {
+        color: var(--accent);
+      }
+      .page-footer {
+        margin-top: 3rem;
+        padding-top: 1.2rem;
+        border-top: 1px solid var(--rule);
+        font-size: 0.78rem;
+        color: var(--muted);
+        line-height: 1.8;
+      }
+      .page-footer a {
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="page-header">
+      <h1>Marain — Glyph Table</h1>
+      <p class="tagline">The writing system of the Culture, from the novels of Iain M. Banks</p>
+      <div class="intro">
+        <p>Marain is a constructed language designed by the Culture's artificial Minds — engineered from scratch to make egalitarian, non-hierarchical thinking the path of least resistance. Its writing system uses a <strong>3×3 binary grid</strong>: each cell is filled or empty, producing 512 possible glyphs. The grid is orientation-invariant — there is no privileged reading direction.</p>
+        <p>This table shows every assigned symbol in the current marainkit specification: 32 phonemes (Banks' corrected table), 8 structurally invariant glyphs, 7 base-8 numerals, and operators and delimiters. Each row shows the glyph index, its inline SVG icon, how it renders in two reference fonts, its keyboard input, and its meaning.</p>
+      </div>
+      <p class="repo-link">
+        <a href="https://github.com/marainkit/marain">github.com/marainkit/marain</a>
+        — spec, encoding decisions, phoneme inventory, and project rationale
+      </p>
+    </header>
+    <p class="note">32 phonemes (Banks, corrected) · 8 invariants · 7 numerals · sorted by index · <strong>Icon:</strong> squares renderer · <strong>Banks</strong> font by Tom Cully · <strong>Regular</strong> font by bianc0niglio · /ng/ → #286 · /th/ → #447</p>
+    <div class="legend">
+      <div class="leg">
+
+        <div class="swatch sw-inv"></div>
+        Invariant
+      </div>
+      <div class="leg">
+        <div class="swatch sw-ph"></div>
+        Phoneme (Banks)
+      </div>
+      <div class="leg">
+        <div class="swatch sw-near"></div>
+        Near-conflict (1 bit from invariant)
+      </div>
+    </div>
+    <p class="note"><strong>Key column:</strong> the keystroke(s) used to input this glyph directly. <strong>IME</strong> = no direct key — accessed via input method (type name or meaning to select).</p>
+    <table>
+      <thead>
+        <tr>
+          <th class="col-num">#</th>
+          <th class="col-name">Name</th>
+          <th class="col-icon">Icon</th>
+          <th class="col-glyph">Banks</th>
+          <th class="col-glyph-reg">Marain Regular</th>
+          <th class="col-key">Key</th>
+          <th class="col-meaning">Meaning(s)</th>
+          <th class="col-proposed">Proposed by</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="cat-inv">
+          <td class="col-num">0</td>
+          <td class="col-name">"Empty" · *líng* · *nuul*</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            ></svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">space</td>
+          <td class="col-meaning">Silence · null · word space · zero</td>
+          <td class="col-proposed">marainkit</td>
+        </tr>
+        <tr class="cat-num">
+          <td class="col-num">1</td>
+          <td class="col-name">*yī*</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">1</td>
+          <td class="col-meaning">Octal digit 1</td>
+          <td class="col-proposed">Banks (implied)</td>
+        </tr>
+        <tr class="cat-num">
+          <td class="col-num">3</td>
+          <td class="col-name">*èr*</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">2</td>
+          <td class="col-meaning">Octal digit 2</td>
+          <td class="col-proposed">marainkit</td>
+        </tr>
+        <tr class="cat-zak">
+          <td class="col-num">5</td>
+          <td class="col-name">*paa*</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">IME</td>
+          <td class="col-meaning">Fear 😨</td>
+          <td class="col-proposed">zakalwe2040</td>
+        </tr>
+        <tr class="cat-num">
+          <td class="col-num">7</td>
+          <td class="col-name">*sān*</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">3</td>
+          <td class="col-meaning">Octal digit 3</td>
+          <td class="col-proposed">marainkit</td>
+        </tr>
+        <tr class="cat-zak">
+          <td class="col-num">13</td>
+          <td class="col-name">*bay*</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">IME</td>
+          <td class="col-meaning">Sadness 😢</td>
+          <td class="col-proposed">zakalwe2040</td>
+        </tr>
+        <tr class="cat-num">
+          <td class="col-num">15</td>
+          <td class="col-name">*sì*</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">4</td>
+          <td class="col-meaning">Octal digit 4</td>
+          <td class="col-proposed">marainkit</td>
+        </tr>
+        <tr class="cat-inv">
+          <td class="col-num">16</td>
+          <td class="col-name">"Point"</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="13.8"
+                y="13.8"
+                width="10.5"
+                height="10.5"
+                rx="2.3"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key"></td>
+          <td class="col-meaning">Singularity · decimal point</td>
+          <td class="col-proposed">marainkit</td>
+        </tr>
+        <tr class="cat-zak">
+          <td class="col-num">21</td>
+          <td class="col-name">*gang*</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">IME</td>
+          <td class="col-meaning">Affection 😘</td>
+          <td class="col-proposed">zakalwe2040</td>
+        </tr>
+        <tr class="cat-num">
+          <td class="col-num">31</td>
+          <td class="col-name">*wǔ*</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">5</td>
+          <td class="col-meaning">Octal digit 5</td>
+          <td class="col-proposed">marainkit</td>
+        </tr>
+        <tr class="cat-zak">
+          <td class="col-num">45</td>
+          <td class="col-name">*buz*</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">IME</td>
+          <td class="col-meaning">Overwhelmed 😭</td>
+          <td class="col-proposed">zakalwe2040</td>
+        </tr>
+        <tr class="cat-zak">
+          <td class="col-num">62</td>
+          <td class="col-name">*pil*</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="14.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">IME</td>
+          <td class="col-meaning">Fatigue 🥱</td>
+          <td class="col-proposed">zakalwe2040</td>
+        </tr>
+        <tr class="cat-num">
+          <td class="col-num">63</td>
+          <td class="col-name">*liù*</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">6</td>
+          <td class="col-meaning">Octal digit 6</td>
+          <td class="col-proposed">marainkit</td>
+        </tr>
+        <tr class="cat-zak">
+          <td class="col-num">85</td>
+          <td class="col-name">*shaa*</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="26.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">IME</td>
+          <td class="col-meaning">Laughter 🤣</td>
+          <td class="col-proposed">zakalwe2040</td>
+        </tr>
+        <tr class="cat-ph">
+          <td class="col-num">87</td>
+          <td class="col-name">/tch/</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.0"
+                y="2.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="2.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="14.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="26.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">ĉ</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key"></td>
+          <td class="col-meaning">Phoneme</td>
+          <td class="col-proposed">Banks</td>
+        </tr>
+        <tr class="cat-ph">
+          <td class="col-num">118</td>
+          <td class="col-name">/oh/</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="14.0"
+                y="2.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="14.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="14.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="26.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">o</span></td>
+          <td class="col-glyph-reg"><span class="mr-glyph">i</span></td>
+          <td class="col-key">o</td>
+          <td class="col-meaning">Phoneme</td>
+          <td class="col-proposed">Banks</td>
+        </tr>
+        <tr class="cat-ph">
+          <td class="col-num">121</td>
+          <td class="col-name">/w/</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.0"
+                y="2.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="14.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="14.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="14.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="26.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">w</span></td>
+          <td class="col-glyph-reg"><span class="mr-glyph">h</span></td>
+          <td class="col-key">w</td>
+          <td class="col-meaning">Phoneme</td>
+          <td class="col-proposed">Banks</td>
+        </tr>
+        <tr class="cat-num">
+          <td class="col-num">127</td>
+          <td class="col-name">*qī*</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="26.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">7</td>
+          <td class="col-meaning">Octal digit 7</td>
+          <td class="col-proposed">marainkit</td>
+        </tr>
+        <tr class="cat-ph">
+          <td class="col-num">143</td>
+          <td class="col-name">/ah/</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.0"
+                y="2.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="2.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="14.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="26.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">a</span></td>
+          <td class="col-glyph-reg"><span class="mr-glyph">n</span></td>
+          <td class="col-key"></td>
+          <td class="col-meaning">Phoneme</td>
+          <td class="col-proposed">Banks</td>
+        </tr>
+        <tr class="cat-zak">
+          <td class="col-num">149</td>
+          <td class="col-name">*ging*</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="26.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">IME</td>
+          <td class="col-meaning">Sympathy 🥺</td>
+          <td class="col-proposed">zakalwe2040</td>
+        </tr>
+        <tr class="cat-inv">
+          <td class="col-num">170</td>
+          <td class="col-name">"Diamond"</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="14.0"
+                y="2.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="14.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="14.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="26.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="mr-glyph">a</span></td>
+          <td class="col-key"></td>
+          <td class="col-meaning">Danger · hazard</td>
+          <td class="col-proposed">marainkit</td>
+        </tr>
+        <tr class="cat-ph">
+          <td class="col-num">173</td>
+          <td class="col-name">/h/</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.0"
+                y="2.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="14.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="14.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="26.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">h</span></td>
+          <td class="col-glyph-reg"><span class="mr-glyph">y</span></td>
+          <td class="col-key">h</td>
+          <td class="col-meaning">Phoneme</td>
+          <td class="col-proposed">Banks</td>
+        </tr>
+        <tr class="cat-ph">
+          <td class="col-num">174</td>
+          <td class="col-name">/ch/</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="14.0"
+                y="2.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="14.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="14.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="26.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">c</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key"></td>
+          <td class="col-meaning">Phoneme</td>
+          <td class="col-proposed">Banks</td>
+        </tr>
+        <tr class="cat-zak">
+          <td class="col-num">175</td>
+          <td class="col-name">*hub*</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="26.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">IME</td>
+          <td class="col-meaning">Love 💛</td>
+          <td class="col-proposed">zakalwe2040</td>
+        </tr>
+        <tr class="cat-zak">
+          <td class="col-num">181</td>
+          <td class="col-name">*shacha*</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="26.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">IME</td>
+          <td class="col-meaning">Greetings · peace · hello · bye 🖖</td>
+          <td class="col-proposed">zakalwe2040</td>
+        </tr>
+        <tr class="cat-inv">
+          <td class="col-num">186</td>
+          <td class="col-name">"Cross"</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="14.0"
+                y="2.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="14.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="14.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="14.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="26.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">-</span></td>
+          <td class="col-glyph-reg"><span class="mr-glyph">z</span></td>
+          <td class="col-key"></td>
+          <td class="col-meaning">Alert · stop</td>
+          <td class="col-proposed">marainkit</td>
+        </tr>
+        <tr class="cat-ph near-conflict">
+          <td class="col-num">187</td>
+          <td class="col-name">
+            /l/ <span class="flag">⚠ 1 bit from #186 Cross</span>
+          </td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">l</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">-</span></td>
+          <td class="col-key">l</td>
+          <td class="col-meaning">Phoneme</td>
+          <td class="col-proposed">Banks</td>
+        </tr>
+        <tr class="cat-ph">
+          <td class="col-num">189</td>
+          <td class="col-name">/z/</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">z</span></td>
+          <td class="col-glyph-reg"><span class="mr-glyph">w</span></td>
+          <td class="col-key">z</td>
+          <td class="col-meaning">Phoneme</td>
+          <td class="col-proposed">Banks</td>
+        </tr>
+        <tr class="cat-zak">
+          <td class="col-num">220</td>
+          <td class="col-name">*wun*</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="26.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="26.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">IME</td>
+          <td class="col-meaning">Warmth 💕</td>
+          <td class="col-proposed">zakalwe2040</td>
+        </tr>
+        <tr class="cat-zak">
+          <td class="col-num">221</td>
+          <td class="col-name">*zang*</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="26.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="26.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">IME</td>
+          <td class="col-meaning">Surprise 😲</td>
+          <td class="col-proposed">zakalwe2040</td>
+        </tr>
+        <tr class="cat-ph">
+          <td class="col-num">242</td>
+          <td class="col-name">/g/</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="14.0"
+                y="2.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="14.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="14.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="26.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="26.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">g</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">g</td>
+          <td class="col-meaning">Phoneme</td>
+          <td class="col-proposed">Banks</td>
+        </tr>
+        <tr class="cat-ph">
+          <td class="col-num">247</td>
+          <td class="col-name">/y/</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">y</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">y</td>
+          <td class="col-meaning">Phoneme</td>
+          <td class="col-proposed">Banks</td>
+        </tr>
+        <tr class="cat-ph">
+          <td class="col-num">251</td>
+          <td class="col-name">/n/</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">n</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">n</td>
+          <td class="col-meaning">Phoneme</td>
+          <td class="col-proposed">Banks</td>
+        </tr>
+        <tr class="cat-zak">
+          <td class="col-num">253</td>
+          <td class="col-name">*shuu*</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="26.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="26.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">IME</td>
+          <td class="col-meaning">Infatuation 😍</td>
+          <td class="col-proposed">zakalwe2040</td>
+        </tr>
+        <tr class="cat-zak">
+          <td class="col-num">266</td>
+          <td class="col-name">*samara*</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="14.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="26.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">IME</td>
+          <td class="col-meaning">Fascination · logic understood 🤨</td>
+          <td class="col-proposed">zakalwe2040</td>
+        </tr>
+        <tr class="cat-zak">
+          <td class="col-num">277</td>
+          <td class="col-name">*mar*</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="26.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">IME</td>
+          <td class="col-meaning">Joy 😂</td>
+          <td class="col-proposed">zakalwe2040</td>
+        </tr>
+        <tr class="cat-ph">
+          <td class="col-num">286</td>
+          <td class="col-name">/ng/</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="14.0"
+                y="2.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="14.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="14.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="26.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">ň</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key"></td>
+          <td class="col-meaning">Phoneme</td>
+          <td class="col-proposed">Banks</td>
+        </tr>
+        <tr class="cat-ph">
+          <td class="col-num">305</td>
+          <td class="col-name">/uh/</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.0"
+                y="2.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="14.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="14.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="26.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">u</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key"></td>
+          <td class="col-meaning">Phoneme</td>
+          <td class="col-proposed">Banks</td>
+        </tr>
+        <tr class="cat-ph">
+          <td class="col-num">307</td>
+          <td class="col-name">/ih/</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.0"
+                y="2.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="2.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="14.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="14.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="26.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">i</span></td>
+          <td class="col-glyph-reg"><span class="mr-glyph">b</span></td>
+          <td class="col-key"></td>
+          <td class="col-meaning">Phoneme</td>
+          <td class="col-proposed">Banks</td>
+        </tr>
+        <tr class="cat-zak">
+          <td class="col-num">309</td>
+          <td class="col-name">*hoo*</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="26.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">IME</td>
+          <td class="col-meaning">Happiness 😊</td>
+          <td class="col-proposed">zakalwe2040</td>
+        </tr>
+        <tr class="cat-ph">
+          <td class="col-num">317</td>
+          <td class="col-name">/t/</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">t</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">t</td>
+          <td class="col-meaning">Phoneme</td>
+          <td class="col-proposed">Banks</td>
+        </tr>
+        <tr class="cat-ph">
+          <td class="col-num">319</td>
+          <td class="col-name">/f/</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">f</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">f</td>
+          <td class="col-meaning">Phoneme</td>
+          <td class="col-proposed">Banks</td>
+        </tr>
+        <tr class="cat-inv">
+          <td class="col-num">325</td>
+          <td class="col-name">"Corners"</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.0"
+                y="2.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="26.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="26.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key"></td>
+          <td class="col-meaning">Boundary · perimeter · limit</td>
+          <td class="col-proposed">marainkit</td>
+        </tr>
+        <tr class="cat-zak">
+          <td class="col-num">334</td>
+          <td class="col-name">*fin*</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="14.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="26.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="26.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">IME</td>
+          <td class="col-meaning">Anger 😡</td>
+          <td class="col-proposed">zakalwe2040</td>
+        </tr>
+        <tr class="cat-zak">
+          <td class="col-num">338</td>
+          <td class="col-name">*yam*</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="14.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="26.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="26.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">IME</td>
+          <td class="col-meaning">Hope 🙏</td>
+          <td class="col-proposed">zakalwe2040</td>
+        </tr>
+        <tr class="cat-inv">
+          <td class="col-num">341</td>
+          <td class="col-name">"Checkerboard"</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.0"
+                y="2.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="14.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="26.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="26.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key"></td>
+          <td class="col-meaning">Noise · interference · maximum intensity</td>
+          <td class="col-proposed">marainkit</td>
+        </tr>
+        <tr class="cat-ph">
+          <td class="col-num">342</td>
+          <td class="col-name">/s/</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="14.0"
+                y="2.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="14.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="26.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="26.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">s</span></td>
+          <td class="col-glyph-reg"><span class="mr-glyph">g</span></td>
+          <td class="col-key">s</td>
+          <td class="col-meaning">Phoneme</td>
+          <td class="col-proposed">Banks</td>
+        </tr>
+        <tr class="cat-ph">
+          <td class="col-num">347</td>
+          <td class="col-name">/sh/</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">q</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key"></td>
+          <td class="col-meaning">Phoneme</td>
+          <td class="col-proposed">Banks</td>
+        </tr>
+        <tr class="cat-zak">
+          <td class="col-num">365</td>
+          <td class="col-name">*shii*</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="26.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="26.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">IME</td>
+          <td class="col-meaning">Synchronicity 😉</td>
+          <td class="col-proposed">zakalwe2040</td>
+        </tr>
+        <tr class="cat-ph">
+          <td class="col-num">367</td>
+          <td class="col-name">/v/</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">v</span></td>
+          <td class="col-glyph-reg"><span class="mr-glyph">r</span></td>
+          <td class="col-key">v</td>
+          <td class="col-meaning">Phoneme</td>
+          <td class="col-proposed">Banks</td>
+        </tr>
+        <tr class="cat-ph">
+          <td class="col-num">371</td>
+          <td class="col-name">/oo/</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">ó</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key"></td>
+          <td class="col-meaning">Phoneme</td>
+          <td class="col-proposed">Banks</td>
+        </tr>
+        <tr class="cat-ph">
+          <td class="col-num">403</td>
+          <td class="col-name">/d/</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.0"
+                y="2.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="2.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="14.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="26.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="26.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">d</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">d</td>
+          <td class="col-meaning">Phoneme</td>
+          <td class="col-proposed">Banks</td>
+        </tr>
+        <tr class="cat-zak">
+          <td class="col-num">405</td>
+          <td class="col-name">*shai*</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="26.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="26.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">IME</td>
+          <td class="col-meaning">Agreement 👍</td>
+          <td class="col-proposed">zakalwe2040</td>
+        </tr>
+        <tr class="cat-ph">
+          <td class="col-num">431</td>
+          <td class="col-name">/je/</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">j</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key"></td>
+          <td class="col-meaning">Phoneme</td>
+          <td class="col-proposed">Banks</td>
+        </tr>
+        <tr class="cat-zak">
+          <td class="col-num">437</td>
+          <td class="col-name">*zing*</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="26.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="26.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">IME</td>
+          <td class="col-meaning">Positivity ✨</td>
+          <td class="col-proposed">zakalwe2040</td>
+        </tr>
+        <tr class="cat-ph">
+          <td class="col-num">444</td>
+          <td class="col-name">/k/</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="26.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">k</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">k</td>
+          <td class="col-meaning">Phoneme</td>
+          <td class="col-proposed">Banks</td>
+        </tr>
+        <tr class="cat-ph">
+          <td class="col-num">447</td>
+          <td class="col-name">/th/</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">x</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key"></td>
+          <td class="col-meaning">Phoneme</td>
+          <td class="col-proposed">Banks</td>
+        </tr>
+        <tr class="cat-ph">
+          <td class="col-num">469</td>
+          <td class="col-name">/ll/</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">ć</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key"></td>
+          <td class="col-meaning">Phoneme</td>
+          <td class="col-proposed">Banks</td>
+        </tr>
+        <tr class="cat-ph">
+          <td class="col-num">477</td>
+          <td class="col-name">/ee/</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">e</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key"></td>
+          <td class="col-meaning">Phoneme</td>
+          <td class="col-proposed">Banks</td>
+        </tr>
+        <tr class="cat-ph">
+          <td class="col-num">483</td>
+          <td class="col-name">/eh/</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">é</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key"></td>
+          <td class="col-meaning">Phoneme</td>
+          <td class="col-proposed">Banks</td>
+        </tr>
+        <tr class="cat-ph">
+          <td class="col-num">484</td>
+          <td class="col-name">/m/</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="14.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="26.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="26.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="26.0"
+                width="10.0"
+                height="10.0"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">b</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">m</td>
+          <td class="col-meaning">Phoneme</td>
+          <td class="col-proposed">Banks</td>
+        </tr>
+        <tr class="cat-ph">
+          <td class="col-num">489</td>
+          <td class="col-name">/p/</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">p</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">p</td>
+          <td class="col-meaning">Phoneme</td>
+          <td class="col-proposed">Banks</td>
+        </tr>
+        <tr class="cat-ph">
+          <td class="col-num">490</td>
+          <td class="col-name">/ay/</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="14.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">ý</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">a</td>
+          <td class="col-meaning">Phoneme</td>
+          <td class="col-proposed">Banks</td>
+        </tr>
+        <tr class="cat-inv">
+          <td class="col-num">495</td>
+          <td class="col-name">"Frame"</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">0</span></td>
+          <td class="col-glyph-reg"><span class="mr-glyph">t</span></td>
+          <td class="col-key"></td>
+          <td class="col-meaning">Enclosure · bracket · container</td>
+          <td class="col-proposed">marainkit</td>
+        </tr>
+        <tr class="cat-ph">
+          <td class="col-num">500</td>
+          <td class="col-name">/b/</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="26.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">b</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">b</td>
+          <td class="col-meaning">Phoneme</td>
+          <td class="col-proposed">Banks</td>
+        </tr>
+        <tr class="cat-zak">
+          <td class="col-num">501</td>
+          <td class="col-name">*lang*</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="2.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="14.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.0"
+                y="26.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.0"
+                y="26.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.0"
+                y="26.0"
+                width="10"
+                height="10"
+                rx="2.2"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">IME</td>
+          <td class="col-meaning">Romance 🥰</td>
+          <td class="col-proposed">zakalwe2040</td>
+        </tr>
+        <tr class="cat-ph">
+          <td class="col-num">509</td>
+          <td class="col-name">/r/</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-glyph">r</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key">r</td>
+          <td class="col-meaning">Phoneme</td>
+          <td class="col-proposed">Banks</td>
+        </tr>
+        <tr class="cat-inv">
+          <td class="col-num">511</td>
+          <td class="col-name">"Full"</td>
+          <td class="col-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              viewBox="0 0 38 38"
+            >
+              <rect
+                x="2.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="2.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="14.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="2.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="14.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+              <rect
+                x="26.2"
+                y="26.2"
+                width="9.5"
+                height="9.5"
+                rx="2.1"
+                fill="#1a1a1a"
+              />
+            </svg>
+          </td>
+          <td class="col-glyph"><span class="m2-missing">—</span></td>
+          <td class="col-glyph-reg"><span class="m2-missing">—</span></td>
+          <td class="col-key"></td>
+          <td class="col-meaning">Full stop · header · maximum · critical</td>
+          <td class="col-proposed">marainkit</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <footer class="page-footer">
+      <p>
+        <strong>marainkit/marain</strong> —
+        <a href="https://github.com/marainkit/marain">github.com/marainkit/marain</a>
+        · Work in progress · Spec and architecture reference only
+      </p>
+      <p>
+        Marain language from the Culture novels of <strong>Iain M. Banks</strong>.
+        Glyph assignments based on Banks' essay <em>A Few Notes on Marain</em>.
+        Phoneme corrections and invariant analysis by marainkit.
+      </p>
+      <p>
+        <strong>Marain Banks</strong> font by <a href="https://github.com/tomdionysus/marain-font">Tom Cully (tomdionysus)</a> ·
+        <strong>Marain Regular</strong> font by bianc0niglio ·
+        UI font: <a href="https://brailleinstitute.org/freefont">Atkinson Hyperlegible</a>
+      </p>
+    </footer>
+  </body>
+</html>
