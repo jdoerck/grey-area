@@ -14,15 +14,15 @@ This document specifies the requirements that any compliant Marain **font** (ren
 
 ```
 encoding layer        glyph                  font (renderer)        medium output
-16-bit word     →     3×3 slate        →     user / medium    →     screen · print
-(9 slate bits +       (9 bits, 0–511)        preference             carve · weave · transmit
- 3 upper + 3 lower
- + 1 preceding)
+packet          →     slate            →     user / medium    →     screen · print
+(herald 1 bit +       (9 bits, 0–511)        preference             carve · weave · transmit
+ rails 6 bits +
+ slate 9 bits)
 ```
 
-The 16-bit word carries more than the slate. The upper (3 bits), lower (3 bits), and preceding (1 bit) channels are reserved for future semantic content — vowel diacritics, tonal information, context markers. See `encoding/docs/channels.md` for the full structure.
+The [packet](../../docs/glossary.md#packet) carries more than the [slate](../../docs/glossary.md#slate). The [rails](../../docs/glossary.md#rails) (6 bits) and [herald](../../docs/glossary.md#herald) (1 bit) are reserved for future semantic content — vowel diacritics, tonal information, context markers. See `encoding/docs/channels.md` for the full structure.
 
-**M1 fonts render the slate only.** Extended fonts may optionally render channel information, but channels are always visually subordinate to the slate.
+**M1 fonts render the slate only.** Extended fonts may optionally render rail information, but rails are always visually subordinate to the slate.
 
 **Glyphs** are defined by the encoding layer — canonical 3×3 binary-grid representations identified by their 9-bit index (0–511). They exist independently of any rendering technology. A glyph is not owned by a font.
 

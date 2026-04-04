@@ -5,7 +5,7 @@ A catalogue of claimed Marain glyphs, symbols, and phonemes across canonical and
 For a lookup table of all assigned values by decimal index, see [`glyph-index.md`](glyph-index.md).
 For the cross-system comparison tables and design discussion, see [`glyph-decisions.md`](glyph-decisions.md).
 For the decision backlog and roadmap, see [`roadmap.md`](roadmap.md).
-For the 16-bit word structure and channel architecture (upper, lower, preceding bits), see [`channels.md`](channels.md).
+For the [packet](../../docs/glossary.md#packet) structure and [rails](../../docs/glossary.md#rails)/[herald](../../docs/glossary.md#herald) architecture, see [`channels.md`](channels.md).
 
 ---
 
@@ -183,7 +183,7 @@ Only **2 of 24 match**: *ma* (#457) and *la* (#484). The two systems are effecti
 
 **Structural observation:**
 
-The 4×5 lattice is a proper superset of M1. The 3×3 slate region is exactly an M1 glyph; the upper/lower diacritic rows and tonal column extend it without contradiction. In principle a 4×5 Marain glyph carries an M1 glyph as its core with additional phonemic information layered on. The two systems are architecturally compatible — the phoneme *assignments* are not.
+The 4×5 lattice is a proper superset of M1. The 3×3 [slate](../../docs/glossary.md#slate) region is exactly an M1 glyph; the upper/lower diacritic rows and tonal column extend it without contradiction. In principle a 4×5 Marain glyph carries an M1 glyph as its core with additional phonemic information layered on. The two systems are architecturally compatible — the phoneme *assignments* are not.
 
 ---
 
@@ -204,7 +204,7 @@ Banks notes that each 9-bit glyph is followed by a **buffer bit** in transmissio
 If we do define a marainkit phoneme layer, *wa* needs a value that does not conflict with #511. The natural candidate is Banks' own #121 (already canonical). The zakalwe2040 pattern for *wa* (#511, all-filled) could be interpreted as an intentional homoiconic choice — a fully-resonant bilabial — but it permanently occupies a structurally significant glyph. Reassignment is clean; the question is what, if anything, #511 then represents phonemically.
 
 **5. The 4×5 lattice as M2.**
-If marainkit ever defines an extended encoding layer, zakalwe2040's 4×5 architecture (slate + diacritic channels + tonal channel) is the most developed community design for exactly that purpose. Even if we don't adopt the phoneme assignments, the lattice geometry is worth treating as a reference design for M2.
+If marainkit ever defines an extended encoding layer, zakalwe2040's 4×5 architecture (slate + diacritic channels + tonal channel) is the most developed community design for exactly that purpose. Even if we don't adopt the phoneme assignments, the [lattice](../../docs/glossary.md#lattice) geometry is worth treating as a reference design for M2.
 
 ---
 

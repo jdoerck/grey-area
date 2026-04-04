@@ -83,6 +83,20 @@ Pattern notation: `█` = filled (1) · `░` = empty (0)
 | 501 | *lang* | `█░█`<br>`░██`<br>`███` | `101011111` | Romance 🥰 | zakalwe2040[^9] |
 | 511 | "Full" | `███`<br>`███`<br>`███` | `111111111` | Full stop · header marker · maximum · critical | marainkit[^1] |
 
+## Reserved
+
+Glyphs held open pending the number-base decision. Do not assign to phonemes, operators, or other vocabulary until the base question is settled. See issue #31.
+
+| # | Glyph | Binary | Reason |
+|--:|-------|--------|--------|
+| 255 | `███`<br>`███`<br>`██░` | `111111110` | Sequential-fill position 8 — the natural "digit 8" if the system ever extends beyond base-8[^11] |
+| 317 | `█░█`<br>`███`<br>`░░█` | `101111001` | zakalwe2040's decimal digit 8 — reserved for potential decimal compatibility[^11] |
+| 381 | `█░█`<br>`███`<br>`█░█` | `101111101` | zakalwe2040's decimal digit 9 — reserved for potential decimal compatibility[^11] |
+
+**Note on #511:** The sequential-fill position 9 (all cells filled) is #511 — already the Full invariant. This is a hard geometric constraint: 9 filled cells in a 9-cell grid *is* #511 by definition. There is no alternative "digit 9" that preserves count-the-dots readability. This is one reason base-8 is the natural fit for a 9-cell grid.
+
+---
+
 ## Unresolved
 
 | # | Name | Glyph | Binary | Meaning(s) | Proposed by |
@@ -95,7 +109,7 @@ Pattern notation: `█` = filled (1) · `░` = empty (0)
 
 **Banks' alphabet — decimal indices** — all 32 phonemes are documented above from the glyph table image[^5], but only *w* (#121) has a confirmed decimal index (stated explicitly in the essay text). All other pattern readings are approximate visual interpretations from a low-resolution image. A pixel-precise analysis of the source image or the tomdionysus font file[^8] would resolve most of these.
 
-**Base-8 numerals** — Banks states that values beyond the alphabet encode octal digits 0–7, punctuation, units of measurement, physical/mathematical constants, and chemical elements. None have published indices.
+**Base-8 numerals** — Banks states that values beyond the alphabet encode octal digits 0–7. marainkit has assigned these via the sequential-fill rule: #0, #1, #3, #7, #15, #31, #63, #127. See footnote [^10]. The number-base decision carries unresolved tension — see issue #31 and the Reserved section above.
 
 **zakalwe2040 abjad** — the 24 Tonal Marain consonants[^4] are published as SVG glyph diagrams but without decimal index values. Their grid positions are not mapped to the M1 3×3 system (Tonal Marain uses a 4×5 lattice).
 
@@ -118,5 +132,7 @@ Pattern notation: `█` = filled (1) · `░` = empty (0)
 [^8]: tomdionysus, [github.com/tomdionysus/marain-font](https://github.com/tomdionysus/marain-font) — a TrueType implementation of Banks' alphabet. Extracting glyph outlines from `Marain.ttf` via fonttools would yield precise binary values for all mapped characters.
 
 [^9]: zakalwe2040, *Tonal Marain*, [github.com/zakalwe2040/marain](https://github.com/zakalwe2040/marain). Glyph patterns extracted programmatically from `docs/emojis.svg` ellipse coordinates.
+
+[^11]: Reserved pending the number-base decision (issue #31). The geometric constraint: a 9-cell grid permits exactly 8 non-invariant sequential-fill positions (0–7 filled cells). Position 8 filled = #255 (available); position 9 filled = #511 (Full invariant, already reserved). Count-the-dots readability therefore caps naturally at base-8 — extending to base-10 requires abandoning the self-explaining property for at least digit 9. #317 and #381 are zakalwe2040's decimal digits 8 and 9; held open for potential decimal compatibility only.
 
 [^10]: marainkit numeral assignment — base-8 (octal), digits 0–7. **Sequential-fill rule:** digit *n* = the glyph with exactly *n* filled cells, filled in reading order (left→right, top→bottom = LSB-first). **Rationale:** (1) count the dots = read the digit — learnable without knowing binary; (2) natural visual progression, like a tally or progress bar filling left to right then top to bottom; (3) consistent with Banks' base-8 system and his two implied canonical values (#0 = zero/null, #1 = one); (4) no invariant conflicts — digit 7 = #127, stopping one short of the Full invariant (#511). Digits #0 and #1 follow Banks' implied assignments; #3–#127 assigned by marainkit. Base-8 chosen over base-10 because: it matches Banks explicitly, the 3×3 grid divides into three 3-bit rows (2³ = 8 states each), and it eliminates the zakalwe2040 digit-3/#121 conflict entirely.

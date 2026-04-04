@@ -158,9 +158,9 @@ Measure: `74ch` max line length
 
 ---
 
-## State escalation (base-9)
+## State escalation (scale 0–8)
 
-The display layer maps to the same base-9 index as the encoding layer:
+The display layer maps glyph index ranges to a 9-level status scale:
 
 | Range | State | Token |
 |-------|-------|-------|
@@ -194,7 +194,7 @@ See `fonts/CLAUDE.md` for full spec and open decisions.
 2. ~~Define context-switching mechanism~~ — **done: `data-mode` attribute**
 3. Finalize `document / low-light / normal` dark mode tokens
 4. Build `hud / low-light / normal`
-5. Finalize state escalation — map base-9 index to token set
+5. Finalize state escalation — map status scale (0–8) to token set
 6. Design `attention` state (levels 3–5)
 7. Tokenize syntax highlighting colors
 8. Write `fonts/build.py` — compile Marain glyph font

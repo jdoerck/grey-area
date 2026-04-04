@@ -33,6 +33,8 @@ The 8 rotation/mirror-invariant values (#0, #16, #170, #186, #325, #341, #495, #
 
 Canonical (Banks), consistent with binary glyph structure (3×3 = 9 bits, 8 = 2³), eliminates the digit-3 = #121 / *w* conflict. zakalwe2040's base-10 was rejected as non-canonical and conflicting with marainkit invariants.
 
+**Noted tension (issue #31):** Base-8 is a hard sell as a universal numeral system — no human community uses it natively. However, the 9-cell grid geometry means the count-the-dots readability property (the strongest universalist argument for the numerals) is mathematically capped at base-8: position 9 filled = #511 = Full invariant, so there is no self-explaining "digit 9." The geometry enforces base-8 for any count-the-dots numeral design. Glyphs #255, #317, and #381 are reserved pending this question — see `glyph-index.md`.
+
 ---
 
 ### [🟢] Choose a phoneme assignment strategy  *(issue #5)*
@@ -45,7 +47,7 @@ All 32 Banks phonemes adopted as the canonical assignment, with two corrections 
 
 ~~**Lean:** hybrid, anchoring on #121, #457, #484. Banks' image-read values are too low-confidence to commit to wholesale; zakalwe2040's abjad is too incompatible at *wa*/#511 to adopt directly.~~
 
-~~**Blocked by:** number base decision~~ — resolved 2026-04-03. Base-8 leaves 504 non-digit, non-invariant glyph slots for phoneme assignment (512 − 8 digits − 8 invariants = 496, minus punctuation/operators).
+~~**Blocked by:** number base decision~~ — resolved 2026-04-03. Base-8 leaves 496 non-digit, non-invariant glyph slots for phoneme assignment (512 − 8 digits − 8 invariants = 496, minus punctuation/operators).
 
 ---
 
@@ -94,9 +96,9 @@ Banks defines a 10th "buffer bit" appended to each 9-bit glyph in transmission. 
 
 ### [🔴] Assign base-8 digit values
 
-**Blocked by:** number base decision above.
+~~**Blocked by:** number base decision above.~~ Resolved 2026-04-03 — base-8 confirmed.
 
-Once base-8 is confirmed, 8 digit values (#0–#7 in Banks' system) need to be assigned. No published values exist anywhere. Options:
+8 digit values (#0–#7 in Banks' system) need to be assigned. No published values exist anywhere. Options:
 
 - Derive geometrically (e.g., segment-count / segment-shape analogues to seven-segment displays).
 - Use a visually progressive sequence (each digit adds one filled cell from #0 = empty).
@@ -168,7 +170,7 @@ Once phoneme strategy is decided (see Layer 1 above), select the active vocabula
 
 ### [🔵] M2 — 4×5 lattice as extended encoding layer
 
-zakalwe2040's 4×5 lattice (slate + upper/lower diacritic channels + tonal channel) is architecturally a superset of M1. Any M1 glyph is valid in the 3×3 slate position. If marainkit defines M2, this geometry is the reference design.
+zakalwe2040's 4×5 lattice ([slate](../../docs/glossary.md#slate) + upper/lower diacritic channels + tonal channel) is architecturally a superset of M1. Any M1 glyph is valid in the 3×3 slate position. If marainkit defines M2, this geometry is the reference design.
 
 The phoneme *assignments* in zakalwe2040's M2 lattice would not necessarily carry over — the geometry could be adopted independently of the values. Deferred until M1 is stable.
 

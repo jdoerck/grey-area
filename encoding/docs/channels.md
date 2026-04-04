@@ -1,25 +1,39 @@
 # Channel Architecture
 
-Marain's base encoding unit is **16 bits** — one preceding bit plus a 5×3 lattice.
+Marain's base encoding unit is **16 bits** — two standard bytes. The structure is a **herald bit** plus a **5×3 lattice**.
 
 ```
-bit 0  (preceding)   1 bit   — frame marker / reserved
-bits 1–3  (upper)    3 bits  — upper channel
-bits 4–12 (slate)    9 bits  — 3×3 glyph grid
-bits 13–15 (lower)   3 bits  — lower channel
+bit 0      (herald)   1 bit  — frame marker / reserved
+bits 1–3   (rails)    3 bits — upper rail
+bits 4–12  (slate)    9 bits — 3×3 glyph grid
+bits 13–15 (rails)    3 bits — lower rail
 ```
 
 Visual layout:
 
 ```
-P  [U₁][U₂][U₃]        ← preceding bit + upper channel
+H  [R₁][R₂][R₃]        ← herald + upper rail
    [ 0][ 1][ 2]         ┐
    [ 3][ 4][ 5]         ├  slate (3×3 — glyph index 0–511)
    [ 6][ 7][ 8]         ┘
-   [L₁][L₂][L₃]        ← lower channel
+   [R₄][R₅][R₆]        ← lower rail
 ```
 
-The **slate** is the stable unit. Every glyph in the active vocabulary is defined solely by its 9-bit slate state. The surrounding channels are reserved — they carry no meaning in M1 unless explicitly assigned.
+## Terminology
+
+*Canonical definitions live in [`docs/glossary.md`](../../docs/glossary.md). Definitions here are a summary.*
+
+| Term | Bits | Description |
+|------|------|-------------|
+| **[slate](../../docs/glossary.md#slate)** | 9 | The 3×3 binary glyph — the stable core unit. Every glyph is defined solely by its slate state (index 0–511). |
+| **[rails](../../docs/glossary.md#rails)** | 6 | The upper and lower 3×1 rows flanking the slate (3 above, 3 below). Context channels — semantics unassigned in M1. |
+| **[herald](../../docs/glossary.md#herald)** | 1 | The single preceding bit. Role undecided — candidates: frame/word boundary marker, protocol header bit. |
+| **[lattice](../../docs/glossary.md#lattice)** | 15 | The 5×3 visual area: rails + slate. The geometric shape of the encoding unit, excluding the herald. |
+| **[packet](../../docs/glossary.md#packet)** | 16 | The full 2-byte word: herald + lattice. The encoded semantic unit — a self-contained glyph + context bundle. |
+
+**Why two terms for 15–16 bits?** `lattice` is the visual/structural frame; `packet` is the encoded unit. These are kept separate until rail semantics are assigned — at that point the lattice geometry and the packet encoding may need to be discussed independently (e.g. a font renders a lattice; a transmitter sends a packet).
+
+The **slate** is the stable unit. The rails and herald are reserved — they carry no meaning in M1 unless explicitly assigned.
 
 ---
 
@@ -34,39 +48,39 @@ zakalwe2040's [Tonal Marain](https://github.com/zakalwe2040/marain#tonal-marain)
 | Tonal channel | right column | tonal information |
 | Slate | 3×3 centre | graphemes / logograms |
 
-Our layout omits the right tonal column — the 5×3 lattice retains upper and lower channels and uses the saved space as a preceding bit. This gives a 16-bit (2-byte) aligned structure.
+Our layout omits the right tonal column — the 5×3 lattice retains rails and uses the saved space as the herald. This gives a 16-bit (2-byte) aligned structure.
 
-The **upper and lower channel semantics** from zakalwe2040 are a strong candidate for adoption. The preceding bit's role is unresolved.
-
----
-
-## Channel semantics (undecided)
-
-Channel content has not been assigned. Open options:
-
-- **Linguistic channels** — follow zakalwe2040: upper = vowel diacritics, lower = secondary vowels, preceding = word/phrase boundary
-- **Contextual channels** — semantics vary by context type: a code document might use channels for syntax class; a text document for stress/tone; an alert surface for urgency modifier
-- **Mixed model** — preceding bit as universal frame marker; upper/lower channels context-assigned
-
-**No channel should be assigned until the linguistic layer (`language/`) has enough vocabulary to make the choice with real content.** Premature assignment risks locking the wrong semantics.
+The **rail semantics** from zakalwe2040 are a strong candidate for adoption. The herald's role is unresolved.
 
 ---
 
-## Font rendering of channels
+## Rail semantics (undecided)
 
-Channels are **optional for fonts**. A compliant M1 font may render only the slate. A more capable font may render one or more channels.
+Rail content has not been assigned. Open options:
+
+- **Linguistic** — follow zakalwe2040: upper rail = vowel diacritics, lower rail = secondary vowels, herald = word/phrase boundary
+- **Contextual** — semantics vary by context type: a code document might use rails for syntax class; a text document for stress/tone; an alert surface for urgency modifier
+- **Mixed** — herald as universal frame marker; rails context-assigned
+
+**No rail or herald bit should be assigned until the linguistic layer (`language/`) has enough vocabulary to make the choice with real content.** Premature assignment risks locking the wrong semantics.
+
+---
+
+## Font rendering of rails
+
+Rails are **optional for fonts**. A compliant M1 font may render only the slate. A more capable font may render one or more rails.
 
 Rules:
 
-1. **A font that ignores channels must still be able to receive a full 16-bit value** — it simply discards the non-slate bits.
-2. **Channel rendering must be visually subordinate to the slate** — channels are diacritics, not equal-weight symbols.
-3. **Channel rendering is declared in font metadata** — so a layout engine can choose an appropriate font for the content type.
+1. **A font that ignores rails must still be able to receive a full packet** — it simply discards the non-slate bits.
+2. **Rail rendering must be visually subordinate to the slate** — rails are diacritics, not equal-weight symbols.
+3. **Rail rendering is declared in font metadata** — so a layout engine can choose an appropriate font for the content type.
 
 ---
 
 ## Open questions
 
-- What does the preceding bit encode? (Start-of-word, start-of-phrase, delimiter, or protocol header bit?)
-- Are channel semantics fixed per script level (M1, M2…) or per context type?
-- Should we define a right/tonal channel in a future 6×3 + 1 extension, following zakalwe2040 more closely?
-- Does the 16-bit boundary mean character encoding maps to `uint16`? (Probably yes — worth making explicit in the encoding spec.)
+- What does the herald encode? (Start-of-word, start-of-phrase, delimiter, or protocol header bit?)
+- Are rail semantics fixed per script level (M1, M2…) or per context type?
+- Should we define a right/tonal rail in a future 6×3 + 1 extension, following zakalwe2040 more closely?
+- Does the packet map to `uint16` in implementations? (Probably yes — worth making explicit in the encoding spec.)

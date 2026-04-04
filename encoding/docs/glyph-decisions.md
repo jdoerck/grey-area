@@ -27,8 +27,8 @@ These must be made before building any encoder. See [`roadmap.md`](roadmap.md) f
 
 | Decision | Status | Current lean |
 |----------|--------|--------------|
-| **Number base** — base-8 (Banks) vs base-10 (Z) | 🔴 Blocking | Base-8. Eliminates the #121/digit-3 conflict entirely. |
-| **Phoneme strategy** — follow Banks †, follow Z abjad, or define fresh | 🔴 Blocking | Hybrid: anchor on confirmed values (#121, #457, #484), assign the rest fresh. |
+| **Number base** — base-8 (Banks) vs base-10 (Z) | 🟢 Decided | Base-8. Decided 2026-04-03 — see `roadmap.md` decision log. |
+| **Phoneme strategy** — follow Banks †, follow Z abjad, or define fresh | 🟢 Decided | Banks corrected. Decided 2026-04-03 — see `roadmap.md` decision log. |
 | **wa assignment** — keep Banks #121 or accept Z #511 | 🟡 Open | Keep #121. |
 | **Buffer bit** — use Banks' 10th bit as long-vowel marker | 🟡 Open | Yes — zero cost, maps cleanly onto the vowel-pointing model. |
 | **`+` vs Diamond** — dual meaning or reassign `+` | 🟡 Open | Undecided. Homoiconic argument for `+`=#170 is genuinely strong. |
@@ -176,7 +176,7 @@ Banks defines a 10th "buffer bit" after each 9-bit glyph in transmission. Curren
 
 ### On M2 and the 4×5 lattice
 
-The 4×5 lattice is a proper superset of M1 — the 3×3 slate is exactly an M1 glyph, with diacritic and tonal channels added. M1 is forward-compatible with M2 by design. If marainkit defines an extended encoding layer, zakalwe2040's geometry is the reference starting point. The phoneme *assignments* in that layer are a separate question from the geometry.
+The 4×5 lattice is a proper superset of M1 — the 3×3 [slate](../../docs/glossary.md#slate) is exactly an M1 glyph, with diacritic and tonal channels added. M1 is forward-compatible with M2 by design. If marainkit defines an extended encoding layer, zakalwe2040's geometry is the reference starting point. The phoneme *assignments* in that layer are a separate question from the geometry.
 
 ---
 

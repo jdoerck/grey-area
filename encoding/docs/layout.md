@@ -43,7 +43,7 @@ APPROACH 2: Macro 3×3 Grid (recommended upgrade)
 ┌───┬───┬───┐
 │ G │ G │ G │  Each cell = one 3×3 glyph
 ├───┼───┼───┤  Readable from any edge
-│ G │ G │ G │  Maps cleanly onto base-9 structure
+│ G │ G │ G │  Maps cleanly onto 3×3 macro structure
 ├───┼───┼───┤
 │ G │ G │ G │
 └───┴───┴───┘
@@ -58,7 +58,7 @@ APPROACH 3: Radial / Fractal (Mind-level ideal)
 
 **Practical sweet spot for this project: Approach 2.**
 
-Approach 2 maps onto the base-9 structure naturally, is readable from any edge, and does not require a UI change to the glyph renderer — just a change to how glyphs are arranged in the output grid.
+Approach 2 maps onto the 3×3 macro structure naturally, is readable from any edge, and does not require a UI change to the glyph renderer — just a change to how glyphs are arranged in the output grid.
 
 **The Hangul precedent:** Korean Hangul composes 2–4 phonetic letters (jamo) into square syllable blocks — the same principle as Approach 2, and it has been the dominant writing system of a major civilisation for six centuries. A reader processes the block as a unit (recognising the morpheme) before decomposing it into its constituent phonetic parts. A macro 3×3 group of Marain glyphs could function identically: the group is a "word" or morpheme unit, with tighter intra-group spacing and looser inter-group spacing creating the same density rhythm. See [`display/fonts/cjk-mixed-scripts.md §3.3`](../../display/fonts/cjk-mixed-scripts.md) for the full analysis.
 

@@ -11,7 +11,7 @@ The linguistic layer: grammar, phonemes, translations, and canonical Marain prop
 Marain is the constructed language of the Culture — **engineered rather than evolved**. The Culture's hyperintelligent AI Minds designed it from scratch to exploit the Sapir-Whorf hypothesis: that language shapes society.
 
 **Canonical properties:**
-- Written in a **3×3 matrix** of cells, each in one of three states (ternary / base-9)
+- Written in a **3×3 matrix** of binary cells (each filled or empty) — 9 bits, 512 possible glyphs
 - Glyphs are designed to be **readable in any orientation** — no privileged direction
 - Contains a **single gender-neutral third-person pronoun**
 - Structured to reduce ambiguity and encode Culture values: egalitarian, non-hierarchical, non-dominant
@@ -37,7 +37,7 @@ Marain is the constructed language of the Culture — **engineered rather than e
 
 **Reddit conlang** (u/comradelenin456, u/ratioprosperous): synthetic language built on Banks' alphabet. Flexible word order, no tenses, six grammatical cases, fourth-person pronouns, genderless third-person. Non-canonical but community-adopted.
 
-**Tonal Marain** ([zakalwe2040/marain](https://github.com/zakalwe2040/marain)): adds five emotional tones (Mandarin-derived), 24-character abjad, 4×5 dot lattice divided into diacritic channels + 3×3 slate. Most relevant prior art for a phoneme composition layer (Column B). Claims to support both graphemes and logograms.
+**Tonal Marain** ([zakalwe2040/marain](https://github.com/zakalwe2040/marain)): adds five emotional tones (Mandarin-derived), 24-character abjad, 4×5 dot lattice divided into diacritic channels + 3×3 [slate](../docs/glossary.md#slate). Most relevant prior art for a phoneme composition layer (Column B). Claims to support both graphemes and logograms.
 
 **marain-tools.netlify.app**: live tool mapping English phonemes to Marain glyphs. Reference for authentic phonemic approach. Supports three input modes: romanized Marain, direct Marain font input, and nine-bit binary.
 

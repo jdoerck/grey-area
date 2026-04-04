@@ -72,7 +72,7 @@ Sanskrit names have been proposed for all 8 invariant glyphs — see [`language/
 
 ## Connection to State Escalation
 
-The base-9 index in the display layer maps naturally:
+The status scale (0–8) in the display layer maps naturally:
 
 | Glyph | Suggested state level |
 |-------|-----------------------|

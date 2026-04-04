@@ -9,7 +9,7 @@
 
 Marain is the constructed language of the Culture — but crucially, it was **engineered rather than evolved**. The Culture's hyperintelligent AI Minds designed it from scratch to exploit the Sapir-Whorf hypothesis: that language shapes society. Key canonical properties:
 
-- Written in a **3×3 matrix** of cells, each in one of three states (ternary / base-9)
+- Written in a **3×3 matrix** of binary cells (each filled or empty) — 9 bits, 512 possible glyphs
 - Glyphs are designed to be **readable in any orientation** — no privileged direction
 - Contains a **single gender-neutral third-person pronoun**
 - Structured to reduce ambiguity and encode Culture values: egalitarian, non-hierarchical, non-dominant
@@ -108,7 +108,7 @@ APPROACH 2: Macro 3×3 Grid (recommended upgrade)
 ┌───┬───┬───┐
 │ G │ G │ G │  Each cell = one 3×3 glyph
 ├───┼───┼───┤  Readable from any edge
-│ G │ G │ G │  Maps cleanly onto base-9 structure
+│ G │ G │ G │  Maps cleanly onto 3×3 macro structure
 ├───┼───┼───┤
 │ G │ G │ G │
 └───┴───┴───┘
@@ -171,7 +171,7 @@ graph TD
 
 - **Canonical source:** Banks' essay *"A Few Notes on Marain"* — describes glyphs, pronunciation, data transmission
 - **Reddit conlang** (u/comradelenin456, u/ratioprosperous): synthetic language built on Banks' alphabet. Flexible word order, no tenses, six grammatical cases, fourth-person pronouns, genderless third-person. Non-canonical but community-adopted.
-- **Tonal Marain** (zakalwe2040/marain on GitHub): adds five emotional tones (Mandarin-derived), 24-character abjad, 4×5 dot lattice divided into diacritic channels + 3×3 slate. Most relevant prior art for Column B.
+- **Tonal Marain** (zakalwe2040/marain on GitHub): adds five emotional tones (Mandarin-derived), 24-character abjad, 4×5 dot lattice divided into diacritic channels + 3×3 [slate](../docs/glossary.md#slate). Most relevant prior art for Column B.
 - **marain-tools.netlify.app**: live tool mapping English phonemes to Marain glyphs. Reference for authentic phonemic approach.
 
 ### Why Hindu and Chinese visual influences dominate community interpretations

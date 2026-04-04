@@ -40,7 +40,7 @@ Marain phonetic encoding as a visual/semantic layer.
 ```
 marain/
 ├── display/        ← adaptive display system (CSS tokens, context model, fonts) ← you are here
-├── encoding/       ← base-9 / binary encoding
+├── encoding/       ← 9-bit binary encoding
 └── docs/           ← cross-cutting specs
 ```
 
@@ -69,7 +69,7 @@ marain/
 2. ~~Define context-switching mechanism~~ — **done: `data-mode` attribute on `<html>`**
 3. Build `document / low-light / normal` (dark mode) — tokens proposed, not finalized
 4. Build `hud / low-light / normal` as the third context target
-5. Status escalation system — map base-9 index (0–8) to token set
+5. Status escalation system — map status scale (0–8) to token set
 6. `attention` state (between normal and warn) — token and component design
 7. Marain encoding integration (experimental)
 

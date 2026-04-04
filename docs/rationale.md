@@ -90,3 +90,5 @@ By anchoring on concept IDs rather than translated strings, mass translation int
 ---
 
 *See [`roadmap.md`](../encoding/docs/roadmap.md) for the technical backlog. This document is the philosophical counterpart.*
+
+*See [`sapir-whorf.md`](sapir-whorf.md) for the theoretical grounding and actionable design implications of linguistic relativity as applied to marainkit.*

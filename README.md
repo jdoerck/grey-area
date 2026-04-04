@@ -16,12 +16,22 @@ Inspired by the Culture novels of Iain M. Banks. This repo is the spec and archi
 
 ---
 
+## See the glyphs
+
+The best way to understand what this project is building is to look at the glyph table — every assigned symbol, both reference fonts side by side, with phonetic values, meanings, and binary indices.
+
+**[→ Marain Glyph Table](https://marainkit.github.io/marain/)** — live view (GitHub Pages, enable in repo Settings → Pages → source: `docs/`)
+
+Or open [`docs/index.html`](docs/index.html) locally.
+
+---
+
 ## What Marain Is
 
 Marain is the constructed language of the Culture — **engineered rather than evolved**. The Culture's hyperintelligent AI Minds designed it from scratch to exploit the Sapir-Whorf hypothesis: language shapes society.
 
 **Canonical properties:**
-- Written in a **3×3 matrix** of cells, each in one of three states (ternary / base-9)
+- Written in a **3×3 matrix** of binary cells (each filled or empty) — 9 bits, 512 possible glyphs
 - Glyphs are **readable in any orientation** — no privileged direction
 - Contains a **single gender-neutral third-person pronoun**
 - Structured to reduce ambiguity and encode Culture values: egalitarian, non-hierarchical, non-dominant
@@ -65,7 +75,7 @@ Binary encoding is canonical. Glyphs are a debug view. Tone and emotional meanin
 | Directory | Layer | Purpose | Status |
 |-----------|-------|---------|--------|
 | `language/` | L2 | Phoneme set, grammar, abjad structure, tonal encoding. Community vocabulary (430 words) and phoneme inventory seeded from Marain Tools. | Early spec |
-| `encoding/` | L1–L3 | Encoding spec: invariant glyphs, layout, base-9 structure | Active spec |
+| `encoding/` | L1–L3 | Encoding spec: invariant glyphs, layout, 9-bit binary structure | Active spec |
 | `display/` | L1 | Adaptive display system: CSS tokens, context model, typography | Prototype built |
 
 **Implementation:** [`marainkit/grey-area`](https://github.com/marainkit/grey-area) — working encoder (text → UTF-8 binary → SVG/GIF). Currently operates at Layer 1 (Column A).
@@ -99,7 +109,7 @@ Typography is **stable across all modes** — no font swapping per context. Stru
 
 Font specs: [`font-spec.md`](display/fonts/font-spec.md) — glyph rendering spec · [`research.md`](display/fonts/research.md) — font selection rationale · [`cjk-mixed-scripts.md`](display/fonts/cjk-mixed-scripts.md) — CJK/mixed-script research
 
-**Status escalation — base-9 index:** `0–2` neutral · `3–5` attention · `6–7` warning · `8` critical
+**Status escalation — scale 0–8:** `0–2` neutral · `3–5` attention · `6–7` warning · `8` critical
 
 ---
 
@@ -107,7 +117,7 @@ Font specs: [`font-spec.md`](display/fonts/font-spec.md) — glyph rendering spe
 
 Full glyph catalogue (canonical, community, and marainkit-derived): [`encoding/docs/glyphs.md`](encoding/docs/glyphs.md)
 
-Specs: [`channels.md`](encoding/docs/channels.md) — 16-bit word structure · [`invariant-glyphs.md`](encoding/docs/invariant-glyphs.md) — invariant analysis · [`layout.md`](encoding/docs/layout.md) — layout options · [`roadmap.md`](encoding/docs/roadmap.md) — decision backlog · [`glyph-decisions.md`](encoding/docs/glyph-decisions.md) — assignment analysis
+Specs: [`channels.md`](encoding/docs/channels.md) — [packet](docs/glossary.md#packet) structure ([slate](docs/glossary.md#slate) + [rails](docs/glossary.md#rails) + [herald](docs/glossary.md#herald)) · [`invariant-glyphs.md`](encoding/docs/invariant-glyphs.md) — invariant analysis · [`layout.md`](encoding/docs/layout.md) — layout options · [`roadmap.md`](encoding/docs/roadmap.md) — decision backlog · [`glyph-decisions.md`](encoding/docs/glyph-decisions.md) — assignment analysis
 
 ### Invariant Glyphs
 
@@ -124,7 +134,7 @@ These glyphs look different from ordinary text at a glance — exactly as hazard
 Three approaches considered:
 
 1. **Linear** (current in grey-area) — inherited from UTF-8. Works. Un-Culture-like.
-2. **Macro 3×3 grid** (recommended) — each cell = one glyph, readable from any edge, maps onto base-9 structure naturally.
+2. **Macro 3×3 grid** (recommended) — each cell = one glyph, readable from any edge, maps onto the 3×3 macro structure naturally.
 3. **Radial / fractal** — intellectually correct for how a Mind would write. Not practical for human readers. Deferred indefinitely.
 
 **Recommended upgrade: Approach 2.** Approach 3 is the ideal; Approach 2 is the pragmatic Culture-correct choice for M1.
@@ -183,7 +193,7 @@ marain/
 ├── encoding/           ← encoding spec (invariant glyphs, layout, glyph catalogue)
 │   └── docs/
 │       ├── glyphs.md           ← known glyph catalogue (canonical + community + marainkit)
-│       ├── channels.md         ← 16-bit word structure (slate + upper/lower channels)
+│       ├── channels.md         ← packet structure (slate + rails + herald)
 │       ├── invariant-glyphs.md ← invariant glyph analysis and vocabulary
 │       ├── layout.md           ← linear vs. macro 3×3 vs. radial layout
 │       ├── roadmap.md          ← decision backlog (phoneme strategy, number base, etc.)
@@ -199,6 +209,7 @@ marain/
 │   ├── source/         ← canonical reference (Banks essay, novel passages)
 │   ├── layers.md       ← four-layer model detail
 │   ├── rationale.md    ← project rationale and philosophy
+│   ├── sapir-whorf.md  ← linguistic relativity as design theory
 │   ├── design-notes.md
 │   ├── resources.md
 │   ├── fonts-of-interest.md
@@ -214,12 +225,14 @@ marain/
 |----------|----------|
 | [`docs/source/a-few-notes-on-marain.md`](docs/source/a-few-notes-on-marain.md) | Banks' canonical essay — the primary source |
 | [`docs/layers.md`](docs/layers.md) | Four-layer model specification |
+| [`docs/glossary.md`](docs/glossary.md) | Canonical encoding terminology — what "binary", "nonary", "base-8", "9-bit slate", and "status scale" each mean and do not mean |
 | [`docs/rationale.md`](docs/rationale.md) | Project rationale, philosophy, dictionary architecture |
+| [`docs/sapir-whorf.md`](docs/sapir-whorf.md) | Linguistic relativity as marainkit design theory — evidence, mechanisms, actionable implications |
 | [`docs/design-notes.md`](docs/design-notes.md) | Design notes and working decisions |
 | [`docs/resources.md`](docs/resources.md) | External tools, references, and prior art |
 | [`docs/fonts-of-interest.md`](docs/fonts-of-interest.md) | Font references for Marain rendering |
 | [`docs/implementation-languages.md`](docs/implementation-languages.md) | Implementation language decisions |
-| [`encoding/docs/channels.md`](encoding/docs/channels.md) | 16-bit word structure |
+| [`encoding/docs/channels.md`](encoding/docs/channels.md) | Packet structure — slate, rails, herald |
 | [`encoding/docs/invariant-glyphs.md`](encoding/docs/invariant-glyphs.md) | Invariant glyph analysis and vocabulary |
 | [`encoding/docs/layout.md`](encoding/docs/layout.md) | Layout options (linear / macro 3×3 / radial) |
 | [`encoding/docs/roadmap.md`](encoding/docs/roadmap.md) | Encoding decision backlog |

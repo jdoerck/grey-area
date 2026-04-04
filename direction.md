@@ -14,7 +14,7 @@ Inspired by the Culture novels of Iain M. Banks.
 | Directory | Purpose |
 |-----------|---------|
 | [`language/`](language/) | Linguistic layer — grammar, phonemes, translations |
-| [`encoding/`](encoding/) | Rosetta stone — converts language → base-9 grid (SVG/GIF) |
+| [`encoding/`](encoding/) | Rosetta stone — converts language → 9-bit binary glyph (SVG/GIF) |
 | [`display/`](display/)   | Adaptive display system — CSS tokens, typography, context model |
 
 See each subproject's `direction.md` for scope, rules, and priority queue.
@@ -45,7 +45,7 @@ See each subproject's `direction.md` for scope, rules, and priority queue.
 The glyph is the stable canonical unit. It exists independently of any font or display technology — it can be rendered on screen, carved in stone, woven into fabric, or transmitted as a radio bitstream. The font is just one way to make it visible.
 
 Integration points:
-- The base-9 index maps directly to the status escalation system in the display layer:
+- The status scale (0–8) maps directly to the status escalation system in the display layer:
   `0–2` neutral · `3–5` attention · `6–7` warning · `8` critical
 - Both share the principle: structure carries meaning, decoration does not
 

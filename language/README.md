@@ -10,7 +10,7 @@ Marain is a **constructed language engineered by the Culture's Minds** to exploi
 
 ## Canonical properties
 
-- Written in a **3×3 matrix** of cells (ternary / base-9)
+- Written in a **3×3 matrix** of binary cells (each filled or empty) — 9 bits, 512 possible glyphs
 - Glyphs are **readable in any orientation** — no privileged direction
 - Single **gender-neutral third-person pronoun**
 - Structured to reduce ambiguity and encode Culture values

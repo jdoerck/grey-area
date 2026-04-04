@@ -10,7 +10,7 @@ Check this index before starting work on code or architecture.
 
 | File | Summary |
 |------|---------|
-| [encoding-density-and-packets.md](encoding-density-and-packets.md) | Density calculation (9-bit glyphs ≈ 3.6 bits/letter vs ASCII's 8); reframing of the 16-bit word as `[glyph: 9] + [context: 7]` — the non-slate bits as an embedded context packet |
+| [encoding-density-and-packets.md](encoding-density-and-packets.md) | Density calculation (9-bit glyphs ≈ 3.6 bits/letter vs ASCII's 8); the packet as `[slate: 9] + [rails + herald: 7]` — why 2 bytes, and why the spare 7 bits become embedded context |
 
 ---
 
@@ -21,6 +21,19 @@ Check this index before starting work on code or architecture.
 | [dict-to-tsv.py](scripts/dict-to-tsv.py) | Convert `language/raw/marain-*.js` source files to TSV for database import | Python 3 |
 | [split-epub.py](scripts/split-epub.py) | Split the Culture complete-works omnibus EPUB into 12 individual book files → `books/` | Python 3 |
 | [rag-extract.py](scripts/rag-extract.py) | Extract Marain references (passages, ship names, vocabulary, character names) from each novel → `docs/source/culture-marain/` | Python 3 |
+
+---
+
+## Skills
+
+Claude Code skills live in `skill/`. Run `./skill/install.sh` to symlink them into
+`~/.claude/skills/` and invoke with `/marain`, etc.
+
+| Skill | Command | Purpose |
+|-------|---------|---------|
+| [marain](../skill/marain/marain.md) | `/marain` | Linguistic + encoding rigour for Marain work |
+
+See `skill/direction.md` for conventions on adding new skills.
 
 ---
 
