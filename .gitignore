@@ -12,3 +12,7 @@ node_modules/
 .venv/
 
 books
+
+CLAUDE.md
+skill/CLAUDE.md
+language/CLAUDE.md
