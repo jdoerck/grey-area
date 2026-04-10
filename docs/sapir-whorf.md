@@ -2,6 +2,14 @@
 
 > Cross-cutting spec. Relates to all layers of the four-layer model. See also [`rationale.md`](rationale.md) for the broader project philosophy.
 
+> **Evidence labels used in this document:**
+> `[canonical]` — directly from Banks source text ·
+> `[inference]` — consistent with canon, not explicitly stated ·
+> `[project decision]` — deliberate choice where canon is silent ·
+> `[speculative]` — interesting hypothesis, not yet tested
+>
+> *See [evidence-labels.md](evidence-labels.md) for full definitions.*
+
 ---
 
 ## 1. The Hypothesis
@@ -36,25 +44,27 @@ This is precisely what a *design system* does.
 
 ## 2. Banks and Marain
 
-Banks was explicit: the Culture's Minds designed Marain to exploit linguistic relativity as social engineering. From *"A Few Notes on Marain"* and the novels, the design goals are:
+**[canonical]** Banks was explicit that the Culture's Minds designed Marain with deliberate social engineering goals. From *"A Few Notes on Marain"* and the novels, several design properties are stated or strongly implied. The table below distinguishes what the source directly supports from what is project interpretation:
 
-| Goal | Linguistic mechanism |
-|------|---------------------|
-| Egalitarianism | Single gender-neutral third-person pronoun eliminates gendered default framing |
-| Non-hierarchy | Grammar that avoids encoding dominance relationships as structural defaults |
-| Reduced ambiguity | Engineered phoneme set and tonal system create sharper category boundaries |
-| Universality | Orientation-invariant glyphs remove privileged reading direction — no culture's spatial habits are canonical |
-| Transparency | Tightbeam-native binary encoding means the signal *is* the meaning — no hidden layers between transmission and semantics |
+| Goal | Linguistic mechanism | Status |
+|------|---------------------|--------|
+| Egalitarianism | Single gender-neutral third-person pronoun eliminates gendered default framing | **[canonical]** — Banks states this explicitly |
+| Non-hierarchy | Grammar that avoids encoding dominance relationships as structural defaults | **[inference]** — consistent with Banks' framing, not explicitly specified |
+| Reduced ambiguity | Engineered phoneme set and tonal system create sharper category boundaries | **[inference]** — implied by the designed nature of the system |
+| Universality | Orientation-invariant glyphs remove privileged reading direction | **[inference]** — the geometry is canonical; this interpretation of its purpose is ours |
+| Transparency | Tightbeam-native binary encoding means the signal *is* the meaning | **[inference]** — see note below |
 
-Banks understood the weak version intuitively: you don't need language to *prevent* hierarchical thinking — you just need it to stop *making hierarchy the path of least resistance*. If your pronoun system doesn't sort people by gender, you can still *notice* gender, but you have to spend cognitive effort to do it. The default shifts.
+**Note on "Transparency":** The claim that Marain was designed primarily for transmission, making the written form downstream of the signal, is a project interpretation. The source supports binary efficiency and tightbeam transmission; it does not explicitly describe the written script as a "debug view." This inference is labelled separately in [`layers.md`](layers.md).
+
+**[canonical]** Banks understood the weak Sapir-Whorf version intuitively: you don't need language to *prevent* hierarchical thinking — you just need it to stop *making hierarchy the path of least resistance*. If your pronoun system doesn't sort people by gender, you can still *notice* gender, but you have to spend cognitive effort to do it. The default shifts.
 
 This is the deepest alignment between Banks' fiction and the Sapir-Whorf evidence: **engineered defaults, not engineered constraints.**
 
 ---
 
-## 3. Where marainkit Already Embodies Sapir-Whorf
+## 3. Where marainkit Already Embodies Sapir-Whorf `[project decision]`
 
-Several design decisions we've already made are Sapir-Whorf mechanisms, whether or not we named them as such:
+Several design decisions we've already made are Sapir-Whorf mechanisms, whether or not we named them as such. The claims in this section describe deliberate marainkit design choices — not properties canonical Marain has been demonstrated to have.
 
 ### 3.1 Invariant glyphs as categorical perception
 
@@ -86,7 +96,7 @@ This prevents the common failure mode of designing for an implicit default conte
 
 ---
 
-## 4. Actionable Implications
+## 4. Actionable Implications `[project decision]`
 
 ### 4.1 Token naming is category creation
 
@@ -138,7 +148,7 @@ Column B (phoneme composition with tonal encoding) is where the Sapir-Whorf impl
 
 ---
 
-## 5. The Meta-Point
+## 5. The Meta-Point `[speculative]`
 
 The deepest implication of Sapir-Whorf for marainkit is this: **we are not just building a display system. We are building a representational system that will shape how its users perceive information.**
 
