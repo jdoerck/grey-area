@@ -1,5 +1,7 @@
 # Marain as a Four-Layer System
 
+> **Track:** Encoding system (primary) + Banks reconstruction (§ Native Medium) — the layer model and subproject mapping are marainkit design decisions; the tightbeam/transmission framing in the first section draws on canonical source material, labelled where it becomes interpretation. See [`docs/tracks.md`](tracks.md).
+
 > **Evidence labels used in this document:**
 > `[canonical]` — directly from Banks source text ·
 > `[inference]` — consistent with canon, not explicitly stated ·

@@ -2,6 +2,8 @@
 
 *Stub. This document captures the motivations behind marainkit. To be expanded in future sessions.*
 
+> **Track:** Philosophical argument — this document explores the design hypotheses and motivations behind marainkit. It is not a spec; it does not describe what the system currently does; it describes what we are designing *toward* and why. See [`docs/tracks.md`](tracks.md).
+
 > **Evidence labels used in this document:**
 > `[canonical]` — directly from Banks source text ·
 > `[inference]` — consistent with canon, not explicitly stated ·

@@ -35,7 +35,9 @@ Marain is the constructed language of the Culture — **engineered rather than e
 - Glyphs are **readable in any orientation** — no privileged direction
 - Contains a **single gender-neutral third-person pronoun**
 - Structured to reduce ambiguity and encode Culture values: egalitarian, non-hierarchical, non-dominant
-- **Native medium is tightbeam laser** — a binary bitstream across interstellar space. The glyph system is a *renderer* of that bitstream, not a primary writing system
+- **Native medium is tightbeam laser** — a binary bitstream across interstellar space
+
+*Project interpretation:* Marain's written form may be a visual rendering of a transmission-first binary signal — the glyph system as a *renderer* of the bitstream, not a primary writing system. This is consistent with the canonical source material but is not explicitly stated. See [`docs/layers.md`](docs/layers.md).
 
 **Encryption tiers:** M1 (public, all citizens) · M8–M16 (Contact Section) · M32 (Special Circumstances only). This project operates entirely at M1.
 
@@ -66,7 +68,7 @@ Marain is the constructed language of the Culture — **engineered rather than e
          ↓ all layers produce the same bitstream ↓
 ```
 
-Binary encoding is canonical. Glyphs are a debug view. Tone and emotional meaning live simultaneously in Layer 2 (conlang) and Layer 3 (encoding) — affect is in the signal itself, not a separate channel.
+Binary encoding is canonical. *By the transmission-first interpretation,* glyphs are a debug view of the signal — a rendering for human eyes rather than the primary form. Tone and emotional meaning live simultaneously in Layer 2 (conlang) and Layer 3 (encoding) — affect is in the signal itself, not a separate channel.
 
 ---
 

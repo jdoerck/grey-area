@@ -1,5 +1,7 @@
 # The Sapir-Whorf Hypothesis and marainkit
 
+> **Track:** Philosophical argument (§1–2) + Encoding system (§3–4) — §1 summarises the empirical research; §2 identifies what Banks canonically specified; §3–4 describe marainkit design decisions framed through the Sapir-Whorf lens. See [`docs/tracks.md`](tracks.md).
+
 > Cross-cutting spec. Relates to all layers of the four-layer model. See also [`rationale.md`](rationale.md) for the broader project philosophy.
 
 > **Evidence labels used in this document:**
