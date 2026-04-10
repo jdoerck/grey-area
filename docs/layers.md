@@ -1,18 +1,28 @@
 # Marain as a Four-Layer System
 
+> **Evidence labels used in this document:**
+> `[canonical]` — directly from Banks source text ·
+> `[inference]` — consistent with canon, not explicitly stated ·
+> `[project decision]` — deliberate choice where canon is silent ·
+> `[speculative]` — interesting hypothesis, not yet tested
+>
+> *See [evidence-labels.md](evidence-labels.md) for full definitions.*
+
 ---
 
 ## The Native Medium: Tightbeam Laser
 
-The most important reframing: **Marain was designed for transmission, not inscription.**
+The most important reframing: **[inference]** Marain was designed for transmission, not inscription.
 
-A tightbeam laser carries a binary bitstream across interstellar space. The 3×3 glyph system is what you get when you *render* that bitstream for human eyes. The script is downstream of the signal.
+The source supports: binary encoding mattered to Banks; tightbeam transmission is canonical; the buffer bit and extended packet structure imply a transmission-oriented design. What the source does not explicitly state: that the written script is a rendering of a transmission-first signal, or that inscription is secondary.
 
-This means:
-- Binary encoding is **canonical**, not a simplification
-- Human-readable glyphs are essentially a **debug view** of the transmission
-- GCU Grey Area is correctly understood as a **renderer**, not a writing system
-- Tone and emotional content baked into the bitstream means affect is **propositional**, not performative
+**[canonical]** A tightbeam laser carries a binary bitstream across interstellar space. **[inference]** The 3×3 glyph system is what you get when you *render* that bitstream for human eyes — the script is downstream of the signal. This is a project interpretation, consistent with canon but not directly stated.
+
+This interpretation implies:
+- **[canonical]** Binary encoding is the substrate — not a simplification
+- **[inference]** Human-readable glyphs are essentially a **debug view** of the transmission
+- **[project decision]** GCU Grey Area is correctly understood as a **renderer**, not a writing system
+- **[inference]** Tone and emotional content baked into the bitstream means affect is **propositional**, not performative
 
 ---
 
