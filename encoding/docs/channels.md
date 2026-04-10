@@ -21,15 +21,15 @@ H  [R₁][R₂][R₃]        ← herald + upper rail
 
 ## Terminology
 
-*Canonical definitions live in [`docs/glossary.md`](../../docs/glossary.md). Definitions here are a summary.*
+*Canonical definitions live in [`docs/glossary.md`](../../notes/glossary.md). Definitions here are a summary.*
 
 | Term | Bits | Description |
 |------|------|-------------|
-| **[slate](../../docs/glossary.md#slate)** | 9 | The 3×3 binary glyph — the stable core unit. Every glyph is defined solely by its slate state (index 0–511). |
-| **[rails](../../docs/glossary.md#rails)** | 6 | The upper and lower 3×1 rows flanking the slate (3 above, 3 below). Context channels — semantics unassigned in M1. |
-| **[herald](../../docs/glossary.md#herald)** | 1 | The single preceding bit. Role undecided — candidates: frame/word boundary marker, protocol header bit. |
-| **[lattice](../../docs/glossary.md#lattice)** | 15 | The 5×3 visual area: rails + slate. The geometric shape of the encoding unit, excluding the herald. |
-| **[packet](../../docs/glossary.md#packet)** | 16 | The full 2-byte word: herald + lattice. The encoded semantic unit — a self-contained glyph + context bundle. |
+| **[slate](../../notes/glossary.md#slate)** | 9 | The 3×3 binary glyph — the stable core unit. Every glyph is defined solely by its slate state (index 0–511). |
+| **[rails](../../notes/glossary.md#rails)** | 6 | The upper and lower 3×1 rows flanking the slate (3 above, 3 below). Context channels — semantics unassigned in M1. |
+| **[herald](../../notes/glossary.md#herald)** | 1 | The single preceding bit. Role undecided — candidates: frame/word boundary marker, protocol header bit. |
+| **[lattice](../../notes/glossary.md#lattice)** | 15 | The 5×3 visual area: rails + slate. The geometric shape of the encoding unit, excluding the herald. |
+| **[packet](../../notes/glossary.md#packet)** | 16 | The full 2-byte word: herald + lattice. The encoded semantic unit — a self-contained glyph + context bundle. |
 
 **Why two terms for 15–16 bits?** `lattice` is the visual/structural frame; `packet` is the encoded unit. These are kept separate until rail semantics are assigned — at that point the lattice geometry and the packet encoding may need to be discussed independently (e.g. a font renders a lattice; a transmitter sends a packet).
 

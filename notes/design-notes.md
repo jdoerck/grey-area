@@ -171,7 +171,7 @@ graph TD
 
 - **Canonical source:** Banks' essay *"A Few Notes on Marain"* — describes glyphs, pronunciation, data transmission
 - **Reddit conlang** (u/comradelenin456, u/ratioprosperous): synthetic language built on Banks' alphabet. Flexible word order, no tenses, six grammatical cases, fourth-person pronouns, genderless third-person. Non-canonical but community-adopted.
-- **Tonal Marain** (zakalwe2040/marain on GitHub): adds five emotional tones (Mandarin-derived), 24-character abjad, 4×5 dot lattice divided into diacritic channels + 3×3 [slate](../docs/glossary.md#slate). Most relevant prior art for Column B.
+- **Tonal Marain** (zakalwe2040/marain on GitHub): adds five emotional tones (Mandarin-derived), 24-character abjad, 4×5 dot lattice divided into diacritic channels + 3×3 [slate](glossary.md#slate). Most relevant prior art for Column B.
 - **marain-tools.netlify.app**: live tool mapping English phonemes to Marain glyphs. Reference for authentic phonemic approach.
 
 ### Why Hindu and Chinese visual influences dominate community interpretations

@@ -38,7 +38,8 @@ This project operates entirely at **M1** (basic nonary Marain, readable by all C
 1. Phoneme set definition (abjad structure)
 2. Grammar rules (word order, cases, pronouns)
 3. Tonal encoding spec (bridge to `encoding/` layer)
-4. Column B: phoneme picker UI feeding into binary output
+
+**Column B (phoneme picker UI) is a research track, not active backlog.** It depends on all three items above, plus several unsettled upstream questions: phoneme inventory authority, glyph assignment policy, tone encoding, register semantics, and vocabulary provenance. It is worth pursuing but is not close to actionable. See [`notes/tracks.md`](../notes/tracks.md).
 
 ---
 

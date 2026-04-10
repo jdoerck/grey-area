@@ -176,7 +176,7 @@ Banks defines a 10th "buffer bit" after each 9-bit glyph in transmission. Curren
 
 ### On M2 and the 4×5 lattice
 
-The 4×5 lattice is a proper superset of M1 — the 3×3 [slate](../../docs/glossary.md#slate) is exactly an M1 glyph, with diacritic and tonal channels added. M1 is forward-compatible with M2 by design. If marainkit defines an extended encoding layer, zakalwe2040's geometry is the reference starting point. The phoneme *assignments* in that layer are a separate question from the geometry.
+The 4×5 lattice is a proper superset of M1 — the 3×3 [slate](../../notes/glossary.md#slate) is exactly an M1 glyph, with diacritic and tonal channels added. M1 is forward-compatible with M2 by design. If marainkit defines an extended encoding layer, zakalwe2040's geometry is the reference starting point. The phoneme *assignments* in that layer are a separate question from the geometry.
 
 ---
 
@@ -200,4 +200,4 @@ Items that were open and are now confirmed. Recorded for reference.
 
 ---
 
-[^1]: Iain M. Banks, *"A Few Notes on Marain"* (date unknown). Glyph table image: [`docs/assets/marain-example-banks.png`](../../docs/assets/marain-example-banks.png).
+[^1]: Iain M. Banks, *"A Few Notes on Marain"* (date unknown). Glyph table image: [`docs/assets/marain-example-banks.png`](../../notes/assets/marain-example-banks.png).

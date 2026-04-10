@@ -1,5 +1,7 @@
 # Marain as a Four-Layer System
 
+> **Track:** Encoding system (primary) + Banks reconstruction (§ Native Medium) — the layer model and subproject mapping are marainkit design decisions; the tightbeam/transmission framing in the first section draws on canonical source material, labelled where it becomes interpretation. See [`notes/tracks.md`](tracks.md).
+
 > **Evidence labels used in this document:**
 > `[canonical]` — directly from Banks source text ·
 > `[inference]` — consistent with canon, not explicitly stated ·
@@ -64,14 +66,14 @@ This interpretation implies:
 | Layer 1 | `encoding/` + `display/` | Glyph rendering + adaptive display |
 
 **Column A** of the tool (UTF-8 → binary → glyphs) operates in Layer 1.
-**Column B** (Marain phoneme composition with tonal encoding) would pull in Layer 2.
+**Column B** (Marain phoneme composition with tonal encoding) would pull in Layer 2 — this is a research-track goal, not near-term backlog. It depends on unsettled upstream questions: phoneme inventory, tone encoding, glyph assignment policy, and register semantics.
 
-The gap no one has filled: a tool that lets you compose in Marain phonemes *and* see the exact bits being generated — a bridge between Layer 2 and Layer 3. That is the long-term goal of this project.
+The gap no one has filled: a tool that lets you compose in Marain phonemes *and* see the exact bits being generated — a bridge between Layer 2 and Layer 3. That is the long-term direction of this project.
 
 ---
 
 ## Project Scope
 
-GCU Grey Area is a **renderer** — a way of visualising what a tightbeam signal looks like when laid out spatially. Column A encodes arbitrary UTF-8 text. Column B will compose in Marain phonemes with tonal encoding. Both produce the same binary output format.
+GCU Grey Area is a **renderer** — a way of visualising what a tightbeam signal looks like when laid out spatially. Column A encodes arbitrary UTF-8 text. Column B (research track) would compose in Marain phonemes with tonal encoding. Both would produce the same binary output format.
 
 The tool sits at the intersection of conlang, data encoding standard, visual script, and transmission protocol.

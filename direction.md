@@ -49,7 +49,7 @@ Integration points:
   `0–2` neutral · `3–5` attention · `6–7` warning · `8` critical
 - Both share the principle: structure carries meaning, decoration does not
 
-Cross-cutting specs live in `docs/` at this root when they span both subprojects.
+Cross-cutting specs live in `notes/` at this root when they span both subprojects.
 
 ---
 
@@ -77,7 +77,7 @@ Claude Code requires a file named `CLAUDE.md` to load project context. The filen
    ```
    (At the repo root, the root `CLAUDE.md` imports `@direction.md` in the same directory.)
 
-This keeps all project guidance in tool-agnostic files that any human, AI, or future tool can read without knowing what Claude Code is. See `docs/ai-tooling.md` for the full rationale.
+This keeps all project guidance in tool-agnostic files that any human, AI, or future tool can read without knowing what Claude Code is. See `notes/ai-tooling.md` for the full rationale.
 
 ### Adding a new subproject
 
@@ -85,7 +85,7 @@ If you create a new subdirectory that needs AI context:
 
 1. Create `<dir>/direction.md` with the subproject guidance.
 2. Create `<dir>/CLAUDE.md` containing only `@direction.md`.
-3. Add the subproject to the table in this file and to `docs/ai-tooling.md`.
+3. Add the subproject to the table in this file and to `notes/ai-tooling.md`.
 
 ### Shared knowledge base — `direction/`
 
@@ -93,7 +93,7 @@ The `direction/` directory at the repo root is a shared knowledge base for every
 on this project — human contributors, collaborators, and AI tools alike.
 
 **`direction/`** — key insights, decisions, and context that any contributor needs to work
-effectively. Things worth capturing that aren't yet formal enough for `docs/`, or that record
+effectively. Things worth capturing that aren't yet formal enough for `notes/`, or that record
 *why* a decision was made rather than just *what* it is.
 
 **`direction/scripts/`** — utility scripts produced during development. Canonical versions;

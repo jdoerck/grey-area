@@ -11,7 +11,7 @@ Marain Column B glyphs encode phoneme clusters — roughly 2–3 Latin character
 - 9 bits / 2.5 ≈ **3.6 bits per letter**
 - Compare: 8-bit ASCII = 8 bits per character
 
-Even accounting for the 7 non-[slate](../docs/glossary.md#slate) context bits in the full [packet](../docs/glossary.md#packet), each packet at 2.5 letters per glyph ≈ 6.4 bits per letter — comparable to ASCII, but with embedded context rather than bare characters.
+Even accounting for the 7 non-[slate](../notes/glossary.md#slate) context bits in the full [packet](../notes/glossary.md#packet), each packet at 2.5 letters per glyph ≈ 6.4 bits per letter — comparable to ASCII, but with embedded context rather than bare characters.
 
 This compression is what justifies the 7-bit "overhead." The phoneme-cluster encoding offsets it.
 
@@ -35,7 +35,7 @@ slate   (9 bits) — 3×3 glyph
 rails   (3 bits) — lower rail (3×1 row below slate)
 ```
 
-The **[lattice](../docs/glossary.md#lattice)** is the 5×3 visual area formed by the [rails](../docs/glossary.md#rails) and slate together. The packet is the full 16-bit encoded unit including the [herald](../docs/glossary.md#herald).
+The **[lattice](../notes/glossary.md#lattice)** is the 5×3 visual area formed by the [rails](../notes/glossary.md#rails) and slate together. The packet is the full 16-bit encoded unit including the [herald](../notes/glossary.md#herald).
 
 ### Why 16 bits? Why 2 bytes?
 

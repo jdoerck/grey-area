@@ -18,4 +18,4 @@ Translated content — Culture phrases, canonical passages, and test strings in 
 
 Translations require a settled phoneme set. See [`language/phonemes/`](../phonemes/) and [`encoding/docs/roadmap.md`](../../encoding/docs/roadmap.md) for what must be decided first.
 
-Source material for translation candidates: [`docs/source/culture-marain.md`](../../docs/source/culture-marain.md)
+Source material for translation candidates: [`notes/source/culture-marain/`](../../notes/source/culture-marain/README.md)

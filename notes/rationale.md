@@ -2,6 +2,8 @@
 
 *Stub. This document captures the motivations behind marainkit. To be expanded in future sessions.*
 
+> **Track:** Philosophical argument — this document explores the design hypotheses and motivations behind marainkit. It is not a spec; it does not describe what the system currently does; it describes what we are designing *toward* and why. See [`notes/tracks.md`](tracks.md).
+
 > **Evidence labels used in this document:**
 > `[canonical]` — directly from Banks source text ·
 > `[inference]` — consistent with canon, not explicitly stated ·
@@ -14,7 +16,7 @@
 
 ## The core argument
 
-A constructed language with a deterministic, binary-encoded writing system offers properties that no natural language and no existing script can fully provide. The reasons to build this are not aesthetic — they are practical, ethical, and civilisational.
+This project explores whether a constructed language with a deterministic, binary-encoded writing system can offer properties that no natural language and no existing script can fully provide. The motivations for pursuing this are not aesthetic — they are practical, ethical, and civilisational. The hypotheses below describe what we are designing *toward*; they are not claims the system has already demonstrated.
 
 ---
 

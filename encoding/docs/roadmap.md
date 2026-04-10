@@ -160,9 +160,18 @@ zakalwe2040's 8 bracket/delimiter values (#81, #276, #211, #406, #251, #446, #47
 
 ---
 
-### [🟡] Column B vocabulary selection
+### [🔵] Column B vocabulary selection
 
-Once phoneme strategy is decided (see Layer 1 above), select the active vocabulary from the 512-state space. Must satisfy: D₄ equivalence class constraint (no two glyphs from same rotation/reflection class), minimum Hamming distance ≥ 2, high salience scores, no invariant glyphs. See `font-spec.md §5.3`.
+*Deferred — research track. Not near-term actionable.*
+
+Column B vocabulary selection depends on a chain of upstream questions that are not yet resolved:
+- Phoneme inventory authority (which phonemes, from which source)
+- Tone encoding (how tones interact with glyph selection)
+- Register semantics (how Column B and Column A modes are distinguished)
+- Centre-cell salience validation (empirical test, see above — gates vocabulary pairing choices)
+- Vocabulary provenance (adoption strategy for community prior art)
+
+Once these are settled, the selection constraints are: D₄ equivalence class constraint (no two glyphs from same rotation/reflection class), minimum Hamming distance ≥ 2, high salience scores, no invariant glyphs. See `font-spec.md §5.3`.
 
 ---
 
@@ -170,7 +179,7 @@ Once phoneme strategy is decided (see Layer 1 above), select the active vocabula
 
 ### [🔵] M2 — 4×5 lattice as extended encoding layer
 
-zakalwe2040's 4×5 lattice ([slate](../../docs/glossary.md#slate) + upper/lower diacritic channels + tonal channel) is architecturally a superset of M1. Any M1 glyph is valid in the 3×3 slate position. If marainkit defines M2, this geometry is the reference design.
+zakalwe2040's 4×5 lattice ([slate](../../notes/glossary.md#slate) + upper/lower diacritic channels + tonal channel) is architecturally a superset of M1. Any M1 glyph is valid in the 3×3 slate position. If marainkit defines M2, this geometry is the reference design.
 
 The phoneme *assignments* in zakalwe2040's M2 lattice would not necessarily carry over — the geometry could be adopted independently of the values. Deferred until M1 is stable.
 
@@ -186,13 +195,13 @@ See [`layout.md`](layout.md). How a Mind would write. Not practical for current 
 
 ### [🟡] Develop rationale document
 
-[`docs/rationale.md`](../../docs/rationale.md) is a stub capturing the philosophical and practical motivations for marainkit: semantic specificity, equality of access, universalism, AI alignment, hardware efficiency, substrate-independent archival, resilience, accessibility, and longevity of meaning. Needs expansion through discussion.
+[`notes/rationale.md`](../../notes/rationale.md) is a stub capturing the philosophical and practical motivations for marainkit: semantic specificity, equality of access, universalism, AI alignment, hardware efficiency, substrate-independent archival, resilience, accessibility, and longevity of meaning. Needs expansion through discussion.
 
 ---
 
 ### [🟡] Dictionary — implement concept-ID model
 
-Architecture decided (see [`docs/rationale.md`](../../docs/rationale.md) — Dictionary architecture section). Key decisions remaining:
+Architecture decided (see [`notes/rationale.md`](../../notes/rationale.md) — Dictionary architecture section). Key decisions remaining:
 
 - Choose primary concept ID scheme: Wikidata Q-IDs, OMW synset IDs, or both
 - Define TSV schema (column order, required vs optional fields, versioning)

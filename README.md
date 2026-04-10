@@ -4,7 +4,7 @@
 
 A **deterministic display language** — a rendering grammar where context inputs produce display outputs predictably and consistently.
 
-![Marain Font by TTFTCUTS](docs/assets/marain-TTFTCUTS-font.png)
+![Marain Font by TTFTCUTS](notes/assets/marain-TTFTCUTS-font.png)
 
 *© TTFTCUTS — [Marain font](https://fontstruct.com/fontstructions/show/1446008/marain-5)*
 
@@ -35,11 +35,13 @@ Marain is the constructed language of the Culture — **engineered rather than e
 - Glyphs are **readable in any orientation** — no privileged direction
 - Contains a **single gender-neutral third-person pronoun**
 - Structured to reduce ambiguity and encode Culture values: egalitarian, non-hierarchical, non-dominant
-- **Native medium is tightbeam laser** — a binary bitstream across interstellar space. The glyph system is a *renderer* of that bitstream, not a primary writing system
+- **Native medium is tightbeam laser** — a binary bitstream across interstellar space
+
+*Project interpretation:* Marain's written form may be a visual rendering of a transmission-first binary signal — the glyph system as a *renderer* of the bitstream, not a primary writing system. This is consistent with the canonical source material but is not explicitly stated. See [`notes/layers.md`](notes/layers.md).
 
 **Encryption tiers:** M1 (public, all citizens) · M8–M16 (Contact Section) · M32 (Special Circumstances only). This project operates entirely at M1.
 
-**Canonical source:** Banks' essay *"[A Few Notes on Marain](./docs/source/a-few-notes-on-marain.md)."*
+**Canonical source:** Banks' essay *"[A Few Notes on Marain](./notes/source/a-few-notes-on-marain.md)."*
 
 ---
 
@@ -66,7 +68,7 @@ Marain is the constructed language of the Culture — **engineered rather than e
          ↓ all layers produce the same bitstream ↓
 ```
 
-Binary encoding is canonical. Glyphs are a debug view. Tone and emotional meaning live simultaneously in Layer 2 (conlang) and Layer 3 (encoding) — affect is in the signal itself, not a separate channel.
+Binary encoding is canonical. *By the transmission-first interpretation,* glyphs are a debug view of the signal — a rendering for human eyes rather than the primary form. Tone and emotional meaning live simultaneously in Layer 2 (conlang) and Layer 3 (encoding) — affect is in the signal itself, not a separate channel.
 
 ---
 
@@ -117,7 +119,7 @@ Font specs: [`font-spec.md`](display/fonts/font-spec.md) — glyph rendering spe
 
 Full glyph catalogue (canonical, community, and marainkit-derived): [`encoding/docs/glyphs.md`](encoding/docs/glyphs.md)
 
-Specs: [`channels.md`](encoding/docs/channels.md) — [packet](docs/glossary.md#packet) structure ([slate](docs/glossary.md#slate) + [rails](docs/glossary.md#rails) + [herald](docs/glossary.md#herald)) · [`invariant-glyphs.md`](encoding/docs/invariant-glyphs.md) — invariant analysis · [`layout.md`](encoding/docs/layout.md) — layout options · [`roadmap.md`](encoding/docs/roadmap.md) — decision backlog · [`glyph-decisions.md`](encoding/docs/glyph-decisions.md) — assignment analysis
+Specs: [`channels.md`](encoding/docs/channels.md) — [packet](notes/glossary.md#packet) structure ([slate](notes/glossary.md#slate) + [rails](notes/glossary.md#rails) + [herald](notes/glossary.md#herald)) · [`invariant-glyphs.md`](encoding/docs/invariant-glyphs.md) — invariant analysis · [`layout.md`](encoding/docs/layout.md) — layout options · [`roadmap.md`](encoding/docs/roadmap.md) — decision backlog · [`glyph-decisions.md`](encoding/docs/glyph-decisions.md) — assignment analysis
 
 ### Invariant Glyphs
 
@@ -154,7 +156,8 @@ Directionality within glyphs is neurological (horizontal scanning is consistent 
 **Language:**
 - Phoneme set definition (abjad structure) — not yet specified
 - Tonal encoding spec: bridge between Layer 2 and Layer 3
-- Column B: phoneme picker UI feeding into binary output — the gap no existing tool fills
+
+*Column B (phoneme picker UI) is a research track — not near-term backlog. Depends on phoneme inventory, tone encoding, and several other upstream questions being resolved first. See [`language/direction.md`](language/direction.md).*
 
 **Display:**
 - `document / low-light / normal` (dark mode) — tokens proposed, not finalized
@@ -205,7 +208,7 @@ marain/
 │   │   ├── research.md         ← Atkinson + Intel One Mono analysis
 │   │   └── cjk-mixed-scripts.md ← CJK/mixed-script font research
 │   └── themes/culture/ ← working prototype
-├── docs/               ← cross-cutting specs
+├── notes/               ← cross-cutting specs
 │   ├── source/         ← canonical reference (Banks essay, novel passages)
 │   ├── layers.md       ← four-layer model detail
 │   ├── rationale.md    ← project rationale and philosophy
@@ -223,15 +226,15 @@ marain/
 
 | Document | Contents |
 |----------|----------|
-| [`docs/source/a-few-notes-on-marain.md`](docs/source/a-few-notes-on-marain.md) | Banks' canonical essay — the primary source |
-| [`docs/layers.md`](docs/layers.md) | Four-layer model specification |
-| [`docs/glossary.md`](docs/glossary.md) | Canonical encoding terminology — what "binary", "nonary", "base-8", "9-bit slate", and "status scale" each mean and do not mean |
-| [`docs/rationale.md`](docs/rationale.md) | Project rationale, philosophy, dictionary architecture |
-| [`docs/sapir-whorf.md`](docs/sapir-whorf.md) | Linguistic relativity as marainkit design theory — evidence, mechanisms, actionable implications |
-| [`docs/design-notes.md`](docs/design-notes.md) | Design notes and working decisions |
-| [`docs/resources.md`](docs/resources.md) | External tools, references, and prior art |
-| [`docs/fonts-of-interest.md`](docs/fonts-of-interest.md) | Font references for Marain rendering |
-| [`docs/implementation-languages.md`](docs/implementation-languages.md) | Implementation language decisions |
+| [`notes/source/a-few-notes-on-marain.md`](notes/source/a-few-notes-on-marain.md) | Banks' canonical essay — the primary source |
+| [`notes/layers.md`](notes/layers.md) | Four-layer model specification |
+| [`notes/glossary.md`](notes/glossary.md) | Canonical encoding terminology — what "binary", "nonary", "base-8", "9-bit slate", and "status scale" each mean and do not mean |
+| [`notes/rationale.md`](notes/rationale.md) | Project rationale, philosophy, dictionary architecture |
+| [`notes/sapir-whorf.md`](notes/sapir-whorf.md) | Linguistic relativity as marainkit design theory — evidence, mechanisms, actionable implications |
+| [`notes/design-notes.md`](notes/design-notes.md) | Design notes and working decisions |
+| [`notes/resources.md`](notes/resources.md) | External tools, references, and prior art |
+| [`notes/fonts-of-interest.md`](notes/fonts-of-interest.md) | Font references for Marain rendering |
+| [`notes/implementation-languages.md`](notes/implementation-languages.md) | Implementation language decisions |
 | [`encoding/docs/channels.md`](encoding/docs/channels.md) | Packet structure — slate, rails, herald |
 | [`encoding/docs/invariant-glyphs.md`](encoding/docs/invariant-glyphs.md) | Invariant glyph analysis and vocabulary |
 | [`encoding/docs/layout.md`](encoding/docs/layout.md) | Layout options (linear / macro 3×3 / radial) |
