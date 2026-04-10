@@ -67,4 +67,5 @@ language/
 1. Phoneme set definition (abjad structure)
 2. Grammar rules (word order, cases, pronouns)
 3. Tonal encoding spec (bridge to encoding/ layer)
-4. Column B: phoneme picker UI feeding into binary output
+
+**Column B (phoneme picker UI) is a research track, not active backlog.** It depends on all three items above, plus: phoneme inventory authority, glyph assignment policy, tone encoding, register semantics, and vocabulary provenance. None of these are resolved. Keep the ideas — they are worth exploring — but treat Column B as a direction the project is working *toward*, not a task that's close to buildable. See [`docs/tracks.md`](../docs/tracks.md).

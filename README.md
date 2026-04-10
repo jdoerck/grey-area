@@ -156,7 +156,8 @@ Directionality within glyphs is neurological (horizontal scanning is consistent 
 **Language:**
 - Phoneme set definition (abjad structure) — not yet specified
 - Tonal encoding spec: bridge between Layer 2 and Layer 3
-- Column B: phoneme picker UI feeding into binary output — the gap no existing tool fills
+
+*Column B (phoneme picker UI) is a research track — not near-term backlog. Depends on phoneme inventory, tone encoding, and several other upstream questions being resolved first. See [`language/direction.md`](language/direction.md).*
 
 **Display:**
 - `document / low-light / normal` (dark mode) — tokens proposed, not finalized

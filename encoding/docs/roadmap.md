@@ -160,9 +160,18 @@ zakalwe2040's 8 bracket/delimiter values (#81, #276, #211, #406, #251, #446, #47
 
 ---
 
-### [🟡] Column B vocabulary selection
+### [🔵] Column B vocabulary selection
 
-Once phoneme strategy is decided (see Layer 1 above), select the active vocabulary from the 512-state space. Must satisfy: D₄ equivalence class constraint (no two glyphs from same rotation/reflection class), minimum Hamming distance ≥ 2, high salience scores, no invariant glyphs. See `font-spec.md §5.3`.
+*Deferred — research track. Not near-term actionable.*
+
+Column B vocabulary selection depends on a chain of upstream questions that are not yet resolved:
+- Phoneme inventory authority (which phonemes, from which source)
+- Tone encoding (how tones interact with glyph selection)
+- Register semantics (how Column B and Column A modes are distinguished)
+- Centre-cell salience validation (empirical test, see above — gates vocabulary pairing choices)
+- Vocabulary provenance (adoption strategy for community prior art)
+
+Once these are settled, the selection constraints are: D₄ equivalence class constraint (no two glyphs from same rotation/reflection class), minimum Hamming distance ≥ 2, high salience scores, no invariant glyphs. See `font-spec.md §5.3`.
 
 ---
 
