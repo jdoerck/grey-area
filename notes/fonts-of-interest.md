@@ -12,7 +12,7 @@ coverage, glyph design principles, and legibility research. Separate from Marain
 **Published:** May 2025 | **Development time:** 5 years  
 **Awards:** Red Dot "Best of the Best" 2023, Type Directors Club 2023
 
-Specimen images saved in `docs/fonts/cjk-specimens/`.
+Specimen images saved in `notes/fonts/cjk-specimens/`.
 
 ### Why this collection is relevant
 

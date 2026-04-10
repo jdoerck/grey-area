@@ -11,9 +11,9 @@ This project pursues three distinct ambitions. They are complementary but they a
 **Voice:** Scholarly and conservative. Claims are grounded in specific passages. Uncertainty is acknowledged.
 
 **Primary documents:**
-- [`docs/source/a-few-notes-on-marain.md`](source/a-few-notes-on-marain.md) — the Banks essay
-- [`docs/source/culture-marain/`](source/culture-marain/) — novel references
-- [`docs/glossary.md`](glossary.md) — canonical terminology definitions
+- [`notes/source/a-few-notes-on-marain.md`](source/a-few-notes-on-marain.md) — the Banks essay
+- [`notes/source/culture-marain/`](source/culture-marain/) — novel references
+- [`notes/glossary.md`](glossary.md) — canonical terminology definitions
 
 **How to recognise it:** Passages are cited. Claims are labelled `[canonical]`. When the source is silent, that silence is noted.
 
@@ -28,8 +28,8 @@ This project pursues three distinct ambitions. They are complementary but they a
 **Primary documents:**
 - [`encoding/docs/`](../encoding/docs/) — glyph spec, layout, channels, roadmap
 - [`display/`](../display/) — adaptive display system, token model
-- [`docs/layers.md`](layers.md) — four-layer architecture
-- [`docs/glossary.md`](glossary.md) — encoding terminology
+- [`notes/layers.md`](layers.md) — four-layer architecture
+- [`notes/glossary.md`](glossary.md) — encoding terminology
 
 **How to recognise it:** Claims are labelled `[project decision]`. Decisions have rationale. There are open issues and blockers. Implementation status is noted.
 
@@ -42,8 +42,8 @@ This project pursues three distinct ambitions. They are complementary but they a
 **Voice:** Exploratory and aspirational. Claims are clearly marked as hypotheses. The distinction between "we designed it to do X" and "it does X" is maintained.
 
 **Primary documents:**
-- [`docs/rationale.md`](rationale.md) — motivations and design hypotheses
-- [`docs/sapir-whorf.md`](sapir-whorf.md) — linguistic relativity as a design framework
+- [`notes/rationale.md`](rationale.md) — motivations and design hypotheses
+- [`notes/sapir-whorf.md`](sapir-whorf.md) — linguistic relativity as a design framework
 
 **How to recognise it:** Claims are labelled `[speculative]`. Language like "this project explores whether..." rather than "this system does...". Evidence citations where evidence exists; honest acknowledgement of what hasn't been tested.
 

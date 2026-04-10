@@ -25,7 +25,7 @@ Claude Code supports an `@import` syntax that allows a `CLAUDE.md` to reference 
 or for the root:
 
 ```
-@docs/direction.md
+@direction.md
 ```
 
 The actual content lives in `direction.md` files named and located on the project's own terms.
@@ -90,7 +90,7 @@ human and AI alike. It exists alongside `direction.md` but serves a different pu
 `direction.md` sets the rules. `direction/` captures the reasoning and artifacts that build
 up as those rules are applied. A design decision, the rationale behind a non-obvious technical
 choice, a utility script that was useful once and will be useful again — these belong in
-`direction/` rather than `docs/` because they are working knowledge, not finished documentation.
+`direction/` rather than `notes/` because they are working knowledge, not finished documentation.
 
 The distinction matters for longevity: finished docs tend to go stale because no one is sure
 when they're allowed to change them. Working knowledge files are expected to evolve — they get

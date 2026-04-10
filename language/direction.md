@@ -1,6 +1,6 @@
 # language/ — Direction
 
-Please read the root [`direction.md`](../docs/direction.md) first.
+Please read the root [`direction.md`](../direction.md) first.
 
 The linguistic layer: grammar, phonemes, translations, and canonical Marain properties.
 
@@ -37,7 +37,7 @@ Marain is the constructed language of the Culture — **engineered rather than e
 
 **Reddit conlang** (u/comradelenin456, u/ratioprosperous): synthetic language built on Banks' alphabet. Flexible word order, no tenses, six grammatical cases, fourth-person pronouns, genderless third-person. Non-canonical but community-adopted.
 
-**Tonal Marain** ([zakalwe2040/marain](https://github.com/zakalwe2040/marain)): adds five emotional tones (Mandarin-derived), 24-character abjad, 4×5 dot lattice divided into diacritic channels + 3×3 [slate](../docs/glossary.md#slate). Most relevant prior art for a phoneme composition layer (Column B). Claims to support both graphemes and logograms.
+**Tonal Marain** ([zakalwe2040/marain](https://github.com/zakalwe2040/marain)): adds five emotional tones (Mandarin-derived), 24-character abjad, 4×5 dot lattice divided into diacritic channels + 3×3 [slate](../notes/glossary.md#slate). Most relevant prior art for a phoneme composition layer (Column B). Claims to support both graphemes and logograms.
 
 **marain-tools.netlify.app**: live tool mapping English phonemes to Marain glyphs. Reference for authentic phonemic approach. Supports three input modes: romanized Marain, direct Marain font input, and nine-bit binary.
 
@@ -68,4 +68,4 @@ language/
 2. Grammar rules (word order, cases, pronouns)
 3. Tonal encoding spec (bridge to encoding/ layer)
 
-**Column B (phoneme picker UI) is a research track, not active backlog.** It depends on all three items above, plus: phoneme inventory authority, glyph assignment policy, tone encoding, register semantics, and vocabulary provenance. None of these are resolved. Keep the ideas — they are worth exploring — but treat Column B as a direction the project is working *toward*, not a task that's close to buildable. See [`docs/tracks.md`](../docs/tracks.md).
+**Column B (phoneme picker UI) is a research track, not active backlog.** It depends on all three items above, plus: phoneme inventory authority, glyph assignment policy, tone encoding, register semantics, and vocabulary provenance. None of these are resolved. Keep the ideas — they are worth exploring — but treat Column B as a direction the project is working *toward*, not a task that's close to buildable. See [`notes/tracks.md`](../notes/tracks.md).

@@ -117,13 +117,13 @@ Glyphs held open pending the number-base decision. Do not assign to phonemes, op
 
 [^1]: marainkit — derived from the mathematical/geometric properties of the 3×3 binary grid. These 8 values (#0, #16, #170, #186, #325, #341, #495, #511) are the only states fully invariant under all rotations and mirrors. See [`invariant-glyphs.md`](invariant-glyphs.md).
 
-[^2]: Iain M. Banks, *"A Few Notes on Marain"*. Full text at [`../../docs/source/a-few-notes-on-marain.md`](../../docs/source/a-few-notes-on-marain.md).
+[^2]: Iain M. Banks, *"A Few Notes on Marain"*. Full text at [`../../notes/source/a-few-notes-on-marain.md`](../../notes/source/a-few-notes-on-marain.md).
 
 [^3]: Banks writes "The number 1 would be shown as in figure 1" — figure 1 is an image not recoverable from plain text. `#1` (top-left cell only) is the most natural reading of a decimal 1 in LSB-first encoding, but is not confirmed.
 
 [^4]: zakalwe2040, *Tonal Marain*, [github.com/zakalwe2040/marain](https://github.com/zakalwe2040/marain).
 
-[^5]: Banks' glyph table image: [`../../docs/assets/marain-example-banks.png`](../../docs/assets/marain-example-banks.png), reproduced in *"A Few Notes on Marain"*. Patterns for all phonemes except *w* are approximate visual readings from this image and should be treated as provisional.
+[^5]: Banks' glyph table image: [`../../notes/assets/marain-example-banks.png`](../../notes/assets/marain-example-banks.png), reproduced in *"A Few Notes on Marain"*. Patterns for all phonemes except *w* are approximate visual readings from this image and should be treated as provisional.
 
 [^6]: All four previously unreadable phonemes (*ch*, *v*, *ll*, *je*) have been resolved by careful re-reading of the Banks glyph table image. See main table for assigned values.
 

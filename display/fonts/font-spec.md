@@ -20,7 +20,7 @@ packet          →     slate            →     user / medium    →     screen
  slate 9 bits)
 ```
 
-The [packet](../../docs/glossary.md#packet) carries more than the [slate](../../docs/glossary.md#slate). The [rails](../../docs/glossary.md#rails) (6 bits) and [herald](../../docs/glossary.md#herald) (1 bit) are reserved for future semantic content — vowel diacritics, tonal information, context markers. See `encoding/docs/channels.md` for the full structure.
+The [packet](../../notes/glossary.md#packet) carries more than the [slate](../../notes/glossary.md#slate). The [rails](../../notes/glossary.md#rails) (6 bits) and [herald](../../notes/glossary.md#herald) (1 bit) are reserved for future semantic content — vowel diacritics, tonal information, context markers. See `encoding/docs/channels.md` for the full structure.
 
 **M1 fonts render the slate only.** Extended fonts may optionally render rail information, but rails are always visually subordinate to the slate.
 

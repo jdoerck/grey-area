@@ -54,7 +54,7 @@ font can be compiled programmatically — no traditional type design skills requ
 
 ### Grid structure
 
-The encoding layer uses a **3×3 block** as the fundamental unit (9 cells = 1 [9-bit binary slate](../../docs/glossary.md#slate)).
+The encoding layer uses a **3×3 block** as the fundamental unit (9 cells = 1 [9-bit binary slate](../../notes/glossary.md#slate)).
 The font grid maps directly:
 
 ```

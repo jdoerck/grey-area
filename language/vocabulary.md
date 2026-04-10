@@ -20,7 +20,7 @@ Tab-separated, UTF-8, with header row:
 | `definition` | Full English definition |
 | `pos` | Part of speech — largely unpopulated in source data; `pos` is a placeholder |
 
-The TSV is the canonical format for this data. It can be imported directly into SQLite or any relational database. See [`../../docs/rationale.md`](../docs/rationale.md) for the planned dictionary architecture (Marain → concept ID mapping).
+The TSV is the canonical format for this data. It can be imported directly into SQLite or any relational database. See [`../notes/rationale.md`](../notes/rationale.md) for the planned dictionary architecture (Marain → concept ID mapping).
 
 ---
 

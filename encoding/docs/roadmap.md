@@ -179,7 +179,7 @@ Once these are settled, the selection constraints are: D₄ equivalence class co
 
 ### [🔵] M2 — 4×5 lattice as extended encoding layer
 
-zakalwe2040's 4×5 lattice ([slate](../../docs/glossary.md#slate) + upper/lower diacritic channels + tonal channel) is architecturally a superset of M1. Any M1 glyph is valid in the 3×3 slate position. If marainkit defines M2, this geometry is the reference design.
+zakalwe2040's 4×5 lattice ([slate](../../notes/glossary.md#slate) + upper/lower diacritic channels + tonal channel) is architecturally a superset of M1. Any M1 glyph is valid in the 3×3 slate position. If marainkit defines M2, this geometry is the reference design.
 
 The phoneme *assignments* in zakalwe2040's M2 lattice would not necessarily carry over — the geometry could be adopted independently of the values. Deferred until M1 is stable.
 
@@ -195,13 +195,13 @@ See [`layout.md`](layout.md). How a Mind would write. Not practical for current 
 
 ### [🟡] Develop rationale document
 
-[`docs/rationale.md`](../../docs/rationale.md) is a stub capturing the philosophical and practical motivations for marainkit: semantic specificity, equality of access, universalism, AI alignment, hardware efficiency, substrate-independent archival, resilience, accessibility, and longevity of meaning. Needs expansion through discussion.
+[`notes/rationale.md`](../../notes/rationale.md) is a stub capturing the philosophical and practical motivations for marainkit: semantic specificity, equality of access, universalism, AI alignment, hardware efficiency, substrate-independent archival, resilience, accessibility, and longevity of meaning. Needs expansion through discussion.
 
 ---
 
 ### [🟡] Dictionary — implement concept-ID model
 
-Architecture decided (see [`docs/rationale.md`](../../docs/rationale.md) — Dictionary architecture section). Key decisions remaining:
+Architecture decided (see [`notes/rationale.md`](../../notes/rationale.md) — Dictionary architecture section). Key decisions remaining:
 
 - Choose primary concept ID scheme: Wikidata Q-IDs, OMW synset IDs, or both
 - Define TSV schema (column order, required vs optional fields, versioning)

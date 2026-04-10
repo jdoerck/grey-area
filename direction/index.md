@@ -20,7 +20,7 @@ Check this index before starting work on code or architecture.
 |------|---------|----------|
 | [dict-to-tsv.py](scripts/dict-to-tsv.py) | Convert `language/raw/marain-*.js` source files to TSV for database import | Python 3 |
 | [split-epub.py](scripts/split-epub.py) | Split the Culture complete-works omnibus EPUB into 12 individual book files → `books/` | Python 3 |
-| [rag-extract.py](scripts/rag-extract.py) | Extract Marain references (passages, ship names, vocabulary, character names) from each novel → `docs/source/culture-marain/` | Python 3 |
+| [rag-extract.py](scripts/rag-extract.py) | Extract Marain references (passages, ship names, vocabulary, character names) from each novel → `notes/source/culture-marain/` | Python 3 |
 
 ---
 
@@ -43,4 +43,4 @@ See `skill/direction.md` for conventions on adding new skills.
 - Scripts go in `direction/scripts/`; add a row to the Scripts table above.
 - Update files in place when they improve — do not create duplicates.
 - Capture the *why*, not just the *what* — decisions without rationale decay fast.
-- If a note matures into something formal, promote it to `docs/`.
+- If a note matures into something formal, promote it to `notes/`.

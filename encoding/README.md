@@ -2,7 +2,7 @@
 
 Encoding spec for marainkit — defines the glyph space, binary structure, and decision backlog for the Marain writing system.
 
-The canonical unit is a **[slate](../docs/glossary.md#slate)**: a 3×3 binary grid with 512 possible states. Each state is a glyph. The full [packet](../docs/glossary.md#packet) wraps the slate in [rails](../docs/glossary.md#rails) that carry context.
+The canonical unit is a **[slate](../notes/glossary.md#slate)**: a 3×3 binary grid with 512 possible states. Each state is a glyph. The full [packet](../notes/glossary.md#packet) wraps the slate in [rails](../notes/glossary.md#rails) that carry context.
 
 > **Status:** Active spec. Glyph catalogue and invariant vocabulary are settled. Phoneme assignment, number base, and channel semantics are open decisions.
 
