@@ -23,7 +23,6 @@ The best way to understand what this project is building is to look at the glyph
 **[→ Marain Glyph Table](https://marainkit.github.io/marain/)** — live view (GitHub Pages, enable in repo Settings → Pages → source: `docs/`)
 
 Or open [`docs/index.html`](docs/index.html) locally.
-ok i 
 ---
 
 ## What Marain Is
