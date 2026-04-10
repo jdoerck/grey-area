@@ -70,17 +70,17 @@ Several design decisions we've already made are Sapir-Whorf mechanisms, whether 
 
 The 8 invariant glyphs emerge from geometry — they aren't designed, they fall out of rotational/mirror symmetry constraints. But the decision to *reserve them as a distinct vocabulary* is a Sapir-Whorf move: we're creating a categorical boundary in the glyph space.
 
-Just as Russian speakers perceive the *goluboy/siniy* boundary faster because the language marks it, a reader trained on marainkit output will perceive invariant glyphs as categorically different from ordinary text — because the system marks them as structurally distinct.
+Just as Russian speakers perceive the *goluboy/siniy* boundary faster because the language marks it, the design hypothesis is that a reader trained on marainkit output will perceive invariant glyphs as categorically different from ordinary text — because the system marks them as structurally distinct. This prediction follows from the Sapir-Whorf evidence but has not been tested in this system.
 
-The warning vocabulary (Diamond, Cross, Corners, Checkerboard) and the structural vocabulary (Empty, Point, Frame, Full) create two cognitive grooves: *something is wrong* and *something is structurally significant*. These aren't conventions to be learned — they're the shapes that remain stable under transformation, so the reader's geometric intuition does the work.
+The warning vocabulary (Diamond, Cross, Corners, Checkerboard) and the structural vocabulary (Empty, Point, Frame, Full) are designed to create two cognitive grooves: *something is wrong* and *something is structurally significant*. The hypothesis is that these won't need to be learned as arbitrary conventions — that the shapes remaining stable under transformation means the reader's geometric intuition may do the work. Whether that holds at real reading speeds requires testing.
 
-**This is the strongest Sapir-Whorf mechanism in the project.** Safety that emerges from the representational system itself, not from learned cultural convention.
+**This is the intended Sapir-Whorf mechanism in the project.** The design goal is safety that emerges from the representational system itself, not from learned cultural convention.
 
 ### 3.2 Distinction-over-harmony as perceptual scaffolding
 
 The principle borrowed from Atkinson Hyperlegible — maximise distinguishability between characters rather than aesthetic harmony — is directly analogous to how languages with more colour terms produce faster cross-category discrimination.
 
-More distinct glyphs = sharper categorical boundaries = faster recognition. The design system is *literally shaping perceptual defaults* at the character level.
+The design hypothesis is that more distinct glyphs produce sharper categorical boundaries and faster recognition — that the distinction-over-harmony principle shapes perceptual defaults at the character level. This prediction follows from the colour-discrimination evidence, but applying it to glyph design has not been empirically verified.
 
 ### 3.3 Token-driven architecture
 
@@ -154,11 +154,11 @@ The deepest implication of Sapir-Whorf for marainkit is this: **we are not just 
 
 Every token name, every categorical boundary, every obligatory marking, every glyph reservation — these are linguistic choices in the Sapir-Whorf sense. They create the cognitive defaults that users will fall into.
 
-Banks understood this. The Culture's Minds designed Marain to make egalitarianism the path of least resistance. Our scope is smaller — we're designing a display language, not a civilisational language — but the principle is identical:
+**[canonical]** Banks understood this. The Culture's Minds designed Marain to make egalitarianism the path of least resistance. **[speculative]** Our scope is smaller — we're designing a display language, not a civilisational language — but the principle is the same, and it is what this project is trying to apply:
 
 **Make the right perceptual defaults easy. Make the wrong ones require conscious effort.**
 
-That is what Sapir-Whorf says a well-designed language does. That is what a well-designed design system does. The project is one thing, not two.
+That is what Sapir-Whorf says a well-designed language does. Whether marainkit achieves it is the open question this project is working toward.
 
 ---
 
