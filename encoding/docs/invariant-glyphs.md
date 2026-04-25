@@ -62,7 +62,7 @@ A preceding invariant glyph would indicate the semantic domain of the following 
 
 See [`display/fonts/cjk-mixed-scripts.md §3.4`](../../display/fonts/cjk-mixed-scripts.md) and [`font-spec.md §3.5`](../../display/fonts/font-spec.md) for the full rationale.
 
-Sanskrit names have been proposed for all 8 invariant glyphs — see [`language/sanskrit-marain-dictionary-research.md` Category 7](../../language/sanskrit-marain-dictionary-research.md#category-7-warning--safety-vocabulary). These are candidates only; adoption requires validation against the D₄ constraint and Hamming distance requirements.
+Sanskrit names have been proposed for all 8 invariant glyphs — see [`language/docs/sanskrit-marain-dictionary-research.md` Category 7](../../language/docs/sanskrit-marain-dictionary-research.md#category-7-warning--safety-vocabulary). These are candidates only; adoption requires validation against the D₄ constraint and Hamming distance requirements.
 
 ---
 

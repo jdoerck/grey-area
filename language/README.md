@@ -25,9 +25,9 @@ This project operates entirely at **M1** (basic nonary Marain, readable by all C
 | Document | Contents |
 |----------|----------|
 | [`direction.md`](direction.md) | Full subproject direction — prior art, encryption tiers, priority queue |
-| [`vocabulary.md`](vocabulary.md) | 430-word community vocabulary (Marain Tools) — format notes and DB import |
-| [`vocabulary.tsv`](vocabulary.tsv) | Vocabulary data in TSV — canonical format for database import |
-| [`sanskrit-marain-dictionary-research.md`](sanskrit-marain-dictionary-research.md) | Deep research: Sanskrit as donor language — consciousness terms, Navarasa, structural vocabulary, proposed Sanskrit names for invariant glyphs |
+| [`docs/vocabulary.md`](docs/vocabulary.md) | 430-word community vocabulary (Marain Tools) — format notes and DB import |
+| [`vocabulary/vocabulary.tsv`](vocabulary/vocabulary.tsv) | Vocabulary data in TSV — canonical format for database import |
+| [`docs/sanskrit-marain-dictionary-research.md`](docs/sanskrit-marain-dictionary-research.md) | Deep research: Sanskrit as donor language — consciousness terms, Navarasa, structural vocabulary, proposed Sanskrit names for invariant glyphs |
 | [`phonemes/alphabet.md`](phonemes/alphabet.md) | 32-letter phoneme inventory with IPA and Marain lexorder |
 | [`translations/sentences.md`](translations/sentences.md) | Example sentences with word-by-word and idiomatic glosses |
 
@@ -47,13 +47,15 @@ This project operates entirely at **M1** (basic nonary Marain, readable by all C
 
 ```
 language/
+├── docs/
+│   ├── vocabulary.md                   ← vocabulary description + format notes
+│   └── sanskrit-marain-dictionary-research.md  ← Sanskrit donor language research
+├── vocabulary/
+│   └── vocabulary.tsv                  ← 430-word community vocabulary (TSV)
 ├── phonemes/                           ← phoneme set definitions
 │   ├── alphabet.md                     ← 32-letter inventory in Marain lexorder
 │   └── alphabet.tsv                    ← machine-readable
 ├── translations/
 │   └── sentences.md                    ← example sentences with glosses
-├── raw/                                ← JS source files from Marain Tools
-├── vocabulary.md                       ← vocabulary description + format notes
-├── vocabulary.tsv                      ← 430-word community vocabulary (TSV)
-└── sanskrit-marain-dictionary-research.md  ← Sanskrit donor language research
+└── raw/                                ← JS source files from Marain Tools
 ```

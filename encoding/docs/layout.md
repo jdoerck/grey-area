@@ -55,7 +55,7 @@ APPROACH 3: Radial / Fractal (Mind-level ideal)
       G   G
     G   G   G    Radiates from centre
       G   G      No start, no end
-        G         How a Mind would write it
+        G        How a Mind would write it
 ```
 
 **Practical sweet spot for this project: Approach 2.**

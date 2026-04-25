@@ -245,9 +245,9 @@ marain/
 | [`display/fonts/research.md`](display/fonts/research.md) | Font selection rationale (Atkinson, Intel One Mono) |
 | [`display/fonts/cjk-mixed-scripts.md`](display/fonts/cjk-mixed-scripts.md) | CJK and mixed-script font research |
 | [`language/phonemes/alphabet.md`](language/phonemes/alphabet.md) | 32-letter phoneme inventory with IPA, letter names, and Marain lexorder |
-| [`language/vocabulary.md`](language/vocabulary.md) | 430-word community vocabulary — format notes, source attribution, DB import |
+| [`language/docs/vocabulary.md`](language/docs/vocabulary.md) | 430-word community vocabulary — format notes, source attribution, DB import |
 | [`language/translations/sentences.md`](language/translations/sentences.md) | Example sentences with word-by-word and idiomatic glosses |
-| [`language/sanskrit-marain-dictionary-research.md`](language/sanskrit-marain-dictionary-research.md) | Sanskrit as donor language — consciousness terms, Navarasa (9 emotional essences), structural vocabulary, proposed Sanskrit names for all 8 invariant glyphs |
+| [`language/docs/sanskrit-marain-dictionary-research.md`](language/docs/sanskrit-marain-dictionary-research.md) | Sanskrit as donor language — consciousness terms, Navarasa (9 emotional essences), structural vocabulary, proposed Sanskrit names for all 8 invariant glyphs |
 | [`direction/index.md`](direction/index.md) | Contributor knowledge base index |
 
 **Related repos:**
