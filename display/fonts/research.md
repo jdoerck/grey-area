@@ -1,5 +1,7 @@
 # Research Notes: Atkinson Hyperlegible & Intel One Mono
 
+> **Track:** Encoding system — research analysis of reference fonts (Atkinson Hyperlegible, Intel One Mono) for the marainkit display layer. All design conclusions drawn from this research are marainkit project decisions. Evidence labels are not applied per-claim. See [`../../notes/tracks.md`](../../notes/tracks.md).
+
 > **Purpose:** Deep analysis of the two reference fonts for marainkit's display layer — what makes them exceptional, how they democratise viewing, and what principles transfer to a flagship Marain font.
 >
 > **Context:** These fonts are locked in the Marain display spec[^readme] as Atkinson Hyperlegible (UI/content) and Intel One Mono (code/tokens). Understanding *why* they work is prerequisite to designing a Marain glyph font that inherits their accessibility DNA.

@@ -225,6 +225,8 @@ marain/
 
 | Document | Contents |
 |----------|----------|
+| [`direction/mvp.md`](direction/mvp.md) | Narrow, credible MVP — six deliverables, acceptance criteria, explicit out-of-scope list |
+| [`notes/validation-roadmap.md`](notes/validation-roadmap.md) | Testable claims — current evidence status and proposed experiments for each |
 | [`notes/source/a-few-notes-on-marain.md`](notes/source/a-few-notes-on-marain.md) | Banks' canonical essay — the primary source |
 | [`notes/layers.md`](notes/layers.md) | Four-layer model specification |
 | [`notes/glossary.md`](notes/glossary.md) | Canonical encoding terminology — what "binary", "nonary", "base-8", "9-bit slate", and "status scale" each mean and do not mean |

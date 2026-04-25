@@ -1,5 +1,7 @@
 # Known Marain Glyphs
 
+> **Track:** Banks reconstruction (§ Banks' canonical system) + Encoding system (§ Invariant glyphs, Design notes sections) — this document mixes what Banks specified, community prior art (zakalwe2040, Reddit conlang, Marain Tools), and marainkit design decisions. Section headings and the status column in each table identify the source of each section's content. See [`../../notes/tracks.md`](../../notes/tracks.md).
+
 A catalogue of claimed Marain glyphs, symbols, and phonemes across canonical and community sources. Attribution and canonicity are noted throughout.
 
 For a lookup table of all assigned values by decimal index, see [`glyph-index.md`](glyph-index.md).

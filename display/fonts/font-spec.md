@@ -1,5 +1,7 @@
 # Marain Glyph Rendering Specification
 
+> **Track:** Encoding system — rendering requirements for any compliant Marain font. All specifications are marainkit project decisions. Evidence labels are not applied per-claim. See [`../../notes/tracks.md`](../../notes/tracks.md).
+
 > **Version:** 0.1 (draft)
 > **Status:** Early spec — principles and constraints defined; glyph design not yet begun.
 > **Companion document:** [`research.md`](research.md) — full research notes on reference fonts and legibility research.

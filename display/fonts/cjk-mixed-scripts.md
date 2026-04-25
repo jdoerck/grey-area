@@ -1,5 +1,7 @@
 # Mixed-Script Systems, CJK Fonts, and the Marain Problem
 
+> **Track:** Encoding system — research into mixed-script typographic systems (Japanese/Chinese/Korean) and their relevance to the Marain font design problem. This is original analysis in support of marainkit design decisions. Evidence labels are not applied per-claim. See [`../../notes/tracks.md`](../../notes/tracks.md).
+
 > **Purpose:** Deep research into writing systems that combine logographic and phonetic scripts — principally Japanese (kanji + kana), Chinese (hanzi + pinyin/bopomofo), and Korean (hanja + hangul) — and the fonts designed to render them. This document connects the typographic challenges of CJK to the Marain font design problem, building on the research in [`research.md`](research.md) and [`font-spec.md`](font-spec.md).
 >
 > **Why this matters for Marain:** Banks' Marain is, by design, a script that encodes *both* semantic density (like logographs) and phonetic composability (like an abjad) within a single 3×3 grid. It is not purely logographic, not purely phonetic, but a hybrid — much like the systems that serve a quarter of the world's population. The fonts that render CJK scripts have solved (or failed to solve) many of the same problems Marain faces.

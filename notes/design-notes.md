@@ -3,6 +3,8 @@
 
 *Distilled from a design exploration session, March 2026*
 
+> **Track:** Banks reconstruction (§1, §7) + Encoding system (§2–6, §8) — early design session covering canonical Marain properties, the four-layer model, layout options, invariant glyphs, and community context. Canonical facts in §1 and §7 are what Banks specifies; the layer model, layout analysis, and design decisions are marainkit choices. Claims are not individually labelled; see [`evidence-labels.md`](evidence-labels.md) for the label system. See [`tracks.md`](tracks.md).
+
 ---
 
 ## 1. What Marain Actually Is

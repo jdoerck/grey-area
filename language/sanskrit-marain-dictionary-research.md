@@ -4,6 +4,8 @@
 > **Layer:** L2 (Constructed Language) · feeds into L3 (Encoding)  
 > **Context:** Candidate vocabulary for the Marain dictionary, drawn from Sanskrit as the strongest natural-language analogue to an *engineered* language
 
+> **Track:** Philosophical argument (§ Why Sanskrit) + Encoding system (§ Category vocabulary candidates) — the rationale for Sanskrit as donor language is a design hypothesis; vocabulary candidates are marainkit proposals only. Evidence labels are not applied per-claim. See [`../notes/tracks.md`](../notes/tracks.md).
+
 ---
 
 ## Why Sanskrit

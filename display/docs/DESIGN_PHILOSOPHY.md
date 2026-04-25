@@ -1,5 +1,8 @@
 # Marain Display System – Design Notes
 
+> **Track:** Encoding system (primary) + Philosophical argument — early design session notes for the display system. Goal and philosophy sections are working hypotheses; current-state sections are factual. This document predates the formal track and evidence-label systems; claims are not individually labelled. See [`../../notes/tracks.md`](../../notes/tracks.md).
+
+
 ## Core Idea
 Build a visual language inspired by Marain:
 - Minimal context needed to interpret

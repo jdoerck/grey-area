@@ -11,6 +11,7 @@ Check this index before starting work on code or architecture.
 | File | Summary |
 |------|---------|
 | [encoding-density-and-packets.md](encoding-density-and-packets.md) | Density calculation (9-bit glyphs ≈ 3.6 bits/letter vs ASCII's 8); the packet as `[slate: 9] + [rails + herald: 7]` — why 2 bytes, and why the spare 7 bits become embedded context |
+| [mvp.md](mvp.md) | Narrow MVP definition — 6 deliverables (terminology ✅, invariant policy, glyph index confidence, reference renderer, macro layout, legibility tests), explicit out-of-scope list, definition of done |
 
 ---
 

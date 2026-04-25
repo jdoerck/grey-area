@@ -1,5 +1,7 @@
 # Glyph Decisions — Comparison Tables and Design Discussion
 
+> **Track:** Encoding system — working document resolving conflicts between marainkit, Banks, and community prior art (principally zakalwe2040). Canonical source constrains some decisions; all resolutions are marainkit project decisions. Evidence labels are not applied per-claim. See [`../../notes/tracks.md`](../../notes/tracks.md).
+
 Working document. Active conflicts and open decisions lead. Full reference tables and resolved items follow.
 
 For the actionable backlog see [`roadmap.md`](roadmap.md) · full catalogue [`glyphs.md`](glyphs.md) · assigned-values index [`glyph-index.md`](glyph-index.md).

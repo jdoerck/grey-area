@@ -1,5 +1,7 @@
 # Layout and Directionality
 
+> **Track:** Encoding system (primary) + Philosophical argument (directionality analysis) — the three layout approaches are marainkit design options; the directionality and cultural-chauvinism analysis draws on Track 3 reasoning about Culture values. Evidence labels are not applied per-claim. See [`../../notes/tracks.md`](../../notes/tracks.md).
+
 Covers the directionality model and layout approaches for rendering Marain glyphs.
 
 ---

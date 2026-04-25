@@ -1,5 +1,7 @@
 # Marain Vocabulary
 
+> **Track:** Banks reconstruction (community derivation) — this vocabulary is community-derived (Marain Tools / Reddit conlang) and not directly Banks-canonical. It is not yet reconciled with marainkit encoding or phoneme assignments. Evidence labels are not applied per-claim. See [`../notes/tracks.md`](../notes/tracks.md).
+
 Community vocabulary list compiled from Marain Tools.
 
 **Source:** [Marain Tools](https://marain-tools.netlify.app/) — compiled by the Marain Tools project.  

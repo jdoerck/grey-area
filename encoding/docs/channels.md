@@ -1,5 +1,7 @@
 # Channel Architecture
 
+> **Track:** Encoding system — the 16-bit packet structure (herald + rails + slate) is a marainkit design decision. Relationship to zakalwe2040's tonal lattice is noted as prior art. Evidence labels are not applied per-claim. See [`../../notes/tracks.md`](../../notes/tracks.md).
+
 Marain's base encoding unit is **16 bits** — two standard bytes. The structure is a **herald bit** plus a **5×3 lattice**.
 
 ```

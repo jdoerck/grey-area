@@ -1,5 +1,9 @@
 # Invariant Glyphs
 
+> **Track:** Encoding system (primary) + Banks reconstruction — the 8 invariant glyphs are a mathematical property of the 3×3 binary grid `[canonical]`; their warning/structural vocabulary roles and the radical vocabulary proposal are marainkit project decisions `[project decision]`. Evidence labels are not applied per-claim throughout this document. See [`../../notes/tracks.md`](../../notes/tracks.md).
+
+> **Policy status: closed.** The 8 invariant values (`#0`, `#16`, `#170`, `#186`, `#325`, `#341`, `#495`, `#511`) are permanently reserved. No phoneme, numeral, operator, or vocabulary assignment may use these values. Any future assignment that collides with an invariant is a conflict requiring explicit resolution — not a negotiation about whether the invariant is reserved. Closed 2026-04-03. See [`roadmap.md` — Layer 0](roadmap.md).
+
 Of 512 possible 3×3 binary states, only **8** are fully invariant under all rotations (0°, 90°, 180°, 270°) and mirrors. These are mathematically guaranteed to read identically from any orientation.
 
 They divide naturally into two vocabularies.

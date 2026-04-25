@@ -2,6 +2,8 @@
 
 Canonical definitions for this project. Use these terms consistently across all documents. Link to the relevant term the first time it appears in any document.
 
+> **Track:** Encoding system — project-defined terminology for the encoding layer. "Canonical" in this document means "this project's established term," not "directly from Banks." Evidence labels are not applied per-claim. See [`tracks.md`](tracks.md).
+
 ---
 
 ## Core terms

@@ -1,5 +1,7 @@
 # Encoding Roadmap and Decision Backlog
 
+> **Track:** Encoding system — decision backlog and status log for the encoding layer. All items are marainkit design decisions in progress; canonical sources and prior art are noted where they constrain options. Evidence labels are not applied per-claim. See [`../../notes/tracks.md`](../../notes/tracks.md).
+
 Decisions required before the encoding layer can be built. Grouped by layer. Each item has a status, the options under consideration, and a lean (current best guess) where one exists.
 
 For the full analysis behind these items see [`glyph-decisions.md`](glyph-decisions.md).
@@ -223,3 +225,4 @@ Architecture decided (see [`notes/rationale.md`](../../notes/rationale.md) — D
 | 2026-03-31 | *nuul* | Name for glyph #0 concept | Distinct from digit name *líng*; drawn-out vowel suits the held-silence meaning; exercises buffer-bit vowel system. |
 | 2026-04-03 | Number base | **Base-8 (octal)** | Canonical (Banks); consistent with 3×3 = 9 bits, 8 = 2³; eliminates digit-3/#121 conflict. Issue #4 closed. |
 | 2026-04-03 | Phoneme strategy | **Banks corrected** | All 32 Banks phonemes adopted. /ng/ #16→#286, /th/ #186→#447 (invariant conflicts resolved by correction). Hybrid anchors #121=*w*, #484=*m*, #187=*l* confirmed. Full table in `glyph-table.tsv`. Issue #5 closed. |
+| 2026-04-03 | Invariant glyph reservation | **Policy closed** | All 8 invariant values (#0, #16, #170, #186, #325, #341, #495, #511) permanently reserved. No phoneme, numeral, operator, or vocabulary assignment may use these values. Any future assignment that collides with an invariant requires explicit resolution — not a negotiation about whether the invariant is reserved. See `invariant-glyphs.md`. |
