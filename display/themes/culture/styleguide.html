@@ -36,7 +36,7 @@
     /* color pair — shows light + dark token side by side */
     .mode-split   { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); margin-top: var(--space-3); }
     .mode-panel   { border-radius: var(--radius-2); padding: var(--space-4); border: 1px solid var(--line-0); }
-    .mode-panel.dark { background: hsl(30 6% 11%); color: hsl(40 14% 86%); border-color: hsl(36 8% 20%); }
+    .mode-panel.dark { background: hsl(30 6% 11%); color: hsl(40 12% 76%); border-color: hsl(36 8% 20%); }
 
     .token-row    { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-2) 0; border-bottom: 1px solid var(--line-0); }
     .token-row:last-child { border-bottom: none; }
@@ -88,10 +88,19 @@
 
   <!-- ── HEADER ──────────────────────────────────────────────────────────── -->
   <header style="padding: var(--space-6) 0 var(--space-5);">
-    <picture>
-      <source srcset="assets/wordmark_dark.png" media="(prefers-color-scheme: dark)">
-      <img src="assets/wordmark_light.png" alt="marainkit" height="32" style="display:block; margin-bottom: var(--space-3);">
-    </picture>
+    <svg class="wordmark" viewBox="0 0 280 32" height="32" style="margin-bottom: var(--space-3);" aria-label="marainkit">
+      <g class="wordmark-glyph">
+        <rect x="1" y="4" width="5" height="5" fill="currentColor"/>
+        <rect x="8" y="4" width="5" height="5" fill="currentColor"/>
+        <rect x="15" y="4" width="5" height="5" fill="currentColor"/>
+        <rect x="1" y="11" width="5" height="5" fill="currentColor"/>
+        <rect x="15" y="11" width="5" height="5" fill="currentColor"/>
+        <rect x="1" y="18" width="5" height="5" fill="currentColor"/>
+        <rect x="8" y="18" width="5" height="5" fill="currentColor"/>
+        <rect x="15" y="18" width="5" height="5" fill="currentColor"/>
+      </g>
+      <text x="28" y="21" style="font-family: var(--font-body); font-size: 24px; font-weight: 600; letter-spacing: -0.3px; fill: currentColor;">marainkit</text>
+    </svg>
     <h1 style="margin-bottom: var(--space-2);">Culture Theme — Style Guide</h1>
     <p class="lead">A contextual semantic design language. Token-driven, context-aware, legibility-first. This document captures the current state of the <code>document / daylight / normal</code> baseline and its proposed dark counterpart.</p>
     <div class="meta">
@@ -241,51 +250,51 @@
     <p class="small">Warm dark — earth-aligned, not cold/blue. Hue 30–36, very low saturation. These are candidates, not final.</p>
 
     <div style="background: hsl(30 6% 11%); border-radius: var(--radius-2); padding: var(--space-5); border: 1px solid hsl(36 8% 20%); margin-top: var(--space-3);">
-      <h4 style="color: hsl(40 14% 86%); margin-top: 0;">Surfaces</h4>
+      <h4 style="color: hsl(40 12% 76%); margin-top: 0;">Surfaces</h4>
       <div class="swatch-grid">
         <div class="swatch">
           <div class="swatch-color" style="background: hsl(30 6% 11%)"></div>
-          <div class="swatch-info" style="background: hsl(30 6% 14%);"><span class="swatch-name" style="color: hsl(40 14% 86%);">--surface-0</span><span class="swatch-value">hsl(30 6% 11%)</span></div>
+          <div class="swatch-info" style="background: hsl(30 6% 14%);"><span class="swatch-name" style="color: hsl(40 12% 76%);">--surface-0</span><span class="swatch-value">hsl(30 6% 11%)</span></div>
         </div>
         <div class="swatch">
           <div class="swatch-color" style="background: hsl(30 6% 14%)"></div>
-          <div class="swatch-info" style="background: hsl(30 6% 14%);"><span class="swatch-name" style="color: hsl(40 14% 86%);">--surface-1</span><span class="swatch-value">hsl(30 6% 14%)</span></div>
+          <div class="swatch-info" style="background: hsl(30 6% 14%);"><span class="swatch-name" style="color: hsl(40 12% 76%);">--surface-1</span><span class="swatch-value">hsl(30 6% 14%)</span></div>
         </div>
         <div class="swatch">
           <div class="swatch-color" style="background: hsl(30 5% 18%)"></div>
-          <div class="swatch-info" style="background: hsl(30 6% 14%);"><span class="swatch-name" style="color: hsl(40 14% 86%);">--surface-2</span><span class="swatch-value">hsl(30 5% 18%)</span></div>
+          <div class="swatch-info" style="background: hsl(30 6% 14%);"><span class="swatch-name" style="color: hsl(40 12% 76%);">--surface-2</span><span class="swatch-value">hsl(30 5% 18%)</span></div>
         </div>
         <div class="swatch">
           <div class="swatch-color" style="background: hsl(30 8% 9%)"></div>
-          <div class="swatch-info" style="background: hsl(30 6% 14%);"><span class="swatch-name" style="color: hsl(40 14% 86%);">--surface-inset</span><span class="swatch-value">hsl(30 8% 9%)</span></div>
+          <div class="swatch-info" style="background: hsl(30 6% 14%);"><span class="swatch-name" style="color: hsl(40 12% 76%);">--surface-inset</span><span class="swatch-value">hsl(30 8% 9%)</span></div>
         </div>
       </div>
 
-      <h4 style="color: hsl(40 14% 86%); margin-top: var(--space-4);">Text &amp; states</h4>
+      <h4 style="color: hsl(40 12% 76%); margin-top: var(--space-4);">Text &amp; states</h4>
       <div class="swatch-grid">
         <div class="swatch">
-          <div class="swatch-color" style="background: hsl(40 14% 86%)"></div>
-          <div class="swatch-info" style="background: hsl(30 6% 14%);"><span class="swatch-name" style="color: hsl(40 14% 86%);">--text-0</span><span class="swatch-value">hsl(40 14% 86%)</span></div>
+          <div class="swatch-color" style="background: hsl(40 12% 76%)"></div>
+          <div class="swatch-info" style="background: hsl(30 6% 14%);"><span class="swatch-name" style="color: hsl(40 12% 76%);">--text-0</span><span class="swatch-value">hsl(40 12% 76%)</span></div>
         </div>
         <div class="swatch">
-          <div class="swatch-color" style="background: hsl(40 10% 66%)"></div>
-          <div class="swatch-info" style="background: hsl(30 6% 14%);"><span class="swatch-name" style="color: hsl(40 14% 86%);">--text-1</span><span class="swatch-value">hsl(40 10% 66%)</span></div>
+          <div class="swatch-color" style="background: hsl(40 10% 60%)"></div>
+          <div class="swatch-info" style="background: hsl(30 6% 14%);"><span class="swatch-name" style="color: hsl(40 12% 76%);">--text-1</span><span class="swatch-value">hsl(40 10% 60%)</span></div>
         </div>
         <div class="swatch">
           <div class="swatch-color" style="background: hsl(210 50% 62%)"></div>
-          <div class="swatch-info" style="background: hsl(30 6% 14%);"><span class="swatch-name" style="color: hsl(40 14% 86%);">--accent</span><span class="swatch-value">hsl(210 50% 62%)</span></div>
+          <div class="swatch-info" style="background: hsl(30 6% 14%);"><span class="swatch-name" style="color: hsl(40 12% 76%);">--accent</span><span class="swatch-value">hsl(210 50% 62%)</span></div>
         </div>
         <div class="swatch">
           <div class="swatch-color" style="background: hsl(126 35% 48%)"></div>
-          <div class="swatch-info" style="background: hsl(30 6% 14%);"><span class="swatch-name" style="color: hsl(40 14% 86%);">--yes</span><span class="swatch-value">hsl(126 35% 48%)</span></div>
+          <div class="swatch-info" style="background: hsl(30 6% 14%);"><span class="swatch-name" style="color: hsl(40 12% 76%);">--yes</span><span class="swatch-value">hsl(126 35% 48%)</span></div>
         </div>
         <div class="swatch">
           <div class="swatch-color" style="background: hsl(39 62% 60%)"></div>
-          <div class="swatch-info" style="background: hsl(30 6% 14%);"><span class="swatch-name" style="color: hsl(40 14% 86%);">--warn</span><span class="swatch-value">hsl(39 62% 60%)</span></div>
+          <div class="swatch-info" style="background: hsl(30 6% 14%);"><span class="swatch-name" style="color: hsl(40 12% 76%);">--warn</span><span class="swatch-value">hsl(39 62% 60%)</span></div>
         </div>
         <div class="swatch">
           <div class="swatch-color" style="background: hsl(5 60% 58%)"></div>
-          <div class="swatch-info" style="background: hsl(30 6% 14%);"><span class="swatch-name" style="color: hsl(40 14% 86%);">--critical</span><span class="swatch-value">hsl(5 60% 58%)</span></div>
+          <div class="swatch-info" style="background: hsl(30 6% 14%);"><span class="swatch-name" style="color: hsl(40 12% 76%);">--critical</span><span class="swatch-value">hsl(5 60% 58%)</span></div>
         </div>
       </div>
     </div>
@@ -528,7 +537,7 @@
 
     <div class="grid-2" style="margin-top: var(--space-4);">
       <div class="state-scale">
-        <div class="state-item"><div class="state-pip" style="background: hsl(40 10% 66%);"></div><span class="state-label">1 — ambient signal</span><span class="state-num">1</span></div>
+        <div class="state-item"><div class="state-pip" style="background: hsl(40 10% 60%);"></div><span class="state-label">1 — ambient signal</span><span class="state-num">1</span></div>
         <div class="state-item"><div class="state-pip" style="background: hsl(40 10% 56%);"></div><span class="state-label">2 — minimal presence</span><span class="state-num">2</span></div>
         <div class="state-item"><div class="state-pip" style="background: hsl(40 10% 46%);"></div><span class="state-label">3 — low attention</span><span class="state-num">3</span></div>
         <div class="state-item"><div class="state-pip" style="background: hsl(39 40% 52%);"></div><span class="state-label">4 — attention · entering warn band</span><span class="state-num">4</span></div>
@@ -614,9 +623,9 @@ function escalate(state: number): Token {
           <tr><td><code>--surface-1</code></td><td>hsl(42 18% 92%)</td><td>hsl(30 6% 14%)</td><td>Card / container background</td></tr>
           <tr><td><code>--surface-2</code></td><td>hsl(42 14% 88%)</td><td>hsl(30 5% 18%)</td><td>Raised element / hover state</td></tr>
           <tr><td><code>--surface-inset</code></td><td>hsl(42 16% 90%)</td><td>hsl(30 8% 9%)</td><td>Code blocks, inset wells</td></tr>
-          <tr><td><code>--text-0</code></td><td>hsl(30 12% 18%)</td><td>hsl(40 14% 86%)</td><td>Primary text</td></tr>
-          <tr><td><code>--text-1</code></td><td>hsl(30 9% 33%)</td><td>hsl(40 10% 66%)</td><td>Secondary text, body copy</td></tr>
-          <tr><td><code>--text-2</code></td><td>hsl(30 7% 48%)</td><td>hsl(40 8% 46%)</td><td>Muted text, labels, captions</td></tr>
+          <tr><td><code>--text-0</code></td><td>hsl(30 12% 18%)</td><td>hsl(40 12% 76%)</td><td>Primary text</td></tr>
+          <tr><td><code>--text-1</code></td><td>hsl(30 9% 33%)</td><td>hsl(40 10% 60%)</td><td>Secondary text, body copy</td></tr>
+          <tr><td><code>--text-2</code></td><td>hsl(30 7% 48%)</td><td>hsl(40 8% 44%)</td><td>Muted text, labels, captions</td></tr>
           <tr><td><code>--line-0</code></td><td>hsl(38 12% 82%)</td><td>hsl(36 8% 20%)</td><td>Subtle dividers</td></tr>
           <tr><td><code>--line-1</code></td><td>hsl(38 12% 72%)</td><td>hsl(36 8% 26%)</td><td>Control borders</td></tr>
           <tr><td><code>--line-strong</code></td><td>hsl(38 10% 58%)</td><td>hsl(36 8% 36%)</td><td>Strong separators, breadcrumb markers</td></tr>

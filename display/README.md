@@ -104,9 +104,9 @@ Warm dark — earth-aligned, not cold/blue. These are candidates, not final. Tes
 **Text**
 | Token | Value |
 |-------|-------|
-| `--text-0` | `hsl(40 14% 86%)` |
-| `--text-1` | `hsl(40 10% 66%)` |
-| `--text-2` | `hsl(40  8% 46%)` |
+| `--text-0` | `hsl(40 12% 76%)` |
+| `--text-1` | `hsl(40 10% 60%)` |
+| `--text-2` | `hsl(40  8% 44%)` |
 
 **Lines**
 | Token | Value |

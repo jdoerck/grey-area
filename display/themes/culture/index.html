@@ -27,10 +27,19 @@
 
   <header class="container topbar">
     <div class="brand">
-      <picture>
-        <source srcset="assets/wordmark_dark.png" media="(prefers-color-scheme: dark)">
-        <img src="assets/wordmark_light.png" alt="marainkit" height="28" style="display:block; margin-bottom: var(--space-1);">
-      </picture>
+      <svg class="wordmark" viewBox="0 0 280 32" height="28" style="margin-bottom: var(--space-1);" aria-label="marainkit">
+        <g class="wordmark-glyph">
+          <rect x="1" y="4" width="5" height="5" fill="currentColor"/>
+          <rect x="8" y="4" width="5" height="5" fill="currentColor"/>
+          <rect x="15" y="4" width="5" height="5" fill="currentColor"/>
+          <rect x="1" y="11" width="5" height="5" fill="currentColor"/>
+          <rect x="15" y="11" width="5" height="5" fill="currentColor"/>
+          <rect x="1" y="18" width="5" height="5" fill="currentColor"/>
+          <rect x="8" y="18" width="5" height="5" fill="currentColor"/>
+          <rect x="15" y="18" width="5" height="5" fill="currentColor"/>
+        </g>
+        <text x="28" y="21" style="font-family: var(--font-body); font-size: 24px; font-weight: 600; letter-spacing: -0.3px; fill: currentColor;">marainkit</text>
+      </svg>
       <p class="eyebrow" style="margin:0;">display · document · daylight · normal</p>
     </div>
     <nav class="topnav" aria-label="Primary">
@@ -330,8 +339,8 @@ token:     DOC-2A7-41</div>
   color-scheme: dark;
   --surface-0: hsl(30 6% 11%);
   --surface-1: hsl(30 6% 14%);
-  --text-0:    hsl(40 14% 86%);
-  --text-1:    hsl(40 10% 66%);
+  --text-0:    hsl(40 12% 76%);
+  --text-1:    hsl(40 10% 60%);
   --warn:      hsl(39 62% 60%);
   --critical:  hsl( 5 60% 58%);
   --yes:       hsl(126 35% 48%);
@@ -642,7 +651,7 @@ export function buildSvg(text) {
           <button class="action">Cancel</button>
         </div>
         <div class="code" style="margin-top: var(--space-4);">surface-0: hsl(30 6% 11%)
-text-0:    hsl(40 14% 86%)
+text-0:    hsl(40 12% 76%)
 warn:      hsl(39 62% 60%)
 critical:  hsl( 5 60% 58%)
 yes:       hsl(126 35% 48%)</div>
@@ -663,8 +672,8 @@ yes:       hsl(126 35% 48%)</div>
       <div class="swatch"><div class="swatch-color" style="background: hsl(30 6% 11%); border-bottom: 1px solid var(--line-1)"></div><div class="swatch-info"><span class="swatch-name">surface-0</span><span class="swatch-value">hsl(30 6% 11%)</span></div></div>
       <div class="swatch"><div class="swatch-color" style="background: hsl(30 6% 14%)"></div><div class="swatch-info"><span class="swatch-name">surface-1</span><span class="swatch-value">hsl(30 6% 14%)</span></div></div>
       <div class="swatch"><div class="swatch-color" style="background: hsl(30 5% 18%)"></div><div class="swatch-info"><span class="swatch-name">surface-2</span><span class="swatch-value">hsl(30 5% 18%)</span></div></div>
-      <div class="swatch"><div class="swatch-color" style="background: hsl(40 14% 86%)"></div><div class="swatch-info"><span class="swatch-name">text-0</span><span class="swatch-value">hsl(40 14% 86%)</span></div></div>
-      <div class="swatch"><div class="swatch-color" style="background: hsl(40 10% 66%)"></div><div class="swatch-info"><span class="swatch-name">text-1</span><span class="swatch-value">hsl(40 10% 66%)</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background: hsl(40 12% 76%)"></div><div class="swatch-info"><span class="swatch-name">text-0</span><span class="swatch-value">hsl(40 12% 76%)</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background: hsl(40 10% 60%)"></div><div class="swatch-info"><span class="swatch-name">text-1</span><span class="swatch-value">hsl(40 10% 60%)</span></div></div>
       <div class="swatch"><div class="swatch-color" style="background: hsl(210 50% 62%)"></div><div class="swatch-info"><span class="swatch-name">accent</span><span class="swatch-value">hsl(210 50% 62%)</span></div></div>
       <div class="swatch"><div class="swatch-color" style="background: hsl(39 62% 60%)"></div><div class="swatch-info"><span class="swatch-name">warn</span><span class="swatch-value">hsl(39 62% 60%)</span></div></div>
       <div class="swatch"><div class="swatch-color" style="background: hsl(5 60% 58%)"></div><div class="swatch-info"><span class="swatch-name">critical</span><span class="swatch-value">hsl(5 60% 58%)</span></div></div>
