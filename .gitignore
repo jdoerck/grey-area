@@ -3,7 +3,11 @@ docs/assets/*.svg
 display/fonts/examples
 display/themes/culture/fonts
 
-.claude/
+# Claude Code project settings
+.claude/settings.local.json
+.claude/worktrees/
+.claude/plans/
+.claude/scheduled_tasks.json
 .obsidian/
 copilot/
 __pycache__/
