@@ -8,6 +8,7 @@ display/themes/culture/fonts
 .claude/worktrees/
 .claude/plans/
 .claude/scheduled_tasks.json
+.claude/
 .obsidian/
 copilot/
 __pycache__/
