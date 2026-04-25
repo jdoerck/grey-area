@@ -1,6 +1,5 @@
 # exclude third-party sources & generated assets
 docs/assets/*.svg
-docs/assets/glyphs/*.png
 display/fonts/examples
 display/themes/culture/fonts
 
