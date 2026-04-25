@@ -218,10 +218,6 @@ Every Marain glyph can be understood in four ways:
 
 All four are the **same glyph** — different views of one thing.
 
-Here's what glyph #121 looks like when you render it:
-
-<img src="../docs/assets/glyphs/121.png" alt="glyph 121 - w phoneme" width="96">
-
 ---
 
 ## Why This Matters
