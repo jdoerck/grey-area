@@ -12,14 +12,14 @@ For the actionable backlog see [`roadmap.md`](roadmap.md) · full catalogue [`gl
 
 Items that require a decision before a marainkit encoding layer can be built. Invariant collisions are marked `[I]`.
 
-| # | marainkit / Banks | zakalwe2040 | Conflict |
-|---|-------------------|-------------|---------|
-| 121 | Banks *w* — only explicitly confirmed canonical value | digit `3` | Z's decimal numeral 3 occupies the single most important confirmed value in the system. Eliminated if base-8 is chosen. |
-| 170 | Diamond invariant | `+` (addition) | Z assigns addition to Diamond. Homoiconic (diamond = rotated plus) but burns a warning invariant. `[I]` |
-| 186 | Cross invariant · Banks *th* | `iz` (copula — to be) | Two separate sources assign different phonemes to the same invariant. No homoiconic justification for *iz* = Cross. `[I]` |
-| 341 | Checkerboard invariant | digit `0` | Z's decimal zero occupies Checkerboard. marainkit already treats #0 (Empty, *nuul*) as zero/null — two competing zeros. `[I]` |
-| 495 | Frame invariant | `×` (multiplication) | No strong justification. Frame as "enclosure" is a stretch for multiplication. `[I]` |
-| 511 | Full invariant · marainkit "maximum/critical" | *wa* (bilabial approximant) | Z assigns the all-filled glyph to the most common consonant. Directly contradicts Banks #121 for *w*. `[I]` |
+| # | Visual | marainkit / Banks | zakalwe2040 | Conflict |
+|---|--------|-------------------|-------------|---------|
+| 121 | ![121](../../docs/assets/glyphs/121.png) | Banks *w* — only explicitly confirmed canonical value | digit `3` | Z's decimal numeral 3 occupies the single most important confirmed value in the system. Eliminated if base-8 is chosen. |
+| 170 | ![170](../../docs/assets/glyphs/170.png) | Diamond invariant | `+` (addition) | Z assigns addition to Diamond. Homoiconic (diamond = rotated plus) but burns a warning invariant. `[I]` |
+| 186 | ![186](../../docs/assets/glyphs/186.png) | Cross invariant · Banks *th* | `iz` (copula — to be) | Two separate sources assign different phonemes to the same invariant. No homoiconic justification for *iz* = Cross. `[I]` |
+| 341 | ![341](../../docs/assets/glyphs/341.png) | Checkerboard invariant | digit `0` | Z's decimal zero occupies Checkerboard. marainkit already treats #0 (Empty, *nuul*) as zero/null — two competing zeros. `[I]` |
+| 495 | ![495](../../docs/assets/glyphs/495.png) | Frame invariant | `×` (multiplication) | No strong justification. Frame as "enclosure" is a stretch for multiplication. `[I]` |
+| 511 | ![511](../../docs/assets/glyphs/511.png) | Full invariant · marainkit "maximum/critical" | *wa* (bilabial approximant) | Z assigns the all-filled glyph to the most common consonant. Directly contradicts Banks #121 for *w*. `[I]` |
 
 ---
 
@@ -46,59 +46,59 @@ Banks published 32 phonemes as a glyph-table image[^1] — most values are appro
 
 `✓` = cross-system match · `✗` = conflict · `—` = no assignment · `[I]` = invariant collision
 
-| Phoneme | Banks # | Banks Pattern | Z # | Z Pattern | Status |
-|---------|---------|---------------|-----|-----------|--------|
-| m / *ma* | 457 † | `█░░/█░░/███` | 457 ‡ | `█░░/█░░/███` | ✓ |
-| w / *wa* | **121** | `█░░/███/█░░` | 511 ‡ | `███/███/███` | ✗ Z uses marainkit Full [I] |
-| p / *pa* | 459 † | `██░/█░░/███` | 79 ‡ | `███/█░░/█░░` | ✗ |
-| b / *ba* | 432 † | `░░░/░██/░██` | 295 ‡ | `███/░░█/░░█` | ✗ Z's ba = Banks' *n* value |
-| f / *fa* | 56 † | `░░░/███/░░░` | 173 ‡ | `█░█/█░█/░█░` | ✗ |
-| v / *va* | 367 † | `███/█░█/█░█` | 362 ‡ | `░█░/█░█/█░█` | ✗ Banks *v* = Z *sa* value |
-| th / *tha* | 186 † | `░█░/███/░█░` | 133 ‡ | `█░█/░░░/░█░` | ✗ Banks *th* = Cross [I] |
-| — / *dtha* | — | — | 319 ‡ | `███/███/░░█` | — |
-| tch / *cha* | 60 † | `░░█/███/░░░` | 127 ‡ | `███/███/█░░` | ✗ |
-| ch | 174 † | `░██/█░█/░█░` | — | — | Banks only |
-| — / *dja* | — | — | 465 ‡ | `█░░/░█░/███` | — |
-| t / *ta* | 168 † | `░░░/█░█/░█░` | 307 ‡ | `██░/░██/░░█` | ✗ |
-| n / *na* | 295 † | `███/░░█/░░█` | 493 ‡ | `█░█/█░█/███` | ✗ Z's *na* = Banks' *h* value |
-| s / *sa* | 214 † | `░██/░█░/██░` | 367 ‡ | `███/█░█/█░█` | ✗ Z's *sa* = Banks' *v* value |
-| d / *da* | 480 † | `░░░/░░█/███` | 87 ‡ | `███/░█░/█░░` | ✗ |
-| l / *la* | 484 † | `░░█/░░█/███` | 484 ‡ | `░░█/░░█/███` | ✓ |
-| z / *za* | 384 † | `░░░/░░░/░██` | 469 ‡ | `█░█/░█░/███` | ✗ Z's *za* = Banks' *ll* value |
-| r / *ra* | 292 † | `░░█/░░█/░░█` | 189 ‡ | `█░█/███/░█░` | ✗ |
-| sh / *sha* | 57 † | `█░░/███/░░░` | 383 ‡ | `███/███/█░█` | ✗ |
-| y / *ya* | 184 † | `░░░/███/░█░` | 468 ‡ | `░░█/░█░/███` | ✗ |
-| g / *ga* | 120 † | `░░░/███/█░░` | 502 ‡ | `░██/░██/███` | ✗ |
-| k / *ka* | 312 † | `░░░/███/░░█` | 500 ‡ | `░░█/░██/███` | ✗ |
-| ng / *nga* | 16 | `░░░/░█░/░░░` | 509 ‡ | `█░█/███/███` | ✗ Banks *ng* = Point [I] |
-| ah / *aa* | 456 † | `░░░/█░░/███` | 322 ‡ | `░█░/░░░/█░█` | ✗ |
-| h / *ha* | 493 † | `█░█/█░█/███` | 487 ‡ | `███/░░█/███` | ✗ |
-| *ay* | 2 † | `░█░/░░░/░░░` | — | — | Banks only |
-| *eh* | 32 † | `░░░/░░█/░░░` | — | — | Banks only |
-| *ee* | 50 † | `░█░/░██/░░░` | — | — | Banks only |
-| *ih* | 84 † | `░░█/░█░/█░░` | — | — | Banks only |
-| *uh* | 273 † | `█░░/░█░/░░█` | — | — | Banks only |
-| *oh* | 118 † | `░██/░██/█░░` | — | — | Banks only |
-| *ll* | 469 † | `█░█/░█░/███` | — | — | Banks only — = Z *za* value |
-| *je* | 431 † | `███/█░█/░██` | — | — | Banks only |
-| *oo* | 371 † | `██░/░██/█░█` | — | — | Banks only |
+| Phoneme | Banks # | Banks Visual | Z # | Z Visual | Status |
+|---------|---------|--------------|-----|----------|--------|
+| m / *ma* | 457 † | — | 457 ‡ | — | ✓ |
+| w / *wa* | **121** | ![121](../../docs/assets/glyphs/121.png) | 511 ‡ | ![511](../../docs/assets/glyphs/511.png) | ✗ Z uses marainkit Full [I] |
+| p / *pa* | 459 † | — | 79 ‡ | — | ✗ |
+| b / *ba* | 432 † | — | 295 ‡ | — | ✗ Z's ba = Banks' *n* value |
+| f / *fa* | 56 † | — | 173 ‡ | ![173](../../docs/assets/glyphs/173.png) | ✗ |
+| v / *va* | 367 † | ![367](../../docs/assets/glyphs/367.png) | 362 ‡ | — | ✗ Banks *v* = Z *sa* value |
+| th / *tha* | 186 † | ![186](../../docs/assets/glyphs/186.png) | 133 ‡ | — | ✗ Banks *th* = Cross [I] |
+| — / *dtha* | — | — | 319 ‡ | ![319](../../docs/assets/glyphs/319.png) | — |
+| tch / *cha* | 60 † | — | 127 ‡ | ![127](../../docs/assets/glyphs/127.png) | ✗ |
+| ch | 174 † | ![174](../../docs/assets/glyphs/174.png) | — | — | Banks only |
+| — / *dja* | — | — | 465 ‡ | — | — |
+| t / *ta* | 168 † | — | 307 ‡ | ![307](../../docs/assets/glyphs/307.png) | ✗ |
+| n / *na* | 295 † | — | 493 ‡ | — | ✗ Z's *na* = Banks' *h* value |
+| s / *sa* | 214 † | — | 367 ‡ | ![367](../../docs/assets/glyphs/367.png) | ✗ Z's *sa* = Banks' *v* value |
+| d / *da* | 480 † | — | 87 ‡ | ![087](../../docs/assets/glyphs/087.png) | ✗ |
+| l / *la* | 484 † | ![484](../../docs/assets/glyphs/484.png) | 484 ‡ | ![484](../../docs/assets/glyphs/484.png) | ✓ |
+| z / *za* | 384 † | — | 469 ‡ | ![469](../../docs/assets/glyphs/469.png) | ✗ Z's *za* = Banks' *ll* value |
+| r / *ra* | 292 † | — | 189 ‡ | ![189](../../docs/assets/glyphs/189.png) | ✗ |
+| sh / *sha* | 57 † | — | 383 ‡ | — | ✗ |
+| y / *ya* | 184 † | — | 468 ‡ | — | ✗ |
+| g / *ga* | 120 † | — | 502 ‡ | — | ✗ |
+| k / *ka* | 312 † | — | 500 ‡ | — | ✗ |
+| ng / *nga* | 16 | ![016](../../docs/assets/glyphs/016.png) | 509 ‡ | ![509](../../docs/assets/glyphs/509.png) | ✗ Banks *ng* = Point [I] |
+| ah / *aa* | 456 † | — | 322 ‡ | — | ✗ |
+| h / *ha* | 493 † | — | 487 ‡ | — | ✗ |
+| *ay* | 2 † | — | — | — | Banks only |
+| *eh* | 32 † | — | — | — | Banks only |
+| *ee* | 50 † | — | — | — | Banks only |
+| *ih* | 84 † | — | — | — | Banks only |
+| *uh* | 273 † | — | — | — | Banks only |
+| *oh* | 118 † | ![118](../../docs/assets/glyphs/118.png) | — | — | Banks only |
+| *ll* | 469 † | ![469](../../docs/assets/glyphs/469.png) | — | — | Banks only — = Z *za* value |
+| *je* | 431 † | ![431](../../docs/assets/glyphs/431.png) | — | — | Banks only |
+| *oo* | 371 † | ![371](../../docs/assets/glyphs/371.png) | — | — | Banks only |
 
 ---
 
 ## Reference — numerals
 
-| Digit | Banks # | Z # | Z Pattern | Conflicts |
-|-------|---------|-----|-----------|-----------|
-| 0 | unpublished | 341 ‡ | `█░█/░█░/█░█` | Z = Checkerboard [I]; marainkit treats #0 (Empty) as zero |
-| 1 | 1 (implied †) | 471 ‡ | `███/░█░/███` | Banks implies #1 = "the number one" |
-| 2 | unpublished | 466 ‡ | `░█░/░█░/███` | — |
-| 3 | unpublished | **121** ‡ | `█░░/███/█░░` | **Z = Banks' canonical *w*** — eliminated by choosing base-8 |
-| 4 | unpublished | 243 ‡ | `██░/░██/██░` | — |
-| 5 | unpublished | 95 ‡ | `███/██░/█░░` | — |
-| 6 | unpublished | 373 ‡ | `█░█/░██/█░█` | — |
-| 7 | unpublished | 125 ‡ | `█░█/███/█░░` | — |
-| 8 | N/A (base-8) | 317 ‡ | `█░█/███/░░█` | — |
-| 9 | N/A (base-8) | 381 ‡ | `█░█/███/█░█` | — |
+| Digit | Banks # | Z # | Z Visual | Conflicts |
+|-------|---------|-----|----------|-----------|
+| 0 | unpublished | 341 ‡ | ![341](../../docs/assets/glyphs/341.png) | Z = Checkerboard [I]; marainkit treats #0 (Empty) as zero |
+| 1 | 1 (implied †) | — ‡ | — | Banks implies #1 = "the number one" |
+| 2 | unpublished | — ‡ | — | — |
+| 3 | unpublished | **121** ‡ | ![121](../../docs/assets/glyphs/121.png) | **Z = Banks' canonical *w*** — eliminated by choosing base-8 |
+| 4 | unpublished | — ‡ | — | — |
+| 5 | unpublished | — ‡ | — | — |
+| 6 | unpublished | — ‡ | — | — |
+| 7 | unpublished | — ‡ | — | — |
+| 8 | N/A (base-8) | — ‡ | — | — |
+| 9 | N/A (base-8) | — ‡ | — | — |
 
 ---
 
@@ -106,38 +106,38 @@ Banks published 32 phonemes as a glyph-table image[^1] — most values are appro
 
 ### Arithmetic
 
-| Symbol | Meaning | # | Pattern | Conflicts |
-|--------|---------|---|---------|-----------|
-| `+` | addition | 170 ‡ | `░█░/█░█/░█░` | Diamond [I] — see Active conflicts |
-| `×` | multiplication | 495 ‡ | `███/█░█/███` | Frame [I] |
-| `−` | subtraction | 300 ‡ | `░░█/█░█/░░█` | — |
-| `÷` | division | 364 ‡ | `░░█/█░█/█░█` | — |
-| `mod` | modulo | 301 ‡ | `█░█/█░█/░░█` | — |
+| Symbol | Meaning | # | Visual | Conflicts |
+|--------|---------|---|--------|-----------|
+| `+` | addition | 170 ‡ | ![170](../../docs/assets/glyphs/170.png) | Diamond [I] — see Active conflicts |
+| `×` | multiplication | 495 ‡ | ![495](../../docs/assets/glyphs/495.png) | Frame [I] |
+| `−` | subtraction | 300 ‡ | — | — |
+| `÷` | division | 364 ‡ | — | — |
+| `mod` | modulo | 301 ‡ | — | — |
 
 ### Logic (adopted)
 
-| Symbol | Marain name | # | Pattern |
-|--------|------------|---|---------|
-| `&` | *wa* (and) | 284 ‡ | `░░█/██░/░░█` |
-| `\|` | *ow* (or) | 113 ‡ | `█░░/░██/█░░` |
-| `!` | *ma* (not) | 343 ‡ | `███/░█░/█░█` |
+| Symbol | Marain name | # | Visual |
+|--------|------------|---|--------|
+| `&` | *wa* (and) | 284 ‡ | — |
+| `\|` | *ow* (or) | 113 ‡ | — |
+| `!` | *ma* (not) | 343 ‡ | ![343](../../docs/assets/glyphs/343.png) |
 
 ### Equality and copula
 
-| Symbol | Marain name | # | Pattern | Conflicts |
-|--------|------------|---|---------|-----------|
-| `=` | *heeya* (equality) | 63 ‡ | `███/███/░░░` | — |
-| `:=` | *kun* (define/assign) | 191 ‡ | `███/███/░█░` | — |
-| `iz` | *iz* (copula — to be) | 186 ‡ | `░█░/███/░█░` | Cross [I] — reassignment pending |
+| Symbol | Marain name | # | Visual | Conflicts |
+|--------|------------|---|--------|-----------|
+| `=` | *heeya* (equality) | 63 ‡ | ![063](../../docs/assets/glyphs/063.png) | — |
+| `:=` | *kun* (define/assign) | 191 ‡ | — | — |
+| `iz` | *iz* (copula — to be) | 186 ‡ | ![186](../../docs/assets/glyphs/186.png) | Cross [I] — reassignment pending |
 
 ### Punctuation
 
-| Symbol | Marain name | # | Pattern | Notes |
-|--------|------------|---|---------|-------|
-| `?` | *mahu* (question / λ) | 342 ‡ | `░██/░█░/█░█` | — |
-| `.` | decimal point | **16** ‡ | `░░░/░█░/░░░` | ✓ Agrees with marainkit Point |
-| `,` | comma | 128 ‡ | `░░░/░░░/░█░` | — |
-| `;` | semicolon | 144 ‡ | `░░░/░█░/░█░` | — |
+| Symbol | Marain name | # | Visual | Notes |
+|--------|------------|---|--------|-------|
+| `?` | *mahu* (question / λ) | 342 ‡ | ![342](../../docs/assets/glyphs/342.png) | — |
+| `.` | decimal point | **16** ‡ | ![016](../../docs/assets/glyphs/016.png) | ✓ Agrees with marainkit Point |
+| `,` | comma | 128 ‡ | — | — |
+| `;` | semicolon | 144 ‡ | — | — |
 
 ### Brackets (adopted)
 
