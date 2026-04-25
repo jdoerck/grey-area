@@ -59,6 +59,7 @@ def generate_svg(binary_str: str) -> str:
     Generate an SVG element for a 3×3 binary grid.
 
     Each filled cell is rendered as a rounded square.
+    Grid is rotated 180 degrees to align with Banks' vision.
     """
     filled_cells = binary_to_grid(binary_str)
 
@@ -70,7 +71,8 @@ def generate_svg(binary_str: str) -> str:
     # Build rectangles for filled cells
     rects = []
     for cell_idx in filled_cells:
-        x, y = cell_to_svg_coords(cell_idx, cell_size, gap)
+        rotated_idx = 8 - cell_idx
+        x, y = cell_to_svg_coords(rotated_idx, cell_size, gap)
         rects.append(
             f'              <rect\n'
             f'                x="{x}"\n'
