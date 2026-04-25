@@ -49,6 +49,10 @@ Marain is the constructed language of the Culture — **engineered rather than e
 - **Hindu/Sanskrit:** Philosophical — ternary triadic thinking maps onto Hindu cosmology; Sanskrit's prestige as a "designed" sacred language with systematic phonology mirrors how Banks frames Marain.
 - **The real driver:** Banks' committed anti-Eurocentrism. A utopian civilisation that *designed* its language would draw on non-Western knowledge traditions. The community correctly reads this signal.
 
+#### Cautionary mirror: Esperanto
+
+Esperanto is the most-cited modern attempt at a "neutral" auxiliary language, and the most-cited reason it has stayed marginal — outside the geopolitics — is that it is not neutral. Modern typological scoring puts Esperanto at roughly 75% feature-overlap with European languages and 54% with the world's average language. Its phoneme inventory (/x/, /ʒ/, /ts/, the diphthong /eu̯/) and its lexicon (Romance + Germanic + a little Slavic) make it markedly easier for a Spanish speaker than for a Mandarin speaker. Zamenhof was not negligent; he could only draw on the languages he knew. The lesson for marainkit is structural, not moral: *if you do not deliberately resist the gravitational pull of the designer's source languages, you will reproduce them.* Phoneme set design (`phonemes/`), grammar choices, and any vocabulary work need an explicit anti-default — non-Indo-European phonemic features, non-SVO-default grammar options, vocabulary roots that are not transparently European. The community's instinct to lean on CJK and Sanskrit-adjacent influences is the right defence; it should be a documented requirement, not a stylistic preference. See [`../direction/esperanto-and-hangul.md`](../direction/esperanto-and-hangul.md) §"Esperanto: design choices" and §"Lessons for marain" for the full argument.
+
 ---
 
 ## Subproject Structure

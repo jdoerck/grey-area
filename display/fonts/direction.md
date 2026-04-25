@@ -146,6 +146,16 @@ The spec (`font-spec.md`) defines constraints and principles. Remaining open dec
 
 ---
 
+## Working iconicity — Hangul as the standard
+
+The closest historical precedent for what marain is doing at the glyph layer is Hangul, the Korean alphabet promulgated by King Sejong in 1446. Hangul is a *featural script*: the shape of each letter encodes the articulatory feature it represents. ㄱ /k/ is a stylised right-angle showing tongue against soft palate. ㅁ /m/ is a square depicting closed lips. ㅋ /kʰ/ is ㄱ with one extra stroke for aspiration; ㄲ /k͈/ is ㄱ doubled for tenseness. The shape carries the feature; a reader can predict the sound of an unfamiliar letter from its geometry.
+
+This is the standard the marain glyph design should be measured against. The 9-bit binary glyph should not just be a code — it should encode something a reader can use. §3.9 of `font-spec.md` (pattern-aware rendering for invariant glyphs) is one application of this: when a binary pattern describes a recognisable geometric primitive (point, cross, ring), render the primitive. Column B vocabulary assignment (§5.3) is another: glyph shapes assigned to phonemes should ideally carry articulatory or featural information, not be arbitrary mappings. Decorative iconicity is dead weight; working iconicity is a multiplier.
+
+For the full argument and the contrast case (Esperanto's diacritics, which were a typesetting disaster from day one because they encoded *nothing* a reader could use beyond identification), see [`../../direction/esperanto-and-hangul.md`](../../direction/esperanto-and-hangul.md).
+
+---
+
 ## Next steps
 
 1. ~~Study reference fonts~~ — **done** (`research.md`)
