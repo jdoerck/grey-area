@@ -81,11 +81,7 @@ This keeps all project guidance in tool-agnostic files that any human, AI, or fu
 
 ### Adding a new subproject
 
-If you create a new subdirectory that needs AI context:
-
-1. Create `<dir>/direction.md` with the subproject guidance.
-2. Create `<dir>/CLAUDE.md` containing only `@direction.md`.
-3. Add the subproject to the table in this file and to `notes/ai-tooling.md`.
+See `notes/ai-tooling.md` for instructions.
 
 ### Shared knowledge base — `direction/`
 

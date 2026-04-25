@@ -67,6 +67,16 @@ If Anthropic updates Claude Code to support configurable filenames or a differen
 
 ---
 
+## Adding a new subproject
+
+If you create a new subdirectory that needs AI context:
+
+1. Create `<dir>/direction.md` with the subproject guidance.
+2. Create `<dir>/CLAUDE.md` containing only `@direction.md`.
+3. Add the subproject to the table in the root `direction.md` and to the Direction files table above.
+
+---
+
 ## Where this convention is enforced
 
 The rule — "CLAUDE.md is a shim; content lives in direction.md" — is written into the root `direction.md` under **AI tooling conventions**. Any AI reading project context before doing work will receive these instructions directly, without needing to find this document first.
