@@ -75,7 +75,7 @@ This is **metadata** — information stored in the glyph table (TSV).
 
 When we render glyph #341, we use the binary pattern to generate an SVG icon:
 
-<img src="../docs/assets/glyphs/341.png" alt="341" width="48">
+![glyph 341 - Checkerboard](../docs/assets/glyphs/341.png)
 
 This icon is:
 - **Deterministic** — the same binary value always produces the same image
@@ -184,7 +184,7 @@ Grid layout:
 | Meaning | Bilabial approximant — /w/ sound |
 
 ### 4. **Visual icon** (what it looks like when rendered)
-<img src="../docs/assets/glyphs/121.png" alt="121" width="48">
+![glyph 121 - w phoneme](../docs/assets/glyphs/121.png)
 
 ### 5. **Encoded packet** (how it travels)
 ```
@@ -214,7 +214,7 @@ Every Marain glyph can be understood in four ways:
 | **Visual Pattern** | `█░░/███/█░░` | How you draw it by hand or read it visually |
 | **Binary Value** | `001111001` (decimal 121) | How you compute it, encode it, transmit it |
 | **Semantic Name** | *w* (phoneme) | How you discuss it in language |
-| **Rendered Icon** | <img src="../docs/assets/glyphs/121.png" alt="121" width="48"> | How fonts display it |
+| **Rendered Icon** | ![glyph 121 - w phoneme](../docs/assets/glyphs/121.png) | How fonts display it |
 
 All four are the **same glyph** — different views of one thing.
 
