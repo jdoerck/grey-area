@@ -214,9 +214,13 @@ Every Marain glyph can be understood in four ways:
 | **Visual Pattern** | `█░░/███/█░░` | How you draw it by hand or read it visually |
 | **Binary Value** | `001111001` (decimal 121) | How you compute it, encode it, transmit it |
 | **Semantic Name** | *w* (phoneme) | How you discuss it in language |
-| **Rendered Icon** | <img src="../../docs/assets/glyphs/121.png" alt="121" width="32"> | How fonts display it |
+| **Rendered Icon** | <img src="../../docs/assets/glyphs/121.png" alt="121" width="48"> | How fonts display it |
 
 All four are the **same glyph** — different views of one thing.
+
+Here's what glyph #121 looks like when you render it:
+
+<img src="../../docs/assets/glyphs/121.png" alt="glyph 121 - w phoneme" width="96">
 
 ---
 
