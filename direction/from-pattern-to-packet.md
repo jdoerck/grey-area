@@ -1,12 +1,10 @@
 # From Pattern to Packet — Understanding Marain Glyphs
 
-## The Visual Language Pipeline
-
-Every Marain glyph follows a path from raw **pattern** → **binary value** → **semantic identity** → **visual icon** → **encoded packet**. This document traces that path so you understand how they all relate.
+Every Marain glyph is **one stable object** with four representations: a visual pattern, a 9-bit binary value, a semantic meaning, and an encoded packet. This document shows how those representations connect.
 
 ---
 
-## Step 1: The Pattern
+## The Pattern: Visual Form
 
 A Marain glyph is a **3×3 binary grid**. Each cell is either filled (█) or empty (░).
 
@@ -20,7 +18,7 @@ This visual arrangement is **not** arbitrary. It's a deliberate design that will
 
 ---
 
-## Step 2: Pattern → Binary Value
+## Pattern → Binary: Indexing
 
 Each cell in the 3×3 grid maps to a bit position (0–8), reading left-to-right, top-to-bottom:
 
@@ -54,9 +52,9 @@ As a decimal integer:
 
 ---
 
-## Step 3: Binary Value → Semantic Identity
+## Binary → Meaning: Lookup
 
-Glyph #341 is **not randomly assigned**. It has a name, meaning, and role in the language:
+The 9-bit value is not arbitrary — each value has a documented meaning. For example:
 
 | Property | Value |
 |----------|-------|
@@ -71,9 +69,9 @@ This is **metadata** — information stored in the glyph table (TSV).
 
 ---
 
-## Step 4: Semantic Identity → Visual Icon
+## Meaning → Visual Icon: Rendering
 
-When we render glyph #341, we use the binary pattern to generate an SVG icon:
+When you render glyph #341, the binary pattern generates a visual icon:
 
 ![glyph 341 - Checkerboard](/docs/assets/glyphs/341.png)
 
@@ -86,12 +84,12 @@ The icon is what users *see and recognize* as Marain. But it's generated from th
 
 ---
 
-## Step 5: Visual Icon → Encoded Packet
+## Visual Icon → Encoded Packet: Transmission
 
-When Marain text is transmitted, stored, or processed, a single glyph doesn't travel alone. It's packaged into a **16-bit packet**:
+When Marain text is transmitted, stored, or processed as data, a single glyph is packaged into a **16-bit packet**:
 
 ```
-bit 0       [H]                    Herald (1 bit) — frame/reserved
+bit 0       [H]                   Herald (1 bit) — frame/reserved
 bits 1–3    [R₁][R₂][R₃]          Upper rail (3 bits) — context
 bits 4–12   [ 0][ 1][ 2]          Slate — the 3×3 glyph (9 bits)
             [ 3][ 4][ 5]          ↓ this is glyph #341
@@ -122,58 +120,28 @@ The **slate** (bits 4–12, the 9-bit glyph value) sits in the center. The **rai
 
 ## The Complete Flow: Example
 
-Let's trace glyph #121 (*w*, the phoneme):
+Glyph #121 is the phoneme */w/* — the only consonant explicitly assigned by Banks.
 
 ### 1. **Pattern** (what it looks like)
 ```
-█ ░ ░
+░ ░ ░
 █ █ █
-█ ░ ░
+░ ░ █
 ```
 
 ### 2. **Binary value** (what it is)
+
+Filled cells are at positions **3, 4, 5, 8**.
+
+Read as a 9-bit binary value (position 0 is the MSB):
 ```
-Filled cells: 0, 3, 4, 5, 6
-Binary: 100111100
-Decimal: 316
+Position: 0 1 2 3 4 5 6 7 8
+Filled:   0 0 1 1 1 1 0 0 1
+Binary:   001111001₂
+Decimal:  121₁₀
 ```
 
-Wait — let me recalculate. Using the grid:
-```
-Position [0][1][2]   Filled?
-         [ 3][ 4][ 5]   ↑
-         [ 6][ 7][ 8]   ↑
-```
-
-Filled at: 0, 3, 4, 5, 6
-Binary (reading 0–8): `100111100` = 316? Let me verify.
-
-Actually, the canonical #121 is described in `glyphs.md` as `█░░/███/█░░`. Let me use that:
-```
-█ ░ ░   positions: 0
-█ █ █   positions: 3, 4, 5
-█ ░ ░   positions: 6
-```
-
-Filled: 0, 3, 4, 5, 6
-Binary string: `100111100` = 316 (decimal)
-
-Hmm, this doesn't match #121. Let me check the actual TSV...
-
-Actually, looking at the glyph-table.tsv, Banks assigns #121 to `/w/` with binary `001111001`. Let me use that:
-```
-Binary: 001111001
-Positions filled: 3, 4, 5, 8
-Grid layout:
-[ 0][ 1][ 2]
-[ 3][ 4][ 5]  ← filled
-[ 6][ 7][ 8]  ← position 8 filled
-= ░ ░ ░
-  █ █ █
-  ░ ░ █
-```
-
-**Binary value: 121**
+This is the canonical value from `encoding/docs/glyph-table.tsv`.
 
 ### 3. **Semantic identity** (what it means)
 | Property | Value |
@@ -222,17 +190,19 @@ All four are the **same glyph** — different views of one thing.
 
 ## Why This Matters
 
-Understanding the relationship between pattern, value, meaning, and packet is essential to:
+These four representations are interchangeable. When you see:
+- `█░░/███/█░░` (pattern)
+- `#121` or `001111001` (binary)
+- */w/* (semantic name)
+- ![glyph 121](../../docs/assets/glyphs/121.png) (rendered icon)
 
-1. **Read Marain documentation** — when you see `█░░/███/█░░` or `#121` or *w* or the icon, you know they're all describing the same thing
-2. **Implement a renderer** — you need to convert the binary value → visual pattern
-3. **Encode text** — you need to map a *phoneme* or *symbol* → binary value → packet
-4. **Understand extensibility** — the rails give Marain room to grow without breaking the core 9-bit glyph system
-5. **Appreciate the design** — the 3×3 grid is both beautiful and practical; it's simultaneously:
-   - A geometric visual form (pattern)
-   - A 9-bit computational value (binary)
-   - A linguistic unit (phoneme, operator, symbol)
-   - A transmissible packet (2 bytes)
+…they all refer to **the same glyph** — different views of one stable unit.
+
+This matters because:
+- **Documentation clarity**: references can be pattern, number, or name interchangeably
+- **Implementation**: conversion between forms is deterministic and bidirectional
+- **Extensibility**: the packet structure allows context layers (rails) without changing the core glyph encoding
+- **Longevity**: fonts and media change; the 9-bit value persists
 
 ---
 
@@ -250,9 +220,11 @@ Glyph #121 is always *w*, always `001111001`, always renders as that specific 3�
 
 ---
 
-## Next Steps
+## References
 
-- To understand how to **generate glyphs**, see `encoding/docs/glyphs.md`
-- To understand how to **assign meanings**, see `encoding/docs/glyph-index.md`
-- To understand how to **extend beyond the slate**, see `encoding/docs/channels.md`
-- To understand how to **render fonts**, see `display/fonts/direction.md`
+- **`encoding/docs/glyph-table.tsv`** — canonical lookup table (decimal ID → name, binary, meaning)
+- **`encoding/docs/glyphs.md`** — complete catalog with all known assignments, design decisions, and conflicts
+- **`encoding/docs/glyph-index.md`** — index sorted by decimal value
+- **`encoding/docs/channels.md`** — packet structure and rail semantics
+- **`direction/glyph-grid-orientation.md`** — 180° rotation details
+- **`notes/source/a-few-notes-on-marain.md`** — Banks' original essay (source material)
