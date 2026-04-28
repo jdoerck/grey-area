@@ -1,254 +1,116 @@
-# marainkit/marain
+# Marain
 
-> **Work in progress.** This repo is an active design spec, not a finished project. Expect incomplete sections and frequent changes.
+> **Work in progress.** This repo is an active design spec, not a finished project.
 
-A **deterministic display language** — a rendering grammar where context inputs produce display outputs predictably and consistently.
+Iain M. Banks' Culture novels describe a civilization unlike any other in science fiction: post-scarcity, anarchist, governed by superintelligent AI Minds, spread across a galaxy. The Culture's language — Marain — was engineered by those Minds at the very beginning of the civilization, with one explicit purpose: to make its values the cognitive default. Not a rule. A structural fact. The same way a language with a single gender-neutral pronoun makes gender-neutral framing cognitively free, Marain was designed to make egalitarianism, non-hierarchy, and non-dominance the path of least resistance.
+
+Banks was one of the few science fiction authors who actually specified how his invented language works. In a short companion essay — *"A Few Notes on Marain"* — he described the writing system in mathematical terms precise enough to implement.
 
 ![Marain Font by TTFTCUTS](notes/assets/marain-TTFTCUTS-font.png)
 
 *© TTFTCUTS — [Marain font](https://fontstruct.com/fontstructions/show/1446008/marain-5)*
 
-```
-Input: (type, viewing, status) → tokens + layout rules + emphasis rules
-```
-
-Inspired by the Culture novels of Iain M. Banks. This repo is the spec and architecture reference. Implementations live in separate repos under the [marainkit](https://github.com/marainkit) org.
-
 ---
 
-## See the glyphs
+## The writing system
 
-The best way to understand what this project is building is to look at the glyph table — every assigned symbol, both reference fonts side by side, with phonetic values, meanings, and binary indices.
+Each Marain symbol is a **3×3 binary grid** — nine cells, each filled or empty. There are 512 possible states (0–511). This is both the visual form (a glyph you can draw or render) and the transmitted form (a 9-bit number you can send as a bitstream over a tightbeam laser).
 
-**[→ Marain Glyph Table](https://marainkit.github.io/marain/)** — live view (GitHub Pages, enable in repo Settings → Pages → source: `docs/`)
+Banks gave us a few anchor points: the number 1 is state #1 (one cell filled, top-left corner). The phoneme /w/ — the first letter of the Marain alphabet — is state #121, the binary number `001111001`. The remaining ~480 states are assigned to the rest of the phoneme set, base-8 numerals, punctuation, physical and mathematical constants, chemical elements, and extension space Banks gestures at but does not enumerate.
+
+**[→ Marain Glyph Table](https://marainkit.github.io/marain/)** — every assigned symbol, both reference fonts side by side, with phonetic values, meanings, and binary indices.
 
 Or open [`docs/index.html`](docs/index.html) locally.
----
-
-## What Marain Is
-
-Marain is the constructed language of the Culture — **engineered rather than evolved**. The Culture's hyperintelligent AI Minds designed it from scratch to exploit the Sapir-Whorf hypothesis: language shapes society.
-
-**Canonical properties:**
-- Written in a **3×3 matrix** of binary cells (each filled or empty) — 9 bits, 512 possible glyphs
-- Glyphs are **readable in any orientation** — no privileged direction
-- Contains a **single gender-neutral third-person pronoun**
-- Structured to reduce ambiguity and encode Culture values: egalitarian, non-hierarchical, non-dominant
-- **Native medium is tightbeam laser** — a binary bitstream across interstellar space
-
-*Project interpretation:* Marain's written form may be a visual rendering of a transmission-first binary signal — the glyph system as a *renderer* of the bitstream, not a primary writing system. This is consistent with the canonical source material but is not explicitly stated. See [`notes/layers.md`](notes/layers.md).
-
-**Encryption tiers:** M1 (public, all citizens) · M8–M16 (Contact Section) · M32 (Special Circumstances only). This project operates entirely at M1.
-
-**Canonical source:** Banks' essay *"[A Few Notes on Marain](./notes/source/a-few-notes-on-marain.md)."*
 
 ---
 
-## Four-Layer Model
+## Why it's interesting to study
+
+### 1. Language as social engineering
+
+Banks was explicit that the Culture's Minds designed Marain the way an engineer designs a system — not to express what people already think, but to change what they find easy to think. The Sapir-Whorf hypothesis (linguistic relativity) in its weak form has substantial empirical support: the categories your language provides shape what perceptions are fast and cheap versus effortful and slow. Russian speakers discriminate blues faster than English speakers because Russian has two separate basic-level color terms for what English calls "blue." Speakers of languages with absolute spatial frames (cardinal directions instead of left/right) maintain orientation in windowless rooms; English speakers generally can't. Language structure builds cognitive grooves.
+
+Marain was designed with this in mind. The result: a single gender-neutral third-person pronoun (gendered framing isn't available as a default), glyphs readable from any orientation (no privileged reading direction, no implicit hierarchy of position), and a grammar aimed at reducing structural ambiguity. These aren't decorative choices. They are claims about how a civilization would behave if it couldn't easily encode dominance.
+
+### 2. The mathematics of the grid
+
+The 3×3 binary grid has a property Banks probably didn't need to calculate but that falls out of the geometry automatically: **8 of the 512 states are fully invariant under all rotations and mirror reflections**. They look identical from any angle, in any orientation, from any side.
+
+These 8 glyphs — Empty, Point, Diamond, Cross, Corners, Checkerboard, Frame, Full — form two semantic pairs:
 
 ```
-┌─────────────────────────────────────────────────────┐
-│  LAYER 4 — TRANSMISSION PROTOCOL                    │
-│  Tightbeam laser · Bitstream · Parity/error check   │
-│  Rotation redundancy · Encryption tier              │
-├─────────────────────────────────────────────────────┤
-│  LAYER 3 — DATA ENCODING STANDARD                   │
-│  9-bit glyph unit · 512 states · Tone as data bits  │
-│  Spatial grouping · No privileged direction         │
-├─────────────────────────────────────────────────────┤
-│  LAYER 2 — CONSTRUCTED LANGUAGE (CONLANG)           │
-│  Phoneme set · Abjad structure · Gender-neutral     │
-│  pronouns · Non-hierarchical grammar · 5 tones      │
-├─────────────────────────────────────────────────────┤
-│  LAYER 1 — VISUAL SCRIPT (GLYPH RENDERER)           │
-│  3×3 binary grid · Rotation-invariant glyphs        │
-│  Macro 3×3 layout · SVG/GIF output                  │
-└─────────────────────────────────────────────────────┘
-         ↓ all layers produce the same bitstream ↓
+Empty #0    ↔   Full #511        (nothing ↔ everything)
+Point #16   ↔   Frame #495       (one cell ↔ one gap)
+Diamond #170 ↔  Checkerboard #341 (sparse ↔ dense alternation)
+Cross #186  ↔   Corners #325     (cardinal ↔ diagonal)
 ```
 
-Binary encoding is canonical. *By the transmission-first interpretation,* glyphs are a debug view of the signal — a rendering for human eyes rather than the primary form. Tone and emotional meaning live simultaneously in Layer 2 (conlang) and Layer 3 (encoding) — affect is in the signal itself, not a separate channel.
+These glyphs look visually distinct from ordinary text at a glance — the same property that makes hazard symbols stand out from descriptive signs today. A warning vocabulary that works regardless of orientation or rendering medium, not because someone chose those shapes for warnings, but because the geometry selected them.
+
+### 3. Transmission first
+
+Marain's native medium is tightbeam laser: a binary bitstream across interstellar space. The writing system may be better understood not as a script with a corresponding binary encoding, but the other way around — a binary signal, with glyphs as how you render that signal for human eyes. The glyph is what a 9-bit number looks like when you draw its ones and zeros on a 3×3 grid. The written form is a debug view of the transmission.
+
+This inverts the usual relationship between script and encoding. Most writing systems were designed to be seen; their digital encodings (Unicode, UTF-8) were added later as an afterthought. Marain was designed to be transmitted, and the visual form is the afterthought — or rather, one particular rendering among many possible ones. The same glyph can be carved in stone, woven into fabric, drawn on skin, or fired as laser pulses across fifty light-years. The underlying thing is always the same 9-bit number.
 
 ---
 
-## Subprojects
+## The puzzle
 
-| Directory | Layer | Purpose | Status |
-|-----------|-------|---------|--------|
-| `language/` | L2 | Phoneme set, grammar, abjad structure, tonal encoding. Community vocabulary (430 words) and phoneme inventory seeded from Marain Tools. | Early spec |
-| `encoding/` | L1–L3 | Encoding spec: invariant glyphs, layout, 9-bit binary structure | Active spec |
-| `display/` | L1 | Adaptive display system: CSS tokens, context model, typography | Prototype built |
+Banks gave us the mathematical foundation and a partial alphabet. He did not give us:
 
-**Implementation:** [`marainkit/grey-area`](https://github.com/marainkit/grey-area) — working encoder (text → UTF-8 binary → SVG/GIF). Currently operates at Layer 1 (Column A).
+- The full phoneme-to-glyph assignments (we have approximate image reconstructions, and two values confirmed in the essay text: #1 for "1", #121 for /w/)
+- The complete numeral, punctuation, unit, and constant assignments
+- The grammar and tonal system
+- How glyphs are arranged spatially when you write a sentence or paragraph
 
----
+The community has been working on this for decades. There are multiple independent reconstructions — the most developed being zakalwe2040's tonal extension, which adds a 24-character consonant inventory, five emotional tones, and a 4×5 lattice that extends the core 3×3 slate. These reconstructions are largely incompatible with each other and only partially consistent with Banks' original. The scholarly problem — reconstructing a language from a small number of anchor points — is real.
 
-## Cross-cutting Principles
-
-- **Token-driven only.** No hardcoded values anywhere in the stack.
-- **Legibility first.** Glyph disambiguation required at every layer — visual and encoded.
-- **Context is explicit.** Display and behavior adapt to declared context `(type / viewing / status)`, not guesswork.
-- **States scale, don't shout.** Warn/critical must be clear but not loud in normal conditions.
-- **Escalation = contrast + structure, not color alone.**
-- **Structure carries meaning. Decoration does not.**
+This project studies the system, reconciles what can be reconciled, and builds working implementations where the spec is solid enough to build on.
 
 ---
 
-## Display Layer — Context Model
+## Three branches of study
 
-Three axes define the display context:
+### Language `language/`
 
-| Axis | Values |
-|------|--------|
-| **Type** | `document` · `hud` · `code` · `alert-surface` |
-| **Viewing** | `daylight` · `indoor` · `low-light` · `glare-motion` |
-| **Status** | `normal` · `attention` · `warn` · `critical` |
+The linguistic layer: phoneme set, grammar, tonal encoding, vocabulary. We have a 430-word community vocabulary seeded from Marain Tools, a 32-letter phoneme inventory, and example sentences with glosses. The full grammar and tonal spec remain open research questions. This branch also examines what non-Western linguistic structures — Sanskrit, Mandarin, Arabic — contribute to what Marain should look like, consistent with Banks' explicit anti-Eurocentrism.
 
-Typography is **stable across all modes** — no font swapping per context. Structural differences come from weight, size, and spacing only.
+Key docs: [`language/phonemes/alphabet.md`](language/phonemes/alphabet.md) · [`language/vocabulary.tsv`](language/vocabulary.tsv) · [`language/translations/sentences.md`](language/translations/sentences.md)
 
-**Fonts locked:** Atkinson Hyperlegible (UI/content) · Intel One Mono (code/tokens)
+### Encoding `encoding/`
 
-Font specs: [`font-spec.md`](display/fonts/font-spec.md) — glyph rendering spec · [`research.md`](display/fonts/research.md) — font selection rationale · [`cjk-mixed-scripts.md`](display/fonts/cjk-mixed-scripts.md) — CJK/mixed-script research
+The glyph layer: what are all 512 symbols, how do they pack into packets for transmission, what are the invariant glyphs and what do they mean. The packet structure wraps each 9-bit glyph (the "slate") in six context bits (the "rails") and one frame bit (the "herald"), giving a 16-bit self-contained unit. The 6 rail bits are currently reserved — they are the mechanism for future extensions without breaking the core glyph encoding.
 
-**Status escalation — scale 0–8:** `0–2` neutral · `3–5` attention · `6–7` warning · `8` critical
+Key docs: [`encoding/docs/glyphs.md`](encoding/docs/glyphs.md) · [`encoding/docs/channels.md`](encoding/docs/channels.md) · [`encoding/docs/invariant-glyphs.md`](encoding/docs/invariant-glyphs.md)
 
----
+### Display `display/`
 
-## Encoding Layer — Key Spec Decisions
+How Marain should render in actual use. The display system is context-adaptive: the same glyph stream reads differently in a document, a heads-up display, a status alert, and under different lighting conditions. This branch defines the token layer — the CSS variables and typography rules that govern how any renderer should behave — plus a working prototype of the Culture aesthetic.
 
-Full glyph catalogue (canonical, community, and marainkit-derived): [`encoding/docs/glyphs.md`](encoding/docs/glyphs.md)
-
-Specs: [`channels.md`](encoding/docs/channels.md) — [packet](notes/glossary.md#packet) structure ([slate](notes/glossary.md#slate) + [rails](notes/glossary.md#rails) + [herald](notes/glossary.md#herald)) · [`invariant-glyphs.md`](encoding/docs/invariant-glyphs.md) — invariant analysis · [`layout.md`](encoding/docs/layout.md) — layout options · [`roadmap.md`](encoding/docs/roadmap.md) — decision backlog · [`glyph-decisions.md`](encoding/docs/glyph-decisions.md) — assignment analysis
-
-### Invariant Glyphs
-
-Of 512 possible 3×3 binary states, **8 are fully invariant** under all rotations and mirrors. They divide into two vocabularies:
-
-**Warning (4):** Diamond `#170` · Cross `#186` · Corners `#325` · Checkerboard `#341`
-
-**Structural (4):** Empty `#0` · Point `#16` · Frame `#495` · Full `#511`
-
-These glyphs look different from ordinary text at a glance — exactly as hazard symbols do today. The safety system emerges from geometry, not design convention.
-
-### Layout
-
-Three approaches considered:
-
-1. **Linear** (current in grey-area) — inherited from UTF-8. Works. Un-Culture-like.
-2. **Macro 3×3 grid** (recommended) — each cell = one glyph, readable from any edge, maps onto the 3×3 macro structure naturally.
-3. **Radial / fractal** — intellectually correct for how a Mind would write. Not practical for human readers. Deferred indefinitely.
-
-**Recommended upgrade: Approach 2.** Approach 3 is the ideal; Approach 2 is the pragmatic Culture-correct choice for M1.
-
-Directionality within glyphs is neurological (horizontal scanning is consistent across human cultures). Between glyphs: likely a recommended default (L→R, T→B) rather than mandatory.
+Key docs: [`display/docs/DESIGN_PHILOSOPHY.md`](display/docs/DESIGN_PHILOSOPHY.md) · [`display/fonts/font-spec.md`](display/fonts/font-spec.md)
 
 ---
 
-## Open Questions
-
-**Encoding:**
-- Should the 8 invariant glyphs be reserved / visually highlighted in Column A output?
-- Implement macro 3×3 layout mode alongside current linear stream?
-- Should directionality be a render setting?
-- Map invariant glyph vocabulary to display state escalation scale?
-
-**Language:**
-- Phoneme set definition (abjad structure) — not yet specified
-- Tonal encoding spec: bridge between Layer 2 and Layer 3
-
-*Column B (phoneme picker UI) is a research track — not near-term backlog. Depends on phoneme inventory, tone encoding, and several other upstream questions being resolved first. See [`language/direction.md`](language/direction.md).*
-
-**Display:**
-- `document / low-light / normal` (dark mode) — tokens proposed, not finalized
-- `hud / low-light / normal` — not yet built
-- `attention` state (between normal and warn) — token and component design
-
----
-
-## Prior Art
+## Prior art and community
 
 | Project | Notes |
 |---------|-------|
-| [tomdionysus/marain-font](https://github.com/tomdionysus/marain-font) | TrueType font. Author sent it to Banks via his publishers. |
-| [zakalwe2040/marain](https://github.com/zakalwe2040/marain) | Tonal Marain: 5 tones, 24-character abjad, 4×5 dot lattice. Most relevant prior art for Column B. |
+| [tomdionysus/marain-font](https://github.com/tomdionysus/marain-font) | TrueType font built from Banks' alphabet image. Author sent it to Banks via his publishers. |
+| [zakalwe2040/marain](https://github.com/zakalwe2040/marain) | Tonal Marain: 5 tones, 24-character abjad, 4×5 dot lattice extending the core slate. Most developed community extension. |
 | [marain-tools.netlify.app](https://marain-tools.netlify.app/) | Live tool: romanized Marain → glyphs + English gloss. Three input modes including nine-bit binary. |
-| Reddit conlang (u/comradelenin456) | Synthetic grammar: flexible word order, no tenses, six cases, fourth-person pronouns. Non-canonical but community-adopted. |
+| Reddit conlang (u/comradelenin456) | Synthetic grammar built on Banks' alphabet: flexible word order, no tenses, six cases, fourth-person pronouns. |
 
-**Why Hindu and Chinese visual influences dominate community interpretations:** structural (Chinese logographic compression, tonal system) and philosophical (Sanskrit as a "designed" sacred language mirrors how Banks frames Marain). The real driver is Banks' committed anti-Eurocentrism — a utopian civilisation that designed its language would draw on non-Western knowledge traditions.
+**Canonical source:** Banks' essay *["A Few Notes on Marain"](./notes/source/a-few-notes-on-marain.md)* — the primary source for everything this project treats as settled.
 
 ---
 
-## Repo Structure
+## Go deeper
 
-```
-marain/
-├── language/           ← linguistic spec (phonemes, grammar, translations)
-│   ├── phonemes/
-│   │   ├── alphabet.md         ← 32-letter phoneme inventory in Marain lexorder
-│   │   └── alphabet.tsv        ← machine-readable
-│   ├── translations/
-│   │   └── sentences.md        ← example sentences with glosses
-│   ├── raw/                    ← JS source files from Marain Tools (origin)
-│   ├── vocabulary.md           ← vocabulary description and format notes
-│   ├── vocabulary.tsv          ← 430-word community vocabulary (TSV, DB-importable)
-│   └── sanskrit-marain-dictionary-research.md  ← Sanskrit as donor language — vocabulary candidates, Navarasa, invariant glyph names
-├── encoding/           ← encoding spec (invariant glyphs, layout, glyph catalogue)
-│   └── docs/
-│       ├── glyphs.md           ← known glyph catalogue (canonical + community + marainkit)
-│       ├── channels.md         ← packet structure (slate + rails + herald)
-│       ├── invariant-glyphs.md ← invariant glyph analysis and vocabulary
-│       ├── layout.md           ← linear vs. macro 3×3 vs. radial layout
-│       ├── roadmap.md          ← decision backlog (phoneme strategy, number base, etc.)
-│       └── glyph-decisions.md  ← glyph assignment comparison tables
-├── display/            ← adaptive display system
-│   ├── docs/DESIGN_PHILOSOPHY.md
-│   ├── fonts/
-│   │   ├── font-spec.md        ← glyph rendering specification
-│   │   ├── research.md         ← Atkinson + Intel One Mono analysis
-│   │   └── cjk-mixed-scripts.md ← CJK/mixed-script font research
-│   └── themes/culture/ ← working prototype
-├── notes/               ← cross-cutting specs
-│   ├── source/         ← canonical reference (Banks essay, novel passages)
-│   ├── layers.md       ← four-layer model detail
-│   ├── rationale.md    ← project rationale and philosophy
-│   ├── sapir-whorf.md  ← linguistic relativity as design theory
-│   ├── design-notes.md
-│   ├── resources.md
-│   ├── fonts-of-interest.md
-│   └── implementation-languages.md
-│── direction/          ← contributor knowledge base (key insights, decisions)
-│   └── index.md
+**The foundation:** Start with [`notes/layers.md`](notes/layers.md) for the four-layer model that frames everything — transmission → encoding → language → visual script.
 
-```
+**The design theory:** Read [`notes/sapir-whorf.md`](notes/sapir-whorf.md) for the linguistic relativity evidence that Banks was using, and how it changes what engineered defaults mean. Then [`notes/rationale.md`](notes/rationale.md) for why the project exists and what it's trying to demonstrate.
 
-### Key documents
+**Will this survive?** [`notes/esperanto-and-hangul.md`](notes/esperanto-and-hangul.md) examines two designed languages — one that stalled, one that survived 450 years — and what marainkit should take from both.
 
-| Document | Contents |
-|----------|----------|
-| [`direction/mvp.md`](direction/mvp.md) | Narrow, credible MVP — six deliverables, acceptance criteria, explicit out-of-scope list |
-| [`notes/validation-roadmap.md`](notes/validation-roadmap.md) | Testable claims — current evidence status and proposed experiments for each |
-| [`notes/source/a-few-notes-on-marain.md`](notes/source/a-few-notes-on-marain.md) | Banks' canonical essay — the primary source |
-| [`notes/layers.md`](notes/layers.md) | Four-layer model specification |
-| [`notes/glossary.md`](notes/glossary.md) | Canonical encoding terminology — what "binary", "nonary", "base-8", "9-bit slate", and "status scale" each mean and do not mean |
-| [`notes/rationale.md`](notes/rationale.md) | Project rationale, philosophy, dictionary architecture |
-| [`notes/sapir-whorf.md`](notes/sapir-whorf.md) | Linguistic relativity as marainkit design theory — evidence, mechanisms, actionable implications |
-| [`notes/design-notes.md`](notes/design-notes.md) | Design notes and working decisions |
-| [`notes/resources.md`](notes/resources.md) | External tools, references, and prior art |
-| [`notes/fonts-of-interest.md`](notes/fonts-of-interest.md) | Font references for Marain rendering |
-| [`notes/implementation-languages.md`](notes/implementation-languages.md) | Implementation language decisions |
-| [`encoding/docs/channels.md`](encoding/docs/channels.md) | Packet structure — slate, rails, herald |
-| [`encoding/docs/invariant-glyphs.md`](encoding/docs/invariant-glyphs.md) | Invariant glyph analysis and vocabulary |
-| [`encoding/docs/layout.md`](encoding/docs/layout.md) | Layout options (linear / macro 3×3 / radial) |
-| [`encoding/docs/roadmap.md`](encoding/docs/roadmap.md) | Encoding decision backlog |
-| [`encoding/docs/glyph-decisions.md`](encoding/docs/glyph-decisions.md) | Glyph assignment comparison tables |
-| [`display/fonts/font-spec.md`](display/fonts/font-spec.md) | Glyph rendering specification |
-| [`display/fonts/research.md`](display/fonts/research.md) | Font selection rationale (Atkinson, Intel One Mono) |
-| [`display/fonts/cjk-mixed-scripts.md`](display/fonts/cjk-mixed-scripts.md) | CJK and mixed-script font research |
-| [`language/phonemes/alphabet.md`](language/phonemes/alphabet.md) | 32-letter phoneme inventory with IPA, letter names, and Marain lexorder |
-| [`language/docs/vocabulary.md`](language/docs/vocabulary.md) | 430-word community vocabulary — format notes, source attribution, DB import |
-| [`language/translations/sentences.md`](language/translations/sentences.md) | Example sentences with word-by-word and idiomatic glosses |
-| [`language/docs/sanskrit-marain-dictionary-research.md`](language/docs/sanskrit-marain-dictionary-research.md) | Sanskrit as donor language — consciousness terms, Navarasa (9 emotional essences), structural vocabulary, proposed Sanskrit names for all 8 invariant glyphs |
-| [`direction/index.md`](direction/index.md) | Contributor knowledge base index |
-
-**Related repos:**
-- [`marainkit/grey-area`](https://github.com/marainkit/grey-area) — encoder implementation (Layer 1, Column A)
+**The technical puzzle:** [`encoding/docs/glyph-decisions.md`](encoding/docs/glyph-decisions.md) shows where different reconstructions of Marain agree and where they conflict — for readers who want to understand the open questions in detail.

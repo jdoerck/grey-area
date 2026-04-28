@@ -152,7 +152,7 @@ The closest historical precedent for what marain is doing at the glyph layer is 
 
 This is the standard the marain glyph design should be measured against. The 9-bit binary glyph should not just be a code — it should encode something a reader can use. §3.9 of `font-spec.md` (pattern-aware rendering for invariant glyphs) is one application of this: when a binary pattern describes a recognisable geometric primitive (point, cross, ring), render the primitive. Column B vocabulary assignment (§5.3) is another: glyph shapes assigned to phonemes should ideally carry articulatory or featural information, not be arbitrary mappings. Decorative iconicity is dead weight; working iconicity is a multiplier.
 
-For the full argument and the contrast case (Esperanto's diacritics, which were a typesetting disaster from day one because they encoded *nothing* a reader could use beyond identification), see [`../../direction/esperanto-and-hangul.md`](../../direction/esperanto-and-hangul.md).
+For the full argument and the contrast case (Esperanto's diacritics, which were a typesetting disaster from day one because they encoded *nothing* a reader could use beyond identification), see [`../../notes/esperanto-and-hangul.md`](../../notes/esperanto-and-hangul.md).
 
 ---
 

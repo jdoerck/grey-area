@@ -36,7 +36,7 @@ See each subproject's `direction.md` for scope, rules, and priority queue.
 - **Working iconicity, not decorative.** Glyph shapes should encode something a reader can use — articulation, structural relationship, status escalation. Hangul's letters tell you how to pronounce them; that is the standard. Decorative iconicity is dead weight; working iconicity is a multiplier.
 - **Politics-as-engineering, named.** "Substrate independence," "100-year horizon," "no platform dependency" are not neutral — they imply opinions about platforms, institutions and power. Document the opinions. Pretending a designed language is apolitical (as Esperanto did at Boulogne in 1905) does not make it apolitical; it only makes the politics implicit, and implicit politics get exploited by whoever shows up to define them.
 
-> The last five principles are drawn from a closer reading of two designed languages — see [`direction/esperanto-and-hangul.md`](direction/esperanto-and-hangul.md) for the source argument and historical evidence behind them.
+> The last five principles are drawn from a closer reading of two designed languages — see [`notes/esperanto-and-hangul.md`](notes/esperanto-and-hangul.md) for the source argument and historical evidence behind them.
 
 ---
 
@@ -69,22 +69,9 @@ unlicensed for redistribution). Reference only.
 
 ## AI tooling conventions
 
-This project uses Claude Code (and may use other AI tools in future). Any AI working in this repo must follow these conventions.
-
-### CLAUDE.md files
-
-Claude Code requires a file named `CLAUDE.md` to load project context. The filename is hardcoded.
-
-**Do not put content directly in a `CLAUDE.md` file.** Instead:
-
-1. Create a `direction.md` alongside it containing the actual guidance.
-2. Make the `CLAUDE.md` a single-line import shim:
-   ```
-   @direction.md
-   ```
-   (At the repo root, the root `CLAUDE.md` imports `@direction.md` in the same directory.)
-
-This keeps all project guidance in tool-agnostic files that any human, AI, or future tool can read without knowing what Claude Code is. See `notes/ai-tooling.md` for the full rationale.
+`direction.md` files are the authoritative context for any AI assistant or contributor working in
+this project. They are plain markdown — point any tool or person at them directly. See
+`notes/ai-tooling.md` for the full rationale.
 
 ### Adding a new subproject
 

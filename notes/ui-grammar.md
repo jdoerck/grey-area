@@ -1,12 +1,3 @@
----
-title: "Marain UI Grammar"
-version: "0.1"
-author: "J + Crow"
-date: "2026-03-30"
-description: "Deterministic display grammar for context-aware UI inspired by Marain."
-tags: [ui, design-system, typography, encoding, marain]
----
-
 # Marain UI Grammar v0.1
 
 ## Core Premise

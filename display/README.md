@@ -184,7 +184,7 @@ cell patterns → build.py → .ufo source → .ttf / .otf
 
 Unicode mapping: Private Use Area (PUA) `U+E000` onwards — standard approach for custom scripts.
 
-See `fonts/CLAUDE.md` for full spec and open decisions.
+See `fonts/direction.md` for full spec and open decisions.
 
 ---
 
@@ -211,7 +211,7 @@ display/
 │       ├── style.css     ← token system + all components
 │       └── index.html    ← design reference page
 ├── fonts/
-│   ├── CLAUDE.md         ← font build spec
+│   ├── direction.md      ← font build spec
 │   ├── build.py          ← compiler (planned)
 │   └── examples/         ← reference fonts (gitignored)
 └── docs/

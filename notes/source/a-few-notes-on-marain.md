@@ -16,10 +16,10 @@ with the language's devising. It had, therefore, no specific links to
 any of the main languages spoken by the people who came together to make
 up the Culture as a civilisation, save those statistically likely.
 
-![Marain translation example](assets/marain-translation.png)
+![Marain translation example](../assets/marain-translation.png)
 
 
-![Marain example glyphs from Iain M. Banks](assets/marain-example-banks.png)
+![Marain example glyphs from Iain M. Banks](../assets/marain-example-banks.png)
 
 *© Iain M. Banks — Marain glyph table, from "A Few Notes on Marain"*
 
@@ -34,7 +34,7 @@ list accompanying this text, would be the binary number 100111100, or
 values, or symbols, from 0 to 511 (shown in figures 2 and 3
 respectively).
 
-![Figures 1 - 3](assets/marain-a-few-notes-figures-1-3.png)
+![Figures 1 - 3](../assets/marain-a-few-notes-figures-1-3.png)
 
 *© Iain M. Banks — Marain glyph table, from "A Few Notes on Marain"*
 
